@@ -10,15 +10,9 @@ using System.Windows.Forms;
 
 namespace SpikeContainer.Spike_001
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public partial class Spike001Main : Form
+    public partial class Spike001V1 : Form
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public Spike001Main()
+        public Spike001V1()
         {
             InitializeComponent();
         }
@@ -26,20 +20,6 @@ namespace SpikeContainer.Spike_001
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show(this, "Spike One is a development test bed for the creation of a 'Numeric Keypad' control for touch screen usage.", "About: Spike One", MessageBoxButtons.OK);
-        }
-
-        private void testAToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Spike001V0 frm = new Spike001V0();
-
-            frm.Show(this);
-        }
-
-        private void testBToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Spike001V1 frm = new Spike001V1();
-
-            frm.Show(this);
         }
     }
 }

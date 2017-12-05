@@ -32,6 +32,8 @@
             this.testAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +45,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(410, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(231, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -68,11 +70,31 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(13, 28);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(206, 23);
+            this.simpleButton1.TabIndex = 4;
+            this.simpleButton1.Text = "Spike One Test A";
+            this.simpleButton1.Click += new System.EventHandler(this.testAToolStripMenuItem_Click);
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(13, 58);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(206, 23);
+            this.simpleButton2.TabIndex = 5;
+            this.simpleButton2.Text = "Spike One Test B";
+            this.simpleButton2.Click += new System.EventHandler(this.testBToolStripMenuItem_Click);
+            // 
             // Spike001Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(410, 358);
+            this.ClientSize = new System.Drawing.Size(231, 87);
+            this.Controls.Add(this.simpleButton2);
+            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Spike001Main";
             this.Text = "Spike001Main";
@@ -89,5 +111,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testBToolStripMenuItem;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }
