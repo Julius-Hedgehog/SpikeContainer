@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tenKeypadControl1 = new SpikeContainer.Spike_001.TenKeypadControl();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tenKeypadControl1 = new SpikeContainer.Spike_001.TenKeypadControl();
             this.SuspendLayout();
-            // 
-            // tenKeypadControl1
-            // 
-            this.tenKeypadControl1.Location = new System.Drawing.Point(454, 96);
-            this.tenKeypadControl1.Name = "tenKeypadControl1";
-            this.tenKeypadControl1.Size = new System.Drawing.Size(254, 333);
-            this.tenKeypadControl1.TabIndex = 0;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(111, 63);
+            this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(341, 20);
             this.textBox1.TabIndex = 1;
+            // 
+            // tenKeypadControl1
+            // 
+            this.tenKeypadControl1.Location = new System.Drawing.Point(464, 12);
+            this.tenKeypadControl1.Name = "tenKeypadControl1";
+            this.tenKeypadControl1.Size = new System.Drawing.Size(254, 417);
+            this.tenKeypadControl1.TabIndex = 0;
             // 
             // Spike001Main
             // 

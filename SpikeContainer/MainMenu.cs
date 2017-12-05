@@ -20,7 +20,15 @@ namespace SpikeContainer
         private void SpikeOne_Click(object sender, EventArgs e)
         {
             Spike_001.Spike001Main frm = new Spike_001.Spike001Main();
-            frm.ShowDialog(this);
+
+            if (DialogResult.Yes == frm.ShowDialog(this))
+            {
+
+            }
+            else
+            {
+
+            }
 
             frm.Dispose();
         }

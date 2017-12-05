@@ -36,10 +36,13 @@
             this.Key06 = new DevExpress.XtraEditors.SimpleButton();
             this.Key07 = new DevExpress.XtraEditors.SimpleButton();
             this.Key08 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
+            this.Key09 = new DevExpress.XtraEditors.SimpleButton();
             this.Key00 = new DevExpress.XtraEditors.SimpleButton();
             this.KeyDecimal = new DevExpress.XtraEditors.SimpleButton();
             this.KeypadKeyPanel = new DevExpress.XtraEditors.PanelControl();
+            this.KeyCE = new DevExpress.XtraEditors.SimpleButton();
+            this.KeyOK = new DevExpress.XtraEditors.SimpleButton();
+            this.KeyCancel = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.KeypadKeyPanel)).BeginInit();
             this.KeypadKeyPanel.SuspendLayout();
             this.SuspendLayout();
@@ -156,19 +159,19 @@
             this.Key08.Tag = "8";
             this.Key08.Text = "8";
             // 
-            // simpleButton8
+            // Key09
             // 
-            this.simpleButton8.AccessibleDescription = "The Nine Key";
-            this.simpleButton8.Appearance.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton8.Appearance.Options.UseFont = true;
-            this.simpleButton8.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.simpleButton8.Location = new System.Drawing.Point(167, 5);
-            this.simpleButton8.Name = "simpleButton8";
-            this.simpleButton8.ShowToolTips = false;
-            this.simpleButton8.Size = new System.Drawing.Size(75, 75);
-            this.simpleButton8.TabIndex = 8;
-            this.simpleButton8.Tag = "9";
-            this.simpleButton8.Text = "9";
+            this.Key09.AccessibleDescription = "The Nine Key";
+            this.Key09.Appearance.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Key09.Appearance.Options.UseFont = true;
+            this.Key09.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.Key09.Location = new System.Drawing.Point(167, 5);
+            this.Key09.Name = "Key09";
+            this.Key09.ShowToolTips = false;
+            this.Key09.Size = new System.Drawing.Size(75, 75);
+            this.Key09.TabIndex = 8;
+            this.Key09.Tag = "9";
+            this.Key09.Text = "9";
             // 
             // Key00
             // 
@@ -201,12 +204,15 @@
             // KeypadKeyPanel
             // 
             this.KeypadKeyPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.KeypadKeyPanel.Controls.Add(this.KeyCancel);
+            this.KeypadKeyPanel.Controls.Add(this.KeyOK);
+            this.KeypadKeyPanel.Controls.Add(this.KeyCE);
             this.KeypadKeyPanel.Controls.Add(this.Key07);
             this.KeypadKeyPanel.Controls.Add(this.KeyDecimal);
             this.KeypadKeyPanel.Controls.Add(this.Key01);
             this.KeypadKeyPanel.Controls.Add(this.Key00);
             this.KeypadKeyPanel.Controls.Add(this.Key02);
-            this.KeypadKeyPanel.Controls.Add(this.simpleButton8);
+            this.KeypadKeyPanel.Controls.Add(this.Key09);
             this.KeypadKeyPanel.Controls.Add(this.Key03);
             this.KeypadKeyPanel.Controls.Add(this.Key08);
             this.KeypadKeyPanel.Controls.Add(this.Key04);
@@ -214,8 +220,52 @@
             this.KeypadKeyPanel.Controls.Add(this.Key06);
             this.KeypadKeyPanel.Location = new System.Drawing.Point(3, 3);
             this.KeypadKeyPanel.Name = "KeypadKeyPanel";
-            this.KeypadKeyPanel.Size = new System.Drawing.Size(247, 327);
+            this.KeypadKeyPanel.Size = new System.Drawing.Size(247, 408);
             this.KeypadKeyPanel.TabIndex = 11;
+            // 
+            // KeyCE
+            // 
+            this.KeyCE.AccessibleDescription = "The Clear Entry Key";
+            this.KeyCE.Appearance.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyCE.Appearance.Options.UseFont = true;
+            this.KeyCE.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.KeyCE.Location = new System.Drawing.Point(86, 329);
+            this.KeyCE.Name = "KeyCE";
+            this.KeyCE.ShowToolTips = false;
+            this.KeyCE.Size = new System.Drawing.Size(75, 75);
+            this.KeyCE.TabIndex = 11;
+            this.KeyCE.Tag = "CE";
+            this.KeyCE.Text = "CE";
+            // 
+            // KeyOK
+            // 
+            this.KeyOK.AccessibleDescription = "The OK Key";
+            this.KeyOK.Appearance.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyOK.Appearance.Options.UseFont = true;
+            this.KeyOK.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.KeyOK.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.KeyOK.Location = new System.Drawing.Point(5, 329);
+            this.KeyOK.Name = "KeyOK";
+            this.KeyOK.ShowToolTips = false;
+            this.KeyOK.Size = new System.Drawing.Size(75, 75);
+            this.KeyOK.TabIndex = 12;
+            this.KeyOK.Tag = "OK";
+            this.KeyOK.Text = "OK";
+            // 
+            // KeyCancel
+            // 
+            this.KeyCancel.AccessibleDescription = "The Cancel Key";
+            this.KeyCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyCancel.Appearance.Options.UseFont = true;
+            this.KeyCancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.KeyCancel.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.KeyCancel.Location = new System.Drawing.Point(167, 329);
+            this.KeyCancel.Name = "KeyCancel";
+            this.KeyCancel.ShowToolTips = false;
+            this.KeyCancel.Size = new System.Drawing.Size(75, 75);
+            this.KeyCancel.TabIndex = 13;
+            this.KeyCancel.Tag = "NO";
+            this.KeyCancel.Text = "NO";
             // 
             // TenKeypadControl
             // 
@@ -223,7 +273,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.KeypadKeyPanel);
             this.Name = "TenKeypadControl";
-            this.Size = new System.Drawing.Size(254, 333);
+            this.Size = new System.Drawing.Size(254, 416);
             ((System.ComponentModel.ISupportInitialize)(this.KeypadKeyPanel)).EndInit();
             this.KeypadKeyPanel.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -240,9 +290,12 @@
         public DevExpress.XtraEditors.SimpleButton Key06;
         public DevExpress.XtraEditors.SimpleButton Key07;
         public DevExpress.XtraEditors.SimpleButton Key08;
-        public DevExpress.XtraEditors.SimpleButton simpleButton8;
+        public DevExpress.XtraEditors.SimpleButton Key09;
         public DevExpress.XtraEditors.SimpleButton Key00;
         public DevExpress.XtraEditors.SimpleButton KeyDecimal;
         public DevExpress.XtraEditors.PanelControl KeypadKeyPanel;
+        public DevExpress.XtraEditors.SimpleButton KeyCancel;
+        public DevExpress.XtraEditors.SimpleButton KeyOK;
+        public DevExpress.XtraEditors.SimpleButton KeyCE;
     }
 }
