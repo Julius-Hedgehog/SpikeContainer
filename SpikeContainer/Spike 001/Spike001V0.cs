@@ -45,7 +45,10 @@ namespace SpikeContainer.Spike_001
             this.tenKeypadControl1.Key09.Click += this.TenKeypadControl1Key_Click;
             // - - - - - - - - - - - - -
             this.tenKeypadControl1.KeyCE.Click += this.TenKeypadControlKeyCE_Click;
-
+            // - - - - - - - - - - - - -
+            //this.tenKeypadControl1.KeyOK.Click += ;
+            //this.tenKeypadControl1.KeyCancel.Click += ;
+            // - - - - - - - - - - - - -
         }
 
         // - - - - - - - - - - - - -
@@ -120,6 +123,35 @@ namespace SpikeContainer.Spike_001
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show(this, "Spike One is a development test bed for the creation of a 'Numeric Keypad' control for touch screen usage.", "About: Spike One", MessageBoxButtons.OK);
+        }
+
+
+        private bool IsGrossWeightSelected = false;
+        private bool IsTareWeightSelected = false;
+        private void textEdit2_Click(object sender, EventArgs e)
+        {
+            if (!IsGrossWeightSelected && !IsTareWeightSelected)
+            {
+                IsGrossWeightSelected = true;
+            }
+            else
+            {
+                IsGrossWeightSelected = false;
+                IsTareWeightSelected = false;
+            }
+        }
+
+        private void textEdit3_Click(object sender, EventArgs e)
+        {
+            if (!IsGrossWeightSelected && !IsTareWeightSelected)
+            {
+                IsTareWeightSelected = true;
+            }
+            else
+            {
+                IsTareWeightSelected = false;
+                IsGrossWeightSelected = false;
+            }
         }
     }
 }

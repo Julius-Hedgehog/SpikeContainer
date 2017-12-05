@@ -237,6 +237,7 @@
             this.KeyCancel.TabIndex = 13;
             this.KeyCancel.Tag = "NO";
             this.KeyCancel.Text = "NO";
+            this.KeyCancel.Click += new System.EventHandler(this.KeyCancel_Click);
             // 
             // KeyOK
             // 
@@ -252,6 +253,7 @@
             this.KeyOK.TabIndex = 12;
             this.KeyOK.Tag = "OK";
             this.KeyOK.Text = "OK";
+            this.KeyOK.Click += new System.EventHandler(this.KeyOK_Click);
             // 
             // KeyCE
             // 

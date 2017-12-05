@@ -77,8 +77,8 @@
             this.spikesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.spikeOneToolStripMenuItem});
             this.spikesToolStripMenuItem.Name = "spikesToolStripMenuItem";
-            this.spikesToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.spikesToolStripMenuItem.Text = "Spikes A";
+            this.spikesToolStripMenuItem.Size = new System.Drawing.Size(144, 20);
+            this.spikesToolStripMenuItem.Text = "Spikes A Group Projects";
             // 
             // spikeOneToolStripMenuItem
             // 

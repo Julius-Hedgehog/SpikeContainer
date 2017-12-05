@@ -39,6 +39,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tenKeypadControl11 = new SpikeContainer.Spike_001.TenKeypadControl1();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
@@ -48,7 +49,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(10, 232);
+            this.labelControl4.Location = new System.Drawing.Point(22, 232);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(58, 13);
             this.labelControl4.TabIndex = 20;
@@ -56,7 +57,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(10, 168);
+            this.labelControl3.Location = new System.Drawing.Point(22, 168);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(59, 13);
             this.labelControl3.TabIndex = 19;
@@ -64,7 +65,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(10, 110);
+            this.labelControl2.Location = new System.Drawing.Point(22, 110);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(64, 13);
             this.labelControl2.TabIndex = 18;
@@ -72,7 +73,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(10, 49);
+            this.labelControl1.Location = new System.Drawing.Point(22, 49);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(55, 13);
             this.labelControl1.TabIndex = 17;
@@ -80,35 +81,40 @@
             // 
             // textEdit4
             // 
-            this.textEdit4.Location = new System.Drawing.Point(10, 252);
+            this.textEdit4.Enabled = false;
+            this.textEdit4.Location = new System.Drawing.Point(22, 252);
             this.textEdit4.Name = "textEdit4";
             this.textEdit4.Size = new System.Drawing.Size(100, 20);
             this.textEdit4.TabIndex = 16;
             // 
             // textEdit3
             // 
-            this.textEdit3.Location = new System.Drawing.Point(10, 188);
+            this.textEdit3.Location = new System.Drawing.Point(22, 188);
             this.textEdit3.Name = "textEdit3";
             this.textEdit3.Size = new System.Drawing.Size(100, 20);
             this.textEdit3.TabIndex = 15;
+            this.textEdit3.Click += new System.EventHandler(this.textEdit3_Click);
             // 
             // textEdit2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(10, 130);
+            this.textEdit2.Location = new System.Drawing.Point(22, 130);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Size = new System.Drawing.Size(100, 20);
             this.textEdit2.TabIndex = 14;
+            this.textEdit2.Click += new System.EventHandler(this.textEdit2_Click);
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(10, 72);
+            this.textEdit1.Enabled = false;
+            this.textEdit1.Location = new System.Drawing.Point(22, 72);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(100, 20);
             this.textEdit1.TabIndex = 13;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(128, 27);
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(140, 27);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(254, 20);
             this.textBox1.TabIndex = 11;
@@ -119,7 +125,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(629, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(420, 24);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -130,11 +136,19 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // tenKeypadControl11
+            // 
+            this.tenKeypadControl11.Location = new System.Drawing.Point(140, 53);
+            this.tenKeypadControl11.Name = "tenKeypadControl11";
+            this.tenKeypadControl11.Size = new System.Drawing.Size(254, 416);
+            this.tenKeypadControl11.TabIndex = 21;
+            // 
             // Spike001V1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 647);
+            this.ClientSize = new System.Drawing.Size(420, 481);
+            this.Controls.Add(this.tenKeypadControl11);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl2);
@@ -146,7 +160,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Spike001V1";
-            this.Text = "Spike001V1";
+            this.Text = "Spike001V1 { Test B }";
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
@@ -171,5 +185,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private TenKeypadControl1 tenKeypadControl11;
     }
 }

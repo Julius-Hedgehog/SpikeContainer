@@ -49,6 +49,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(142, 27);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(254, 20);
@@ -80,6 +81,7 @@
             // 
             // textEdit1
             // 
+            this.textEdit1.Enabled = false;
             this.textEdit1.Location = new System.Drawing.Point(24, 72);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(100, 20);
@@ -91,6 +93,7 @@
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Size = new System.Drawing.Size(100, 20);
             this.textEdit2.TabIndex = 4;
+            this.textEdit2.Click += new System.EventHandler(this.textEdit2_Click);
             // 
             // textEdit3
             // 
@@ -98,9 +101,11 @@
             this.textEdit3.Name = "textEdit3";
             this.textEdit3.Size = new System.Drawing.Size(100, 20);
             this.textEdit3.TabIndex = 5;
+            this.textEdit3.Click += new System.EventHandler(this.textEdit3_Click);
             // 
             // textEdit4
             // 
+            this.textEdit4.Enabled = false;
             this.textEdit4.Location = new System.Drawing.Point(24, 252);
             this.textEdit4.Name = "textEdit4";
             this.textEdit4.Size = new System.Drawing.Size(100, 20);
@@ -138,7 +143,7 @@
             this.labelControl4.TabIndex = 10;
             this.labelControl4.Text = "Total Greige";
             // 
-            // Spike001Main
+            // Spike001V0
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -155,8 +160,8 @@
             this.Controls.Add(this.tenKeypadControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Spike001Main";
-            this.Text = "Spike001Main";
+            this.Name = "Spike001V0";
+            this.Text = "Spike001Main { Test A }";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
