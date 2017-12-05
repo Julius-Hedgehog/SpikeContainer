@@ -10,12 +10,18 @@ using System.Windows.Forms;
 
 namespace SpikeContainer.Spike_001
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class Spike001Main : Form
     {
 
         private string strKeyText = "";
 
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Spike001Main()
         {
             InitializeComponent();
@@ -96,8 +102,14 @@ namespace SpikeContainer.Spike_001
         {
             if (this.strKeyText.Length > 0)
             {
-                this.strKeyText.Remove(this.strKeyText.Length - 1);
+                this.strKeyText = this.strKeyText.Remove(this.strKeyText.Length - 1);
             }
+            this.textBox1.Text = this.strKeyText;
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this, "Spike One is a development test bed for the creation of a 'Numeric Keypad' control for touch screen usage.", "About: Spike One", MessageBoxButtons.OK);
         }
     }
 }

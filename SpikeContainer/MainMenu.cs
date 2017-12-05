@@ -10,8 +10,16 @@ using System.Windows.Forms;
 
 namespace SpikeContainer
 {
+    /// <summary>
+    /// Main form and menu form of Spike Solution
+    /// </summary>
     public partial class MainMenu : Form
     {
+        private int intDevBreakPointCrapper = 0;
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public MainMenu()
         {
             InitializeComponent();
@@ -23,11 +31,11 @@ namespace SpikeContainer
 
             if (DialogResult.Yes == frm.ShowDialog(this))
             {
-
+                intDevBreakPointCrapper++;
             }
             else
             {
-
+                intDevBreakPointCrapper++;
             }
 
             frm.Dispose();
