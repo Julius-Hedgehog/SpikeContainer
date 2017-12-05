@@ -28,36 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.tenKeypadControl1 = new SpikeContainer.Spike_001.TenKeypadControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.testAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(34, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(254, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // tenKeypadControl1
-            // 
-            this.tenKeypadControl1.Location = new System.Drawing.Point(34, 59);
-            this.tenKeypadControl1.Name = "tenKeypadControl1";
-            this.tenKeypadControl1.Size = new System.Drawing.Size(254, 417);
-            this.tenKeypadControl1.TabIndex = 0;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.testAToolStripMenuItem,
+            this.testBToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(322, 24);
-            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Size = new System.Drawing.Size(410, 24);
+            this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // testAToolStripMenuItem
+            // 
+            this.testAToolStripMenuItem.Name = "testAToolStripMenuItem";
+            this.testAToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.testAToolStripMenuItem.Text = "Test A";
+            this.testAToolStripMenuItem.Click += new System.EventHandler(this.testAToolStripMenuItem_Click);
+            // 
+            // testBToolStripMenuItem
+            // 
+            this.testBToolStripMenuItem.Name = "testBToolStripMenuItem";
+            this.testBToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.testBToolStripMenuItem.Text = "Test B";
+            this.testBToolStripMenuItem.Click += new System.EventHandler(this.testBToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -70,11 +72,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(322, 478);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.tenKeypadControl1);
+            this.ClientSize = new System.Drawing.Size(410, 358);
             this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Spike001Main";
             this.Text = "Spike001Main";
             this.menuStrip1.ResumeLayout(false);
@@ -86,9 +85,9 @@
 
         #endregion
 
-        protected TenKeypadControl tenKeypadControl1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testBToolStripMenuItem;
     }
 }
