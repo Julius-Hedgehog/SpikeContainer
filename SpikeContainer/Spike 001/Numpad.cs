@@ -11,8 +11,14 @@ using DevExpress.XtraEditors;
 
 namespace SpikeContainer.Spike_001
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class Numpad : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public Numpad()
         {
             InitializeComponent();

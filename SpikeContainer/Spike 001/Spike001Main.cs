@@ -48,7 +48,10 @@ namespace SpikeContainer.Spike_001
 
         }
 
+        // - - - - - - - - - - - - -
+        // >> KEYPAD EVENT HANDLERS
         // any standard #numeric key or decimal period key
+        // pushes into the output text member
         private void TenKeypadControl1Key_Click(object sender, EventArgs e)
         {
 
@@ -89,6 +92,10 @@ namespace SpikeContainer.Spike_001
                     // only one decimal point in string
                     if (!this.strKeyText.Contains("."))
                     {
+                        if(this.strKeyText.Length == 0)
+                        {
+                            this.strKeyText += "0";
+                        }
                         this.strKeyText += ".";
                     }
                     break;
@@ -97,6 +104,8 @@ namespace SpikeContainer.Spike_001
             this.textBox1.Text = this.strKeyText;
         }
 
+        // - - - - - - - - - - - - -
+        // >> KEYPAD EVENT HANDLERS
         // the clear key
         private void TenKeypadControlKeyCE_Click(object sender, EventArgs e)
         {
@@ -106,6 +115,7 @@ namespace SpikeContainer.Spike_001
             }
             this.textBox1.Text = this.strKeyText;
         }
+
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {

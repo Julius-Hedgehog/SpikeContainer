@@ -29,16 +29,17 @@ namespace SpikeContainer
         {
             Spike_001.Spike001Main frm = new Spike_001.Spike001Main();
 
-            if (DialogResult.Yes == frm.ShowDialog(this))
-            {
-                intDevBreakPointCrapper++;
-            }
-            else
-            {
-                intDevBreakPointCrapper++;
-            }
+            //if (DialogResult.Yes == frm.ShowDialog(this))
+            //{
+            //    intDevBreakPointCrapper++;
+            //}
+            //else
+            //{
+            //    intDevBreakPointCrapper++;
+            //}
+            //frm.Dispose();
 
-            frm.Dispose();
+            frm.Show(this);
         }
     }
 }

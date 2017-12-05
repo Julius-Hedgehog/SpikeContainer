@@ -40,9 +40,9 @@
             this.Key00 = new DevExpress.XtraEditors.SimpleButton();
             this.KeyDecimal = new DevExpress.XtraEditors.SimpleButton();
             this.KeypadKeyPanel = new DevExpress.XtraEditors.PanelControl();
-            this.KeyCE = new DevExpress.XtraEditors.SimpleButton();
-            this.KeyOK = new DevExpress.XtraEditors.SimpleButton();
             this.KeyCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.KeyOK = new DevExpress.XtraEditors.SimpleButton();
+            this.KeyCE = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.KeypadKeyPanel)).BeginInit();
             this.KeypadKeyPanel.SuspendLayout();
             this.SuspendLayout();
@@ -223,19 +223,20 @@
             this.KeypadKeyPanel.Size = new System.Drawing.Size(247, 408);
             this.KeypadKeyPanel.TabIndex = 11;
             // 
-            // KeyCE
+            // KeyCancel
             // 
-            this.KeyCE.AccessibleDescription = "The Clear Entry Key";
-            this.KeyCE.Appearance.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KeyCE.Appearance.Options.UseFont = true;
-            this.KeyCE.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.KeyCE.Location = new System.Drawing.Point(86, 329);
-            this.KeyCE.Name = "KeyCE";
-            this.KeyCE.ShowToolTips = false;
-            this.KeyCE.Size = new System.Drawing.Size(75, 75);
-            this.KeyCE.TabIndex = 11;
-            this.KeyCE.Tag = "CE";
-            this.KeyCE.Text = "CE";
+            this.KeyCancel.AccessibleDescription = "The Cancel Key";
+            this.KeyCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyCancel.Appearance.Options.UseFont = true;
+            this.KeyCancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.KeyCancel.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.KeyCancel.Location = new System.Drawing.Point(167, 329);
+            this.KeyCancel.Name = "KeyCancel";
+            this.KeyCancel.ShowToolTips = false;
+            this.KeyCancel.Size = new System.Drawing.Size(75, 75);
+            this.KeyCancel.TabIndex = 13;
+            this.KeyCancel.Tag = "NO";
+            this.KeyCancel.Text = "NO";
             // 
             // KeyOK
             // 
@@ -252,20 +253,19 @@
             this.KeyOK.Tag = "OK";
             this.KeyOK.Text = "OK";
             // 
-            // KeyCancel
+            // KeyCE
             // 
-            this.KeyCancel.AccessibleDescription = "The Cancel Key";
-            this.KeyCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KeyCancel.Appearance.Options.UseFont = true;
-            this.KeyCancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.KeyCancel.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.KeyCancel.Location = new System.Drawing.Point(167, 329);
-            this.KeyCancel.Name = "KeyCancel";
-            this.KeyCancel.ShowToolTips = false;
-            this.KeyCancel.Size = new System.Drawing.Size(75, 75);
-            this.KeyCancel.TabIndex = 13;
-            this.KeyCancel.Tag = "NO";
-            this.KeyCancel.Text = "NO";
+            this.KeyCE.AccessibleDescription = "The Clear Entry Key";
+            this.KeyCE.Appearance.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyCE.Appearance.Options.UseFont = true;
+            this.KeyCE.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.KeyCE.Location = new System.Drawing.Point(86, 329);
+            this.KeyCE.Name = "KeyCE";
+            this.KeyCE.ShowToolTips = false;
+            this.KeyCE.Size = new System.Drawing.Size(75, 75);
+            this.KeyCE.TabIndex = 11;
+            this.KeyCE.Tag = "CE";
+            this.KeyCE.Text = "CE";
             // 
             // TenKeypadControl
             // 
@@ -281,7 +281,7 @@
         }
 
         #endregion
-
+        public DevExpress.XtraEditors.PanelControl KeypadKeyPanel;
         public DevExpress.XtraEditors.SimpleButton Key01;
         public DevExpress.XtraEditors.SimpleButton Key02;
         public DevExpress.XtraEditors.SimpleButton Key03;
@@ -293,7 +293,6 @@
         public DevExpress.XtraEditors.SimpleButton Key09;
         public DevExpress.XtraEditors.SimpleButton Key00;
         public DevExpress.XtraEditors.SimpleButton KeyDecimal;
-        public DevExpress.XtraEditors.PanelControl KeypadKeyPanel;
         public DevExpress.XtraEditors.SimpleButton KeyCancel;
         public DevExpress.XtraEditors.SimpleButton KeyOK;
         public DevExpress.XtraEditors.SimpleButton KeyCE;

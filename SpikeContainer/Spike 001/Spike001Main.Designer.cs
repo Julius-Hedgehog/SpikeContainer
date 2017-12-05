@@ -86,7 +86,7 @@
 
         #endregion
 
-        private TenKeypadControl tenKeypadControl1;
+        protected TenKeypadControl tenKeypadControl1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
