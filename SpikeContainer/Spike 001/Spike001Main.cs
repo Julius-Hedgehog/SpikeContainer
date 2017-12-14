@@ -30,14 +30,14 @@ namespace SpikeContainer.Spike_001
 
         private void testAToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Spike001V0 frm = new Spike001V0();
+            Spike001V0 frm = new Spike001V0 { };
 
             frm.Show(this);
         }
 
         private void testBToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Spike001V1 frm = new Spike001V1();
+            Spike001V1 frm = new Spike001V1 { };
 
             frm.Show(this);
         }

@@ -42,6 +42,9 @@
     <Reference Include="DevExpress.Utils.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -65,12 +68,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Spike 001\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Spike 001\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Spike 001\Numpad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +105,23 @@
     <Compile Include="Spike 001\TenKeypadControl1.designer.cs">
       <DependentUpon>TenKeypadControl1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Spike Dev Express Grid\DEG Example 001.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike Dev Express Grid\DEG Example 001.Designer.cs">
+      <DependentUpon>DEG Example 001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Spike Dev Express Grid\Spike DEG Form 001.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike Dev Express Grid\Spike DEG Form 001.Designer.cs">
+      <DependentUpon>Spike DEG Form 001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestMesDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestMesDbDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,9 +135,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Spike 001\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Spike 001\Numpad.resx">
       <DependentUpon>Numpad.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +153,12 @@
     <EmbeddedResource Include="Spike 001\TenKeypadControl1.resx">
       <DependentUpon>TenKeypadControl1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Spike Dev Express Grid\DEG Example 001.resx">
+      <DependentUpon>DEG Example 001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike Dev Express Grid\Spike DEG Form 001.resx">
+      <DependentUpon>Spike DEG Form 001.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -151,6 +168,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TestMesDbDataSet.xsc">
+      <DependentUpon>TestMesDbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TestMesDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TestMesDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TestMesDbDataSet.xss">
+      <DependentUpon>TestMesDbDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -34,6 +34,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.spikesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spikeOneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -83,15 +84,25 @@
             // spikeOneToolStripMenuItem
             // 
             this.spikeOneToolStripMenuItem.Name = "spikeOneToolStripMenuItem";
-            this.spikeOneToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.spikeOneToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.spikeOneToolStripMenuItem.Text = "Spike One";
             this.spikeOneToolStripMenuItem.Click += new System.EventHandler(this.SpikeOne_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(12, 57);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(249, 23);
+            this.simpleButton1.TabIndex = 2;
+            this.simpleButton1.Text = "Spike Two - Dev Express Grid Learning";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(765, 448);
+            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.SpikeOne);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -113,6 +124,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem spikesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem spikeOneToolStripMenuItem;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }
 

@@ -19,6 +19,7 @@ namespace SpikeContainer.Spike_001
         /// 
         /// </summary>
         /// <param name="str"></param>
+        /// <param name="keys"></param>
         public TenKeypadContol1EventArgs(string str, Keys keys)
         {
             this.strDisplay = str;

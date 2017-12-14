@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TestMesDbDataSet" targetNamespace="http://tempuri.org/TestMesDbDataSet.xsd" xmlns:mstns="http://tempuri.org/TestMesDbDataSet.xsd" xmlns="http://tempuri.org/TestMesDbDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="TestMesDbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TestMesDbConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SpikeContainer.Properties.Settings.GlobalReference.Default.TestMesDbConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PackagesTableAdapter" GeneratorDataComponentClassName="PackagesTableAdapter" Name="Packages" UserDataComponentName="PackagesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TestMesDbConnectionString (Settings)" DbObjectName="TestMesDb.dbo.Packages" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Packages] WHERE (([SerialNo] = @Original_SerialNo) AND ([ShopOrderNo] = @Original_ShopOrderNo) AND ([Item] = @Original_Item) AND ([MasterItem] = @Original_MasterItem) AND ([Color] = @Original_Color) AND ((@IsNull_LstOp = 1 AND [LstOp] IS NULL) OR ([LstOp] = @Original_LstOp)) AND ((@IsNull_LstMach = 1 AND [LstMach] IS NULL) OR ([LstMach] = @Original_LstMach)) AND ([AllowYds] = @Original_AllowYds) AND ([CutOffYds] = @Original_CutOffYds) AND ((@IsNull_CutOffDefectCode = 1 AND [CutOffDefectCode] IS NULL) OR ([CutOffDefectCode] = @Original_CutOffDefectCode)) AND ((@IsNull_FinWidth = 1 AND [FinWidth] IS NULL) OR ([FinWidth] = @Original_FinWidth)) AND ((@IsNull_Grade = 1 AND [Grade] IS NULL) OR ([Grade] = @Original_Grade)) AND ((@IsNull_QualCode = 1 AND [QualCode] IS NULL) OR ([QualCode] = @Original_QualCode)) AND ((@IsNull_GrossYds = 1 AND [GrossYds] IS NULL) OR ([GrossYds] = @Original_GrossYds)) AND ((@IsNull_NetYds = 1 AND [NetYds] IS NULL) OR ([NetYds] = @Original_NetYds)) AND ((@IsNull_InspBegTime = 1 AND [InspBegTime] IS NULL) OR ([InspBegTime] = @Original_InspBegTime)) AND ((@IsNull_InspEndTime = 1 AND [InspEndTime] IS NULL) OR ([InspEndTime] = @Original_InspEndTime)) AND ([NetLbs] = @Original_NetLbs) AND ([TareLbs] = @Original_TareLbs) AND ((@IsNull_ReInspReqd = 1 AND [ReInspReqd] IS NULL) OR ([ReInspReqd] = @Original_ReInspReqd)) AND ((@IsNull_ReInspBegTime = 1 AND [ReInspBegTime] IS NULL) OR ([ReInspBegTime] = @Original_ReInspBegTime)) AND ((@IsNull_ReInspEndTime = 1 AND [ReInspEndTime] IS NULL) OR ([ReInspEndTime] = @Original_ReInspEndTime)) AND ((@IsNull_HoldPiece = 1 AND [HoldPiece] IS NULL) OR ([HoldPiece] = @Original_HoldPiece)) AND ((@IsNull_HoldFor = 1 AND [HoldFor] IS NULL) OR ([HoldFor] = @Original_HoldFor)) AND ((@IsNull_Reworked = 1 AND [Reworked] IS NULL) OR ([Reworked] = @Original_Reworked)) AND ((@IsNull_Rejected = 1 AND [Rejected] IS NULL) OR ([Rejected] = @Original_Rejected)) AND ([Warehouse] = @Original_Warehouse) AND ([Location] = @Original_Location) AND ([Status] = @Original_Status) AND ([ChangedDate] = @Original_ChangedDate) AND ([ChangedBy] = @Original_ChangedBy) AND ((@IsNull_BinNo = 1 AND [BinNo] IS NULL) OR ([BinNo] = @Original_BinNo)) AND ([PackFlag] = @Original_PackFlag) AND ((@IsNull_LstShopOrder = 1 AND [LstShopOrder] IS NULL) OR ([LstShopOrder] = @Original_LstShopOrder)) AND ([FRFG] = @Original_FRFG) AND ([DelschedID] = @Original_DelschedID) AND ((@IsNull_ShadeGroup = 1 AND [ShadeGroup] IS NULL) OR ([ShadeGroup] = @Original_ShadeGroup)) AND ((@IsNull_MilLotRep = 1 AND [MilLotRep] IS NULL) OR ([MilLotRep] = @Original_MilLotRep)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_SerialNo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="SerialNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ShopOrderNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShopOrderNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Item" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Item" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_MasterItem" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MasterItem" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Color" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Color" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LstOp" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LstOp" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_LstOp" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LstOp" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LstMach" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LstMach" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_LstMach" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="LstMach" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_AllowYds" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="AllowYds" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_CutOffYds" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="CutOffYds" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CutOffDefectCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CutOffDefectCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_CutOffDefectCode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CutOffDefectCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_FinWidth" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FinWidth" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Single" Direction="Input" ParameterName="@Original_FinWidth" Precision="0" ProviderType="Real" Scale="0" Size="0" SourceColumn="FinWidth" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Grade" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Grade" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Grade" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Grade" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_QualCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="QualCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_QualCode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="QualCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GrossYds" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="GrossYds" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GrossYds" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="GrossYds" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NetYds" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NetYds" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_NetYds" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="NetYds" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_InspBegTime" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="InspBegTime" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_InspBegTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InspBegTime" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_InspEndTime" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="InspEndTime" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_InspEndTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InspEndTime" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_NetLbs" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="NetLbs" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_TareLbs" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="TareLbs" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ReInspReqd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ReInspReqd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ReInspReqd" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ReInspReqd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ReInspBegTime" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ReInspBegTime" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_ReInspBegTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ReInspBegTime" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ReInspEndTime" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ReInspEndTime" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_ReInspEndTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ReInspEndTime" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_HoldPiece" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HoldPiece" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_HoldPiece" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="HoldPiece" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_HoldFor" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HoldFor" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_HoldFor" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="HoldFor" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Reworked" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Reworked" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Reworked" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Reworked" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Rejected" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Rejected" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Rejected" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Rejected" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Warehouse" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Warehouse" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Location" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Location" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Status" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_ChangedDate" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ChangedDate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ChangedBy" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ChangedBy" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BinNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BinNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_BinNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BinNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_PackFlag" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="PackFlag" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LstShopOrder" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LstShopOrder" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_LstShopOrder" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LstShopOrder" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_FRFG" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="FRFG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_DelschedID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DelschedID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ShadeGroup" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShadeGroup" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ShadeGroup" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ShadeGroup" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MilLotRep" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MilLotRep" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_MilLotRep" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="MilLotRep" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Packages] ([SerialNo], [ShopOrderNo], [Item], [MasterItem], [Color], [LstOp], [LstMach], [AllowYds], [CutOffYds], [CutOffDefectCode], [FinWidth], [Grade], [QualCode], [GrossYds], [NetYds], [InspBegTime], [InspEndTime], [NetLbs], [TareLbs], [ReInspReqd], [ReInspBegTime], [ReInspEndTime], [HoldPiece], [HoldFor], [Reworked], [Rejected], [Warehouse], [Location], [Status], [ChangedDate], [ChangedBy], [BinNo], [PackFlag], [LstShopOrder], [FRFG], [DelschedID], [ShadeGroup], [MilLotRep]) VALUES (@SerialNo, @ShopOrderNo, @Item, @MasterItem, @Color, @LstOp, @LstMach, @AllowYds, @CutOffYds, @CutOffDefectCode, @FinWidth, @Grade, @QualCode, @GrossYds, @NetYds, @InspBegTime, @InspEndTime, @NetLbs, @TareLbs, @ReInspReqd, @ReInspBegTime, @ReInspEndTime, @HoldPiece, @HoldFor, @Reworked, @Rejected, @Warehouse, @Location, @Status, @ChangedDate, @ChangedBy, @BinNo, @PackFlag, @LstShopOrder, @FRFG, @DelschedID, @ShadeGroup, @MilLotRep);
+SELECT SerialNo, ShopOrderNo, Item, MasterItem, Color, LstOp, LstMach, AllowYds, CutOffYds, CutOffDefectCode, FinWidth, Grade, QualCode, GrossYds, NetYds, InspBegTime, InspEndTime, NetLbs, TareLbs, ReInspReqd, ReInspBegTime, ReInspEndTime, HoldPiece, HoldFor, Reworked, Rejected, Warehouse, Location, Status, ChangedDate, ChangedBy, BinNo, PackFlag, LstShopOrder, FRFG, DelschedID, ShadeGroup, MilLotRep FROM Packages WHERE (SerialNo = @SerialNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@SerialNo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="SerialNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ShopOrderNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShopOrderNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Item" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Item" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@MasterItem" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MasterItem" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Color" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Color" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@LstOp" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LstOp" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@LstMach" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="LstMach" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@AllowYds" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="AllowYds" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@CutOffYds" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="CutOffYds" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CutOffDefectCode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CutOffDefectCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Single" Direction="Input" ParameterName="@FinWidth" Precision="0" ProviderType="Real" Scale="0" Size="0" SourceColumn="FinWidth" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Grade" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Grade" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@QualCode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="QualCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GrossYds" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="GrossYds" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@NetYds" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="NetYds" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@InspBegTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InspBegTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@InspEndTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InspEndTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@NetLbs" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="NetLbs" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@TareLbs" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="TareLbs" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ReInspReqd" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ReInspReqd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@ReInspBegTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ReInspBegTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@ReInspEndTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ReInspEndTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@HoldPiece" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="HoldPiece" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@HoldFor" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="HoldFor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Reworked" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Reworked" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Rejected" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Rejected" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Warehouse" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Warehouse" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Location" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Location" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@ChangedDate" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ChangedDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ChangedBy" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ChangedBy" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@BinNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BinNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@PackFlag" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="PackFlag" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@LstShopOrder" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LstShopOrder" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@FRFG" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="FRFG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@DelschedID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DelschedID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ShadeGroup" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ShadeGroup" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@MilLotRep" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="MilLotRep" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT SerialNo, ShopOrderNo, Item, MasterItem, Color, LstOp, LstMach, AllowYds, CutOffYds, CutOffDefectCode, FinWidth, Grade, QualCode, GrossYds, NetYds, InspBegTime, InspEndTime, NetLbs, TareLbs, ReInspReqd, ReInspBegTime, ReInspEndTime, HoldPiece, HoldFor, Reworked, Rejected, Warehouse, Location, Status, ChangedDate, ChangedBy, BinNo, PackFlag, LstShopOrder, FRFG, DelschedID, ShadeGroup, MilLotRep FROM dbo.Packages</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Packages] SET [SerialNo] = @SerialNo, [ShopOrderNo] = @ShopOrderNo, [Item] = @Item, [MasterItem] = @MasterItem, [Color] = @Color, [LstOp] = @LstOp, [LstMach] = @LstMach, [AllowYds] = @AllowYds, [CutOffYds] = @CutOffYds, [CutOffDefectCode] = @CutOffDefectCode, [FinWidth] = @FinWidth, [Grade] = @Grade, [QualCode] = @QualCode, [GrossYds] = @GrossYds, [NetYds] = @NetYds, [InspBegTime] = @InspBegTime, [InspEndTime] = @InspEndTime, [NetLbs] = @NetLbs, [TareLbs] = @TareLbs, [ReInspReqd] = @ReInspReqd, [ReInspBegTime] = @ReInspBegTime, [ReInspEndTime] = @ReInspEndTime, [HoldPiece] = @HoldPiece, [HoldFor] = @HoldFor, [Reworked] = @Reworked, [Rejected] = @Rejected, [Warehouse] = @Warehouse, [Location] = @Location, [Status] = @Status, [ChangedDate] = @ChangedDate, [ChangedBy] = @ChangedBy, [BinNo] = @BinNo, [PackFlag] = @PackFlag, [LstShopOrder] = @LstShopOrder, [FRFG] = @FRFG, [DelschedID] = @DelschedID, [ShadeGroup] = @ShadeGroup, [MilLotRep] = @MilLotRep WHERE (([SerialNo] = @Original_SerialNo) AND ([ShopOrderNo] = @Original_ShopOrderNo) AND ([Item] = @Original_Item) AND ([MasterItem] = @Original_MasterItem) AND ([Color] = @Original_Color) AND ((@IsNull_LstOp = 1 AND [LstOp] IS NULL) OR ([LstOp] = @Original_LstOp)) AND ((@IsNull_LstMach = 1 AND [LstMach] IS NULL) OR ([LstMach] = @Original_LstMach)) AND ([AllowYds] = @Original_AllowYds) AND ([CutOffYds] = @Original_CutOffYds) AND ((@IsNull_CutOffDefectCode = 1 AND [CutOffDefectCode] IS NULL) OR ([CutOffDefectCode] = @Original_CutOffDefectCode)) AND ((@IsNull_FinWidth = 1 AND [FinWidth] IS NULL) OR ([FinWidth] = @Original_FinWidth)) AND ((@IsNull_Grade = 1 AND [Grade] IS NULL) OR ([Grade] = @Original_Grade)) AND ((@IsNull_QualCode = 1 AND [QualCode] IS NULL) OR ([QualCode] = @Original_QualCode)) AND ((@IsNull_GrossYds = 1 AND [GrossYds] IS NULL) OR ([GrossYds] = @Original_GrossYds)) AND ((@IsNull_NetYds = 1 AND [NetYds] IS NULL) OR ([NetYds] = @Original_NetYds)) AND ((@IsNull_InspBegTime = 1 AND [InspBegTime] IS NULL) OR ([InspBegTime] = @Original_InspBegTime)) AND ((@IsNull_InspEndTime = 1 AND [InspEndTime] IS NULL) OR ([InspEndTime] = @Original_InspEndTime)) AND ([NetLbs] = @Original_NetLbs) AND ([TareLbs] = @Original_TareLbs) AND ((@IsNull_ReInspReqd = 1 AND [ReInspReqd] IS NULL) OR ([ReInspReqd] = @Original_ReInspReqd)) AND ((@IsNull_ReInspBegTime = 1 AND [ReInspBegTime] IS NULL) OR ([ReInspBegTime] = @Original_ReInspBegTime)) AND ((@IsNull_ReInspEndTime = 1 AND [ReInspEndTime] IS NULL) OR ([ReInspEndTime] = @Original_ReInspEndTime)) AND ((@IsNull_HoldPiece = 1 AND [HoldPiece] IS NULL) OR ([HoldPiece] = @Original_HoldPiece)) AND ((@IsNull_HoldFor = 1 AND [HoldFor] IS NULL) OR ([HoldFor] = @Original_HoldFor)) AND ((@IsNull_Reworked = 1 AND [Reworked] IS NULL) OR ([Reworked] = @Original_Reworked)) AND ((@IsNull_Rejected = 1 AND [Rejected] IS NULL) OR ([Rejected] = @Original_Rejected)) AND ([Warehouse] = @Original_Warehouse) AND ([Location] = @Original_Location) AND ([Status] = @Original_Status) AND ([ChangedDate] = @Original_ChangedDate) AND ([ChangedBy] = @Original_ChangedBy) AND ((@IsNull_BinNo = 1 AND [BinNo] IS NULL) OR ([BinNo] = @Original_BinNo)) AND ([PackFlag] = @Original_PackFlag) AND ((@IsNull_LstShopOrder = 1 AND [LstShopOrder] IS NULL) OR ([LstShopOrder] = @Original_LstShopOrder)) AND ([FRFG] = @Original_FRFG) AND ([DelschedID] = @Original_DelschedID) AND ((@IsNull_ShadeGroup = 1 AND [ShadeGroup] IS NULL) OR ([ShadeGroup] = @Original_ShadeGroup)) AND ((@IsNull_MilLotRep = 1 AND [MilLotRep] IS NULL) OR ([MilLotRep] = @Original_MilLotRep)));
+SELECT SerialNo, ShopOrderNo, Item, MasterItem, Color, LstOp, LstMach, AllowYds, CutOffYds, CutOffDefectCode, FinWidth, Grade, QualCode, GrossYds, NetYds, InspBegTime, InspEndTime, NetLbs, TareLbs, ReInspReqd, ReInspBegTime, ReInspEndTime, HoldPiece, HoldFor, Reworked, Rejected, Warehouse, Location, Status, ChangedDate, ChangedBy, BinNo, PackFlag, LstShopOrder, FRFG, DelschedID, ShadeGroup, MilLotRep FROM Packages WHERE (SerialNo = @SerialNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@SerialNo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="SerialNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ShopOrderNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShopOrderNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Item" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Item" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@MasterItem" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MasterItem" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Color" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Color" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@LstOp" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LstOp" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@LstMach" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="LstMach" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@AllowYds" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="AllowYds" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@CutOffYds" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="CutOffYds" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CutOffDefectCode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CutOffDefectCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Single" Direction="Input" ParameterName="@FinWidth" Precision="0" ProviderType="Real" Scale="0" Size="0" SourceColumn="FinWidth" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Grade" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Grade" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@QualCode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="QualCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GrossYds" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="GrossYds" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@NetYds" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="NetYds" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@InspBegTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InspBegTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@InspEndTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InspEndTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@NetLbs" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="NetLbs" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@TareLbs" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="TareLbs" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ReInspReqd" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ReInspReqd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@ReInspBegTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ReInspBegTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@ReInspEndTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ReInspEndTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@HoldPiece" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="HoldPiece" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@HoldFor" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="HoldFor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Reworked" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Reworked" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Rejected" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Rejected" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Warehouse" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Warehouse" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Location" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Location" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@ChangedDate" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ChangedDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ChangedBy" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ChangedBy" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@BinNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BinNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@PackFlag" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="PackFlag" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@LstShopOrder" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LstShopOrder" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@FRFG" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="FRFG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@DelschedID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DelschedID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ShadeGroup" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ShadeGroup" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@MilLotRep" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="MilLotRep" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_SerialNo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="SerialNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ShopOrderNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShopOrderNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Item" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Item" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_MasterItem" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MasterItem" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Color" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Color" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LstOp" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LstOp" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_LstOp" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LstOp" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LstMach" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LstMach" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_LstMach" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="LstMach" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_AllowYds" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="AllowYds" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_CutOffYds" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="CutOffYds" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CutOffDefectCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CutOffDefectCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_CutOffDefectCode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CutOffDefectCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_FinWidth" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FinWidth" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Single" Direction="Input" ParameterName="@Original_FinWidth" Precision="0" ProviderType="Real" Scale="0" Size="0" SourceColumn="FinWidth" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Grade" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Grade" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Grade" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Grade" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_QualCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="QualCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_QualCode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="QualCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GrossYds" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="GrossYds" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GrossYds" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="GrossYds" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NetYds" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NetYds" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_NetYds" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="NetYds" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_InspBegTime" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="InspBegTime" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_InspBegTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InspBegTime" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_InspEndTime" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="InspEndTime" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_InspEndTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="InspEndTime" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_NetLbs" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="NetLbs" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_TareLbs" Precision="5" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="TareLbs" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ReInspReqd" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ReInspReqd" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ReInspReqd" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ReInspReqd" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ReInspBegTime" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ReInspBegTime" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_ReInspBegTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ReInspBegTime" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ReInspEndTime" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ReInspEndTime" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_ReInspEndTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ReInspEndTime" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_HoldPiece" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HoldPiece" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_HoldPiece" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="HoldPiece" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_HoldFor" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HoldFor" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_HoldFor" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="HoldFor" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Reworked" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Reworked" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Reworked" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Reworked" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Rejected" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Rejected" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Rejected" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Rejected" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Warehouse" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Warehouse" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Location" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Location" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Status" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_ChangedDate" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ChangedDate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ChangedBy" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ChangedBy" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BinNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BinNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_BinNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BinNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_PackFlag" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="PackFlag" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LstShopOrder" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LstShopOrder" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_LstShopOrder" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LstShopOrder" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_FRFG" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="FRFG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_DelschedID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DelschedID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ShadeGroup" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShadeGroup" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ShadeGroup" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ShadeGroup" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MilLotRep" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MilLotRep" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_MilLotRep" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="MilLotRep" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SerialNo" DataSetColumn="SerialNo" />
+              <Mapping SourceColumn="ShopOrderNo" DataSetColumn="ShopOrderNo" />
+              <Mapping SourceColumn="Item" DataSetColumn="Item" />
+              <Mapping SourceColumn="MasterItem" DataSetColumn="MasterItem" />
+              <Mapping SourceColumn="Color" DataSetColumn="Color" />
+              <Mapping SourceColumn="LstOp" DataSetColumn="LstOp" />
+              <Mapping SourceColumn="LstMach" DataSetColumn="LstMach" />
+              <Mapping SourceColumn="AllowYds" DataSetColumn="AllowYds" />
+              <Mapping SourceColumn="CutOffYds" DataSetColumn="CutOffYds" />
+              <Mapping SourceColumn="CutOffDefectCode" DataSetColumn="CutOffDefectCode" />
+              <Mapping SourceColumn="FinWidth" DataSetColumn="FinWidth" />
+              <Mapping SourceColumn="Grade" DataSetColumn="Grade" />
+              <Mapping SourceColumn="QualCode" DataSetColumn="QualCode" />
+              <Mapping SourceColumn="GrossYds" DataSetColumn="GrossYds" />
+              <Mapping SourceColumn="NetYds" DataSetColumn="NetYds" />
+              <Mapping SourceColumn="InspBegTime" DataSetColumn="InspBegTime" />
+              <Mapping SourceColumn="InspEndTime" DataSetColumn="InspEndTime" />
+              <Mapping SourceColumn="NetLbs" DataSetColumn="NetLbs" />
+              <Mapping SourceColumn="TareLbs" DataSetColumn="TareLbs" />
+              <Mapping SourceColumn="ReInspReqd" DataSetColumn="ReInspReqd" />
+              <Mapping SourceColumn="ReInspBegTime" DataSetColumn="ReInspBegTime" />
+              <Mapping SourceColumn="ReInspEndTime" DataSetColumn="ReInspEndTime" />
+              <Mapping SourceColumn="HoldPiece" DataSetColumn="HoldPiece" />
+              <Mapping SourceColumn="HoldFor" DataSetColumn="HoldFor" />
+              <Mapping SourceColumn="Reworked" DataSetColumn="Reworked" />
+              <Mapping SourceColumn="Rejected" DataSetColumn="Rejected" />
+              <Mapping SourceColumn="Warehouse" DataSetColumn="Warehouse" />
+              <Mapping SourceColumn="Location" DataSetColumn="Location" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="ChangedDate" DataSetColumn="ChangedDate" />
+              <Mapping SourceColumn="ChangedBy" DataSetColumn="ChangedBy" />
+              <Mapping SourceColumn="BinNo" DataSetColumn="BinNo" />
+              <Mapping SourceColumn="PackFlag" DataSetColumn="PackFlag" />
+              <Mapping SourceColumn="LstShopOrder" DataSetColumn="LstShopOrder" />
+              <Mapping SourceColumn="FRFG" DataSetColumn="FRFG" />
+              <Mapping SourceColumn="DelschedID" DataSetColumn="DelschedID" />
+              <Mapping SourceColumn="ShadeGroup" DataSetColumn="ShadeGroup" />
+              <Mapping SourceColumn="MilLotRep" DataSetColumn="MilLotRep" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TestMesDbDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="TestMesDbDataSet" msprop:Generator_UserDSName="TestMesDbDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Packages" msprop:Generator_TableClassName="PackagesDataTable" msprop:Generator_TableVarName="tablePackages" msprop:Generator_TablePropName="Packages" msprop:Generator_RowDeletingName="PackagesRowDeleting" msprop:Generator_RowChangingName="PackagesRowChanging" msprop:Generator_RowEvHandlerName="PackagesRowChangeEventHandler" msprop:Generator_RowDeletedName="PackagesRowDeleted" msprop:Generator_UserTableName="Packages" msprop:Generator_RowChangedName="PackagesRowChanged" msprop:Generator_RowEvArgName="PackagesRowChangeEvent" msprop:Generator_RowClassName="PackagesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SerialNo" msprop:Generator_ColumnVarNameInTable="columnSerialNo" msprop:Generator_ColumnPropNameInRow="SerialNo" msprop:Generator_ColumnPropNameInTable="SerialNoColumn" msprop:Generator_UserColumnName="SerialNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShopOrderNo" msprop:Generator_ColumnVarNameInTable="columnShopOrderNo" msprop:Generator_ColumnPropNameInRow="ShopOrderNo" msprop:Generator_ColumnPropNameInTable="ShopOrderNoColumn" msprop:Generator_UserColumnName="ShopOrderNo" type="xs:int" />
+              <xs:element name="Item" msprop:Generator_ColumnVarNameInTable="columnItem" msprop:Generator_ColumnPropNameInRow="Item" msprop:Generator_ColumnPropNameInTable="ItemColumn" msprop:Generator_UserColumnName="Item">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MasterItem" msprop:Generator_ColumnVarNameInTable="columnMasterItem" msprop:Generator_ColumnPropNameInRow="MasterItem" msprop:Generator_ColumnPropNameInTable="MasterItemColumn" msprop:Generator_UserColumnName="MasterItem">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LstOp" msprop:Generator_ColumnVarNameInTable="columnLstOp" msprop:Generator_ColumnPropNameInRow="LstOp" msprop:Generator_ColumnPropNameInTable="LstOpColumn" msprop:Generator_UserColumnName="LstOp" type="xs:int" minOccurs="0" />
+              <xs:element name="LstMach" msprop:Generator_ColumnVarNameInTable="columnLstMach" msprop:Generator_ColumnPropNameInRow="LstMach" msprop:Generator_ColumnPropNameInTable="LstMachColumn" msprop:Generator_UserColumnName="LstMach" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AllowYds" msprop:Generator_ColumnVarNameInTable="columnAllowYds" msprop:Generator_ColumnPropNameInRow="AllowYds" msprop:Generator_ColumnPropNameInTable="AllowYdsColumn" msprop:Generator_UserColumnName="AllowYds" type="xs:decimal" />
+              <xs:element name="CutOffYds" msprop:Generator_ColumnVarNameInTable="columnCutOffYds" msprop:Generator_ColumnPropNameInRow="CutOffYds" msprop:Generator_ColumnPropNameInTable="CutOffYdsColumn" msprop:Generator_UserColumnName="CutOffYds" type="xs:decimal" />
+              <xs:element name="CutOffDefectCode" msprop:Generator_ColumnVarNameInTable="columnCutOffDefectCode" msprop:Generator_ColumnPropNameInRow="CutOffDefectCode" msprop:Generator_ColumnPropNameInTable="CutOffDefectCodeColumn" msprop:Generator_UserColumnName="CutOffDefectCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FinWidth" msprop:Generator_ColumnVarNameInTable="columnFinWidth" msprop:Generator_ColumnPropNameInRow="FinWidth" msprop:Generator_ColumnPropNameInTable="FinWidthColumn" msprop:Generator_UserColumnName="FinWidth" type="xs:float" minOccurs="0" />
+              <xs:element name="Grade" msprop:Generator_ColumnVarNameInTable="columnGrade" msprop:Generator_ColumnPropNameInRow="Grade" msprop:Generator_ColumnPropNameInTable="GradeColumn" msprop:Generator_UserColumnName="Grade" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="QualCode" msprop:Generator_ColumnVarNameInTable="columnQualCode" msprop:Generator_ColumnPropNameInRow="QualCode" msprop:Generator_ColumnPropNameInTable="QualCodeColumn" msprop:Generator_UserColumnName="QualCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GrossYds" msprop:Generator_ColumnVarNameInTable="columnGrossYds" msprop:Generator_ColumnPropNameInRow="GrossYds" msprop:Generator_ColumnPropNameInTable="GrossYdsColumn" msprop:Generator_UserColumnName="GrossYds" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NetYds" msprop:Generator_ColumnVarNameInTable="columnNetYds" msprop:Generator_ColumnPropNameInRow="NetYds" msprop:Generator_ColumnPropNameInTable="NetYdsColumn" msprop:Generator_UserColumnName="NetYds" type="xs:decimal" minOccurs="0" />
+              <xs:element name="InspBegTime" msprop:Generator_ColumnVarNameInTable="columnInspBegTime" msprop:Generator_ColumnPropNameInRow="InspBegTime" msprop:Generator_ColumnPropNameInTable="InspBegTimeColumn" msprop:Generator_UserColumnName="InspBegTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="InspEndTime" msprop:Generator_ColumnVarNameInTable="columnInspEndTime" msprop:Generator_ColumnPropNameInRow="InspEndTime" msprop:Generator_ColumnPropNameInTable="InspEndTimeColumn" msprop:Generator_UserColumnName="InspEndTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NetLbs" msprop:Generator_ColumnVarNameInTable="columnNetLbs" msprop:Generator_ColumnPropNameInRow="NetLbs" msprop:Generator_ColumnPropNameInTable="NetLbsColumn" msprop:Generator_UserColumnName="NetLbs" type="xs:decimal" />
+              <xs:element name="TareLbs" msprop:Generator_ColumnVarNameInTable="columnTareLbs" msprop:Generator_ColumnPropNameInRow="TareLbs" msprop:Generator_ColumnPropNameInTable="TareLbsColumn" msprop:Generator_UserColumnName="TareLbs" type="xs:decimal" />
+              <xs:element name="ReInspReqd" msprop:Generator_ColumnVarNameInTable="columnReInspReqd" msprop:Generator_ColumnPropNameInRow="ReInspReqd" msprop:Generator_ColumnPropNameInTable="ReInspReqdColumn" msprop:Generator_UserColumnName="ReInspReqd" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ReInspBegTime" msprop:Generator_ColumnVarNameInTable="columnReInspBegTime" msprop:Generator_ColumnPropNameInRow="ReInspBegTime" msprop:Generator_ColumnPropNameInTable="ReInspBegTimeColumn" msprop:Generator_UserColumnName="ReInspBegTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ReInspEndTime" msprop:Generator_ColumnVarNameInTable="columnReInspEndTime" msprop:Generator_ColumnPropNameInRow="ReInspEndTime" msprop:Generator_ColumnPropNameInTable="ReInspEndTimeColumn" msprop:Generator_UserColumnName="ReInspEndTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="HoldPiece" msprop:Generator_ColumnVarNameInTable="columnHoldPiece" msprop:Generator_ColumnPropNameInRow="HoldPiece" msprop:Generator_ColumnPropNameInTable="HoldPieceColumn" msprop:Generator_UserColumnName="HoldPiece" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HoldFor" msprop:Generator_ColumnVarNameInTable="columnHoldFor" msprop:Generator_ColumnPropNameInRow="HoldFor" msprop:Generator_ColumnPropNameInTable="HoldForColumn" msprop:Generator_UserColumnName="HoldFor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Reworked" msprop:Generator_ColumnVarNameInTable="columnReworked" msprop:Generator_ColumnPropNameInRow="Reworked" msprop:Generator_ColumnPropNameInTable="ReworkedColumn" msprop:Generator_UserColumnName="Reworked" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Rejected" msprop:Generator_ColumnVarNameInTable="columnRejected" msprop:Generator_ColumnPropNameInRow="Rejected" msprop:Generator_ColumnPropNameInTable="RejectedColumn" msprop:Generator_UserColumnName="Rejected" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Warehouse" msprop:Generator_ColumnVarNameInTable="columnWarehouse" msprop:Generator_ColumnPropNameInRow="Warehouse" msprop:Generator_ColumnPropNameInTable="WarehouseColumn" msprop:Generator_UserColumnName="Warehouse">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ChangedDate" msprop:Generator_ColumnVarNameInTable="columnChangedDate" msprop:Generator_ColumnPropNameInRow="ChangedDate" msprop:Generator_ColumnPropNameInTable="ChangedDateColumn" msprop:Generator_UserColumnName="ChangedDate" type="xs:dateTime" />
+              <xs:element name="ChangedBy" msprop:Generator_ColumnVarNameInTable="columnChangedBy" msprop:Generator_ColumnPropNameInRow="ChangedBy" msprop:Generator_ColumnPropNameInTable="ChangedByColumn" msprop:Generator_UserColumnName="ChangedBy">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BinNo" msprop:Generator_ColumnVarNameInTable="columnBinNo" msprop:Generator_ColumnPropNameInRow="BinNo" msprop:Generator_ColumnPropNameInTable="BinNoColumn" msprop:Generator_UserColumnName="BinNo" type="xs:int" minOccurs="0" />
+              <xs:element name="PackFlag" msprop:Generator_ColumnVarNameInTable="columnPackFlag" msprop:Generator_ColumnPropNameInRow="PackFlag" msprop:Generator_ColumnPropNameInTable="PackFlagColumn" msprop:Generator_UserColumnName="PackFlag" type="xs:boolean" />
+              <xs:element name="LstShopOrder" msprop:Generator_ColumnVarNameInTable="columnLstShopOrder" msprop:Generator_ColumnPropNameInRow="LstShopOrder" msprop:Generator_ColumnPropNameInTable="LstShopOrderColumn" msprop:Generator_UserColumnName="LstShopOrder" type="xs:int" minOccurs="0" />
+              <xs:element name="FRFG" msprop:Generator_ColumnVarNameInTable="columnFRFG" msprop:Generator_ColumnPropNameInRow="FRFG" msprop:Generator_ColumnPropNameInTable="FRFGColumn" msprop:Generator_UserColumnName="FRFG" type="xs:boolean" />
+              <xs:element name="DelschedID" msprop:Generator_ColumnVarNameInTable="columnDelschedID" msprop:Generator_ColumnPropNameInRow="DelschedID" msprop:Generator_ColumnPropNameInTable="DelschedIDColumn" msprop:Generator_UserColumnName="DelschedID" type="xs:int" />
+              <xs:element name="ShadeGroup" msprop:Generator_ColumnVarNameInTable="columnShadeGroup" msprop:Generator_ColumnPropNameInRow="ShadeGroup" msprop:Generator_ColumnPropNameInTable="ShadeGroupColumn" msprop:Generator_UserColumnName="ShadeGroup" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MilLotRep" msprop:Generator_ColumnVarNameInTable="columnMilLotRep" msprop:Generator_ColumnPropNameInRow="MilLotRep" msprop:Generator_ColumnPropNameInTable="MilLotRepColumn" msprop:Generator_UserColumnName="MilLotRep" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Packages" />
+      <xs:field xpath="mstns:SerialNo" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
