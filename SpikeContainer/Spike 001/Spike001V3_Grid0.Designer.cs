@@ -31,6 +31,9 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tenKeypadControl11 = new SpikeContainer.Spike_001.TenKeypadControl1();
+            this.GrossWeight = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TareWeight = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NetWeight = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -47,8 +50,15 @@
             // 
             // gridView1
             // 
+            this.gridView1.ActiveFilterEnabled = false;
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.GrossWeight,
+            this.TareWeight,
+            this.NetWeight});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowFooter = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // tenKeypadControl11
             // 
@@ -57,6 +67,40 @@
             this.tenKeypadControl11.Name = "tenKeypadControl11";
             this.tenKeypadControl11.Size = new System.Drawing.Size(254, 416);
             this.tenKeypadControl11.TabIndex = 1;
+            // 
+            // GrossWeight
+            // 
+            this.GrossWeight.Caption = "Gross Weight (Lbs)";
+            this.GrossWeight.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.GrossWeight.FieldName = "Gross";
+            this.GrossWeight.Name = "GrossWeight";
+            this.GrossWeight.Visible = true;
+            this.GrossWeight.VisibleIndex = 0;
+            // 
+            // TareWeight
+            // 
+            this.TareWeight.Caption = "Tare Weight (lbs)";
+            this.TareWeight.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TareWeight.FieldName = "Tare";
+            this.TareWeight.Name = "TareWeight";
+            this.TareWeight.Visible = true;
+            this.TareWeight.VisibleIndex = 1;
+            // 
+            // NetWeight
+            // 
+            this.NetWeight.Caption = "Net Weight (lbs)";
+            this.NetWeight.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.NetWeight.FieldName = "NetWeight";
+            this.NetWeight.Name = "NetWeight";
+            this.NetWeight.OptionsColumn.AllowEdit = false;
+            this.NetWeight.OptionsColumn.AllowFocus = false;
+            this.NetWeight.OptionsColumn.ReadOnly = true;
+            this.NetWeight.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "NetWeight", "Total Net (lbs) = {0:0.##}")});
+            this.NetWeight.UnboundExpression = "[Gross] - [Tare]";
+            this.NetWeight.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            this.NetWeight.Visible = true;
+            this.NetWeight.VisibleIndex = 2;
             // 
             // Spike001V3_Grid0
             // 
@@ -78,5 +122,8 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private TenKeypadControl1 tenKeypadControl11;
+        public DevExpress.XtraGrid.Columns.GridColumn GrossWeight;
+        public DevExpress.XtraGrid.Columns.GridColumn TareWeight;
+        private DevExpress.XtraGrid.Columns.GridColumn NetWeight;
     }
 }
