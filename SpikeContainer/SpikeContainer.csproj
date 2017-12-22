@@ -21,7 +21,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\SpikeContainer.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -87,7 +88,6 @@
     <Compile Include="DataEntitiy\MenuItems.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\MesDbEntities.cs" />
     <Compile Include="DataEntitiy\MesDbModel.Context.cs">
       <DependentUpon>MesDbModel.Context.tt</DependentUpon>
       <DesignTime>True</DesignTime>

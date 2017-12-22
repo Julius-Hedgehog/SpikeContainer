@@ -15,7 +15,7 @@ namespace SpikeContainer
     /// </summary>
     public partial class MainMenu : Form
     {
-        private int intDevBreakPointCrapper = 0;
+        //private int intDevBreakPointCrapper = 0;
         
         /// <summary>
         /// 

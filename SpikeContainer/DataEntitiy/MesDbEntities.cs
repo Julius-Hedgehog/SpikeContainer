@@ -5,9 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.Core.EntityClient;
-using PFCS.Classes;
 
-namespace PFCS.DataEntities
+namespace SpikeContainer.DataEntities
 {
     public partial class MesDbEntities : DbContext
     {
