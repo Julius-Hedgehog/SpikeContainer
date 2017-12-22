@@ -1,8 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using WindowsInput;
-using WpfKb.LogicalKeys;
 
-namespace WpfKb.Controls
+namespace SpikeContainer.Spike_001
 {
     public class OnScreenKeypad : UniformOnScreenKeyboard
     {

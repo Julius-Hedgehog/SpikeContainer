@@ -6,7 +6,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
+using WindowsInput;
 
 namespace SpikeContainer.Spike_001
 {
@@ -15,6 +17,7 @@ namespace SpikeContainer.Spike_001
 
     #endregion
 
+    //public delegate void OnScreenKeyEventHandler(Object sender, OnScreenKeyEventArgs e);
 
     /// <summary>
     /// 
@@ -36,6 +39,11 @@ namespace SpikeContainer.Spike_001
         // Fields
 
         private string _mstringCurrentKeypadValue = "";
+
+        public event EventHandler<OnScreenKeyEventArgs> PreviewOnScreenKeyDownEvent;
+        public event EventHandler<OnScreenKeyEventArgs> OnScreenKeyDownEvent;
+        public event EventHandler<OnScreenKeyEventArgs> OnScreenKeyUpEvent;
+        public event EventHandler<OnScreenKeyEventArgs> OnScreenKeyPressEvent;
 
         /// <summary>
         /// Event definition declaration
@@ -244,6 +252,46 @@ namespace SpikeContainer.Spike_001
         protected void OnCustTenKeyEvent(string key, TenKeypadContol1EventArgs args)
         {
             EventHandler<TenKeypadContol1EventArgs> handler = CustTenKeyEvent;
+            if (handler != null)
+            {
+                handler(this, args);
+                //SendKeys.SendWait(key); // NO NO NO - this dont work - as I thought it did not do.
+            }
+        }
+
+        protected void OnPreviewOnScreenKeyDownEvent(string key, OnScreenKeyEventArgs args)
+        {
+            EventHandler<OnScreenKeyEventArgs> handler = PreviewOnScreenKeyDownEvent;
+            if (handler != null)
+            {
+                handler(this, args);
+                //SendKeys.SendWait(key); // NO NO NO - this dont work - as I thought it did not do.
+            }
+        }
+
+        protected void ScreenKeyDownEvent(string key, OnScreenKeyEventArgs args)
+        {
+            EventHandler<OnScreenKeyEventArgs> handler = OnScreenKeyDownEvent;
+            if (handler != null)
+            {
+                handler(this, args);
+                //SendKeys.SendWait(key); // NO NO NO - this dont work - as I thought it did not do.
+            }
+        }
+
+        protected void ScreenKeyUpEvent(string key, OnScreenKeyEventArgs args)
+        {
+            EventHandler<OnScreenKeyEventArgs> handler = OnScreenKeyUpEvent;
+            if (handler != null)
+            {
+                handler(this, args);
+                //SendKeys.SendWait(key); // NO NO NO - this dont work - as I thought it did not do.
+            }
+        }
+
+        protected void ScreenKeyPressEvent(string key, OnScreenKeyEventArgs args)
+        {
+            EventHandler<OnScreenKeyEventArgs> handler = OnScreenKeyPressEvent;
             if (handler != null)
             {
                 handler(this, args);
