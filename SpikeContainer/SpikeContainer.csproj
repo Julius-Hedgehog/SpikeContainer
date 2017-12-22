@@ -140,12 +140,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Spike 001\ILogicalKey.cs" />
+    <Compile Include="Spike 001\LogicalKeyBase.cs" />
     <Compile Include="Spike 001\Numpad.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Spike 001\Numpad.Designer.cs">
       <DependentUpon>Numpad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Spike 001\OnScreenKey.cs" />
+    <Compile Include="Spike 001\OnScreenKeypad.cs" />
     <Compile Include="Spike 001\Spike001Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +187,7 @@
     <Compile Include="Spike 001\TenKeypadControl1.designer.cs">
       <DependentUpon>TenKeypadControl1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Spike 001\VirtualKey.cs" />
     <Compile Include="Spike Dev Express Grid\DEG Example 001.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +289,9 @@
       <DependentUpon>MesDbModel.edmx</DependentUpon>
       <LastGenOutput>MesDbModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Spike 001\InputSimulator\InputSimulator.dll" />
+    <Content Include="Spike 001\InputSimulator\InputSimulator.pdb" />
+    <Content Include="Spike 001\InputSimulator\InputSimulator.XML" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -247,7 +247,7 @@ namespace SpikeContainer.Spike_001
             if (handler != null)
             {
                 handler(this, args);
-                SendKeys.SendWait(key);
+                //SendKeys.SendWait(key); // NO NO NO - this dont work - as I thought it did not do.
             }
         }
 
