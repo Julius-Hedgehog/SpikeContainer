@@ -34,6 +34,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,11 +89,21 @@
             this.simpleButton2.Text = "Spike One Test B";
             this.simpleButton2.Click += new System.EventHandler(this.testBToolStripMenuItem_Click);
             // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Location = new System.Drawing.Point(12, 87);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(206, 23);
+            this.simpleButton3.TabIndex = 6;
+            this.simpleButton3.Text = "Spike One Test C - Grid 1";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
+            // 
             // Spike001Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(231, 87);
+            this.ClientSize = new System.Drawing.Size(231, 119);
+            this.Controls.Add(this.simpleButton3);
             this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.menuStrip1);
@@ -113,5 +124,6 @@
         private System.Windows.Forms.ToolStripMenuItem testBToolStripMenuItem;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
     }
 }

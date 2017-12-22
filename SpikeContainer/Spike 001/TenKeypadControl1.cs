@@ -118,7 +118,7 @@ namespace SpikeContainer.Spike_001
         {
             DevExpress.XtraEditors.SimpleButton btn = (DevExpress.XtraEditors.SimpleButton)sender;
             TenKeypadContol1EventArgs args = null;
-            string key;
+            string key = "1";
 
             switch (btn.Tag)
             {
