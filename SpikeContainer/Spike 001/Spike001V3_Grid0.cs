@@ -26,5 +26,25 @@ namespace SpikeContainer.Spike_001
         {
 
         }
+
+        private void Spike001V3_Grid0_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Spike001V3_Grid0_Shown(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Spike001V3_Grid0_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void tenKeypadControl11_CustTenKeyEvent(object sender, TenKeypadContol1EventArgs e)
+        {
+
+        }
     }
 }

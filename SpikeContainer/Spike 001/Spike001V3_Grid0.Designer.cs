@@ -110,6 +110,7 @@
             this.tenKeypadControl11.Name = "tenKeypadControl11";
             this.tenKeypadControl11.Size = new System.Drawing.Size(254, 416);
             this.tenKeypadControl11.TabIndex = 1;
+            this.tenKeypadControl11.CustTenKeyEvent += new System.EventHandler<SpikeContainer.Spike_001.TenKeypadContol1EventArgs>(this.tenKeypadControl11_CustTenKeyEvent);
             // 
             // Spike001V3_Grid0
             // 
@@ -120,6 +121,9 @@
             this.Controls.Add(this.gridControl1);
             this.Name = "Spike001V3_Grid0";
             this.Text = "Spike001V3_Grid0";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Spike001V3_Grid0_FormClosing);
+            this.Load += new System.EventHandler(this.Spike001V3_Grid0_Load);
+            this.Shown += new System.EventHandler(this.Spike001V3_Grid0_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
