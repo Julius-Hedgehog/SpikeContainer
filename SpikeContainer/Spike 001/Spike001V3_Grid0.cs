@@ -16,5 +16,15 @@ namespace SpikeContainer.Spike_001
         {
             InitializeComponent();
         }
+
+        private void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+
+        }
+
+        private void gridView1_ShownEditor(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -30,10 +30,10 @@
         {
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.tenKeypadControl11 = new SpikeContainer.Spike_001.TenKeypadControl1();
             this.GrossWeight = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TareWeight = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NetWeight = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tenKeypadControl11 = new SpikeContainer.Spike_001.TenKeypadControl1();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -57,16 +57,17 @@
             this.NetWeight});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView1.OptionsMenu.EnableColumnMenu = false;
+            this.gridView1.OptionsMenu.ShowAutoFilterRowItem = false;
+            this.gridView1.OptionsMenu.ShowFooterItem = true;
+            this.gridView1.OptionsNavigation.AutoFocusNewRow = true;
+            this.gridView1.OptionsNavigation.EnterMoveNextColumn = true;
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // tenKeypadControl11
-            // 
-            this.tenKeypadControl11.CurrentValue = "";
-            this.tenKeypadControl11.Location = new System.Drawing.Point(591, 12);
-            this.tenKeypadControl11.Name = "tenKeypadControl11";
-            this.tenKeypadControl11.Size = new System.Drawing.Size(254, 416);
-            this.tenKeypadControl11.TabIndex = 1;
+            this.gridView1.ViewCaption = "Net Weight for :: Shop Order - ";
+            this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
+            this.gridView1.ShownEditor += new System.EventHandler(this.gridView1_ShownEditor);
             // 
             // GrossWeight
             // 
@@ -102,6 +103,14 @@
             this.NetWeight.Visible = true;
             this.NetWeight.VisibleIndex = 2;
             // 
+            // tenKeypadControl11
+            // 
+            this.tenKeypadControl11.CurrentValue = "";
+            this.tenKeypadControl11.Location = new System.Drawing.Point(591, 12);
+            this.tenKeypadControl11.Name = "tenKeypadControl11";
+            this.tenKeypadControl11.Size = new System.Drawing.Size(254, 416);
+            this.tenKeypadControl11.TabIndex = 1;
+            // 
             // Spike001V3_Grid0
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -120,10 +129,10 @@
         #endregion
 
         private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private TenKeypadControl1 tenKeypadControl11;
         public DevExpress.XtraGrid.Columns.GridColumn GrossWeight;
         public DevExpress.XtraGrid.Columns.GridColumn TareWeight;
         private DevExpress.XtraGrid.Columns.GridColumn NetWeight;
+        public DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }
