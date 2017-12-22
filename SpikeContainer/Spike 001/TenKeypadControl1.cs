@@ -50,6 +50,15 @@ namespace SpikeContainer.Spike_001
         /// </summary>
         public event EventHandler<TenKeypadContol1EventArgs> CustTenKeyEvent;
 
+
+        private Control _CtrlReceiver = null;
+
+        public Control RECEIVER
+        {
+            get { return _CtrlReceiver; }
+            set { _CtrlReceiver = value; }
+        }
+
         #endregion
 
         #region [ Constructors ]
@@ -139,6 +148,8 @@ namespace SpikeContainer.Spike_001
                 case "1":
                     this._mstringCurrentKeypadValue += "1";
                     args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad1);
+                    key = "{NUMPAD1}";
+                    key = "NUMPAD1";
                     key = "1";
                     break;
                 case "2":
@@ -196,6 +207,8 @@ namespace SpikeContainer.Spike_001
                     break;
             }
 
+            RECEIVER.Focus();
+
             this.OnCustTenKeyEvent(key, args);
         }
 
@@ -251,7 +264,15 @@ namespace SpikeContainer.Spike_001
         /// <param name="args"> <see cref="TenKeypadContol1EventArgs"/></param>
         protected void OnCustTenKeyEvent(string key, TenKeypadContol1EventArgs args)
         {
+            //SendKeys.SendWait(key);
+            //SendKeys.Send(key);
+            RECEIVER.Focus();
             CustTenKeyEvent?.Invoke(this, args);
+            RECEIVER.Focus();
+            //SendKeys.SendWait(key);
+            //SendKeys.Send(key);
+            RECEIVER.Focus();
+
         }
 
         protected void OnPreviewOnScreenKeyDownEvent(string key, OnScreenKeyEventArgs args)
