@@ -93,6 +93,11 @@ namespace SpikeContainer.Spike_001
             Trace.WriteLine(string.Format($" {0}  {1} ", e.KeyCode.ToString(), e.KeyValue.ToString()));
         }
 
+        private void gridView1_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        {
+
+        }
+
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -113,12 +118,12 @@ namespace SpikeContainer.Spike_001
         private void InitializeMesDbEntitiesObject()
         {   // if the database object PFCS.DataEntities.MesDbEntities is not previously disposed and null kill it
             DisposeMesDbEntitiesObject();
-            //_db = new MesDbEntities();  // CLASS VAR is Initialized HERE
+            _db = new MesDbEntities();  // CLASS VAR is Initialized HERE
         }
 
         private void DisposeMesDbEntitiesObject()
         {
-            //_db?.Dispose();                     // kill-kill-kill-kill-kill
+            _db?.Dispose();                     // kill-kill-kill-kill-kill
         }
 
         private bool GetRawData(int shopOrder)
