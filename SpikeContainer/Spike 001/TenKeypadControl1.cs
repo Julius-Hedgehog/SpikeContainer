@@ -251,12 +251,7 @@ namespace SpikeContainer.Spike_001
         /// <param name="args"> <see cref="TenKeypadContol1EventArgs"/></param>
         protected void OnCustTenKeyEvent(string key, TenKeypadContol1EventArgs args)
         {
-            EventHandler<TenKeypadContol1EventArgs> handler = CustTenKeyEvent;
-            if (handler != null)
-            {
-                handler(this, args);
-                //SendKeys.SendWait(key); // NO NO NO - this dont work - as I thought it did not do.
-            }
+            CustTenKeyEvent?.Invoke(this, args);
         }
 
         protected void OnPreviewOnScreenKeyDownEvent(string key, OnScreenKeyEventArgs args)

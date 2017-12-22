@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
+//using System.Windows.Controls;
+//using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
+//using System.Windows.Media;
+//using System.Windows.Media.Animation;
 
 
 namespace SpikeContainer.Spike_001
 {
-    public class OnScreenKeyEventArgs : RoutedEventArgs
+    public class OnScreenKeyEventArgs : EventArgs //RoutedEventArgs
     {
         public OnScreenKey OnScreenKey { get; private set; }
 
-        public OnScreenKeyEventArgs(RoutedEvent routedEvent, OnScreenKey onScreenKey)
-            : base(routedEvent)
+        //public OnScreenKeyEventArgs(RoutedEvent routedEvent, OnScreenKey onScreenKey)
+        //    : base(routedEvent)
+        public OnScreenKeyEventArgs(OnScreenKey onScreenKey)
         {
             OnScreenKey = onScreenKey;
         }

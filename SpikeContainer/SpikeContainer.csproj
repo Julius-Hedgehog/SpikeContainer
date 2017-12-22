@@ -56,8 +56,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Spike 001\InputSimulator\InputSimulator.dll</HintPath>
     </Reference>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="PTM Custom Components">
       <HintPath>..\..\..\..\..\..\Code\Repos\PFC\PFCS\PFCS\Dependencies\PTM Custom Components.dll</HintPath>
     </Reference>
