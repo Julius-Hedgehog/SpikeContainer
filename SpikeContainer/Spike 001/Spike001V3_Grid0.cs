@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -51,6 +53,21 @@ namespace SpikeContainer.Spike_001
         // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+        private void gridControl1_KeyDown(object sender, KeyEventArgs e)
+        {
+            Trace.WriteLine(string.Format($" {0}  {1} ", e.KeyCode.ToString(), e.KeyValue.ToString()));
+        }
+
+        private void gridControl1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Trace.WriteLine(string.Format($" {0}  {1} ", e.KeyChar, e.Handled.ToString()));
+        }
+
+        private void gridControl1_KeyUp(object sender, KeyEventArgs e)
+        {
+            Trace.WriteLine(string.Format($" {0}  {1} ", e.KeyCode.ToString(), e.KeyValue.ToString()));
+        }
+
         private void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
 
@@ -61,6 +78,21 @@ namespace SpikeContainer.Spike_001
 
         }
 
+        private void gridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            Trace.WriteLine(string.Format($" {0}  {1} ", e.KeyCode.ToString(), e.KeyValue.ToString()));
+        }
+
+        private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Trace.WriteLine(string.Format($" {0}  {1} ", e.KeyChar, e.Handled.ToString()));
+        }
+
+        private void gridView1_KeyUp(object sender, KeyEventArgs e)
+        {
+            Trace.WriteLine(string.Format($" {0}  {1} ", e.KeyCode.ToString(), e.KeyValue.ToString()));
+        }
+
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -69,7 +101,7 @@ namespace SpikeContainer.Spike_001
 
         private void tenKeypadControl11_CustTenKeyEvent(object sender, TenKeypadContol1EventArgs e)
         {
-
+            Trace.WriteLine(string.Format($" {0}  {1} ",e.DISPLAY,e.KEY.ToString()));
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -97,7 +129,7 @@ namespace SpikeContainer.Spike_001
 
         private bool GetDataUserData(Int32 shopOrder)
         {
-            //_db.Packages.Where(r => r.ShopOrderNo == shopOrder && r.Status1.Inv).Include("ShopOrders").Load();
+            _db.Packages.Where(r => r.ShopOrderNo == shopOrder && r.Status1.Inv).Include("ShopOrders").Load();
             //_db.Packages.Where(r => r.ShopOrderNo == shopOrder && r.Status1.Inv).Load();
             //_db.Packages.Where(r => r.ShopOrderNo == shopOrder).Load();
 
@@ -124,5 +156,7 @@ namespace SpikeContainer.Spike_001
             dr[1] = ntareVal;
             dtTempTable.Rows.Add(dr);           // ZERO'ed DataRow added to dtTempTable
         }
+
+
     }
 }
