@@ -10,29 +10,44 @@ using System.Windows.Forms;
 
 namespace SpikeContainer.Spike_001
 {
+
+    #region [ Enumerations ]
+
+    #endregion
+
+
     /// <summary>
+    /// 
+    /// .......DESIGN NOTE
+    /// - - - the TenKeypadControl1.Designer.cs
+    /// - - -                       may need the declaration of 
+    /// - - - private DevExpress.XtraEditors.PanelControl KeypadKeyPanel;
+    /// - - -   AS AS AS
+    /// - - - public DevExpress.XtraEditors.PanelControl KeypadKeyPanel;
     /// 
     /// </summary>
     public partial class TenKeypadControl1 : UserControl
     {
+        #region [ Members ]
+        // Nested Types
+        // Constants
+        // Delegates
+        // Events
+        // Fields
+
         private string _mstringCurrentKeypadValue = "";
 
         /// <summary>
-        /// 
+        /// Event definition declaration
         /// </summary>
         public event EventHandler<TenKeypadContol1EventArgs> CustTenKeyEvent;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public string CurrentValue
-        {
-            set { this._mstringCurrentKeypadValue = value; }
-            get { return this._mstringCurrentKeypadValue; }
-        }
+        #endregion
+
+        #region [ Constructors ]
 
         /// <summary>
-        /// 
+        /// Default Construction
         /// </summary>
         public TenKeypadControl1()
         {
@@ -59,55 +74,104 @@ namespace SpikeContainer.Spike_001
             this.KeyCE.Click += this.TenKeypadControlKeyCE_Click;
         }
 
+        #endregion
+
+        #region [ Propereties ]
+
+        /// <summary>
+        /// Returns the current value of the last key pressed on control
+        /// </summary>
+        public string CurrentValue
+        {
+            set { this._mstringCurrentKeypadValue = value; }
+            get { return this._mstringCurrentKeypadValue; }
+        }
+
+        #endregion
+
+        #region [ Methods ]
+
+        #region [ IDisposable ]
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #endregion
+
+        #region [ Events ]
+
         // - - - - - - - - - - - - -
         // >> KEYPAD EVENT HANDLERS
         // any standard #numeric key or decimal period key
         // pushes into the output text member
         private void TenKeypadControl1Key_Click(object sender, EventArgs e)
         {
-            Keys key = Keys.Decimal;
             DevExpress.XtraEditors.SimpleButton btn = (DevExpress.XtraEditors.SimpleButton)sender;
+            TenKeypadContol1EventArgs args = null;
+            string key;
+
             switch (btn.Tag)
             {
+
                 case "0":
                     this._mstringCurrentKeypadValue += "0";
-                    key = Keys.NumPad0;
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad0);
+                    key = "0";
                     break;
                 case "1":
                     this._mstringCurrentKeypadValue += "1";
-                    key = Keys.NumPad1;
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad1);
+                    key = "1";
                     break;
                 case "2":
                     this._mstringCurrentKeypadValue += "2";
-                    key = Keys.NumPad2;
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad2);
+                    key = "2";
                     break;
                 case "3":
                     this._mstringCurrentKeypadValue += "3";
-                    key = Keys.NumPad3;
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad3);
+                    key = "3";
                     break;
                 case "4":
                     this._mstringCurrentKeypadValue += "4";
-                    key = Keys.NumPad4;
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad4);
+                    key = "4";
                     break;
                 case "5":
                     this._mstringCurrentKeypadValue += "5";
-                    key = Keys.NumPad5;
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad5);
+                    key = "5";
                     break;
                 case "6":
                     this._mstringCurrentKeypadValue += "6";
-                    key = Keys.NumPad6;
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad6);
+                    key = "6";
                     break;
                 case "7":
                     this._mstringCurrentKeypadValue += "7";
-                    key = Keys.NumPad7;
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad7);
+                    key = "7";
                     break;
                 case "8":
                     this._mstringCurrentKeypadValue += "8";
-                    key = Keys.NumPad8;
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad8);
+                    key = "8";
                     break;
                 case "9":
                     this._mstringCurrentKeypadValue += "9";
-                    key = Keys.NumPad9;
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad9);
+                    key = "9";
                     break;
                 default:
                     // only one decimal point in string
@@ -118,14 +182,13 @@ namespace SpikeContainer.Spike_001
                             this._mstringCurrentKeypadValue += "0";
                         }
                         this._mstringCurrentKeypadValue += ".";
-                        key = Keys.Decimal;
+                        args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Decimal);
+                        key = ".";
                     }
                     break;
             }
 
-            TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, key);
-
-            this.OnCustTenKeyEvent(args);
+            this.OnCustTenKeyEvent(key, args);
         }
 
         // - - - - - - - - - - - - -
@@ -136,42 +199,61 @@ namespace SpikeContainer.Spike_001
             if (this._mstringCurrentKeypadValue.Length > 0)
             {
                 this._mstringCurrentKeypadValue = this._mstringCurrentKeypadValue.Remove(this._mstringCurrentKeypadValue.Length - 1);
+                TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Clear);
 
-                Keys key;
-                key = Keys.Clear;
-                TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, key);
-
-                this.OnCustTenKeyEvent(args);
+                this.OnCustTenKeyEvent("{BACKSPACE}",args);
             }
         }
 
         /// <summary>
-        /// The event to be handled in the parent that 
+        /// >> KEYPAD EVENT HANDLERS
+        /// the OK key
         /// </summary>
-        /// <param name="args"></param>
-        protected void OnCustTenKeyEvent(TenKeypadContol1EventArgs args)
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void KeyOK_Click(object sender, EventArgs e)
+        {
+            TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Y);
+            this.OnCustTenKeyEvent("{ENTER}",args);
+        }
+
+        /// <summary>
+        /// >> KEYPAD EVENT HANDLERS
+        /// the NO key
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void KeyCancel_Click(object sender, EventArgs e)
+        {
+            TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.N);
+            this.OnCustTenKeyEvent("{ESC}",args);
+        }
+
+        #endregion
+
+        #region [ Implementation ]
+
+        /// <summary>
+        /// Custom Event Definition
+        /// The event to be handled in the parent that displays the control
+        /// 
+        /// this is declared protected here so it is private in the parent class
+        /// 
+        /// </summary>
+        /// <param name="args"> <see cref="TenKeypadContol1EventArgs"/></param>
+        protected void OnCustTenKeyEvent(string key, TenKeypadContol1EventArgs args)
         {
             EventHandler<TenKeypadContol1EventArgs> handler = CustTenKeyEvent;
             if (handler != null)
             {
                 handler(this, args);
+                SendKeys.SendWait(key);
             }
         }
 
-        private void KeyOK_Click(object sender, EventArgs e)
-        {
-            Keys key = Keys.Y;
-            TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, key);
-            this.OnCustTenKeyEvent(args);
-        }
+        #endregion
 
-        private void KeyCancel_Click(object sender, EventArgs e)
-        {
-            Keys key = Keys.N;
-            TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, key);
-
-            this.OnCustTenKeyEvent(args);
-        }
+        #endregion
 
     }
 }
