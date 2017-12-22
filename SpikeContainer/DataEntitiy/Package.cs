@@ -12,11 +12,14 @@ namespace SpikeContainer.DataEntitiy
     using System;
     using System.Collections.Generic;
     
-    public partial class PkgHist
+    public partial class Package
     {
-        public int HistID { get; set; }
-        public System.DateTime TransDateTime { get; set; }
-        public string TransDescr { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Package()
+        {
+            this.PkgHists = new HashSet<PkgHist>();
+        }
+    
         public string SerialNo { get; set; }
         public int ShopOrderNo { get; set; }
         public string Item { get; set; }
@@ -56,6 +59,10 @@ namespace SpikeContainer.DataEntitiy
         public string ShadeGroup { get; set; }
         public Nullable<bool> MilLotRep { get; set; }
     
-        public virtual Package Package { get; set; }
+        public virtual ShopOrder ShopOrder { get; set; }
+        public virtual Status Status1 { get; set; }
+        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PkgHist> PkgHists { get; set; }
     }
 }

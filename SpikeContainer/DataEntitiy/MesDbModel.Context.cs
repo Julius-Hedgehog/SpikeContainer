@@ -27,35 +27,50 @@ namespace SpikeContainer.DataEntitiy
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<LocalVariables> LocalVariables { get; set; }
-        public virtual DbSet<MenuItems> MenuItems { get; set; }
-        public virtual DbSet<Permissions> Permissions { get; set; }
-        public virtual DbSet<SystemParams> SystemParams { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<ArelContainers> ArelContainers { get; set; }
-        public virtual DbSet<ArelLots> ArelLots { get; set; }
-        public virtual DbSet<ArelLotsRecipe> ArelLotsRecipe { get; set; }
-        public virtual DbSet<Packages> Packages { get; set; }
-        public virtual DbSet<PkgHist> PkgHist { get; set; }
+        public virtual DbSet<ArelContainer> ArelContainers { get; set; }
+        public virtual DbSet<ArelLot> ArelLots { get; set; }
+        public virtual DbSet<ArelLotsRecipe> ArelLotsRecipes { get; set; }
+        public virtual DbSet<AutomatedEmail> AutomatedEmails { get; set; }
+        public virtual DbSet<LocalVariable> LocalVariables { get; set; }
+        public virtual DbSet<MenuItem> MenuItems { get; set; }
+        public virtual DbSet<Package> Packages { get; set; }
+        public virtual DbSet<Permission> Permissions { get; set; }
+        public virtual DbSet<PkgHist> PkgHists { get; set; }
+        public virtual DbSet<ShopOrder> ShopOrders { get; set; }
         public virtual DbSet<Status> Status { get; set; }
-        public virtual DbSet<ShopOrders> ShopOrders { get; set; }
-        public virtual DbSet<AutomatedEmail> AutomatedEmail { get; set; }
+        public virtual DbSet<SystemParam> SystemParams { get; set; }
+        public virtual DbSet<tr_hist> tr_hist { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     
-        public virtual int sp_QcRelease(Nullable<int> sO, string user, string status)
+        [DbFunction("MesDbEntities", "fn_GetDyeLotBatches")]
+        public virtual IQueryable<fn_GetDyeLotBatches_Result> fn_GetDyeLotBatches(string dyeLot, Nullable<int> machineNo, Nullable<int> arelKey)
         {
-            var sOParameter = sO.HasValue ?
-                new ObjectParameter("SO", sO) :
-                new ObjectParameter("SO", typeof(int));
+            var dyeLotParameter = dyeLot != null ?
+                new ObjectParameter("DyeLot", dyeLot) :
+                new ObjectParameter("DyeLot", typeof(string));
     
-            var userParameter = user != null ?
-                new ObjectParameter("User", user) :
-                new ObjectParameter("User", typeof(string));
+            var machineNoParameter = machineNo.HasValue ?
+                new ObjectParameter("MachineNo", machineNo) :
+                new ObjectParameter("MachineNo", typeof(int));
     
-            var statusParameter = status != null ?
-                new ObjectParameter("Status", status) :
-                new ObjectParameter("Status", typeof(string));
+            var arelKeyParameter = arelKey.HasValue ?
+                new ObjectParameter("ArelKey", arelKey) :
+                new ObjectParameter("ArelKey", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_QcRelease", sOParameter, userParameter, statusParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_GetDyeLotBatches_Result>("[MesDbEntities].[fn_GetDyeLotBatches](@DyeLot, @MachineNo, @ArelKey)", dyeLotParameter, machineNoParameter, arelKeyParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_DyeLotStarted(string dyeLot, Nullable<int> machineNo)
+        {
+            var dyeLotParameter = dyeLot != null ?
+                new ObjectParameter("DyeLot", dyeLot) :
+                new ObjectParameter("DyeLot", typeof(string));
+    
+            var machineNoParameter = machineNo.HasValue ?
+                new ObjectParameter("MachineNo", machineNo) :
+                new ObjectParameter("MachineNo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_DyeLotStarted", dyeLotParameter, machineNoParameter);
         }
     
         public virtual int sp_InsertPkgHist(string where, string transDescr, Nullable<System.DateTime> transDateTime)
@@ -92,35 +107,21 @@ namespace SpikeContainer.DataEntitiy
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_IssueToShopOrderPkg", sOParameter, dTParameter, userIDParameter);
         }
     
-        public virtual ObjectResult<Nullable<int>> sp_DyeLotStarted(string dyeLot, Nullable<int> machineNo)
+        public virtual int sp_QcRelease(Nullable<int> sO, string user, string status)
         {
-            var dyeLotParameter = dyeLot != null ?
-                new ObjectParameter("DyeLot", dyeLot) :
-                new ObjectParameter("DyeLot", typeof(string));
+            var sOParameter = sO.HasValue ?
+                new ObjectParameter("SO", sO) :
+                new ObjectParameter("SO", typeof(int));
     
-            var machineNoParameter = machineNo.HasValue ?
-                new ObjectParameter("MachineNo", machineNo) :
-                new ObjectParameter("MachineNo", typeof(int));
+            var userParameter = user != null ?
+                new ObjectParameter("User", user) :
+                new ObjectParameter("User", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_DyeLotStarted", dyeLotParameter, machineNoParameter);
-        }
+            var statusParameter = status != null ?
+                new ObjectParameter("Status", status) :
+                new ObjectParameter("Status", typeof(string));
     
-        [DbFunction("MesDbEntities", "fn_GetDyeLotBatches")]
-        public virtual IQueryable<Nullable<int>> fn_GetDyeLotBatches(string dyeLot, Nullable<int> machineNo, Nullable<int> arelKey)
-        {
-            var dyeLotParameter = dyeLot != null ?
-                new ObjectParameter("DyeLot", dyeLot) :
-                new ObjectParameter("DyeLot", typeof(string));
-    
-            var machineNoParameter = machineNo.HasValue ?
-                new ObjectParameter("MachineNo", machineNo) :
-                new ObjectParameter("MachineNo", typeof(int));
-    
-            var arelKeyParameter = arelKey.HasValue ?
-                new ObjectParameter("ArelKey", arelKey) :
-                new ObjectParameter("ArelKey", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<Nullable<int>>("[MesDbEntities].[fn_GetDyeLotBatches](@DyeLot, @MachineNo, @ArelKey)", dyeLotParameter, machineNoParameter, arelKeyParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_QcRelease", sOParameter, userParameter, statusParameter);
         }
     }
 }

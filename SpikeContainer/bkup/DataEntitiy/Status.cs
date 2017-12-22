@@ -17,8 +17,8 @@ namespace SpikeContainer.DataEntitiy
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Status()
         {
-            this.Packages1 = new HashSet<Package>();
-            this.ShopOrders1 = new HashSet<ShopOrder>();
+            this.Packages1 = new HashSet<Packages>();
+            this.ShopOrders1 = new HashSet<ShopOrders>();
         }
     
         public string Status1 { get; set; }
@@ -28,10 +28,10 @@ namespace SpikeContainer.DataEntitiy
         public bool ShopOrders { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Package> Packages1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ShopOrder> ShopOrders1 { get; set; }
+        public virtual ICollection<Packages> Packages1 { get; set; }
         public virtual Status Status11 { get; set; }
         public virtual Status Status2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ShopOrders> ShopOrders1 { get; set; }
     }
 }

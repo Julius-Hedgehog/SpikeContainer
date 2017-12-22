@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MesDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MesDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ArelContainers">
           <Key>
             <PropertyRef Name="Arel_Key" />
@@ -425,6 +425,137 @@
           <Property Name="AisHash" Type="varchar" MaxLength="256" />
           <Property Name="SigConnFolder" Type="varchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="tr_hist">
+          <Key>
+            <PropertyRef Name="prrowid" />
+          </Key>
+          <Property Name="prrowid" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="tr_part" Type="varchar" MaxLength="66" />
+          <Property Name="tr_date" Type="datetime" />
+          <Property Name="tr_per_date" Type="datetime" />
+          <Property Name="tr_type" Type="varchar" MaxLength="80" />
+          <Property Name="tr_loc" Type="varchar" MaxLength="80" />
+          <Property Name="tr_loc_begin" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_begin_qoh" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_qty_req" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_qty_chg" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_qty_short" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_um" Type="varchar" MaxLength="30" />
+          <Property Name="tr_last_date" Type="datetime" />
+          <Property Name="tr_nbr" Type="varchar" MaxLength="55" />
+          <Property Name="tr_so_job" Type="varchar" MaxLength="80" />
+          <Property Name="tr_ship_type" Type="varchar" MaxLength="30" />
+          <Property Name="tr_addr" Type="varchar" MaxLength="80" />
+          <Property Name="tr_rmks" Type="varchar" MaxLength="80" />
+          <Property Name="tr_xdr_acct" Type="varchar" MaxLength="80" />
+          <Property Name="tr_xcr_acct" Type="varchar" MaxLength="80" />
+          <Property Name="tr_mtl_std" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_lbr_std" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_bdn_std" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_price" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_trnbr" Type="int" />
+          <Property Name="tr_gl_amt" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_xdr_cc" Type="varchar" MaxLength="30" />
+          <Property Name="tr_xcr_cc" Type="varchar" MaxLength="30" />
+          <Property Name="tr_lot" Type="varchar" MaxLength="80" />
+          <Property Name="tr_sub_std" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_gl_date" Type="datetime" />
+          <Property Name="tr_qty_loc" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_userid" Type="varchar" MaxLength="80" />
+          <Property Name="tr_serial" Type="varchar" MaxLength="50" />
+          <Property Name="tr_effdate" Type="datetime" />
+          <Property Name="tr_prod_line" Type="varchar" MaxLength="30" />
+          <Property Name="tr_xslspsn1" Type="varchar" MaxLength="80" />
+          <Property Name="tr_xslspsn2" Type="varchar" MaxLength="80" />
+          <Property Name="tr_xcr_proj" Type="varchar" MaxLength="80" />
+          <Property Name="tr_xdr_proj" Type="varchar" MaxLength="80" />
+          <Property Name="tr_line" Type="int" />
+          <Property Name="tr_user1" Type="varchar" MaxLength="80" />
+          <Property Name="tr_user2" Type="varchar" MaxLength="80" />
+          <Property Name="tr_curr" Type="varchar" MaxLength="30" />
+          <Property Name="tr_ex_rate" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_rev" Type="varchar" MaxLength="30" />
+          <Property Name="tr_time" Type="int" />
+          <Property Name="tr_ovh_std" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_site" Type="varchar" MaxLength="80" />
+          <Property Name="tr_status" Type="varchar" MaxLength="80" />
+          <Property Name="tr_grade" Type="varchar" MaxLength="30" />
+          <Property Name="tr_expire" Type="datetime" />
+          <Property Name="tr_assay" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_xgl_ref" Type="varchar" MaxLength="30" />
+          <Property Name="tr__chr01" Type="varchar" MaxLength="80" />
+          <Property Name="tr__chr02" Type="varchar" MaxLength="80" />
+          <Property Name="tr__chr03" Type="varchar" MaxLength="80" />
+          <Property Name="tr__chr04" Type="varchar" MaxLength="80" />
+          <Property Name="tr__chr05" Type="varchar" MaxLength="80" />
+          <Property Name="tr__chr06" Type="varchar" MaxLength="80" />
+          <Property Name="tr__chr07" Type="varchar" MaxLength="80" />
+          <Property Name="tr__chr08" Type="varchar" MaxLength="80" />
+          <Property Name="tr__chr09" Type="varchar" MaxLength="80" />
+          <Property Name="tr__chr10" Type="varchar" MaxLength="80" />
+          <Property Name="tr__chr11" Type="varchar" MaxLength="80" />
+          <Property Name="tr__chr12" Type="varchar" MaxLength="80" />
+          <Property Name="tr__chr13" Type="varchar" MaxLength="80" />
+          <Property Name="tr__chr14" Type="varchar" MaxLength="80" />
+          <Property Name="tr__chr15" Type="varchar" MaxLength="80" />
+          <Property Name="tr__dte01" Type="datetime" />
+          <Property Name="tr__dte02" Type="datetime" />
+          <Property Name="tr__dte03" Type="datetime" />
+          <Property Name="tr__dte04" Type="datetime" />
+          <Property Name="tr__dte05" Type="datetime" />
+          <Property Name="tr__dec01" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr__dec02" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr__dec03" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr__dec04" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr__dec05" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr__log01" Type="bit" />
+          <Property Name="tr__log02" Type="bit" />
+          <Property Name="tr_ref" Type="varchar" MaxLength="80" />
+          <Property Name="tr_msg" Type="int" />
+          <Property Name="tr_program" Type="varchar" MaxLength="36" />
+          <Property Name="tr_ord_rev" Type="int" />
+          <Property Name="tr_ref_site" Type="varchar" MaxLength="80" />
+          <Property Name="tr_rsn_code" Type="varchar" MaxLength="80" />
+          <Property Name="tr_vend_lot" Type="varchar" MaxLength="40" />
+          <Property Name="tr_vend_date" Type="datetime" />
+          <Property Name="tr_daycode" Type="varchar" MaxLength="80" />
+          <Property Name="tr_for" Type="varchar" MaxLength="30" />
+          <Property Name="tr_slspsn##1" Type="varchar" MaxLength="82" />
+          <Property Name="tr_slspsn##2" Type="varchar" MaxLength="82" />
+          <Property Name="tr_slspsn##3" Type="varchar" MaxLength="82" />
+          <Property Name="tr_slspsn##4" Type="varchar" MaxLength="82" />
+          <Property Name="tr_fsm_type" Type="varchar" MaxLength="80" />
+          <Property Name="tr_upd_isb" Type="bit" />
+          <Property Name="tr_auto_install" Type="bit" />
+          <Property Name="tr_ca_int_type" Type="varchar" MaxLength="80" />
+          <Property Name="tr_covered_amt" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_fcg_code" Type="varchar" MaxLength="80" />
+          <Property Name="tr_batch" Type="varchar" MaxLength="30" />
+          <Property Name="tr_fsc_code" Type="varchar" MaxLength="80" />
+          <Property Name="tr_sa_nbr" Type="varchar" MaxLength="80" />
+          <Property Name="tr_sv_code" Type="varchar" MaxLength="80" />
+          <Property Name="tr_eng_area" Type="varchar" MaxLength="30" />
+          <Property Name="tr_sys_prod" Type="varchar" MaxLength="30" />
+          <Property Name="tr_svc_type" Type="varchar" MaxLength="30" />
+          <Property Name="tr_ca_opn_date" Type="datetime" />
+          <Property Name="tr_cprice" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_eng_code" Type="varchar" MaxLength="80" />
+          <Property Name="tr_wod_op" Type="int" />
+          <Property Name="tr_enduser" Type="varchar" MaxLength="80" />
+          <Property Name="tr_ship_inv_mov" Type="varchar" MaxLength="80" />
+          <Property Name="tr_ship_date" Type="datetime" />
+          <Property Name="tr_ship_id" Type="varchar" MaxLength="30" />
+          <Property Name="tr_ex_rate2" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="tr_ex_ratetype" Type="varchar" MaxLength="80" />
+          <Property Name="tr_exru_seq" Type="int" />
+          <Property Name="tr_promise_date" Type="datetime" />
+          <Property Name="tr_fldchg_cmtindx" Type="int" />
+          <Property Name="tr_domain" Type="varchar" MaxLength="11" />
+          <Property Name="oid_tr_hist" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="Pro2SrcPDB" Type="varchar" MaxLength="12" />
+          <Property Name="pro2created" Type="datetime" />
+          <Property Name="pro2modified" Type="datetime" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="UserId" />
@@ -631,6 +762,7 @@
           <EntitySet Name="ShopOrders" EntityType="Self.ShopOrders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SystemParams" EntityType="Self.SystemParams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tr_hist" EntityType="Self.tr_hist" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ArelContainers_ArelLots" Association="Self.FK_ArelContainers_ArelLots">
             <End Role="ArelLots" EntitySet="ArelLots" />
@@ -677,199 +809,15 @@
             <End Role="Status1" EntitySet="Status" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MesDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="MesDbEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="LocalVariables" EntityType="MesDbModel.LocalVariables" />
-          <EntitySet Name="MenuItems" EntityType="MesDbModel.MenuItems" />
-          <EntitySet Name="Permissions" EntityType="MesDbModel.Permissions" />
-          <EntitySet Name="SystemParams" EntityType="MesDbModel.SystemParams" />
-          <EntitySet Name="Users" EntityType="MesDbModel.Users" />
-          <AssociationSet Name="FK_Permissions_MenuItems" Association="MesDbModel.FK_Permissions_MenuItems">
-            <End Role="MenuItems" EntitySet="MenuItems" />
-            <End Role="Permissions" EntitySet="Permissions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Permissions_Users" Association="MesDbModel.FK_Permissions_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Permissions" EntitySet="Permissions" />
-          </AssociationSet>
-          <FunctionImport Name="sp_QcRelease">
-            <Parameter Name="SO" Mode="In" Type="Int32" />
-            <Parameter Name="User" Mode="In" Type="String" />
-            <Parameter Name="Status" Mode="In" Type="String" />
-          </FunctionImport>
-          <EntitySet Name="ArelContainers" EntityType="MesDbModel.ArelContainers" />
-          <EntitySet Name="ArelLots" EntityType="MesDbModel.ArelLots" />
-          <EntitySet Name="ArelLotsRecipe" EntityType="MesDbModel.ArelLotsRecipe" />
-          <EntitySet Name="Packages" EntityType="MesDbModel.Packages" />
-          <EntitySet Name="PkgHist" EntityType="MesDbModel.PkgHist" />
-          <EntitySet Name="Status" EntityType="MesDbModel.Status" />
-          <AssociationSet Name="FK_ArelContainers_ArelLots" Association="MesDbModel.FK_ArelContainers_ArelLots">
-            <End Role="ArelLots" EntitySet="ArelLots" />
-            <End Role="ArelContainers" EntitySet="ArelContainers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ArelLotsRecipe_ArelLotsRecipe" Association="MesDbModel.FK_ArelLotsRecipe_ArelLotsRecipe">
-            <End Role="ArelLots" EntitySet="ArelLots" />
-            <End Role="ArelLotsRecipe" EntitySet="ArelLotsRecipe" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Packages_Status" Association="MesDbModel.FK_Packages_Status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="Packages" EntitySet="Packages" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Packages_Users" Association="MesDbModel.FK_Packages_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Packages" EntitySet="Packages" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PkgHist_Rolls" Association="MesDbModel.FK_PkgHist_Rolls">
-            <End Role="Packages" EntitySet="Packages" />
-            <End Role="PkgHist" EntitySet="PkgHist" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Status_Status" Association="MesDbModel.FK_Status_Status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="Status1" EntitySet="Status" />
-          </AssociationSet>
-          <FunctionImport Name="sp_InsertPkgHist">
-            <Parameter Name="Where" Mode="In" Type="String" />
-            <Parameter Name="TransDescr" Mode="In" Type="String" />
-            <Parameter Name="TransDateTime" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="sp_IssueToShopOrderPkg">
-            <Parameter Name="SO" Mode="In" Type="Int32" />
-            <Parameter Name="DT" Mode="In" Type="DateTime" />
-            <Parameter Name="UserID" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_DyeLotStarted" ReturnType="Collection(Int32)">
-            <Parameter Name="DyeLot" Mode="In" Type="String" />
-            <Parameter Name="MachineNo" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="fn_GetDyeLotBatches" IsComposable="true" ReturnType="Collection(Int32)">
-            <Parameter Name="DyeLot" Mode="In" Type="String" />
-            <Parameter Name="MachineNo" Mode="In" Type="Int32" />
-            <Parameter Name="ArelKey" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <EntitySet Name="ShopOrders" EntityType="MesDbModel.ShopOrders" />
-          <AssociationSet Name="FK_Packages_ShopOrders" Association="MesDbModel.FK_Packages_ShopOrders">
-            <End Role="ShopOrders" EntitySet="ShopOrders" />
-            <End Role="Packages" EntitySet="Packages" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ShopOrders_Status" Association="MesDbModel.FK_ShopOrders_Status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="ShopOrders" EntitySet="ShopOrders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ShopOrders_Users" Association="MesDbModel.FK_ShopOrders_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="ShopOrders" EntitySet="ShopOrders" />
-          </AssociationSet>
-          <EntitySet Name="AutomatedEmail" EntityType="MesDbModel.AutomatedEmail" />
-          </EntityContainer>
-        <EntityType Name="LocalVariables">
-          <Key>
-            <PropertyRef Name="Machine" />
-          </Key>
-          <Property Name="Machine" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DefaultLogin" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
-          <Property Name="LabelPrinter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="MenuItems">
-          <Key>
-            <PropertyRef Name="MenuItem" />
-          </Key>
-          <Property Name="MenuItem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ParentItem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" DefaultValue="" />
-          <Property Name="Caption" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Permissions" Relationship="MesDbModel.FK_Permissions_MenuItems" FromRole="MenuItems" ToRole="Permissions" />
-        </EntityType>
-        <EntityType Name="Permissions">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
-          <Property Name="MenuItem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ChangedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ChangedBy" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="MenuItems" Relationship="MesDbModel.FK_Permissions_MenuItems" FromRole="Permissions" ToRole="MenuItems" />
-          <NavigationProperty Name="Users" Relationship="MesDbModel.FK_Permissions_Users" FromRole="Permissions" ToRole="Users" />
-          <Property Name="ViewOnly" Type="Boolean" Nullable="false" DefaultValue="false" />
-        </EntityType>
-        <EntityType Name="SystemParams">
-          <Key>
-            <PropertyRef Name="Config" />
-          </Key>
-          <Property Name="Config" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Catalog" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="company" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="address1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="city" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="state" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="zipcode" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
-          <Property Name="country" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="phoneno" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="plantno" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="plantname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="updateDir" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="smtpServer" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="SSRSserverURI" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="SSRSreportPath" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="LabelsDir" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="UpdateProgramSource" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="SysUser" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
-          <Property Name="SysHash" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="AisUser" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="AisHash" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="SigConnFolder" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="UserGuid" Type="Guid" Nullable="false" />
-          <Property Name="UserId" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Middle" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="Active" Type="Boolean" Nullable="false" />
-          <Property Name="TimeOut" Type="Int32" Nullable="false" />
-          <Property Name="ChangePass" Type="Boolean" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Admin" Type="Boolean" Nullable="false" />
-          <Property Name="ChangedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ChangedBy" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Permissions" Relationship="MesDbModel.FK_Permissions_Users" FromRole="Users" ToRole="Permissions" />
-          <Property Name="WorkStation" Type="Boolean" Nullable="false" DefaultValue="false" />
-          <Property Name="BadgeNo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Packages" Relationship="MesDbModel.FK_Packages_Users" FromRole="Users" ToRole="Packages" />
-          <NavigationProperty Name="ShopOrders" Relationship="MesDbModel.FK_ShopOrders_Users" FromRole="Users" ToRole="ShopOrders" />
-        </EntityType>
-        <Association Name="FK_Permissions_MenuItems">
-          <End Type="MesDbModel.MenuItems" Role="MenuItems" Multiplicity="1" />
-          <End Type="MesDbModel.Permissions" Role="Permissions" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MenuItems">
-              <PropertyRef Name="MenuItem" />
-            </Principal>
-            <Dependent Role="Permissions">
-              <PropertyRef Name="MenuItem" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Permissions_Users">
-          <End Type="MesDbModel.Users" Role="Users" Multiplicity="1" />
-          <End Type="MesDbModel.Permissions" Role="Permissions" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="Permissions">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="ArelContainers">
+        <ComplexType Name="fn_GetDyeLotBatches_Result">
+          <Property Name="batch" Type="Int32" />
+        </ComplexType>
+        <EntityType Name="ArelContainer">
           <Key>
             <PropertyRef Name="Arel_Key" />
             <PropertyRef Name="MachineNo" />
@@ -878,7 +826,7 @@
           </Key>
           <Property Name="Arel_Key" Type="Int32" Nullable="false" />
           <Property Name="MachineNo" Type="Int16" Nullable="false" />
-          <Property Name="LotNo" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="LotNo" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DyeProgramNo" Type="Int16" Nullable="false" />
           <Property Name="NBofcontainers" Type="Int16" />
           <Property Name="Batch__1" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
@@ -964,15 +912,15 @@
           <Property Name="Sent_to_Munk" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="Save_sent_to_munk" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="Filler" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ArelLots" Relationship="MesDbModel.FK_ArelContainers_ArelLots" FromRole="ArelContainers" ToRole="ArelLots" />
+          <NavigationProperty Name="ArelLot" Relationship="Self.FK_ArelContainers_ArelLots" FromRole="ArelContainers" ToRole="ArelLots" />
         </EntityType>
-        <EntityType Name="ArelLots">
+        <EntityType Name="ArelLot">
           <Key>
             <PropertyRef Name="Lot_Number" />
             <PropertyRef Name="Machine_nr" />
             <PropertyRef Name="Arel_Date" />
           </Key>
-          <Property Name="Lot_Number" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Lot_Number" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Weight" Type="Int16" />
           <Property Name="Pump_Speed" Type="Int16" />
           <Property Name="Roller_Speed" Type="Int16" />
@@ -1066,8 +1014,8 @@
           <Property Name="StartDT" Type="DateTime" Precision="3" />
           <Property Name="EndDT" Type="DateTime" Precision="3" />
           <Property Name="ActTime" Type="Int16" />
-          <NavigationProperty Name="ArelContainers" Relationship="MesDbModel.FK_ArelContainers_ArelLots" FromRole="ArelLots" ToRole="ArelContainers" />
-          <NavigationProperty Name="ArelLotsRecipe" Relationship="MesDbModel.FK_ArelLotsRecipe_ArelLotsRecipe" FromRole="ArelLots" ToRole="ArelLotsRecipe" />
+          <NavigationProperty Name="ArelContainers" Relationship="Self.FK_ArelContainers_ArelLots" FromRole="ArelLots" ToRole="ArelContainers" />
+          <NavigationProperty Name="ArelLotsRecipes" Relationship="Self.FK_ArelLotsRecipe_ArelLotsRecipe" FromRole="ArelLots" ToRole="ArelLotsRecipe" />
         </EntityType>
         <EntityType Name="ArelLotsRecipe">
           <Key>
@@ -1079,7 +1027,7 @@
             <PropertyRef Name="Step" />
             <PropertyRef Name="ArelKey" />
           </Key>
-          <Property Name="Lot_Number" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Lot_Number" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Machine" Type="Int16" Nullable="false" />
           <Property Name="Program" Type="Int16" Nullable="false" />
           <Property Name="Product_Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
@@ -1110,19 +1058,47 @@
           <Property Name="LotRedyeIndex" Type="Int16" />
           <Property Name="PrepNumber" Type="Int16" />
           <Property Name="Filler" Type="String" MaxLength="94" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ArelLots" Relationship="MesDbModel.FK_ArelLotsRecipe_ArelLotsRecipe" FromRole="ArelLotsRecipe" ToRole="ArelLots" />
+          <NavigationProperty Name="ArelLot" Relationship="Self.FK_ArelLotsRecipe_ArelLotsRecipe" FromRole="ArelLotsRecipe" ToRole="ArelLots" />
         </EntityType>
-        <EntityType Name="Packages">
+        <EntityType Name="AutomatedEmail">
+          <Key>
+            <PropertyRef Name="Call" />
+          </Key>
+          <Property Name="Call" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FromAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ToAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Reply" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LocalVariable">
+          <Key>
+            <PropertyRef Name="Machine" />
+          </Key>
+          <Property Name="Machine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DefaultLogin" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="LabelPrinter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MenuItem">
+          <Key>
+            <PropertyRef Name="MenuItem1" />
+          </Key>
+          <Property Name="MenuItem1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ParentItem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Caption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Permissions" Relationship="Self.FK_Permissions_MenuItems" FromRole="MenuItems" ToRole="Permissions" />
+        </EntityType>
+        <EntityType Name="Package">
           <Key>
             <PropertyRef Name="SerialNo" />
           </Key>
-          <Property Name="SerialNo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SerialNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ShopOrderNo" Type="Int32" Nullable="false" />
-          <Property Name="Item" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="MasterItem" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Color" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="AllowYds" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
-          <Property Name="CutOffYds" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="Item" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MasterItem" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LstOp" Type="Int32" />
+          <Property Name="LstMach" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="AllowYds" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="CutOffYds" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="CutOffDefectCode" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="FinWidth" Type="Single" />
           <Property Name="Grade" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
@@ -1131,8 +1107,8 @@
           <Property Name="NetYds" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="InspBegTime" Type="DateTime" Precision="3" />
           <Property Name="InspEndTime" Type="DateTime" Precision="3" />
-          <Property Name="NetLbs" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
-          <Property Name="TareLbs" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="NetLbs" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="TareLbs" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="ReInspReqd" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="ReInspBegTime" Type="DateTime" Precision="3" />
           <Property Name="ReInspEndTime" Type="DateTime" Precision="3" />
@@ -1140,11 +1116,11 @@
           <Property Name="HoldFor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Reworked" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="Rejected" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="Warehouse" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="Location" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Warehouse" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ChangedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ChangedBy" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="ChangedBy" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="BinNo" Type="Int32" />
           <Property Name="PackFlag" Type="Boolean" Nullable="false" />
           <Property Name="LstShopOrder" Type="Int32" />
@@ -1152,12 +1128,23 @@
           <Property Name="DelschedID" Type="Int32" Nullable="false" />
           <Property Name="ShadeGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="MilLotRep" Type="Boolean" />
-          <NavigationProperty Name="Status1" Relationship="MesDbModel.FK_Packages_Status" FromRole="Packages" ToRole="Status" />
-          <NavigationProperty Name="Users" Relationship="MesDbModel.FK_Packages_Users" FromRole="Packages" ToRole="Users" />
-          <NavigationProperty Name="PkgHist" Relationship="MesDbModel.FK_PkgHist_Rolls" FromRole="Packages" ToRole="PkgHist" />
-          <NavigationProperty Name="ShopOrders" Relationship="MesDbModel.FK_Packages_ShopOrders" FromRole="Packages" ToRole="ShopOrders" />
-          <Property Name="LstOp" Type="Int32" />
-          <Property Name="LstMach" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ShopOrder" Relationship="Self.FK_Packages_ShopOrders" FromRole="Packages" ToRole="ShopOrders" />
+          <NavigationProperty Name="Status1" Relationship="Self.FK_Packages_Status" FromRole="Packages" ToRole="Status" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Packages_Users" FromRole="Packages" ToRole="Users" />
+          <NavigationProperty Name="PkgHists" Relationship="Self.FK_PkgHist_Rolls" FromRole="Packages" ToRole="PkgHist" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MenuItem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ViewOnly" Type="Boolean" Nullable="false" />
+          <Property Name="ChangedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChangedBy" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MenuItem1" Relationship="Self.FK_Permissions_MenuItems" FromRole="Permissions" ToRole="MenuItems" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Permissions_Users" FromRole="Permissions" ToRole="Users" />
         </EntityType>
         <EntityType Name="PkgHist">
           <Key>
@@ -1165,14 +1152,16 @@
           </Key>
           <Property Name="HistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TransDateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="TransDescr" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SerialNo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TransDescr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SerialNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ShopOrderNo" Type="Int32" Nullable="false" />
-          <Property Name="Item" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="MasterItem" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Color" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="AllowYds" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
-          <Property Name="CutOffYds" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="Item" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MasterItem" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LstOp" Type="Int32" />
+          <Property Name="LstMach" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="AllowYds" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="CutOffYds" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="CutOffDefectCode" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="FinWidth" Type="Single" />
           <Property Name="Grade" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
@@ -1181,8 +1170,8 @@
           <Property Name="NetYds" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="InspBegTime" Type="DateTime" Precision="3" />
           <Property Name="InspEndTime" Type="DateTime" Precision="3" />
-          <Property Name="NetLbs" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
-          <Property Name="TareLbs" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="NetLbs" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="TareLbs" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="ReInspReqd" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="ReInspBegTime" Type="DateTime" Precision="3" />
           <Property Name="ReInspEndTime" Type="DateTime" Precision="3" />
@@ -1190,11 +1179,11 @@
           <Property Name="HoldFor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Reworked" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="Rejected" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="Warehouse" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="Location" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Warehouse" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ChangedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ChangedBy" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="ChangedBy" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="BinNo" Type="Int32" />
           <Property Name="PackFlag" Type="Boolean" Nullable="false" />
           <Property Name="LstShopOrder" Type="Int32" />
@@ -1202,27 +1191,228 @@
           <Property Name="DelschedID" Type="Int32" Nullable="false" />
           <Property Name="ShadeGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="MilLotRep" Type="Boolean" />
-          <NavigationProperty Name="Packages" Relationship="MesDbModel.FK_PkgHist_Rolls" FromRole="PkgHist" ToRole="Packages" />
-          <Property Name="LstOp" Type="Int32" />
-          <Property Name="LstMach" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Package" Relationship="Self.FK_PkgHist_Rolls" FromRole="PkgHist" ToRole="Packages" />
+        </EntityType>
+        <EntityType Name="ShopOrder">
+          <Key>
+            <PropertyRef Name="ShopOrderNo" />
+          </Key>
+          <Property Name="ShopOrderNo" Type="Int32" Nullable="false" />
+          <Property Name="Item" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MasterItem" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StdYds" Type="Int32" Nullable="false" />
+          <Property Name="StdLbs" Type="Int32" Nullable="false" />
+          <Property Name="ActStartLbs" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="ActCurrLbs" Type="Single" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="PkgCount" Type="Single" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="DyeLot" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ChangedBy" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ChangedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Packages" Relationship="Self.FK_Packages_ShopOrders" FromRole="ShopOrders" ToRole="Packages" />
+          <NavigationProperty Name="Status1" Relationship="Self.FK_ShopOrders_Status" FromRole="ShopOrders" ToRole="Status" />
+          <NavigationProperty Name="User" Relationship="Self.FK_ShopOrders_Users" FromRole="ShopOrders" ToRole="Users" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
             <PropertyRef Name="Status1" />
           </Key>
-          <Property Name="Status1" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Inv" Type="Boolean" Nullable="false" />
           <Property Name="Packages" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Packages1" Relationship="MesDbModel.FK_Packages_Status" FromRole="Status" ToRole="Packages" />
-          <NavigationProperty Name="Status11" Relationship="MesDbModel.FK_Status_Status" FromRole="Status" ToRole="Status1" />
-          <NavigationProperty Name="Status2" Relationship="MesDbModel.FK_Status_Status" FromRole="Status1" ToRole="Status" />
           <Property Name="ShopOrders" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="ShopOrders1" Relationship="MesDbModel.FK_ShopOrders_Status" FromRole="Status" ToRole="ShopOrders" />
+          <NavigationProperty Name="Packages1" Relationship="Self.FK_Packages_Status" FromRole="Status" ToRole="Packages" />
+          <NavigationProperty Name="ShopOrders1" Relationship="Self.FK_ShopOrders_Status" FromRole="Status" ToRole="ShopOrders" />
+          <NavigationProperty Name="Status11" Relationship="Self.FK_Status_Status" FromRole="Status" ToRole="Status1" />
+          <NavigationProperty Name="Status2" Relationship="Self.FK_Status_Status" FromRole="Status1" ToRole="Status" />
+        </EntityType>
+        <EntityType Name="SystemParam">
+          <Key>
+            <PropertyRef Name="Config" />
+          </Key>
+          <Property Name="Config" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Catalog" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="company" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="zipcode" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phoneno" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="plantno" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="plantname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="updateDir" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="smtpServer" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SSRSserverURI" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="SSRSreportPath" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="LabelsDir" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateProgramSource" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="SysUser" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="SysHash" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="AisUser" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AisHash" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="SigConnFolder" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tr_hist">
+          <Key>
+            <PropertyRef Name="prrowid" />
+          </Key>
+          <Property Name="prrowid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tr_part" Type="String" MaxLength="66" FixedLength="false" Unicode="false" />
+          <Property Name="tr_date" Type="DateTime" Precision="3" />
+          <Property Name="tr_per_date" Type="DateTime" Precision="3" />
+          <Property Name="tr_type" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_loc" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_loc_begin" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_begin_qoh" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_qty_req" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_qty_chg" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_qty_short" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_um" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tr_last_date" Type="DateTime" Precision="3" />
+          <Property Name="tr_nbr" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="tr_so_job" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_ship_type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tr_addr" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_rmks" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_xdr_acct" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_xcr_acct" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_mtl_std" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_lbr_std" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_bdn_std" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_price" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_trnbr" Type="Int32" />
+          <Property Name="tr_gl_amt" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_xdr_cc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tr_xcr_cc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tr_lot" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_sub_std" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_gl_date" Type="DateTime" Precision="3" />
+          <Property Name="tr_qty_loc" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_userid" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_serial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tr_effdate" Type="DateTime" Precision="3" />
+          <Property Name="tr_prod_line" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tr_xslspsn1" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_xslspsn2" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_xcr_proj" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_xdr_proj" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_line" Type="Int32" />
+          <Property Name="tr_user1" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_user2" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_curr" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tr_ex_rate" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_rev" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tr_time" Type="Int32" />
+          <Property Name="tr_ovh_std" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_site" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_status" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_grade" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tr_expire" Type="DateTime" Precision="3" />
+          <Property Name="tr_assay" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_xgl_ref" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tr__chr01" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr__chr02" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr__chr03" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr__chr04" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr__chr05" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr__chr06" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr__chr07" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr__chr08" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr__chr09" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr__chr10" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr__chr11" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr__chr12" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr__chr13" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr__chr14" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr__chr15" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr__dte01" Type="DateTime" Precision="3" />
+          <Property Name="tr__dte02" Type="DateTime" Precision="3" />
+          <Property Name="tr__dte03" Type="DateTime" Precision="3" />
+          <Property Name="tr__dte04" Type="DateTime" Precision="3" />
+          <Property Name="tr__dte05" Type="DateTime" Precision="3" />
+          <Property Name="tr__dec01" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr__dec02" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr__dec03" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr__dec04" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr__dec05" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr__log01" Type="Boolean" />
+          <Property Name="tr__log02" Type="Boolean" />
+          <Property Name="tr_ref" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_msg" Type="Int32" />
+          <Property Name="tr_program" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="tr_ord_rev" Type="Int32" />
+          <Property Name="tr_ref_site" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_rsn_code" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_vend_lot" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="tr_vend_date" Type="DateTime" Precision="3" />
+          <Property Name="tr_daycode" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_for" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tr_slspsn__1" Type="String" MaxLength="82" FixedLength="false" Unicode="false" />
+          <Property Name="tr_slspsn__2" Type="String" MaxLength="82" FixedLength="false" Unicode="false" />
+          <Property Name="tr_slspsn__3" Type="String" MaxLength="82" FixedLength="false" Unicode="false" />
+          <Property Name="tr_slspsn__4" Type="String" MaxLength="82" FixedLength="false" Unicode="false" />
+          <Property Name="tr_fsm_type" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_upd_isb" Type="Boolean" />
+          <Property Name="tr_auto_install" Type="Boolean" />
+          <Property Name="tr_ca_int_type" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_covered_amt" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_fcg_code" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_batch" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tr_fsc_code" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_sa_nbr" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_sv_code" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_eng_area" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tr_sys_prod" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tr_svc_type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tr_ca_opn_date" Type="DateTime" Precision="3" />
+          <Property Name="tr_cprice" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_eng_code" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_wod_op" Type="Int32" />
+          <Property Name="tr_enduser" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_ship_inv_mov" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_ship_date" Type="DateTime" Precision="3" />
+          <Property Name="tr_ship_id" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tr_ex_rate2" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="tr_ex_ratetype" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="tr_exru_seq" Type="Int32" />
+          <Property Name="tr_promise_date" Type="DateTime" Precision="3" />
+          <Property Name="tr_fldchg_cmtindx" Type="Int32" />
+          <Property Name="tr_domain" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="oid_tr_hist" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="Pro2SrcPDB" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="pro2created" Type="DateTime" Precision="3" />
+          <Property Name="pro2modified" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserGuid" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BadgeNo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Middle" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="TimeOut" Type="Int32" Nullable="false" />
+          <Property Name="ChangePass" Type="Boolean" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Admin" Type="Boolean" Nullable="false" />
+          <Property Name="WorkStation" Type="Boolean" Nullable="false" />
+          <Property Name="ChangedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChangedBy" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Packages" Relationship="Self.FK_Packages_Users" FromRole="Users" ToRole="Packages" />
+          <NavigationProperty Name="Permissions" Relationship="Self.FK_Permissions_Users" FromRole="Users" ToRole="Permissions" />
+          <NavigationProperty Name="ShopOrders" Relationship="Self.FK_ShopOrders_Users" FromRole="Users" ToRole="ShopOrders" />
         </EntityType>
         <Association Name="FK_ArelContainers_ArelLots">
-          <End Type="MesDbModel.ArelLots" Role="ArelLots" Multiplicity="1" />
-          <End Type="MesDbModel.ArelContainers" Role="ArelContainers" Multiplicity="*" />
+          <End Role="ArelLots" Type="Self.ArelLot" Multiplicity="1" />
+          <End Role="ArelContainers" Type="Self.ArelContainer" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ArelLots">
               <PropertyRef Name="Arel_Date" />
@@ -1237,8 +1427,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ArelLotsRecipe_ArelLotsRecipe">
-          <End Type="MesDbModel.ArelLots" Role="ArelLots" Multiplicity="1" />
-          <End Type="MesDbModel.ArelLotsRecipe" Role="ArelLotsRecipe" Multiplicity="*" />
+          <End Role="ArelLots" Type="Self.ArelLot" Multiplicity="1" />
+          <End Role="ArelLotsRecipe" Type="Self.ArelLotsRecipe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ArelLots">
               <PropertyRef Name="Lot_Number" />
@@ -1252,9 +1442,35 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Permissions_MenuItems">
+          <End Role="MenuItems" Type="Self.MenuItem" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Permissions" Type="Self.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuItems">
+              <PropertyRef Name="MenuItem1" />
+            </Principal>
+            <Dependent Role="Permissions">
+              <PropertyRef Name="MenuItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Packages_ShopOrders">
+          <End Role="ShopOrders" Type="Self.ShopOrder" Multiplicity="1" />
+          <End Role="Packages" Type="Self.Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShopOrders">
+              <PropertyRef Name="ShopOrderNo" />
+            </Principal>
+            <Dependent Role="Packages">
+              <PropertyRef Name="ShopOrderNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Packages_Status">
-          <End Type="MesDbModel.Status" Role="Status" Multiplicity="1" />
-          <End Type="MesDbModel.Packages" Role="Packages" Multiplicity="*" />
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Packages" Type="Self.Package" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Status">
               <PropertyRef Name="Status1" />
@@ -1265,8 +1481,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Packages_Users">
-          <End Type="MesDbModel.Users" Role="Users" Multiplicity="1" />
-          <End Type="MesDbModel.Packages" Role="Packages" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Packages" Type="Self.Package" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="UserId" />
@@ -1277,8 +1493,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PkgHist_Rolls">
-          <End Type="MesDbModel.Packages" Role="Packages" Multiplicity="1" />
-          <End Type="MesDbModel.PkgHist" Role="PkgHist" Multiplicity="*" />
+          <End Role="Packages" Type="Self.Package" Multiplicity="1" />
+          <End Role="PkgHist" Type="Self.PkgHist" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Packages">
               <PropertyRef Name="SerialNo" />
@@ -1288,54 +1504,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Status_Status">
-          <End Type="MesDbModel.Status" Role="Status" Multiplicity="1" />
-          <End Type="MesDbModel.Status" Role="Status1" Multiplicity="0..1" />
+        <Association Name="FK_Permissions_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Permissions" Type="Self.Permission" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="Status1" />
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
             </Principal>
-            <Dependent Role="Status1">
-              <PropertyRef Name="Status1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="ShopOrders">
-          <Key>
-            <PropertyRef Name="ShopOrderNo" />
-          </Key>
-          <Property Name="ShopOrderNo" Type="Int32" Nullable="false" />
-          <Property Name="Item" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="MasterItem" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Color" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="StdYds" Type="Int32" Nullable="false" />
-          <Property Name="StdLbs" Type="Int32" Nullable="false" />
-          <Property Name="ActStartLbs" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
-          <Property Name="ActCurrLbs" Type="Single" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="PkgCount" Type="Single" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="DyeLot" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="ChangedBy" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
-          <Property Name="ChangedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Packages" Relationship="MesDbModel.FK_Packages_ShopOrders" FromRole="ShopOrders" ToRole="Packages" />
-          <NavigationProperty Name="Status1" Relationship="MesDbModel.FK_ShopOrders_Status" FromRole="ShopOrders" ToRole="Status" />
-          <NavigationProperty Name="Users" Relationship="MesDbModel.FK_ShopOrders_Users" FromRole="ShopOrders" ToRole="Users" />
-        </EntityType>
-        <Association Name="FK_Packages_ShopOrders">
-          <End Type="MesDbModel.ShopOrders" Role="ShopOrders" Multiplicity="1" />
-          <End Type="MesDbModel.Packages" Role="Packages" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ShopOrders">
-              <PropertyRef Name="ShopOrderNo" />
-            </Principal>
-            <Dependent Role="Packages">
-              <PropertyRef Name="ShopOrderNo" />
+            <Dependent Role="Permissions">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ShopOrders_Status">
-          <End Type="MesDbModel.Status" Role="Status" Multiplicity="1" />
-          <End Type="MesDbModel.ShopOrders" Role="ShopOrders" Multiplicity="*" />
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="ShopOrders" Type="Self.ShopOrder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Status">
               <PropertyRef Name="Status1" />
@@ -1346,8 +1529,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ShopOrders_Users">
-          <End Type="MesDbModel.Users" Role="Users" Multiplicity="1" />
-          <End Type="MesDbModel.ShopOrders" Role="ShopOrders" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="ShopOrders" Type="Self.ShopOrder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="UserId" />
@@ -1357,468 +1540,693 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="AutomatedEmail">
-          <Key>
-            <PropertyRef Name="Call" />
-          </Key>
-          <Property Name="Call" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FromAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="ToAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Reply" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
-        </Schema>
+        <Association Name="FK_Status_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Status1" Type="Self.Status" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Status1" />
+            </Principal>
+            <Dependent Role="Status1">
+              <PropertyRef Name="Status1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TestMesDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ArelContainers" EntityType="Self.ArelContainer" />
+          <EntitySet Name="ArelLots" EntityType="Self.ArelLot" />
+          <EntitySet Name="ArelLotsRecipes" EntityType="Self.ArelLotsRecipe" />
+          <EntitySet Name="AutomatedEmails" EntityType="Self.AutomatedEmail" />
+          <EntitySet Name="LocalVariables" EntityType="Self.LocalVariable" />
+          <EntitySet Name="MenuItems" EntityType="Self.MenuItem" />
+          <EntitySet Name="Packages" EntityType="Self.Package" />
+          <EntitySet Name="Permissions" EntityType="Self.Permission" />
+          <EntitySet Name="PkgHists" EntityType="Self.PkgHist" />
+          <EntitySet Name="ShopOrders" EntityType="Self.ShopOrder" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="SystemParams" EntityType="Self.SystemParam" />
+          <EntitySet Name="tr_hist" EntityType="Self.tr_hist" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_ArelContainers_ArelLots" Association="Self.FK_ArelContainers_ArelLots">
+            <End Role="ArelLots" EntitySet="ArelLots" />
+            <End Role="ArelContainers" EntitySet="ArelContainers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArelLotsRecipe_ArelLotsRecipe" Association="Self.FK_ArelLotsRecipe_ArelLotsRecipe">
+            <End Role="ArelLots" EntitySet="ArelLots" />
+            <End Role="ArelLotsRecipe" EntitySet="ArelLotsRecipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permissions_MenuItems" Association="Self.FK_Permissions_MenuItems">
+            <End Role="MenuItems" EntitySet="MenuItems" />
+            <End Role="Permissions" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Packages_ShopOrders" Association="Self.FK_Packages_ShopOrders">
+            <End Role="ShopOrders" EntitySet="ShopOrders" />
+            <End Role="Packages" EntitySet="Packages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Packages_Status" Association="Self.FK_Packages_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Packages" EntitySet="Packages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Packages_Users" Association="Self.FK_Packages_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Packages" EntitySet="Packages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PkgHist_Rolls" Association="Self.FK_PkgHist_Rolls">
+            <End Role="Packages" EntitySet="Packages" />
+            <End Role="PkgHist" EntitySet="PkgHists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permissions_Users" Association="Self.FK_Permissions_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Permissions" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopOrders_Status" Association="Self.FK_ShopOrders_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="ShopOrders" EntitySet="ShopOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopOrders_Users" Association="Self.FK_ShopOrders_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ShopOrders" EntitySet="ShopOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Status_Status" Association="Self.FK_Status_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Status1" EntitySet="Status" />
+          </AssociationSet>
+          <FunctionImport Name="fn_GetDyeLotBatches" IsComposable="true" ReturnType="Collection(MesDbModel.fn_GetDyeLotBatches_Result)">
+            <Parameter Name="DyeLot" Mode="In" Type="String" />
+            <Parameter Name="MachineNo" Mode="In" Type="Int32" />
+            <Parameter Name="ArelKey" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_DyeLotStarted" ReturnType="Collection(Int32)">
+            <Parameter Name="DyeLot" Mode="In" Type="String" />
+            <Parameter Name="MachineNo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_InsertPkgHist">
+            <Parameter Name="Where" Mode="In" Type="String" />
+            <Parameter Name="TransDescr" Mode="In" Type="String" />
+            <Parameter Name="TransDateTime" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_IssueToShopOrderPkg">
+            <Parameter Name="SO" Mode="In" Type="Int32" />
+            <Parameter Name="DT" Mode="In" Type="DateTime" />
+            <Parameter Name="UserID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_QcRelease">
+            <Parameter Name="SO" Mode="In" Type="Int32" />
+            <Parameter Name="User" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MesDbModelStoreContainer" CdmEntityContainer="MesDbEntities">
-          <EntitySetMapping Name="LocalVariables">
-            <EntityTypeMapping TypeName="MesDbModel.LocalVariables">
-              <MappingFragment StoreEntitySet="LocalVariables">
-                <ScalarProperty Name="LabelPrinter" ColumnName="LabelPrinter" />
-                <ScalarProperty Name="DefaultLogin" ColumnName="DefaultLogin" />
-                <ScalarProperty Name="Machine" ColumnName="Machine" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MenuItems">
-            <EntityTypeMapping TypeName="MesDbModel.MenuItems">
-              <MappingFragment StoreEntitySet="MenuItems">
-                <ScalarProperty Name="Caption" ColumnName="Caption" />
-                <ScalarProperty Name="ParentItem" ColumnName="ParentItem" />
-                <ScalarProperty Name="MenuItem" ColumnName="MenuItem" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Permissions">
-            <EntityTypeMapping TypeName="MesDbModel.Permissions">
-              <MappingFragment StoreEntitySet="Permissions">
-                <ScalarProperty Name="ViewOnly" ColumnName="ViewOnly" />
-                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
-                <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
-                <ScalarProperty Name="MenuItem" ColumnName="MenuItem" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SystemParams">
-            <EntityTypeMapping TypeName="MesDbModel.SystemParams">
-              <MappingFragment StoreEntitySet="SystemParams">
-                <ScalarProperty Name="SigConnFolder" ColumnName="SigConnFolder" />
-                <ScalarProperty Name="AisHash" ColumnName="AisHash" />
-                <ScalarProperty Name="AisUser" ColumnName="AisUser" />
-                <ScalarProperty Name="SysHash" ColumnName="SysHash" />
-                <ScalarProperty Name="SysUser" ColumnName="SysUser" />
-                <ScalarProperty Name="UpdateProgramSource" ColumnName="UpdateProgramSource" />
-                <ScalarProperty Name="LabelsDir" ColumnName="LabelsDir" />
-                <ScalarProperty Name="SSRSreportPath" ColumnName="SSRSreportPath" />
-                <ScalarProperty Name="SSRSserverURI" ColumnName="SSRSserverURI" />
-                <ScalarProperty Name="smtpServer" ColumnName="smtpServer" />
-                <ScalarProperty Name="updateDir" ColumnName="updateDir" />
-                <ScalarProperty Name="plantname" ColumnName="plantname" />
-                <ScalarProperty Name="plantno" ColumnName="plantno" />
-                <ScalarProperty Name="phoneno" ColumnName="phoneno" />
-                <ScalarProperty Name="country" ColumnName="country" />
-                <ScalarProperty Name="zipcode" ColumnName="zipcode" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="city" ColumnName="city" />
-                <ScalarProperty Name="address2" ColumnName="address2" />
-                <ScalarProperty Name="address1" ColumnName="address1" />
-                <ScalarProperty Name="company" ColumnName="company" />
-                <ScalarProperty Name="Catalog" ColumnName="Catalog" />
-                <ScalarProperty Name="Config" ColumnName="Config" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="MesDbModel.Users">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="BadgeNo" ColumnName="BadgeNo" />
-                <ScalarProperty Name="WorkStation" ColumnName="WorkStation" />
-                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
-                <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
-                <ScalarProperty Name="Admin" ColumnName="Admin" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="ChangePass" ColumnName="ChangePass" />
-                <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
-                <ScalarProperty Name="Active" ColumnName="Active" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="Middle" ColumnName="Middle" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="UserGuid" ColumnName="UserGuid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_QcRelease" FunctionName="MesDbModel.Store.sp_QcRelease" />
+        <EntityContainerMapping StorageEntityContainer="MesDbModelStoreContainer" CdmEntityContainer="TestMesDbEntities">
           <EntitySetMapping Name="ArelContainers">
-            <EntityTypeMapping TypeName="MesDbModel.ArelContainers">
+            <EntityTypeMapping TypeName="MesDbModel.ArelContainer">
               <MappingFragment StoreEntitySet="ArelContainers">
-                <ScalarProperty Name="Filler" ColumnName="Filler" />
-                <ScalarProperty Name="Save_sent_to_munk" ColumnName="Save_sent_to_munk" />
-                <ScalarProperty Name="Sent_to_Munk" ColumnName="Sent_to_Munk" />
-                <ScalarProperty Name="Number_of_pieces__20" ColumnName="Number_of_pieces_#20" />
-                <ScalarProperty Name="Number_of_pieces__19" ColumnName="Number_of_pieces_#19" />
-                <ScalarProperty Name="Number_of_pieces__18" ColumnName="Number_of_pieces_#18" />
-                <ScalarProperty Name="Number_of_pieces__17" ColumnName="Number_of_pieces_#17" />
-                <ScalarProperty Name="Number_of_pieces__16" ColumnName="Number_of_pieces_#16" />
-                <ScalarProperty Name="Number_of_pieces__15" ColumnName="Number_of_pieces_#15" />
-                <ScalarProperty Name="Number_of_pieces__14" ColumnName="Number_of_pieces_#14" />
-                <ScalarProperty Name="Number_of_pieces__13" ColumnName="Number_of_pieces_#13" />
-                <ScalarProperty Name="Number_of_pieces__12" ColumnName="Number_of_pieces_#12" />
-                <ScalarProperty Name="Number_of_pieces__11" ColumnName="Number_of_pieces_#11" />
-                <ScalarProperty Name="Number_of_pieces__10" ColumnName="Number_of_pieces_#10" />
-                <ScalarProperty Name="Number_of_pieces__9" ColumnName="Number_of_pieces_#9" />
-                <ScalarProperty Name="Number_of_pieces__8" ColumnName="Number_of_pieces_#8" />
-                <ScalarProperty Name="Number_of_pieces__7" ColumnName="Number_of_pieces_#7" />
-                <ScalarProperty Name="Number_of_pieces__6" ColumnName="Number_of_pieces_#6" />
-                <ScalarProperty Name="Number_of_pieces__5" ColumnName="Number_of_pieces_#5" />
-                <ScalarProperty Name="Number_of_pieces__4" ColumnName="Number_of_pieces_#4" />
-                <ScalarProperty Name="Number_of_pieces__3" ColumnName="Number_of_pieces_#3" />
-                <ScalarProperty Name="Number_of_pieces__2" ColumnName="Number_of_pieces_#2" />
-                <ScalarProperty Name="Number_of_pieces__1" ColumnName="Number_of_pieces_#1" />
-                <ScalarProperty Name="Warehouse__20" ColumnName="Warehouse_#20" />
-                <ScalarProperty Name="Warehouse__19" ColumnName="Warehouse_#19" />
-                <ScalarProperty Name="Warehouse__18" ColumnName="Warehouse_#18" />
-                <ScalarProperty Name="Warehouse__17" ColumnName="Warehouse_#17" />
-                <ScalarProperty Name="Warehouse__16" ColumnName="Warehouse_#16" />
-                <ScalarProperty Name="Warehouse__15" ColumnName="Warehouse_#15" />
-                <ScalarProperty Name="Warehouse__14" ColumnName="Warehouse_#14" />
-                <ScalarProperty Name="Warehouse__13" ColumnName="Warehouse_#13" />
-                <ScalarProperty Name="Warehouse__12" ColumnName="Warehouse_#12" />
-                <ScalarProperty Name="Warehouse__11" ColumnName="Warehouse_#11" />
-                <ScalarProperty Name="Warehouse__10" ColumnName="Warehouse_#10" />
-                <ScalarProperty Name="Warehouse__9" ColumnName="Warehouse_#9" />
-                <ScalarProperty Name="Warehouse__8" ColumnName="Warehouse_#8" />
-                <ScalarProperty Name="Warehouse__7" ColumnName="Warehouse_#7" />
-                <ScalarProperty Name="Warehouse__6" ColumnName="Warehouse_#6" />
-                <ScalarProperty Name="Warehouse__5" ColumnName="Warehouse_#5" />
-                <ScalarProperty Name="Warehouse__4" ColumnName="Warehouse_#4" />
-                <ScalarProperty Name="Warehouse__3" ColumnName="Warehouse_#3" />
-                <ScalarProperty Name="Warehouse__2" ColumnName="Warehouse_#2" />
-                <ScalarProperty Name="Warehouse__1" ColumnName="Warehouse_#1" />
-                <ScalarProperty Name="Container__20" ColumnName="Container_#20" />
-                <ScalarProperty Name="Container__19" ColumnName="Container_#19" />
-                <ScalarProperty Name="Container__18" ColumnName="Container_#18" />
-                <ScalarProperty Name="Container__17" ColumnName="Container_#17" />
-                <ScalarProperty Name="Container__16" ColumnName="Container_#16" />
-                <ScalarProperty Name="Container__15" ColumnName="Container_#15" />
-                <ScalarProperty Name="Container__14" ColumnName="Container_#14" />
-                <ScalarProperty Name="Container__13" ColumnName="Container_#13" />
-                <ScalarProperty Name="Container__12" ColumnName="Container_#12" />
-                <ScalarProperty Name="Container__11" ColumnName="Container_#11" />
-                <ScalarProperty Name="Container__10" ColumnName="Container_#10" />
-                <ScalarProperty Name="Container__9" ColumnName="Container_#9" />
-                <ScalarProperty Name="Container__8" ColumnName="Container_#8" />
-                <ScalarProperty Name="Container__7" ColumnName="Container_#7" />
-                <ScalarProperty Name="Container__6" ColumnName="Container_#6" />
-                <ScalarProperty Name="Container__5" ColumnName="Container_#5" />
-                <ScalarProperty Name="Container__4" ColumnName="Container_#4" />
-                <ScalarProperty Name="Container__3" ColumnName="Container_#3" />
-                <ScalarProperty Name="Container__2" ColumnName="Container_#2" />
-                <ScalarProperty Name="Container__1" ColumnName="Container_#1" />
-                <ScalarProperty Name="Batch__20" ColumnName="Batch_#20" />
-                <ScalarProperty Name="Batch__19" ColumnName="Batch_#19" />
-                <ScalarProperty Name="Batch__18" ColumnName="Batch_#18" />
-                <ScalarProperty Name="Batch__17" ColumnName="Batch_#17" />
-                <ScalarProperty Name="Batch__16" ColumnName="Batch_#16" />
-                <ScalarProperty Name="Batch__15" ColumnName="Batch_#15" />
-                <ScalarProperty Name="Batch__14" ColumnName="Batch_#14" />
-                <ScalarProperty Name="Batch__13" ColumnName="Batch_#13" />
-                <ScalarProperty Name="Batch__12" ColumnName="Batch_#12" />
-                <ScalarProperty Name="Batch__11" ColumnName="Batch_#11" />
-                <ScalarProperty Name="Batch__10" ColumnName="Batch_#10" />
-                <ScalarProperty Name="Batch__9" ColumnName="Batch_#9" />
-                <ScalarProperty Name="Batch__8" ColumnName="Batch_#8" />
-                <ScalarProperty Name="Batch__7" ColumnName="Batch_#7" />
-                <ScalarProperty Name="Batch__6" ColumnName="Batch_#6" />
-                <ScalarProperty Name="Batch__5" ColumnName="Batch_#5" />
-                <ScalarProperty Name="Batch__4" ColumnName="Batch_#4" />
-                <ScalarProperty Name="Batch__3" ColumnName="Batch_#3" />
-                <ScalarProperty Name="Batch__2" ColumnName="Batch_#2" />
-                <ScalarProperty Name="Batch__1" ColumnName="Batch_#1" />
-                <ScalarProperty Name="NBofcontainers" ColumnName="NBofcontainers" />
-                <ScalarProperty Name="DyeProgramNo" ColumnName="DyeProgramNo" />
-                <ScalarProperty Name="LotNo" ColumnName="LotNo" />
-                <ScalarProperty Name="MachineNo" ColumnName="MachineNo" />
                 <ScalarProperty Name="Arel_Key" ColumnName="Arel_Key" />
+                <ScalarProperty Name="MachineNo" ColumnName="MachineNo" />
+                <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+                <ScalarProperty Name="DyeProgramNo" ColumnName="DyeProgramNo" />
+                <ScalarProperty Name="NBofcontainers" ColumnName="NBofcontainers" />
+                <ScalarProperty Name="Batch__1" ColumnName="Batch_#1" />
+                <ScalarProperty Name="Batch__2" ColumnName="Batch_#2" />
+                <ScalarProperty Name="Batch__3" ColumnName="Batch_#3" />
+                <ScalarProperty Name="Batch__4" ColumnName="Batch_#4" />
+                <ScalarProperty Name="Batch__5" ColumnName="Batch_#5" />
+                <ScalarProperty Name="Batch__6" ColumnName="Batch_#6" />
+                <ScalarProperty Name="Batch__7" ColumnName="Batch_#7" />
+                <ScalarProperty Name="Batch__8" ColumnName="Batch_#8" />
+                <ScalarProperty Name="Batch__9" ColumnName="Batch_#9" />
+                <ScalarProperty Name="Batch__10" ColumnName="Batch_#10" />
+                <ScalarProperty Name="Batch__11" ColumnName="Batch_#11" />
+                <ScalarProperty Name="Batch__12" ColumnName="Batch_#12" />
+                <ScalarProperty Name="Batch__13" ColumnName="Batch_#13" />
+                <ScalarProperty Name="Batch__14" ColumnName="Batch_#14" />
+                <ScalarProperty Name="Batch__15" ColumnName="Batch_#15" />
+                <ScalarProperty Name="Batch__16" ColumnName="Batch_#16" />
+                <ScalarProperty Name="Batch__17" ColumnName="Batch_#17" />
+                <ScalarProperty Name="Batch__18" ColumnName="Batch_#18" />
+                <ScalarProperty Name="Batch__19" ColumnName="Batch_#19" />
+                <ScalarProperty Name="Batch__20" ColumnName="Batch_#20" />
+                <ScalarProperty Name="Container__1" ColumnName="Container_#1" />
+                <ScalarProperty Name="Container__2" ColumnName="Container_#2" />
+                <ScalarProperty Name="Container__3" ColumnName="Container_#3" />
+                <ScalarProperty Name="Container__4" ColumnName="Container_#4" />
+                <ScalarProperty Name="Container__5" ColumnName="Container_#5" />
+                <ScalarProperty Name="Container__6" ColumnName="Container_#6" />
+                <ScalarProperty Name="Container__7" ColumnName="Container_#7" />
+                <ScalarProperty Name="Container__8" ColumnName="Container_#8" />
+                <ScalarProperty Name="Container__9" ColumnName="Container_#9" />
+                <ScalarProperty Name="Container__10" ColumnName="Container_#10" />
+                <ScalarProperty Name="Container__11" ColumnName="Container_#11" />
+                <ScalarProperty Name="Container__12" ColumnName="Container_#12" />
+                <ScalarProperty Name="Container__13" ColumnName="Container_#13" />
+                <ScalarProperty Name="Container__14" ColumnName="Container_#14" />
+                <ScalarProperty Name="Container__15" ColumnName="Container_#15" />
+                <ScalarProperty Name="Container__16" ColumnName="Container_#16" />
+                <ScalarProperty Name="Container__17" ColumnName="Container_#17" />
+                <ScalarProperty Name="Container__18" ColumnName="Container_#18" />
+                <ScalarProperty Name="Container__19" ColumnName="Container_#19" />
+                <ScalarProperty Name="Container__20" ColumnName="Container_#20" />
+                <ScalarProperty Name="Warehouse__1" ColumnName="Warehouse_#1" />
+                <ScalarProperty Name="Warehouse__2" ColumnName="Warehouse_#2" />
+                <ScalarProperty Name="Warehouse__3" ColumnName="Warehouse_#3" />
+                <ScalarProperty Name="Warehouse__4" ColumnName="Warehouse_#4" />
+                <ScalarProperty Name="Warehouse__5" ColumnName="Warehouse_#5" />
+                <ScalarProperty Name="Warehouse__6" ColumnName="Warehouse_#6" />
+                <ScalarProperty Name="Warehouse__7" ColumnName="Warehouse_#7" />
+                <ScalarProperty Name="Warehouse__8" ColumnName="Warehouse_#8" />
+                <ScalarProperty Name="Warehouse__9" ColumnName="Warehouse_#9" />
+                <ScalarProperty Name="Warehouse__10" ColumnName="Warehouse_#10" />
+                <ScalarProperty Name="Warehouse__11" ColumnName="Warehouse_#11" />
+                <ScalarProperty Name="Warehouse__12" ColumnName="Warehouse_#12" />
+                <ScalarProperty Name="Warehouse__13" ColumnName="Warehouse_#13" />
+                <ScalarProperty Name="Warehouse__14" ColumnName="Warehouse_#14" />
+                <ScalarProperty Name="Warehouse__15" ColumnName="Warehouse_#15" />
+                <ScalarProperty Name="Warehouse__16" ColumnName="Warehouse_#16" />
+                <ScalarProperty Name="Warehouse__17" ColumnName="Warehouse_#17" />
+                <ScalarProperty Name="Warehouse__18" ColumnName="Warehouse_#18" />
+                <ScalarProperty Name="Warehouse__19" ColumnName="Warehouse_#19" />
+                <ScalarProperty Name="Warehouse__20" ColumnName="Warehouse_#20" />
+                <ScalarProperty Name="Number_of_pieces__1" ColumnName="Number_of_pieces_#1" />
+                <ScalarProperty Name="Number_of_pieces__2" ColumnName="Number_of_pieces_#2" />
+                <ScalarProperty Name="Number_of_pieces__3" ColumnName="Number_of_pieces_#3" />
+                <ScalarProperty Name="Number_of_pieces__4" ColumnName="Number_of_pieces_#4" />
+                <ScalarProperty Name="Number_of_pieces__5" ColumnName="Number_of_pieces_#5" />
+                <ScalarProperty Name="Number_of_pieces__6" ColumnName="Number_of_pieces_#6" />
+                <ScalarProperty Name="Number_of_pieces__7" ColumnName="Number_of_pieces_#7" />
+                <ScalarProperty Name="Number_of_pieces__8" ColumnName="Number_of_pieces_#8" />
+                <ScalarProperty Name="Number_of_pieces__9" ColumnName="Number_of_pieces_#9" />
+                <ScalarProperty Name="Number_of_pieces__10" ColumnName="Number_of_pieces_#10" />
+                <ScalarProperty Name="Number_of_pieces__11" ColumnName="Number_of_pieces_#11" />
+                <ScalarProperty Name="Number_of_pieces__12" ColumnName="Number_of_pieces_#12" />
+                <ScalarProperty Name="Number_of_pieces__13" ColumnName="Number_of_pieces_#13" />
+                <ScalarProperty Name="Number_of_pieces__14" ColumnName="Number_of_pieces_#14" />
+                <ScalarProperty Name="Number_of_pieces__15" ColumnName="Number_of_pieces_#15" />
+                <ScalarProperty Name="Number_of_pieces__16" ColumnName="Number_of_pieces_#16" />
+                <ScalarProperty Name="Number_of_pieces__17" ColumnName="Number_of_pieces_#17" />
+                <ScalarProperty Name="Number_of_pieces__18" ColumnName="Number_of_pieces_#18" />
+                <ScalarProperty Name="Number_of_pieces__19" ColumnName="Number_of_pieces_#19" />
+                <ScalarProperty Name="Number_of_pieces__20" ColumnName="Number_of_pieces_#20" />
+                <ScalarProperty Name="Sent_to_Munk" ColumnName="Sent_to_Munk" />
+                <ScalarProperty Name="Save_sent_to_munk" ColumnName="Save_sent_to_munk" />
+                <ScalarProperty Name="Filler" ColumnName="Filler" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ArelLots">
-            <EntityTypeMapping TypeName="MesDbModel.ArelLots">
+            <EntityTypeMapping TypeName="MesDbModel.ArelLot">
               <MappingFragment StoreEntitySet="ArelLots">
-                <ScalarProperty Name="ActTime" ColumnName="ActTime" />
-                <ScalarProperty Name="EndDT" ColumnName="EndDT" />
-                <ScalarProperty Name="StartDT" ColumnName="StartDT" />
-                <ScalarProperty Name="Filler1" ColumnName="Filler1" />
-                <ScalarProperty Name="Length5" ColumnName="Length5" />
-                <ScalarProperty Name="SuperLotNo" ColumnName="SuperLotNo" />
-                <ScalarProperty Name="SuperlotFlag" ColumnName="SuperlotFlag" />
-                <ScalarProperty Name="LotRedyeIndex" ColumnName="LotRedyeIndex" />
-                <ScalarProperty Name="OptimizedTime" ColumnName="OptimizedTime" />
-                <ScalarProperty Name="Rope_time" ColumnName="Rope_time" />
-                <ScalarProperty Name="FloatWeight" ColumnName="FloatWeight" />
-                <ScalarProperty Name="Correction" ColumnName="Correction" />
-                <ScalarProperty Name="Operator_ID" ColumnName="Operator_ID" />
-                <ScalarProperty Name="Warehouse_8" ColumnName="Warehouse_8" />
-                <ScalarProperty Name="Warehouse_7" ColumnName="Warehouse_7" />
-                <ScalarProperty Name="Warehouse_6" ColumnName="Warehouse_6" />
-                <ScalarProperty Name="Warehouse_5" ColumnName="Warehouse_5" />
-                <ScalarProperty Name="Warehouse_4" ColumnName="Warehouse_4" />
-                <ScalarProperty Name="Warehouse_3" ColumnName="Warehouse_3" />
-                <ScalarProperty Name="Warehouse_2" ColumnName="Warehouse_2" />
-                <ScalarProperty Name="Warehouse_1" ColumnName="Warehouse_1" />
-                <ScalarProperty Name="Container__8" ColumnName="Container_#8" />
-                <ScalarProperty Name="Container__7" ColumnName="Container_#7" />
-                <ScalarProperty Name="Container__6" ColumnName="Container_#6" />
-                <ScalarProperty Name="Container__5" ColumnName="Container_#5" />
-                <ScalarProperty Name="Container__4" ColumnName="Container_#4" />
-                <ScalarProperty Name="Container__3" ColumnName="Container_#3" />
-                <ScalarProperty Name="Spare" ColumnName="Spare" />
-                <ScalarProperty Name="SpecialCode" ColumnName="SpecialCode" />
-                <ScalarProperty Name="Batch_8" ColumnName="Batch_8" />
-                <ScalarProperty Name="Batch_7" ColumnName="Batch_7" />
-                <ScalarProperty Name="Batch_6" ColumnName="Batch_6" />
-                <ScalarProperty Name="Batch_5" ColumnName="Batch_5" />
-                <ScalarProperty Name="Batch_4" ColumnName="Batch_4" />
-                <ScalarProperty Name="Batch_3" ColumnName="Batch_3" />
-                <ScalarProperty Name="Batch_2" ColumnName="Batch_2" />
-                <ScalarProperty Name="Batch_1" ColumnName="Batch_1" />
-                <ScalarProperty Name="Length" ColumnName="Length" />
-                <ScalarProperty Name="Width" ColumnName="Width" />
-                <ScalarProperty Name="Shade_Rating" ColumnName="Shade_Rating" />
-                <ScalarProperty Name="Shade" ColumnName="Shade" />
-                <ScalarProperty Name="Quality" ColumnName="Quality" />
-                <ScalarProperty Name="Customer" ColumnName="Customer" />
-                <ScalarProperty Name="Steam" ColumnName="Steam" />
-                <ScalarProperty Name="Rinse_blend" ColumnName="Rinse_blend" />
-                <ScalarProperty Name="Rinse_water_3" ColumnName="Rinse_water_3" />
-                <ScalarProperty Name="Rinse_water_2" ColumnName="Rinse_water_2" />
-                <ScalarProperty Name="Rinse_water_1" ColumnName="Rinse_water_1" />
-                <ScalarProperty Name="Mixers" ColumnName="Mixers" />
-                <ScalarProperty Name="Chemicals_Pump" ColumnName="Chemicals_Pump" />
-                <ScalarProperty Name="Roller_or_Auxilliary" ColumnName="Roller_or_Auxilliary" />
-                <ScalarProperty Name="Main_Pump" ColumnName="Main_Pump" />
-                <ScalarProperty Name="Water_Used_For_Cool" ColumnName="Water_Used_For_Cool" />
-                <ScalarProperty Name="Water_Used_Blend" ColumnName="Water_Used_Blend" />
-                <ScalarProperty Name="water_type_3" ColumnName="water_type_3" />
-                <ScalarProperty Name="water_type_2" ColumnName="water_type_2" />
-                <ScalarProperty Name="Water_type_1" ColumnName="Water_type_1" />
-                <ScalarProperty Name="Efc_Alarm_16" ColumnName="Efc_Alarm_16" />
-                <ScalarProperty Name="Efc_Alarm_15" ColumnName="Efc_Alarm_15" />
-                <ScalarProperty Name="Efc_Alarm_14" ColumnName="Efc_Alarm_14" />
-                <ScalarProperty Name="Efc_Alarm_13" ColumnName="Efc_Alarm_13" />
-                <ScalarProperty Name="Efc_Alarm_12" ColumnName="Efc_Alarm_12" />
-                <ScalarProperty Name="Efc_Alarm_11" ColumnName="Efc_Alarm_11" />
-                <ScalarProperty Name="Efc_Alarm_10" ColumnName="Efc_Alarm_10" />
-                <ScalarProperty Name="Efc_Alarm_9" ColumnName="Efc_Alarm_9" />
-                <ScalarProperty Name="Efc_Alarm_8" ColumnName="Efc_Alarm_8" />
-                <ScalarProperty Name="Efc_Alarm_7" ColumnName="Efc_Alarm_7" />
-                <ScalarProperty Name="Efc_Alarm_6" ColumnName="Efc_Alarm_6" />
-                <ScalarProperty Name="Efc_Alarm_5" ColumnName="Efc_Alarm_5" />
-                <ScalarProperty Name="Efc_Alarm_4" ColumnName="Efc_Alarm_4" />
-                <ScalarProperty Name="Efc_Alarm_3" ColumnName="Efc_Alarm_3" />
-                <ScalarProperty Name="Efc_Alarm_2" ColumnName="Efc_Alarm_2" />
-                <ScalarProperty Name="Efc_Alarm_1" ColumnName="Efc_Alarm_1" />
-                <ScalarProperty Name="Arel_Date" ColumnName="Arel_Date" />
-                <ScalarProperty Name="End_____Time" ColumnName="End_____Time" />
-                <ScalarProperty Name="End_____Date" ColumnName="End_____Date" />
-                <ScalarProperty Name="Started_Time" ColumnName="Started_Time" />
-                <ScalarProperty Name="Started_Date" ColumnName="Started_Date" />
-                <ScalarProperty Name="Filler" ColumnName="Filler" />
-                <ScalarProperty Name="Exported" ColumnName="Exported" />
-                <ScalarProperty Name="Rolls" ColumnName="Rolls" />
-                <ScalarProperty Name="Lot_type" ColumnName="Lot_type" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Program_1" ColumnName="Program_1" />
-                <ScalarProperty Name="Machine_nr" ColumnName="Machine_nr" />
-                <ScalarProperty Name="Option5" ColumnName="Option5" />
-                <ScalarProperty Name="Option4" ColumnName="Option4" />
-                <ScalarProperty Name="Option3" ColumnName="Option3" />
-                <ScalarProperty Name="Option2" ColumnName="Option2" />
-                <ScalarProperty Name="Option1" ColumnName="Option1" />
-                <ScalarProperty Name="Roller_Speed" ColumnName="Roller_Speed" />
-                <ScalarProperty Name="Pump_Speed" ColumnName="Pump_Speed" />
-                <ScalarProperty Name="Weight" ColumnName="Weight" />
                 <ScalarProperty Name="Lot_Number" ColumnName="Lot_Number" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Pump_Speed" ColumnName="Pump_Speed" />
+                <ScalarProperty Name="Roller_Speed" ColumnName="Roller_Speed" />
+                <ScalarProperty Name="Option1" ColumnName="Option1" />
+                <ScalarProperty Name="Option2" ColumnName="Option2" />
+                <ScalarProperty Name="Option3" ColumnName="Option3" />
+                <ScalarProperty Name="Option4" ColumnName="Option4" />
+                <ScalarProperty Name="Option5" ColumnName="Option5" />
+                <ScalarProperty Name="Machine_nr" ColumnName="Machine_nr" />
+                <ScalarProperty Name="Program_1" ColumnName="Program_1" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Lot_type" ColumnName="Lot_type" />
+                <ScalarProperty Name="Rolls" ColumnName="Rolls" />
+                <ScalarProperty Name="Exported" ColumnName="Exported" />
+                <ScalarProperty Name="Filler" ColumnName="Filler" />
+                <ScalarProperty Name="Started_Date" ColumnName="Started_Date" />
+                <ScalarProperty Name="Started_Time" ColumnName="Started_Time" />
+                <ScalarProperty Name="End_____Date" ColumnName="End_____Date" />
+                <ScalarProperty Name="End_____Time" ColumnName="End_____Time" />
+                <ScalarProperty Name="Arel_Date" ColumnName="Arel_Date" />
+                <ScalarProperty Name="Efc_Alarm_1" ColumnName="Efc_Alarm_1" />
+                <ScalarProperty Name="Efc_Alarm_2" ColumnName="Efc_Alarm_2" />
+                <ScalarProperty Name="Efc_Alarm_3" ColumnName="Efc_Alarm_3" />
+                <ScalarProperty Name="Efc_Alarm_4" ColumnName="Efc_Alarm_4" />
+                <ScalarProperty Name="Efc_Alarm_5" ColumnName="Efc_Alarm_5" />
+                <ScalarProperty Name="Efc_Alarm_6" ColumnName="Efc_Alarm_6" />
+                <ScalarProperty Name="Efc_Alarm_7" ColumnName="Efc_Alarm_7" />
+                <ScalarProperty Name="Efc_Alarm_8" ColumnName="Efc_Alarm_8" />
+                <ScalarProperty Name="Efc_Alarm_9" ColumnName="Efc_Alarm_9" />
+                <ScalarProperty Name="Efc_Alarm_10" ColumnName="Efc_Alarm_10" />
+                <ScalarProperty Name="Efc_Alarm_11" ColumnName="Efc_Alarm_11" />
+                <ScalarProperty Name="Efc_Alarm_12" ColumnName="Efc_Alarm_12" />
+                <ScalarProperty Name="Efc_Alarm_13" ColumnName="Efc_Alarm_13" />
+                <ScalarProperty Name="Efc_Alarm_14" ColumnName="Efc_Alarm_14" />
+                <ScalarProperty Name="Efc_Alarm_15" ColumnName="Efc_Alarm_15" />
+                <ScalarProperty Name="Efc_Alarm_16" ColumnName="Efc_Alarm_16" />
+                <ScalarProperty Name="Water_type_1" ColumnName="Water_type_1" />
+                <ScalarProperty Name="water_type_2" ColumnName="water_type_2" />
+                <ScalarProperty Name="water_type_3" ColumnName="water_type_3" />
+                <ScalarProperty Name="Water_Used_Blend" ColumnName="Water_Used_Blend" />
+                <ScalarProperty Name="Water_Used_For_Cool" ColumnName="Water_Used_For_Cool" />
+                <ScalarProperty Name="Main_Pump" ColumnName="Main_Pump" />
+                <ScalarProperty Name="Roller_or_Auxilliary" ColumnName="Roller_or_Auxilliary" />
+                <ScalarProperty Name="Chemicals_Pump" ColumnName="Chemicals_Pump" />
+                <ScalarProperty Name="Mixers" ColumnName="Mixers" />
+                <ScalarProperty Name="Rinse_water_1" ColumnName="Rinse_water_1" />
+                <ScalarProperty Name="Rinse_water_2" ColumnName="Rinse_water_2" />
+                <ScalarProperty Name="Rinse_water_3" ColumnName="Rinse_water_3" />
+                <ScalarProperty Name="Rinse_blend" ColumnName="Rinse_blend" />
+                <ScalarProperty Name="Steam" ColumnName="Steam" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="Quality" ColumnName="Quality" />
+                <ScalarProperty Name="Shade" ColumnName="Shade" />
+                <ScalarProperty Name="Shade_Rating" ColumnName="Shade_Rating" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Batch_1" ColumnName="Batch_1" />
+                <ScalarProperty Name="Batch_2" ColumnName="Batch_2" />
+                <ScalarProperty Name="Batch_3" ColumnName="Batch_3" />
+                <ScalarProperty Name="Batch_4" ColumnName="Batch_4" />
+                <ScalarProperty Name="Batch_5" ColumnName="Batch_5" />
+                <ScalarProperty Name="Batch_6" ColumnName="Batch_6" />
+                <ScalarProperty Name="Batch_7" ColumnName="Batch_7" />
+                <ScalarProperty Name="Batch_8" ColumnName="Batch_8" />
+                <ScalarProperty Name="SpecialCode" ColumnName="SpecialCode" />
+                <ScalarProperty Name="Spare" ColumnName="Spare" />
+                <ScalarProperty Name="Container__3" ColumnName="Container_#3" />
+                <ScalarProperty Name="Container__4" ColumnName="Container_#4" />
+                <ScalarProperty Name="Container__5" ColumnName="Container_#5" />
+                <ScalarProperty Name="Container__6" ColumnName="Container_#6" />
+                <ScalarProperty Name="Container__7" ColumnName="Container_#7" />
+                <ScalarProperty Name="Container__8" ColumnName="Container_#8" />
+                <ScalarProperty Name="Warehouse_1" ColumnName="Warehouse_1" />
+                <ScalarProperty Name="Warehouse_2" ColumnName="Warehouse_2" />
+                <ScalarProperty Name="Warehouse_3" ColumnName="Warehouse_3" />
+                <ScalarProperty Name="Warehouse_4" ColumnName="Warehouse_4" />
+                <ScalarProperty Name="Warehouse_5" ColumnName="Warehouse_5" />
+                <ScalarProperty Name="Warehouse_6" ColumnName="Warehouse_6" />
+                <ScalarProperty Name="Warehouse_7" ColumnName="Warehouse_7" />
+                <ScalarProperty Name="Warehouse_8" ColumnName="Warehouse_8" />
+                <ScalarProperty Name="Operator_ID" ColumnName="Operator_ID" />
+                <ScalarProperty Name="Correction" ColumnName="Correction" />
+                <ScalarProperty Name="FloatWeight" ColumnName="FloatWeight" />
+                <ScalarProperty Name="Rope_time" ColumnName="Rope_time" />
+                <ScalarProperty Name="OptimizedTime" ColumnName="OptimizedTime" />
+                <ScalarProperty Name="LotRedyeIndex" ColumnName="LotRedyeIndex" />
+                <ScalarProperty Name="SuperlotFlag" ColumnName="SuperlotFlag" />
+                <ScalarProperty Name="SuperLotNo" ColumnName="SuperLotNo" />
+                <ScalarProperty Name="Length5" ColumnName="Length5" />
+                <ScalarProperty Name="Filler1" ColumnName="Filler1" />
+                <ScalarProperty Name="StartDT" ColumnName="StartDT" />
+                <ScalarProperty Name="EndDT" ColumnName="EndDT" />
+                <ScalarProperty Name="ActTime" ColumnName="ActTime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ArelLotsRecipe">
+          <EntitySetMapping Name="ArelLotsRecipes">
             <EntityTypeMapping TypeName="MesDbModel.ArelLotsRecipe">
               <MappingFragment StoreEntitySet="ArelLotsRecipe">
-                <ScalarProperty Name="Filler" ColumnName="Filler" />
-                <ScalarProperty Name="PrepNumber" ColumnName="PrepNumber" />
-                <ScalarProperty Name="LotRedyeIndex" ColumnName="LotRedyeIndex" />
-                <ScalarProperty Name="SmallQuantity" ColumnName="SmallQuantity" />
-                <ScalarProperty Name="Addition_Done" ColumnName="Addition_Done" />
-                <ScalarProperty Name="ArelKey" ColumnName="ArelKey" />
-                <ScalarProperty Name="Specific_gravity" ColumnName="Specific_gravity" />
-                <ScalarProperty Name="Master_recipe_unit" ColumnName="Master_recipe_unit" />
-                <ScalarProperty Name="LotCode" ColumnName="LotCode" />
-                <ScalarProperty Name="OriginalLotNumber" ColumnName="OriginalLotNumber" />
-                <ScalarProperty Name="Product_unit_for_sca" ColumnName="Product_unit_for_sca" />
-                <ScalarProperty Name="Cancelled" ColumnName="Cancelled" />
-                <ScalarProperty Name="Step" ColumnName="Step" />
-                <ScalarProperty Name="Quantity_changed" ColumnName="Quantity_changed" />
-                <ScalarProperty Name="Product_Order" ColumnName="Product_Order" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Weighed_Quantity" ColumnName="Weighed_Quantity" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Additions_Count" ColumnName="Additions_Count" />
-                <ScalarProperty Name="Total_Adds" ColumnName="Total_Adds" />
-                <ScalarProperty Name="Last_Add" ColumnName="Last_Add" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Concentration" ColumnName="Concentration" />
-                <ScalarProperty Name="Product_Code" ColumnName="Product_Code" />
-                <ScalarProperty Name="Reserved__do_not_use" ColumnName="Reserved_(do_not_use" />
-                <ScalarProperty Name="Tank_No" ColumnName="Tank_No" />
-                <ScalarProperty Name="Product_Status" ColumnName="Product_Status" />
-                <ScalarProperty Name="Program" ColumnName="Program" />
-                <ScalarProperty Name="Machine" ColumnName="Machine" />
                 <ScalarProperty Name="Lot_Number" ColumnName="Lot_Number" />
+                <ScalarProperty Name="Machine" ColumnName="Machine" />
+                <ScalarProperty Name="Program" ColumnName="Program" />
+                <ScalarProperty Name="Product_Status" ColumnName="Product_Status" />
+                <ScalarProperty Name="Tank_No" ColumnName="Tank_No" />
+                <ScalarProperty Name="Reserved__do_not_use" ColumnName="Reserved_(do_not_use" />
+                <ScalarProperty Name="Product_Code" ColumnName="Product_Code" />
+                <ScalarProperty Name="Concentration" ColumnName="Concentration" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Last_Add" ColumnName="Last_Add" />
+                <ScalarProperty Name="Total_Adds" ColumnName="Total_Adds" />
+                <ScalarProperty Name="Additions_Count" ColumnName="Additions_Count" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Weighed_Quantity" ColumnName="Weighed_Quantity" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Product_Order" ColumnName="Product_Order" />
+                <ScalarProperty Name="Quantity_changed" ColumnName="Quantity_changed" />
+                <ScalarProperty Name="Step" ColumnName="Step" />
+                <ScalarProperty Name="Cancelled" ColumnName="Cancelled" />
+                <ScalarProperty Name="Product_unit_for_sca" ColumnName="Product_unit_for_sca" />
+                <ScalarProperty Name="OriginalLotNumber" ColumnName="OriginalLotNumber" />
+                <ScalarProperty Name="LotCode" ColumnName="LotCode" />
+                <ScalarProperty Name="Master_recipe_unit" ColumnName="Master_recipe_unit" />
+                <ScalarProperty Name="Specific_gravity" ColumnName="Specific_gravity" />
+                <ScalarProperty Name="ArelKey" ColumnName="ArelKey" />
+                <ScalarProperty Name="Addition_Done" ColumnName="Addition_Done" />
+                <ScalarProperty Name="SmallQuantity" ColumnName="SmallQuantity" />
+                <ScalarProperty Name="LotRedyeIndex" ColumnName="LotRedyeIndex" />
+                <ScalarProperty Name="PrepNumber" ColumnName="PrepNumber" />
+                <ScalarProperty Name="Filler" ColumnName="Filler" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AutomatedEmails">
+            <EntityTypeMapping TypeName="MesDbModel.AutomatedEmail">
+              <MappingFragment StoreEntitySet="AutomatedEmail">
+                <ScalarProperty Name="Call" ColumnName="Call" />
+                <ScalarProperty Name="FromAddress" ColumnName="FromAddress" />
+                <ScalarProperty Name="ToAddress" ColumnName="ToAddress" />
+                <ScalarProperty Name="Reply" ColumnName="Reply" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocalVariables">
+            <EntityTypeMapping TypeName="MesDbModel.LocalVariable">
+              <MappingFragment StoreEntitySet="LocalVariables">
+                <ScalarProperty Name="Machine" ColumnName="Machine" />
+                <ScalarProperty Name="DefaultLogin" ColumnName="DefaultLogin" />
+                <ScalarProperty Name="LabelPrinter" ColumnName="LabelPrinter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuItems">
+            <EntityTypeMapping TypeName="MesDbModel.MenuItem">
+              <MappingFragment StoreEntitySet="MenuItems">
+                <ScalarProperty Name="MenuItem1" ColumnName="MenuItem" />
+                <ScalarProperty Name="ParentItem" ColumnName="ParentItem" />
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Packages">
-            <EntityTypeMapping TypeName="MesDbModel.Packages">
+            <EntityTypeMapping TypeName="MesDbModel.Package">
               <MappingFragment StoreEntitySet="Packages">
-                <ScalarProperty Name="LstMach" ColumnName="LstMach" />
-                <ScalarProperty Name="LstOp" ColumnName="LstOp" />
-                <ScalarProperty Name="MilLotRep" ColumnName="MilLotRep" />
-                <ScalarProperty Name="ShadeGroup" ColumnName="ShadeGroup" />
-                <ScalarProperty Name="DelschedID" ColumnName="DelschedID" />
-                <ScalarProperty Name="FRFG" ColumnName="FRFG" />
-                <ScalarProperty Name="LstShopOrder" ColumnName="LstShopOrder" />
-                <ScalarProperty Name="PackFlag" ColumnName="PackFlag" />
-                <ScalarProperty Name="BinNo" ColumnName="BinNo" />
-                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
-                <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="Warehouse" ColumnName="Warehouse" />
-                <ScalarProperty Name="Rejected" ColumnName="Rejected" />
-                <ScalarProperty Name="Reworked" ColumnName="Reworked" />
-                <ScalarProperty Name="HoldFor" ColumnName="HoldFor" />
-                <ScalarProperty Name="HoldPiece" ColumnName="HoldPiece" />
-                <ScalarProperty Name="ReInspEndTime" ColumnName="ReInspEndTime" />
-                <ScalarProperty Name="ReInspBegTime" ColumnName="ReInspBegTime" />
-                <ScalarProperty Name="ReInspReqd" ColumnName="ReInspReqd" />
-                <ScalarProperty Name="TareLbs" ColumnName="TareLbs" />
-                <ScalarProperty Name="NetLbs" ColumnName="NetLbs" />
-                <ScalarProperty Name="InspEndTime" ColumnName="InspEndTime" />
-                <ScalarProperty Name="InspBegTime" ColumnName="InspBegTime" />
-                <ScalarProperty Name="NetYds" ColumnName="NetYds" />
-                <ScalarProperty Name="GrossYds" ColumnName="GrossYds" />
-                <ScalarProperty Name="QualCode" ColumnName="QualCode" />
-                <ScalarProperty Name="Grade" ColumnName="Grade" />
-                <ScalarProperty Name="FinWidth" ColumnName="FinWidth" />
-                <ScalarProperty Name="CutOffDefectCode" ColumnName="CutOffDefectCode" />
-                <ScalarProperty Name="CutOffYds" ColumnName="CutOffYds" />
-                <ScalarProperty Name="AllowYds" ColumnName="AllowYds" />
-                <ScalarProperty Name="Color" ColumnName="Color" />
-                <ScalarProperty Name="MasterItem" ColumnName="MasterItem" />
-                <ScalarProperty Name="Item" ColumnName="Item" />
-                <ScalarProperty Name="ShopOrderNo" ColumnName="ShopOrderNo" />
                 <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+                <ScalarProperty Name="ShopOrderNo" ColumnName="ShopOrderNo" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="MasterItem" ColumnName="MasterItem" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="LstOp" ColumnName="LstOp" />
+                <ScalarProperty Name="LstMach" ColumnName="LstMach" />
+                <ScalarProperty Name="AllowYds" ColumnName="AllowYds" />
+                <ScalarProperty Name="CutOffYds" ColumnName="CutOffYds" />
+                <ScalarProperty Name="CutOffDefectCode" ColumnName="CutOffDefectCode" />
+                <ScalarProperty Name="FinWidth" ColumnName="FinWidth" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="QualCode" ColumnName="QualCode" />
+                <ScalarProperty Name="GrossYds" ColumnName="GrossYds" />
+                <ScalarProperty Name="NetYds" ColumnName="NetYds" />
+                <ScalarProperty Name="InspBegTime" ColumnName="InspBegTime" />
+                <ScalarProperty Name="InspEndTime" ColumnName="InspEndTime" />
+                <ScalarProperty Name="NetLbs" ColumnName="NetLbs" />
+                <ScalarProperty Name="TareLbs" ColumnName="TareLbs" />
+                <ScalarProperty Name="ReInspReqd" ColumnName="ReInspReqd" />
+                <ScalarProperty Name="ReInspBegTime" ColumnName="ReInspBegTime" />
+                <ScalarProperty Name="ReInspEndTime" ColumnName="ReInspEndTime" />
+                <ScalarProperty Name="HoldPiece" ColumnName="HoldPiece" />
+                <ScalarProperty Name="HoldFor" ColumnName="HoldFor" />
+                <ScalarProperty Name="Reworked" ColumnName="Reworked" />
+                <ScalarProperty Name="Rejected" ColumnName="Rejected" />
+                <ScalarProperty Name="Warehouse" ColumnName="Warehouse" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="BinNo" ColumnName="BinNo" />
+                <ScalarProperty Name="PackFlag" ColumnName="PackFlag" />
+                <ScalarProperty Name="LstShopOrder" ColumnName="LstShopOrder" />
+                <ScalarProperty Name="FRFG" ColumnName="FRFG" />
+                <ScalarProperty Name="DelschedID" ColumnName="DelschedID" />
+                <ScalarProperty Name="ShadeGroup" ColumnName="ShadeGroup" />
+                <ScalarProperty Name="MilLotRep" ColumnName="MilLotRep" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PkgHist">
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="MesDbModel.Permission">
+              <MappingFragment StoreEntitySet="Permissions">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="MenuItem" ColumnName="MenuItem" />
+                <ScalarProperty Name="ViewOnly" ColumnName="ViewOnly" />
+                <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PkgHists">
             <EntityTypeMapping TypeName="MesDbModel.PkgHist">
               <MappingFragment StoreEntitySet="PkgHist">
-                <ScalarProperty Name="LstMach" ColumnName="LstMach" />
+                <ScalarProperty Name="HistID" ColumnName="HistID" />
+                <ScalarProperty Name="TransDateTime" ColumnName="TransDateTime" />
+                <ScalarProperty Name="TransDescr" ColumnName="TransDescr" />
+                <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+                <ScalarProperty Name="ShopOrderNo" ColumnName="ShopOrderNo" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="MasterItem" ColumnName="MasterItem" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
                 <ScalarProperty Name="LstOp" ColumnName="LstOp" />
-                <ScalarProperty Name="MilLotRep" ColumnName="MilLotRep" />
-                <ScalarProperty Name="ShadeGroup" ColumnName="ShadeGroup" />
-                <ScalarProperty Name="DelschedID" ColumnName="DelschedID" />
-                <ScalarProperty Name="FRFG" ColumnName="FRFG" />
-                <ScalarProperty Name="LstShopOrder" ColumnName="LstShopOrder" />
-                <ScalarProperty Name="PackFlag" ColumnName="PackFlag" />
+                <ScalarProperty Name="LstMach" ColumnName="LstMach" />
+                <ScalarProperty Name="AllowYds" ColumnName="AllowYds" />
+                <ScalarProperty Name="CutOffYds" ColumnName="CutOffYds" />
+                <ScalarProperty Name="CutOffDefectCode" ColumnName="CutOffDefectCode" />
+                <ScalarProperty Name="FinWidth" ColumnName="FinWidth" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="QualCode" ColumnName="QualCode" />
+                <ScalarProperty Name="GrossYds" ColumnName="GrossYds" />
+                <ScalarProperty Name="NetYds" ColumnName="NetYds" />
+                <ScalarProperty Name="InspBegTime" ColumnName="InspBegTime" />
+                <ScalarProperty Name="InspEndTime" ColumnName="InspEndTime" />
+                <ScalarProperty Name="NetLbs" ColumnName="NetLbs" />
+                <ScalarProperty Name="TareLbs" ColumnName="TareLbs" />
+                <ScalarProperty Name="ReInspReqd" ColumnName="ReInspReqd" />
+                <ScalarProperty Name="ReInspBegTime" ColumnName="ReInspBegTime" />
+                <ScalarProperty Name="ReInspEndTime" ColumnName="ReInspEndTime" />
+                <ScalarProperty Name="HoldPiece" ColumnName="HoldPiece" />
+                <ScalarProperty Name="HoldFor" ColumnName="HoldFor" />
+                <ScalarProperty Name="Reworked" ColumnName="Reworked" />
+                <ScalarProperty Name="Rejected" ColumnName="Rejected" />
+                <ScalarProperty Name="Warehouse" ColumnName="Warehouse" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
                 <ScalarProperty Name="BinNo" ColumnName="BinNo" />
+                <ScalarProperty Name="PackFlag" ColumnName="PackFlag" />
+                <ScalarProperty Name="LstShopOrder" ColumnName="LstShopOrder" />
+                <ScalarProperty Name="FRFG" ColumnName="FRFG" />
+                <ScalarProperty Name="DelschedID" ColumnName="DelschedID" />
+                <ScalarProperty Name="ShadeGroup" ColumnName="ShadeGroup" />
+                <ScalarProperty Name="MilLotRep" ColumnName="MilLotRep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShopOrders">
+            <EntityTypeMapping TypeName="MesDbModel.ShopOrder">
+              <MappingFragment StoreEntitySet="ShopOrders">
+                <ScalarProperty Name="ShopOrderNo" ColumnName="ShopOrderNo" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="MasterItem" ColumnName="MasterItem" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="StdYds" ColumnName="StdYds" />
+                <ScalarProperty Name="StdLbs" ColumnName="StdLbs" />
+                <ScalarProperty Name="ActStartLbs" ColumnName="ActStartLbs" />
+                <ScalarProperty Name="ActCurrLbs" ColumnName="ActCurrLbs" />
+                <ScalarProperty Name="PkgCount" ColumnName="PkgCount" />
+                <ScalarProperty Name="DyeLot" ColumnName="DyeLot" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
                 <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="Warehouse" ColumnName="Warehouse" />
-                <ScalarProperty Name="Rejected" ColumnName="Rejected" />
-                <ScalarProperty Name="Reworked" ColumnName="Reworked" />
-                <ScalarProperty Name="HoldFor" ColumnName="HoldFor" />
-                <ScalarProperty Name="HoldPiece" ColumnName="HoldPiece" />
-                <ScalarProperty Name="ReInspEndTime" ColumnName="ReInspEndTime" />
-                <ScalarProperty Name="ReInspBegTime" ColumnName="ReInspBegTime" />
-                <ScalarProperty Name="ReInspReqd" ColumnName="ReInspReqd" />
-                <ScalarProperty Name="TareLbs" ColumnName="TareLbs" />
-                <ScalarProperty Name="NetLbs" ColumnName="NetLbs" />
-                <ScalarProperty Name="InspEndTime" ColumnName="InspEndTime" />
-                <ScalarProperty Name="InspBegTime" ColumnName="InspBegTime" />
-                <ScalarProperty Name="NetYds" ColumnName="NetYds" />
-                <ScalarProperty Name="GrossYds" ColumnName="GrossYds" />
-                <ScalarProperty Name="QualCode" ColumnName="QualCode" />
-                <ScalarProperty Name="Grade" ColumnName="Grade" />
-                <ScalarProperty Name="FinWidth" ColumnName="FinWidth" />
-                <ScalarProperty Name="CutOffDefectCode" ColumnName="CutOffDefectCode" />
-                <ScalarProperty Name="CutOffYds" ColumnName="CutOffYds" />
-                <ScalarProperty Name="AllowYds" ColumnName="AllowYds" />
-                <ScalarProperty Name="Color" ColumnName="Color" />
-                <ScalarProperty Name="MasterItem" ColumnName="MasterItem" />
-                <ScalarProperty Name="Item" ColumnName="Item" />
-                <ScalarProperty Name="ShopOrderNo" ColumnName="ShopOrderNo" />
-                <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
-                <ScalarProperty Name="TransDescr" ColumnName="TransDescr" />
-                <ScalarProperty Name="TransDateTime" ColumnName="TransDateTime" />
-                <ScalarProperty Name="HistID" ColumnName="HistID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Status">
             <EntityTypeMapping TypeName="MesDbModel.Status">
               <MappingFragment StoreEntitySet="Status">
-                <ScalarProperty Name="ShopOrders" ColumnName="ShopOrders" />
-                <ScalarProperty Name="Packages" ColumnName="Packages" />
-                <ScalarProperty Name="Inv" ColumnName="Inv" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Status1" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Inv" ColumnName="Inv" />
+                <ScalarProperty Name="Packages" ColumnName="Packages" />
+                <ScalarProperty Name="ShopOrders" ColumnName="ShopOrders" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_InsertPkgHist" FunctionName="MesDbModel.Store.sp_InsertPkgHist" />
-          <FunctionImportMapping FunctionImportName="sp_IssueToShopOrderPkg" FunctionName="MesDbModel.Store.sp_IssueToShopOrderPkg" />
-          <FunctionImportMapping FunctionImportName="sp_DyeLotStarted" FunctionName="MesDbModel.Store.sp_DyeLotStarted" />
-          <FunctionImportMapping FunctionImportName="fn_GetDyeLotBatches" FunctionName="MesDbModel.Store.fn_GetDyeLotBatches" />
-          <EntitySetMapping Name="ShopOrders">
-            <EntityTypeMapping TypeName="MesDbModel.ShopOrders">
-              <MappingFragment StoreEntitySet="ShopOrders">
+          <EntitySetMapping Name="SystemParams">
+            <EntityTypeMapping TypeName="MesDbModel.SystemParam">
+              <MappingFragment StoreEntitySet="SystemParams">
+                <ScalarProperty Name="Config" ColumnName="Config" />
+                <ScalarProperty Name="Catalog" ColumnName="Catalog" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="address2" ColumnName="address2" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="phoneno" ColumnName="phoneno" />
+                <ScalarProperty Name="plantno" ColumnName="plantno" />
+                <ScalarProperty Name="plantname" ColumnName="plantname" />
+                <ScalarProperty Name="updateDir" ColumnName="updateDir" />
+                <ScalarProperty Name="smtpServer" ColumnName="smtpServer" />
+                <ScalarProperty Name="SSRSserverURI" ColumnName="SSRSserverURI" />
+                <ScalarProperty Name="SSRSreportPath" ColumnName="SSRSreportPath" />
+                <ScalarProperty Name="LabelsDir" ColumnName="LabelsDir" />
+                <ScalarProperty Name="UpdateProgramSource" ColumnName="UpdateProgramSource" />
+                <ScalarProperty Name="SysUser" ColumnName="SysUser" />
+                <ScalarProperty Name="SysHash" ColumnName="SysHash" />
+                <ScalarProperty Name="AisUser" ColumnName="AisUser" />
+                <ScalarProperty Name="AisHash" ColumnName="AisHash" />
+                <ScalarProperty Name="SigConnFolder" ColumnName="SigConnFolder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tr_hist">
+            <EntityTypeMapping TypeName="MesDbModel.tr_hist">
+              <MappingFragment StoreEntitySet="tr_hist">
+                <ScalarProperty Name="prrowid" ColumnName="prrowid" />
+                <ScalarProperty Name="tr_part" ColumnName="tr_part" />
+                <ScalarProperty Name="tr_date" ColumnName="tr_date" />
+                <ScalarProperty Name="tr_per_date" ColumnName="tr_per_date" />
+                <ScalarProperty Name="tr_type" ColumnName="tr_type" />
+                <ScalarProperty Name="tr_loc" ColumnName="tr_loc" />
+                <ScalarProperty Name="tr_loc_begin" ColumnName="tr_loc_begin" />
+                <ScalarProperty Name="tr_begin_qoh" ColumnName="tr_begin_qoh" />
+                <ScalarProperty Name="tr_qty_req" ColumnName="tr_qty_req" />
+                <ScalarProperty Name="tr_qty_chg" ColumnName="tr_qty_chg" />
+                <ScalarProperty Name="tr_qty_short" ColumnName="tr_qty_short" />
+                <ScalarProperty Name="tr_um" ColumnName="tr_um" />
+                <ScalarProperty Name="tr_last_date" ColumnName="tr_last_date" />
+                <ScalarProperty Name="tr_nbr" ColumnName="tr_nbr" />
+                <ScalarProperty Name="tr_so_job" ColumnName="tr_so_job" />
+                <ScalarProperty Name="tr_ship_type" ColumnName="tr_ship_type" />
+                <ScalarProperty Name="tr_addr" ColumnName="tr_addr" />
+                <ScalarProperty Name="tr_rmks" ColumnName="tr_rmks" />
+                <ScalarProperty Name="tr_xdr_acct" ColumnName="tr_xdr_acct" />
+                <ScalarProperty Name="tr_xcr_acct" ColumnName="tr_xcr_acct" />
+                <ScalarProperty Name="tr_mtl_std" ColumnName="tr_mtl_std" />
+                <ScalarProperty Name="tr_lbr_std" ColumnName="tr_lbr_std" />
+                <ScalarProperty Name="tr_bdn_std" ColumnName="tr_bdn_std" />
+                <ScalarProperty Name="tr_price" ColumnName="tr_price" />
+                <ScalarProperty Name="tr_trnbr" ColumnName="tr_trnbr" />
+                <ScalarProperty Name="tr_gl_amt" ColumnName="tr_gl_amt" />
+                <ScalarProperty Name="tr_xdr_cc" ColumnName="tr_xdr_cc" />
+                <ScalarProperty Name="tr_xcr_cc" ColumnName="tr_xcr_cc" />
+                <ScalarProperty Name="tr_lot" ColumnName="tr_lot" />
+                <ScalarProperty Name="tr_sub_std" ColumnName="tr_sub_std" />
+                <ScalarProperty Name="tr_gl_date" ColumnName="tr_gl_date" />
+                <ScalarProperty Name="tr_qty_loc" ColumnName="tr_qty_loc" />
+                <ScalarProperty Name="tr_userid" ColumnName="tr_userid" />
+                <ScalarProperty Name="tr_serial" ColumnName="tr_serial" />
+                <ScalarProperty Name="tr_effdate" ColumnName="tr_effdate" />
+                <ScalarProperty Name="tr_prod_line" ColumnName="tr_prod_line" />
+                <ScalarProperty Name="tr_xslspsn1" ColumnName="tr_xslspsn1" />
+                <ScalarProperty Name="tr_xslspsn2" ColumnName="tr_xslspsn2" />
+                <ScalarProperty Name="tr_xcr_proj" ColumnName="tr_xcr_proj" />
+                <ScalarProperty Name="tr_xdr_proj" ColumnName="tr_xdr_proj" />
+                <ScalarProperty Name="tr_line" ColumnName="tr_line" />
+                <ScalarProperty Name="tr_user1" ColumnName="tr_user1" />
+                <ScalarProperty Name="tr_user2" ColumnName="tr_user2" />
+                <ScalarProperty Name="tr_curr" ColumnName="tr_curr" />
+                <ScalarProperty Name="tr_ex_rate" ColumnName="tr_ex_rate" />
+                <ScalarProperty Name="tr_rev" ColumnName="tr_rev" />
+                <ScalarProperty Name="tr_time" ColumnName="tr_time" />
+                <ScalarProperty Name="tr_ovh_std" ColumnName="tr_ovh_std" />
+                <ScalarProperty Name="tr_site" ColumnName="tr_site" />
+                <ScalarProperty Name="tr_status" ColumnName="tr_status" />
+                <ScalarProperty Name="tr_grade" ColumnName="tr_grade" />
+                <ScalarProperty Name="tr_expire" ColumnName="tr_expire" />
+                <ScalarProperty Name="tr_assay" ColumnName="tr_assay" />
+                <ScalarProperty Name="tr_xgl_ref" ColumnName="tr_xgl_ref" />
+                <ScalarProperty Name="tr__chr01" ColumnName="tr__chr01" />
+                <ScalarProperty Name="tr__chr02" ColumnName="tr__chr02" />
+                <ScalarProperty Name="tr__chr03" ColumnName="tr__chr03" />
+                <ScalarProperty Name="tr__chr04" ColumnName="tr__chr04" />
+                <ScalarProperty Name="tr__chr05" ColumnName="tr__chr05" />
+                <ScalarProperty Name="tr__chr06" ColumnName="tr__chr06" />
+                <ScalarProperty Name="tr__chr07" ColumnName="tr__chr07" />
+                <ScalarProperty Name="tr__chr08" ColumnName="tr__chr08" />
+                <ScalarProperty Name="tr__chr09" ColumnName="tr__chr09" />
+                <ScalarProperty Name="tr__chr10" ColumnName="tr__chr10" />
+                <ScalarProperty Name="tr__chr11" ColumnName="tr__chr11" />
+                <ScalarProperty Name="tr__chr12" ColumnName="tr__chr12" />
+                <ScalarProperty Name="tr__chr13" ColumnName="tr__chr13" />
+                <ScalarProperty Name="tr__chr14" ColumnName="tr__chr14" />
+                <ScalarProperty Name="tr__chr15" ColumnName="tr__chr15" />
+                <ScalarProperty Name="tr__dte01" ColumnName="tr__dte01" />
+                <ScalarProperty Name="tr__dte02" ColumnName="tr__dte02" />
+                <ScalarProperty Name="tr__dte03" ColumnName="tr__dte03" />
+                <ScalarProperty Name="tr__dte04" ColumnName="tr__dte04" />
+                <ScalarProperty Name="tr__dte05" ColumnName="tr__dte05" />
+                <ScalarProperty Name="tr__dec01" ColumnName="tr__dec01" />
+                <ScalarProperty Name="tr__dec02" ColumnName="tr__dec02" />
+                <ScalarProperty Name="tr__dec03" ColumnName="tr__dec03" />
+                <ScalarProperty Name="tr__dec04" ColumnName="tr__dec04" />
+                <ScalarProperty Name="tr__dec05" ColumnName="tr__dec05" />
+                <ScalarProperty Name="tr__log01" ColumnName="tr__log01" />
+                <ScalarProperty Name="tr__log02" ColumnName="tr__log02" />
+                <ScalarProperty Name="tr_ref" ColumnName="tr_ref" />
+                <ScalarProperty Name="tr_msg" ColumnName="tr_msg" />
+                <ScalarProperty Name="tr_program" ColumnName="tr_program" />
+                <ScalarProperty Name="tr_ord_rev" ColumnName="tr_ord_rev" />
+                <ScalarProperty Name="tr_ref_site" ColumnName="tr_ref_site" />
+                <ScalarProperty Name="tr_rsn_code" ColumnName="tr_rsn_code" />
+                <ScalarProperty Name="tr_vend_lot" ColumnName="tr_vend_lot" />
+                <ScalarProperty Name="tr_vend_date" ColumnName="tr_vend_date" />
+                <ScalarProperty Name="tr_daycode" ColumnName="tr_daycode" />
+                <ScalarProperty Name="tr_for" ColumnName="tr_for" />
+                <ScalarProperty Name="tr_slspsn__1" ColumnName="tr_slspsn##1" />
+                <ScalarProperty Name="tr_slspsn__2" ColumnName="tr_slspsn##2" />
+                <ScalarProperty Name="tr_slspsn__3" ColumnName="tr_slspsn##3" />
+                <ScalarProperty Name="tr_slspsn__4" ColumnName="tr_slspsn##4" />
+                <ScalarProperty Name="tr_fsm_type" ColumnName="tr_fsm_type" />
+                <ScalarProperty Name="tr_upd_isb" ColumnName="tr_upd_isb" />
+                <ScalarProperty Name="tr_auto_install" ColumnName="tr_auto_install" />
+                <ScalarProperty Name="tr_ca_int_type" ColumnName="tr_ca_int_type" />
+                <ScalarProperty Name="tr_covered_amt" ColumnName="tr_covered_amt" />
+                <ScalarProperty Name="tr_fcg_code" ColumnName="tr_fcg_code" />
+                <ScalarProperty Name="tr_batch" ColumnName="tr_batch" />
+                <ScalarProperty Name="tr_fsc_code" ColumnName="tr_fsc_code" />
+                <ScalarProperty Name="tr_sa_nbr" ColumnName="tr_sa_nbr" />
+                <ScalarProperty Name="tr_sv_code" ColumnName="tr_sv_code" />
+                <ScalarProperty Name="tr_eng_area" ColumnName="tr_eng_area" />
+                <ScalarProperty Name="tr_sys_prod" ColumnName="tr_sys_prod" />
+                <ScalarProperty Name="tr_svc_type" ColumnName="tr_svc_type" />
+                <ScalarProperty Name="tr_ca_opn_date" ColumnName="tr_ca_opn_date" />
+                <ScalarProperty Name="tr_cprice" ColumnName="tr_cprice" />
+                <ScalarProperty Name="tr_eng_code" ColumnName="tr_eng_code" />
+                <ScalarProperty Name="tr_wod_op" ColumnName="tr_wod_op" />
+                <ScalarProperty Name="tr_enduser" ColumnName="tr_enduser" />
+                <ScalarProperty Name="tr_ship_inv_mov" ColumnName="tr_ship_inv_mov" />
+                <ScalarProperty Name="tr_ship_date" ColumnName="tr_ship_date" />
+                <ScalarProperty Name="tr_ship_id" ColumnName="tr_ship_id" />
+                <ScalarProperty Name="tr_ex_rate2" ColumnName="tr_ex_rate2" />
+                <ScalarProperty Name="tr_ex_ratetype" ColumnName="tr_ex_ratetype" />
+                <ScalarProperty Name="tr_exru_seq" ColumnName="tr_exru_seq" />
+                <ScalarProperty Name="tr_promise_date" ColumnName="tr_promise_date" />
+                <ScalarProperty Name="tr_fldchg_cmtindx" ColumnName="tr_fldchg_cmtindx" />
+                <ScalarProperty Name="tr_domain" ColumnName="tr_domain" />
+                <ScalarProperty Name="oid_tr_hist" ColumnName="oid_tr_hist" />
+                <ScalarProperty Name="Pro2SrcPDB" ColumnName="Pro2SrcPDB" />
+                <ScalarProperty Name="pro2created" ColumnName="pro2created" />
+                <ScalarProperty Name="pro2modified" ColumnName="pro2modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="MesDbModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserGuid" ColumnName="UserGuid" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BadgeNo" ColumnName="BadgeNo" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Middle" ColumnName="Middle" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
+                <ScalarProperty Name="ChangePass" ColumnName="ChangePass" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
+                <ScalarProperty Name="WorkStation" ColumnName="WorkStation" />
                 <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
                 <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="DyeLot" ColumnName="DyeLot" />
-                <ScalarProperty Name="PkgCount" ColumnName="PkgCount" />
-                <ScalarProperty Name="ActCurrLbs" ColumnName="ActCurrLbs" />
-                <ScalarProperty Name="ActStartLbs" ColumnName="ActStartLbs" />
-                <ScalarProperty Name="StdLbs" ColumnName="StdLbs" />
-                <ScalarProperty Name="StdYds" ColumnName="StdYds" />
-                <ScalarProperty Name="Color" ColumnName="Color" />
-                <ScalarProperty Name="MasterItem" ColumnName="MasterItem" />
-                <ScalarProperty Name="Item" ColumnName="Item" />
-                <ScalarProperty Name="ShopOrderNo" ColumnName="ShopOrderNo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AutomatedEmail">
-            <EntityTypeMapping TypeName="MesDbModel.AutomatedEmail">
-              <MappingFragment StoreEntitySet="AutomatedEmail">
-                <ScalarProperty Name="Reply" ColumnName="Reply" />
-                <ScalarProperty Name="ToAddress" ColumnName="ToAddress" />
-                <ScalarProperty Name="FromAddress" ColumnName="FromAddress" />
-                <ScalarProperty Name="Call" ColumnName="Call" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="MesDbModel.Store.fn_GetDyeLotBatches" FunctionImportName="fn_GetDyeLotBatches">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MesDbModel.fn_GetDyeLotBatches_Result">
+                <ScalarProperty Name="batch" ColumnName="batch" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_DyeLotStarted" FunctionName="MesDbModel.Store.sp_DyeLotStarted" />
+          <FunctionImportMapping FunctionImportName="sp_InsertPkgHist" FunctionName="MesDbModel.Store.sp_InsertPkgHist" />
+          <FunctionImportMapping FunctionImportName="sp_IssueToShopOrderPkg" FunctionName="MesDbModel.Store.sp_IssueToShopOrderPkg" />
+          <FunctionImportMapping FunctionImportName="sp_QcRelease" FunctionName="MesDbModel.Store.sp_QcRelease" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1833,7 +2241,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

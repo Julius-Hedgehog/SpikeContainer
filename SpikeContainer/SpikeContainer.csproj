@@ -59,6 +59,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,10 +72,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataEntitiy\ArelContainers.cs">
+    <Compile Include="DataEntitiy\ArelContainer.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\ArelLots.cs">
+    <Compile Include="DataEntitiy\ArelLot.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataEntitiy\ArelLotsRecipe.cs">
@@ -82,16 +84,19 @@
     <Compile Include="DataEntitiy\AutomatedEmail.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\LocalVariables.cs">
+    <Compile Include="DataEntitiy\fn_GetDyeLotBatches_Result.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\MenuItems.cs">
+    <Compile Include="DataEntitiy\LocalVariable.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\MenuItem.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataEntitiy\MesDbModel.Context.cs">
-      <DependentUpon>MesDbModel.Context.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MesDbModel.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="DataEntitiy\MesDbModel.cs">
       <AutoGen>True</AutoGen>
@@ -103,25 +108,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MesDbModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\Packages.cs">
+    <Compile Include="DataEntitiy\Package.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\Permissions.cs">
+    <Compile Include="DataEntitiy\Permission.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataEntitiy\PkgHist.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\ShopOrders.cs">
+    <Compile Include="DataEntitiy\ShopOrder.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataEntitiy\Status.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\SystemParams.cs">
+    <Compile Include="DataEntitiy\SystemParam.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\Users.cs">
+    <Compile Include="DataEntitiy\tr_hist.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\User.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.cs">
@@ -268,15 +276,18 @@
     <Content Include="CommonThingsForJPH1.txt" />
     <Content Include="DataEntitiy\MesDbModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MesDbModel.edmx</DependentUpon>
       <LastGenOutput>MesDbModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="DataEntitiy\MesDbModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MesDbModel.edmx</DependentUpon>
       <LastGenOutput>MesDbModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -81,12 +81,12 @@ namespace SpikeContainer.Spike_001
         private void InitializeMesDbEntitiesObject()
         {   // if the database object PFCS.DataEntities.MesDbEntities is not previously disposed and null kill it
             DisposeMesDbEntitiesObject();
-            _db = new MesDbEntities();  // CLASS VAR is Initialized HERE
+            //_db = new MesDbEntities();  // CLASS VAR is Initialized HERE
         }
 
         private void DisposeMesDbEntitiesObject()
         {
-            _db?.Dispose();                     // kill-kill-kill-kill-kill
+            //_db?.Dispose();                     // kill-kill-kill-kill-kill
         }
 
         private bool GetRawData(int shopOrder)
@@ -97,7 +97,9 @@ namespace SpikeContainer.Spike_001
 
         private bool GetDataUserData(Int32 shopOrder)
         {
-            _db.Packages.Where(r => r.ShopOrderNo == shopOrder && r.Status1.Inv).Include("ShopOrders").Load();
+            //_db.Packages.Where(r => r.ShopOrderNo == shopOrder && r.Status1.Inv).Include("ShopOrders").Load();
+            //_db.Packages.Where(r => r.ShopOrderNo == shopOrder && r.Status1.Inv).Load();
+            //_db.Packages.Where(r => r.ShopOrderNo == shopOrder).Load();
 
             //intPackagesCount = _db.Packages.Local.Count();
 

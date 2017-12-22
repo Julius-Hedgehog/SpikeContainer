@@ -22,8 +22,6 @@ namespace SpikeContainer.DataEntitiy
         public string Item { get; set; }
         public string MasterItem { get; set; }
         public string Color { get; set; }
-        public Nullable<int> LstOp { get; set; }
-        public string LstMach { get; set; }
         public decimal AllowYds { get; set; }
         public decimal CutOffYds { get; set; }
         public string CutOffDefectCode { get; set; }
@@ -55,7 +53,9 @@ namespace SpikeContainer.DataEntitiy
         public int DelschedID { get; set; }
         public string ShadeGroup { get; set; }
         public Nullable<bool> MilLotRep { get; set; }
+        public Nullable<int> LstOp { get; set; }
+        public string LstMach { get; set; }
     
-        public virtual Package Package { get; set; }
+        public virtual Packages Packages { get; set; }
     }
 }

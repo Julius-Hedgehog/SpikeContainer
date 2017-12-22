@@ -46,6 +46,6 @@ namespace SpikeContainer.DataEntitiy
         public Nullable<short> PrepNumber { get; set; }
         public string Filler { get; set; }
     
-        public virtual ArelLot ArelLot { get; set; }
+        public virtual ArelLots ArelLots { get; set; }
     }
 }
