@@ -17,7 +17,7 @@ namespace SpikeContainer.Spike_001
 
     #endregion
 
-    //public delegate void OnScreenKeyEventHandler(Object sender, OnScreenKeyEventArgs e);
+    public delegate void OnTenKeypadKeyEventHandler(Object sender, TenKeypadContol1EventArgs e);
 
     /// <summary>
     /// 
@@ -39,11 +39,6 @@ namespace SpikeContainer.Spike_001
         // Fields
 
         private string _mstringCurrentKeypadValue = "";
-
-        public event EventHandler<OnScreenKeyEventArgs> PreviewOnScreenKeyDownEvent;
-        public event EventHandler<OnScreenKeyEventArgs> OnScreenKeyDownEvent;
-        public event EventHandler<OnScreenKeyEventArgs> OnScreenKeyUpEvent;
-        public event EventHandler<OnScreenKeyEventArgs> OnScreenKeyPressEvent;
 
         /// <summary>
         /// Event definition declaration
@@ -142,54 +137,62 @@ namespace SpikeContainer.Spike_001
 
                 case "0":
                     this._mstringCurrentKeypadValue += "0";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad0);
+                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad0);
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad0, "0");
                     key = "0";
                     break;
                 case "1":
                     this._mstringCurrentKeypadValue += "1";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad1);
-                    key = "{NUMPAD1}";
-                    key = "NUMPAD1";
+                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad1);
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad1, "1");
                     key = "1";
                     break;
                 case "2":
                     this._mstringCurrentKeypadValue += "2";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad2);
+                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad2);
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad2, "2");
                     key = "2";
                     break;
                 case "3":
                     this._mstringCurrentKeypadValue += "3";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad3);
+                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad3);
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad3, "3");
                     key = "3";
                     break;
                 case "4":
                     this._mstringCurrentKeypadValue += "4";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad4);
+                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad4);
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad4, "4");
                     key = "4";
                     break;
                 case "5":
                     this._mstringCurrentKeypadValue += "5";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad5);
+                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad5);
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad5, "5");
                     key = "5";
                     break;
                 case "6":
                     this._mstringCurrentKeypadValue += "6";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad6);
+                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad6);
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad6, "6");
                     key = "6";
                     break;
                 case "7":
                     this._mstringCurrentKeypadValue += "7";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad7);
+                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad7);
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad7, "7");
                     key = "7";
                     break;
                 case "8":
                     this._mstringCurrentKeypadValue += "8";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad8);
+                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad8);
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad8, "8");
                     key = "8";
                     break;
                 case "9":
                     this._mstringCurrentKeypadValue += "9";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad9);
+                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad9);
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad9, "9");
                     key = "9";
                     break;
                 default:
@@ -201,7 +204,8 @@ namespace SpikeContainer.Spike_001
                             this._mstringCurrentKeypadValue += "0";
                         }
                         this._mstringCurrentKeypadValue += ".";
-                        args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Decimal);
+                        //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Decimal);
+                        args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Decimal, ".");
                         key = ".";
                     }
                     break;
@@ -220,7 +224,7 @@ namespace SpikeContainer.Spike_001
             if (this._mstringCurrentKeypadValue.Length > 0)
             {
                 this._mstringCurrentKeypadValue = this._mstringCurrentKeypadValue.Remove(this._mstringCurrentKeypadValue.Length - 1);
-                TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Clear);
+                TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Clear , "");
 
                 this.OnCustTenKeyEvent("{BACKSPACE}",args);
             }
@@ -234,7 +238,7 @@ namespace SpikeContainer.Spike_001
         /// <param name="e"></param>
         private void KeyOK_Click(object sender, EventArgs e)
         {
-            TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Y);
+            TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Y , "YES");
             this.OnCustTenKeyEvent("{ENTER}",args);
         }
 
@@ -246,7 +250,7 @@ namespace SpikeContainer.Spike_001
         /// <param name="e"></param>
         private void KeyCancel_Click(object sender, EventArgs e)
         {
-            TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.N);
+            TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.N, "NO");
             this.OnCustTenKeyEvent("{ESC}",args);
         }
 
@@ -264,57 +268,19 @@ namespace SpikeContainer.Spike_001
         /// <param name="args"> <see cref="TenKeypadContol1EventArgs"/></param>
         protected void OnCustTenKeyEvent(string key, TenKeypadContol1EventArgs args)
         {
-            //SendKeys.SendWait(key);
-            //SendKeys.Send(key);
             RECEIVER.Focus();
+
             CustTenKeyEvent?.Invoke(this, args);
-            RECEIVER.Focus();
-            //SendKeys.SendWait(key);
-            //SendKeys.Send(key);
+
             RECEIVER.Focus();
 
         }
 
-        protected void OnPreviewOnScreenKeyDownEvent(string key, OnScreenKeyEventArgs args)
-        {
-            EventHandler<OnScreenKeyEventArgs> handler = PreviewOnScreenKeyDownEvent;
-            if (handler != null)
-            {
-                handler(this, args);
-                //SendKeys.SendWait(key); // NO NO NO - this dont work - as I thought it did not do.
-            }
-        }
 
-        protected void ScreenKeyDownEvent(string key, OnScreenKeyEventArgs args)
+        protected override void OnMouseDown(MouseEventArgs e)
         {
-            EventHandler<OnScreenKeyEventArgs> handler = OnScreenKeyDownEvent;
-            if (handler != null)
-            {
-                handler(this, args);
-                //SendKeys.SendWait(key); // NO NO NO - this dont work - as I thought it did not do.
-            }
+            base.OnMouseDown(e);
         }
-
-        protected void ScreenKeyUpEvent(string key, OnScreenKeyEventArgs args)
-        {
-            EventHandler<OnScreenKeyEventArgs> handler = OnScreenKeyUpEvent;
-            if (handler != null)
-            {
-                handler(this, args);
-                //SendKeys.SendWait(key); // NO NO NO - this dont work - as I thought it did not do.
-            }
-        }
-
-        protected void ScreenKeyPressEvent(string key, OnScreenKeyEventArgs args)
-        {
-            EventHandler<OnScreenKeyEventArgs> handler = OnScreenKeyPressEvent;
-            if (handler != null)
-            {
-                handler(this, args);
-                //SendKeys.SendWait(key); // NO NO NO - this dont work - as I thought it did not do.
-            }
-        }
-
         #endregion
 
         #endregion

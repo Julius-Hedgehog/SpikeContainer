@@ -1,11 +1,18 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SpikeContainer.Spike_001;
 using WindowsInput;
 
 namespace SpikeContainer.Spike_001
 {
-    public class OnScreenKeypad : UniformOnScreenKeyboard
+    class Class2 : Class1
     {
-        public OnScreenKeypad()
+
+        public Class2()//OnScreenKeypad()
         {
             Keys = new ObservableCollection<OnScreenKey>
                        {

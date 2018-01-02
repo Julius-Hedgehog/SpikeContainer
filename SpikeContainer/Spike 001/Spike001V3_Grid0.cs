@@ -135,7 +135,10 @@ namespace SpikeContainer.Spike_001
         {
             Trace.WriteLine(string.Format("tenKeypadControl11_CustTenKeyEvent {0}  {1} ", e.DISPLAY, e.KEY.ToString()));
 
-            if (e.KEY != Keys.Y && e.KEY != Keys.N)
+            //SendKeys.Send(e.VAL);
+            //SendKeys.Send(e.VAL);
+          
+           if (e.KEY != Keys.Y && e.KEY != Keys.N)
             {
                 if (deXEdit == null) return; // no active grid editor
 
@@ -245,7 +248,7 @@ namespace SpikeContainer.Spike_001
             dtTempTable.Columns.Add("Gross", Type.GetType("System.Int32"));
             dtTempTable.Columns.Add("Tare", Type.GetType("System.Int32"));
 
-            if (bisToHaveInitRow) { InitDtTempTableDataRow(); }
+            //if (bisToHaveInitRow) { InitDtTempTableDataRow(); }
         }
 
         private void InitDtTempTableDataRow(int ngrossVal = 0, int ntareVal = 0)
@@ -271,6 +274,11 @@ namespace SpikeContainer.Spike_001
             gridView1.ShowEditor(); // FOCUS ON THE FIRST COLUMN OF THE NEXT (NEW) DATA ROW IN GRID VIEW
 
             return bReturnValue;
+        }
+
+        private void gridControl1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
