@@ -58,7 +58,6 @@ namespace SpikeContainer.Spike_001
                 {
                     InitDtTempTableDataRow();               // CREATE AND ADD THE NEW NEXT DATA ROW INTO THE DATA TABLE
                     gridView1.GetFocusedDataRow();     // Focus on the new row just added here
-
                     gridView1.ShowEditor();
                 }
 
@@ -67,9 +66,6 @@ namespace SpikeContainer.Spike_001
                 deXEdit = gridView1.ActiveEditor;   // CLASS VAR SET HERE - A pointer to the active editor
                 Trace.WriteLine(string.Format("gridView1_ShownEditor Showing Active Editor ( Row = {0} , Column = {1} )", ROW.ToString(), COL.AbsoluteIndex.ToString()));
 
-
-                tenKeypadControl11.RECEIVER = deXEdit;
-                //tenKeypadControl11.CurrentValue = (Convert.ToString(dr[COL.AbsoluteIndex]) == "0" ? "" : Convert.ToString(dr[COL.AbsoluteIndex])); // set up ten key
                 tenKeypadControl11.CurrentValue = (Convert.ToString(dtTempTable.Rows[ROW][COL.AbsoluteIndex]) == "0" ? "" : Convert.ToString(dtTempTable.Rows[ROW][COL.AbsoluteIndex]));
                 Trace.WriteLine(string.Format("gridView1_ShownEditor  ( Row = {0} , Column = {1} )", ROW.ToString(), COL.AbsoluteIndex.ToString()));
                 Trace.WriteLine(string.Format("gridView1_ShownEditor SETTING tenKeypadControl11.CurrentValue =  {0} )", tenKeypadControl11.CurrentValue));
@@ -107,12 +103,8 @@ namespace SpikeContainer.Spike_001
             Trace.WriteLine(string.Format("tenKeypadControl11_CustTenKeyEvent {0}  {1} ", e.DISPLAY, e.KEY.ToString()));
             if (deXEdit == null) return; // no active grid editor
 
-            //dtTempTable.Rows[ROW][COL.AbsoluteIndex] += e.VAL;
-
             DoWork(e);
             gridView1.RefreshData();
-
-            //Trace.WriteLine(string.Format("tenKeypadControl11_CustTenKeyEvent deXEdit.Text = ' {0} ' ", deXEdit.Text));
         }
         ////private void TenKeypadControl11_CustTenKeyEvent(object sender, TenKeypadContol1EventArgs e)
         ////{

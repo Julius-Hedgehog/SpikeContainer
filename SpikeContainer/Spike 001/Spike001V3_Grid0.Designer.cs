@@ -115,7 +115,6 @@
             this.tenKeypadControl11.CurrentValue = "";
             this.tenKeypadControl11.Location = new System.Drawing.Point(591, 12);
             this.tenKeypadControl11.Name = "tenKeypadControl11";
-            this.tenKeypadControl11.RECEIVER = null;
             this.tenKeypadControl11.Size = new System.Drawing.Size(254, 416);
             this.tenKeypadControl11.TabIndex = 1;
             this.tenKeypadControl11.TabStop = false;

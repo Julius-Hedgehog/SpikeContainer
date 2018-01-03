@@ -45,16 +45,6 @@ namespace SpikeContainer.Spike_001
         /// </summary>
         public event EventHandler<TenKeypadContol1EventArgs> CustTenKeyEvent;
 
-        //private Control _CtrlReceiver = null;
-        private DevExpress.XtraEditors.BaseEdit _CtrlReceiver = null;
-
-        //public Control RECEIVER
-        public DevExpress.XtraEditors.BaseEdit RECEIVER
-        {
-            get { return _CtrlReceiver; }
-            set { _CtrlReceiver = value; }
-        }
-
         #endregion
 
         #region [ Constructors ]
@@ -138,61 +128,51 @@ namespace SpikeContainer.Spike_001
 
                 case "0":
                     this._mstringCurrentKeypadValue += "0";
-                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad0);
                     args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad0, "0");
                     key = "0";
                     break;
                 case "1":
                     this._mstringCurrentKeypadValue += "1";
-                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad1);
                     args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad1, "1");
                     key = "1";
                     break;
                 case "2":
                     this._mstringCurrentKeypadValue += "2";
-                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad2);
                     args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad2, "2");
                     key = "2";
                     break;
                 case "3":
                     this._mstringCurrentKeypadValue += "3";
-                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad3);
                     args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad3, "3");
                     key = "3";
                     break;
                 case "4":
                     this._mstringCurrentKeypadValue += "4";
-                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad4);
                     args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad4, "4");
                     key = "4";
                     break;
                 case "5":
                     this._mstringCurrentKeypadValue += "5";
-                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad5);
                     args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad5, "5");
                     key = "5";
                     break;
                 case "6":
                     this._mstringCurrentKeypadValue += "6";
-                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad6);
                     args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad6, "6");
                     key = "6";
                     break;
                 case "7":
                     this._mstringCurrentKeypadValue += "7";
-                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad7);
                     args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad7, "7");
                     key = "7";
                     break;
                 case "8":
                     this._mstringCurrentKeypadValue += "8";
-                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad8);
                     args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad8, "8");
                     key = "8";
                     break;
                 case "9":
                     this._mstringCurrentKeypadValue += "9";
-                    //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad9);
                     args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad9, "9");
                     key = "9";
                     break;
@@ -205,14 +185,11 @@ namespace SpikeContainer.Spike_001
                             this._mstringCurrentKeypadValue += "0";
                         }
                         this._mstringCurrentKeypadValue += ".";
-                        //args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Decimal);
                         args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Decimal, ".");
                         key = ".";
                     }
                     break;
             }
-
-            RECEIVER.Focus();
 
             this.OnCustTenKeyEvent(key, args);
         }
@@ -269,31 +246,8 @@ namespace SpikeContainer.Spike_001
         /// <param name="args"> <see cref="TenKeypadContol1EventArgs"/></param>
         protected void OnCustTenKeyEvent(string key, TenKeypadContol1EventArgs args)
         {
-            RECEIVER.Focus();
-
             CustTenKeyEvent?.Invoke(this, args);
-
-            ////// A button on the control was pressed but I want it to send OnKey events
-            //////KeyPressEventArgs newArgs = new KeyPressEventArgs(args.VAL[0]);
-            //////OnKeyPress(newArgs);
-
-            //////// A button on the control was pressed but I want it to send OnKey events
-            //////KeyEventArgs newKArgs = new KeyEventArgs(args.KEY);
-            //////OnKeyUp(newKArgs);
-
-            RECEIVER.Focus();
         }
-        //////////public event KeyPressEventHandler<KeyPressEventArgs> OnKeyPress;
-
-        //////////protected override void OnKeyPress(KeyPressEventArgs e)
-        //////////{
-        //////////    base.OnKeyPress(e);
-        //////////}
-
-        //////////protected override void OnKeyUp(KeyEventArgs e)
-        //////////{
-        //////////    base.OnKeyUp(e);
-        //////////}
 
         #endregion
 
