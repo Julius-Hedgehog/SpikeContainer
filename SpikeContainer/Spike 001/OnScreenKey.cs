@@ -76,8 +76,6 @@ namespace SpikeContainer.Spike_001
 
         private readonly SolidColorBrush _keyOutsideBorderBrush = new SolidColorBrush(Color.FromArgb(255, 26, 26, 26));
 
-
-
         public ILogicalKey Key
         {
             get { return (ILogicalKey)GetValue(KeyProperty); }
@@ -119,8 +117,6 @@ namespace SpikeContainer.Spike_001
             get { return (GridLength)GetValue(GridWidthProperty); }
             set { SetValue(GridWidthProperty, value); }
         }
-
-
 
         protected static void OnKeyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {

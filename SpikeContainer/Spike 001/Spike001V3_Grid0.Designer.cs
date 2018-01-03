@@ -47,10 +47,6 @@
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
-            this.gridControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridControl1_KeyDown);
-            this.gridControl1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gridControl1_KeyPress);
-            this.gridControl1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gridControl1_KeyUp);
             // 
             // gridView1
             // 
@@ -78,9 +74,6 @@
             this.gridView1.ViewCaption = "Net Weight for :: Shop Order - ";
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             this.gridView1.ShownEditor += new System.EventHandler(this.gridView1_ShownEditor);
-            this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
-            this.gridView1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyUp);
-            this.gridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gridView1_KeyPress);
             this.gridView1.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gridView1_ValidatingEditor);
             // 
             // GrossWeight
@@ -126,7 +119,8 @@
             this.tenKeypadControl11.Size = new System.Drawing.Size(254, 416);
             this.tenKeypadControl11.TabIndex = 1;
             this.tenKeypadControl11.TabStop = false;
-            this.tenKeypadControl11.CustTenKeyEvent += new System.EventHandler<SpikeContainer.Spike_001.TenKeypadContol1EventArgs>(this.tenKeypadControl11_CustTenKeyEvent);
+            this.tenKeypadControl11.CustTenKeyEvent += new System.EventHandler<SpikeContainer.Spike_001.TenKeypadContol1EventArgs>(this.TenKeypadControl11_CustTenKeyEvent);
+            //this.tenKeypadControl11.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TenKeypadControl11_KeyPress);
             // 
             // Spike001V3_Grid0
             // 
@@ -137,8 +131,6 @@
             this.Controls.Add(this.gridControl1);
             this.Name = "Spike001V3_Grid0";
             this.Text = "Spike001V3_Grid0";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Spike001V3_Grid0_FormClosing);
-            this.Load += new System.EventHandler(this.Spike001V3_Grid0_Load);
             this.Shown += new System.EventHandler(this.Spike001V3_Grid0_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

@@ -45,11 +45,11 @@ namespace SpikeContainer.Spike_001
         /// </summary>
         public event EventHandler<TenKeypadContol1EventArgs> CustTenKeyEvent;
 
-        public static readonly RoutedEvent OnScreenKeyPressEvent = EventManager.RegisterRoutedEvent("OnScreenKeyPress", RoutingStrategy.Direct, typeof(OnScreenKeyEventHandler), typeof(OnScreenKey));
+        //private Control _CtrlReceiver = null;
+        private DevExpress.XtraEditors.BaseEdit _CtrlReceiver = null;
 
-        private Control _CtrlReceiver = null;
-
-        public Control RECEIVER
+        //public Control RECEIVER
+        public DevExpress.XtraEditors.BaseEdit RECEIVER
         {
             get { return _CtrlReceiver; }
             set { _CtrlReceiver = value; }
@@ -273,21 +273,27 @@ namespace SpikeContainer.Spike_001
 
             CustTenKeyEvent?.Invoke(this, args);
 
+            ////// A button on the control was pressed but I want it to send OnKey events
+            //////KeyPressEventArgs newArgs = new KeyPressEventArgs(args.VAL[0]);
+            //////OnKeyPress(newArgs);
+
+            //////// A button on the control was pressed but I want it to send OnKey events
+            //////KeyEventArgs newKArgs = new KeyEventArgs(args.KEY);
+            //////OnKeyUp(newKArgs);
+
             RECEIVER.Focus();
-
         }
+        //////////public event KeyPressEventHandler<KeyPressEventArgs> OnKeyPress;
 
+        //////////protected override void OnKeyPress(KeyPressEventArgs e)
+        //////////{
+        //////////    base.OnKeyPress(e);
+        //////////}
 
-        protected override void OnMouseDown(MouseEventArgs e)
-        {
-            base.OnMouseDown(e);
-        }
-
-        public event OnScreenKeyEventHandler OnScreenKeyPress
-        {
-            ////add { AddHandler(OnScreenKeyPressEvent, value); }
-            ////remove { RemoveHandler(OnScreenKeyPressEvent, value); }
-        }
+        //////////protected override void OnKeyUp(KeyEventArgs e)
+        //////////{
+        //////////    base.OnKeyUp(e);
+        //////////}
 
         #endregion
 
