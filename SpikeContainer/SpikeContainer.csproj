@@ -151,11 +151,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Spike 001\Class1.cs" />
-    <Compile Include="Spike 001\Class2.cs" />
-    <Compile Include="Spike 001\Class3.cs" />
-    <Compile Include="Spike 001\Class4.cs" />
-    <Compile Include="Spike 001\Class5.cs" />
+    <Compile Include="Spike 001\KeyPadGridContainer.cs" />
+    <Compile Include="Spike 001\MyOnScreenKeypad.cs" />
+    <Compile Include="Spike 001\ModifierKeyBase.cs" />
+    <Compile Include="Spike 001\TogglingModifierKey.cs" />
+    <Compile Include="Spike 001\InstantaneousModifierKey.cs" />
     <Compile Include="Spike 001\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

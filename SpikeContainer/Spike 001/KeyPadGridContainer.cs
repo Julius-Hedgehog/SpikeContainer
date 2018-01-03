@@ -9,7 +9,7 @@ using System.Windows.Controls;
 
 namespace SpikeContainer.Spike_001
 {
-    class Class1 : Grid
+    class KeyPadGridContainer : Grid
     {
 
         private ObservableCollection<OnScreenKey> _keys;
@@ -32,7 +32,7 @@ namespace SpikeContainer.Spike_001
             }
         }
 
-        public Class1()
+        public KeyPadGridContainer()
         {
             _keys = new ObservableCollection<OnScreenKey>();
             _keys.CollectionChanged += Keys_CollectionChanged;

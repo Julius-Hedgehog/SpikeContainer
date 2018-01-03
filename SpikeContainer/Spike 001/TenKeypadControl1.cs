@@ -45,6 +45,7 @@ namespace SpikeContainer.Spike_001
         /// </summary>
         public event EventHandler<TenKeypadContol1EventArgs> CustTenKeyEvent;
 
+        public static readonly RoutedEvent OnScreenKeyPressEvent = EventManager.RegisterRoutedEvent("OnScreenKeyPress", RoutingStrategy.Direct, typeof(OnScreenKeyEventHandler), typeof(OnScreenKey));
 
         private Control _CtrlReceiver = null;
 
@@ -281,6 +282,13 @@ namespace SpikeContainer.Spike_001
         {
             base.OnMouseDown(e);
         }
+
+        public event OnScreenKeyEventHandler OnScreenKeyPress
+        {
+            ////add { AddHandler(OnScreenKeyPressEvent, value); }
+            ////remove { RemoveHandler(OnScreenKeyPressEvent, value); }
+        }
+
         #endregion
 
         #endregion

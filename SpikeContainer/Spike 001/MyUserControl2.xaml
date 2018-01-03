@@ -6,5 +6,5 @@
              xmlns:local="clr-namespace:SpikeContainer.Spike_001"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <local:Class1 HorizontalAlignment="Left" Height="290" VerticalAlignment="Top" Width="290"/>
+    <local:KeyPadGridContainer HorizontalAlignment="Left" Height="290" VerticalAlignment="Top" Width="290"/>
 </UserControl>

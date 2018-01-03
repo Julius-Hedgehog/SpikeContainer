@@ -9,10 +9,10 @@ using WindowsInput;
 
 namespace SpikeContainer.Spike_001
 {
-    class Class2 : Class1
+    class MyOnScreenKeypad : KeyPadGridContainer
     {
 
-        public Class2()//OnScreenKeypad()
+        public MyOnScreenKeypad()
         {
             Keys = new ObservableCollection<OnScreenKey>
                        {
