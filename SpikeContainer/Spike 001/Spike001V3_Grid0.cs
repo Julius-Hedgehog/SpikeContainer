@@ -50,25 +50,20 @@ namespace SpikeContainer.Spike_001
 
         private void gridView1_ShownEditor(object sender, EventArgs e)
         {
-            Trace.WriteLine("gridView1_ShownEditor Showing Active Editor ");
-
             try
             {
-                if (gridView1.GetFocusedDataRow() == null)    // IF NO 'NEXT' DATA ROW -- you gota create it
+                if (gridView1.GetFocusedDataRow() == null)  // IF NO 'NEXT' DATA ROW -- you gota create it
                 {
                     InitDtTempTableDataRow();               // CREATE AND ADD THE NEW NEXT DATA ROW INTO THE DATA TABLE
-                    gridView1.GetFocusedDataRow();     // Focus on the new row just added here
-                    gridView1.ShowEditor();
+                    gridView1.GetFocusedDataRow();          // Focus on the new row just added here
+                    gridView1.ShowEditor();                 // Show the NEW ROW && CELL'S EDITOR
                 }
 
                 ROW = gridView1.FocusedRowHandle;   // CLASS VAR SET HERE - the focused row handle - grid/gridview index
                 COL = gridView1.FocusedColumn;      // CLASS VAR SET HERE - the grid/gridview column
                 deXEdit = gridView1.ActiveEditor;   // CLASS VAR SET HERE - A pointer to the active editor
-                Trace.WriteLine(string.Format("gridView1_ShownEditor Showing Active Editor ( Row = {0} , Column = {1} )", ROW.ToString(), COL.AbsoluteIndex.ToString()));
 
                 tenKeypadControl11.CurrentValue = (Convert.ToString(dtTempTable.Rows[ROW][COL.AbsoluteIndex]) == "0" ? "" : Convert.ToString(dtTempTable.Rows[ROW][COL.AbsoluteIndex]));
-                Trace.WriteLine(string.Format("gridView1_ShownEditor  ( Row = {0} , Column = {1} )", ROW.ToString(), COL.AbsoluteIndex.ToString()));
-                Trace.WriteLine(string.Format("gridView1_ShownEditor SETTING tenKeypadControl11.CurrentValue =  {0} )", tenKeypadControl11.CurrentValue));
             }
             catch (Exception exctp)
             {
@@ -78,105 +73,18 @@ namespace SpikeContainer.Spike_001
             }
         }
 
-        private void gridView1_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
-        {
-            Trace.WriteLine(string.Format("gridView1_ValidatingEditor {0}  {1} ", e.Valid.ToString(), e.Value.ToString()));
-        }
-
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-        //////private void TenKeypadControl11_KeyPress(object sender, KeyPressEventArgs e)
-        //////{
-        //////    Trace.WriteLine(string.Format("tenKeypadControl11_KeyPress char = {0} :: Handled =  {1} ", e.KeyChar, e.Handled.ToString()));
-
-        //////    dtTempTable.Rows[ROW][COL.AbsoluteIndex] += e.KeyChar.ToString();
-
-        //////    Trace.WriteLine(string.Format("TenKeypadControl11_KeyPress deXEdit.Text = ' {0} ' ", deXEdit.Text));
-        //////}
 
         private void TenKeypadControl11_CustTenKeyEvent(object sender, TenKeypadContol1EventArgs e)
         {
             Trace.WriteLine(string.Format("tenKeypadControl11_CustTenKeyEvent {0}  {1} ", e.DISPLAY, e.KEY.ToString()));
-            if (deXEdit == null) return; // no active grid editor
-
-            DoWork(e);
-            gridView1.RefreshData();
+            if (deXEdit == null) return; // no active grid editor - return
+            ProcessTenKeypadControlIntoGridViewRowCellEditor(e);
         }
-        ////private void TenKeypadControl11_CustTenKeyEvent(object sender, TenKeypadContol1EventArgs e)
-        ////{
-        ////    Trace.WriteLine(string.Format("tenKeypadControl11_CustTenKeyEvent {0}  {1} ", e.DISPLAY, e.KEY.ToString()));
-
-        ////   if (e.KEY != Keys.Y && e.KEY != Keys.N)
-        ////    {
-        ////        
-
-        ////        DataRow dr = null;
-        ////        try
-        ////        {
-        ////            dr = gridView1.GetFocusedDataRow();
-
-        ////            if (dr != null)
-        ////            {
-        ////                dr[COL.AbsoluteIndex] = (e.DISPLAY == "" ? 0 : Convert.ToInt32(e.DISPLAY)); // ten key value pass into datarow of datatable
-
-        ////                if (COL.AbsoluteIndex == 1)
-        ////                {
-        ////                    //if (!IsGrossWeightGreaterThanTareWeight(dr))
-        ////                    {
-        ////                        tenKeypadControl11.CurrentValue = (Convert.ToString(dr[COL.AbsoluteIndex]) == "0" ? "" : Convert.ToString(dr[COL.AbsoluteIndex]));
-
-        ////                        gridView1.Focus();
-        ////                        gridView1.ShowEditor();
-        ////                        return;
-        ////                    }
-        ////                }
-        ////            }
-        ////        }
-        ////        catch (Exception excpt)
-        ////        {
-        ////            Trace.WriteLine(string.Format("tenKeypadControl11_CustTenKeyEvent ERROR {0}  {1}", excpt.Message, excpt.StackTrace));
-        ////        }
-        ////    }
-        ////    else
-        ////    {
-        ////        if (deXEdit == null) return;            // if no active editor being shown - return
-
-        ////        DataRow dr = null;
-        ////        dr = gridView1.GetFocusedDataRow();
-        ////        //if (!IsGrossWeightGreaterThanTareWeight(dr))
-        ////        //{
-        ////        //    gridView1.Focus();
-        ////        //    gridView1.ShowEditor();
-        ////        //    return;
-        ////        //}
-
-        ////        if (COL.AbsoluteIndex == 0)
-        ////        {   //COL. - the GROSS WEIGHT COLUMN IS THE COLUMN RECEIVING DATA - from tenkeycontrol - MOVE TO TARE WEIGHT COLUMN
-        ////            FocusMoveToNextColumnCellInGrid(0);
-        ////        }
-        ////        else if (COL.AbsoluteIndex == 1)
-        ////        {   // COL. - the TARE WEIGHT COLUMN IS THE COLUMN RECEIVING DATA - from tenkeycontrol
-        ////            if ((ROW + 1) == (gridView1.RowCount - 1) && /* the current focused row is the last row in gridview*/
-        ////                    (gridView1.RowCount - 1) == gridView1.DataRowCount && /* the last row in grid view count is the same as datarow count*/
-        ////                            ROW == (gridView1.DataRowCount - 1)) /* the current row has a data row*/ // AM I FOCUSED AND EDITING ON THE LAST DATA ROW?
-        ////            {
-        ////                //if (PFCS.Classes.Msg.ConfirmAction("Is there another cart for this job?", "Add Another Cart"))
-        ////                {   // - IF YES - ASK TO ADD NEW ROW
-        ////                    FocusMoveToNextColumnCellInGrid(1); // added new row - move to next gross weight column
-        ////                }
-        ////                //else
-        ////                //{
-        ////                //    simpleButtonPrepData.Enabled = true;    // IF A AM ON THE LAST ROW IN GRID - AND - I DO NOT WANT TO ADD ANOTHER CART -  I AM READY TO PREP DATA
-        ////                //    simpleButtonPrepData.Focus();           // I NOW WANT TO ACTIVATE THE DATA PREP BUTTON AND CLOSE FOCUS ON GRID
-        ////                //}
-        ////            }
-        ////        }
-        ////    }
-        ////}
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -231,15 +139,14 @@ namespace SpikeContainer.Spike_001
             dtTempTable.Rows.Add(dr);           // ZERO'ed DataRow added to dtTempTable
         }
 
-        private void DoWork(TenKeypadContol1EventArgs e)
+        private void ProcessTenKeypadControlIntoGridViewRowCellEditor(TenKeypadContol1EventArgs e)
         {
-            Trace.WriteLine(string.Format("DoWork {0}  {1} ", e.DISPLAY, e.KEY.ToString()));
-            if (deXEdit == null) return;            // if no active editor being shown - return
+            Trace.WriteLine(string.Format("ProcessTenKeypadControlIntoGridViewRowCellEditor {0}  {1} ", e.DISPLAY, e.KEY.ToString()));
             if (e.KEY != Keys.Y && e.KEY != Keys.N)
             {
                 try
                 {
-                    Trace.WriteLine(string.Format("DoWork  ( Row = {0} , Column = {1} )", ROW.ToString(), COL.AbsoluteIndex.ToString()));
+                    Trace.WriteLine(string.Format("ProcessTenKeypadControlIntoGridViewRowCellEditor  ( Row = {0} , Column = {1} )", ROW.ToString(), COL.AbsoluteIndex.ToString()));
                     dtTempTable.Rows[ROW][COL.AbsoluteIndex] = (e.DISPLAY == "" ? 0 : Convert.ToInt32(e.DISPLAY));
                     gridView1.RefreshData();
 
@@ -248,7 +155,7 @@ namespace SpikeContainer.Spike_001
                         //if (!IsGrossWeightGreaterThanTareWeight(dtTempTable.Rows[ROW]))
                         {
                             tenKeypadControl11.CurrentValue = (Convert.ToString(dtTempTable.Rows[ROW][COL.AbsoluteIndex]) == "0" ? "" : Convert.ToString(dtTempTable.Rows[ROW][COL.AbsoluteIndex]));
-                            Trace.WriteLine(string.Format("DoWork SETTING tenKeypadControl11.CurrentValue =  {0} )", tenKeypadControl11.CurrentValue));
+                            Trace.WriteLine(string.Format("ProcessTenKeypadControlIntoGridViewRowCellEditor SETTING tenKeypadControl11.CurrentValue =  {0} )", tenKeypadControl11.CurrentValue));
                             gridView1.Focus();
                             gridView1.ShowEditor();
                             return;
@@ -258,7 +165,7 @@ namespace SpikeContainer.Spike_001
                 }
                 catch (Exception excpt)
                 {
-                    Trace.WriteLine(string.Format("tenKeypadControl11_CustTenKeyEvent ERROR {0}  {1}", excpt.Message, excpt.StackTrace));
+                    Trace.WriteLine(string.Format("ProcessTenKeypadControlIntoGridViewRowCellEditor ERROR {0}  {1}", excpt.Message, excpt.StackTrace));
                 }
             }
             else
@@ -293,7 +200,6 @@ namespace SpikeContainer.Spike_001
                 }
             }
         }
-
 
         private bool FocusMoveToNextColumnCellInGrid(Int32 currentColumnAbsoluteIndex)
         {

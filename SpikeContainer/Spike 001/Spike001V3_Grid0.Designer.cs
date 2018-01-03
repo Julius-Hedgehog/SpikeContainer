@@ -74,7 +74,6 @@
             this.gridView1.ViewCaption = "Net Weight for :: Shop Order - ";
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             this.gridView1.ShownEditor += new System.EventHandler(this.gridView1_ShownEditor);
-            this.gridView1.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gridView1_ValidatingEditor);
             // 
             // GrossWeight
             // 

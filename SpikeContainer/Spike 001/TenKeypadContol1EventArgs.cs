@@ -14,18 +14,16 @@ namespace SpikeContainer.Spike_001
     {
         private string strDisplay = "";
         private Keys keyeventKey;
-        private string strKeyval = "";
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="str"></param>
-        /// <param name="keys"></param>
-        public TenKeypadContol1EventArgs(string str, Keys keys, string value)
+        /// <param name="key"></param>
+        public TenKeypadContol1EventArgs(string str, Keys key)
         {
             this.strDisplay = str;
-            this.keyeventKey = keys;
-            strKeyval = value;
+            this.keyeventKey = key;
         }
         /// <summary>
         /// 
@@ -41,11 +39,6 @@ namespace SpikeContainer.Spike_001
         public Keys KEY
         {
             get { return this.keyeventKey; }
-        }
-
-        public string VAL
-        {
-            get { return strKeyval; }
         }
     }
 }

@@ -1,4 +1,16 @@
-﻿using System;
+﻿
+//******************************************************************************************************
+// TenKeypadControl1.cs - PTM Custom Components: Assembly - PTM Custom Components: Solution - PTM Custom Components: Prioject
+//
+// Copyright © 2017, Polartec Tennesee Manufacturing LLC. All Rights Reserved.
+//
+// Unless agreed to in writing, the subject software distributed under the License is distributed on an
+// "AS-IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. Refer to the
+// License for the specific language governing permissions and limitations.
+//
+//******************************************************************************************************
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -6,9 +18,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Forms;
-using WindowsInput;
 
 namespace SpikeContainer.Spike_001
 {
@@ -125,55 +135,54 @@ namespace SpikeContainer.Spike_001
 
             switch (btn.Tag)
             {
-
                 case "0":
                     this._mstringCurrentKeypadValue += "0";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad0, "0");
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad0);
                     key = "0";
                     break;
                 case "1":
                     this._mstringCurrentKeypadValue += "1";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad1, "1");
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad1);
                     key = "1";
                     break;
                 case "2":
                     this._mstringCurrentKeypadValue += "2";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad2, "2");
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad2);
                     key = "2";
                     break;
                 case "3":
                     this._mstringCurrentKeypadValue += "3";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad3, "3");
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad3);
                     key = "3";
                     break;
                 case "4":
                     this._mstringCurrentKeypadValue += "4";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad4, "4");
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad4);
                     key = "4";
                     break;
                 case "5":
                     this._mstringCurrentKeypadValue += "5";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad5, "5");
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad5);
                     key = "5";
                     break;
                 case "6":
                     this._mstringCurrentKeypadValue += "6";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad6, "6");
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad6);
                     key = "6";
                     break;
                 case "7":
                     this._mstringCurrentKeypadValue += "7";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad7, "7");
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad7);
                     key = "7";
                     break;
                 case "8":
                     this._mstringCurrentKeypadValue += "8";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad8, "8");
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad8);
                     key = "8";
                     break;
                 case "9":
                     this._mstringCurrentKeypadValue += "9";
-                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad9, "9");
+                    args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.NumPad9);
                     key = "9";
                     break;
                 default:
@@ -185,7 +194,7 @@ namespace SpikeContainer.Spike_001
                             this._mstringCurrentKeypadValue += "0";
                         }
                         this._mstringCurrentKeypadValue += ".";
-                        args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Decimal, ".");
+                        args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Decimal);
                         key = ".";
                     }
                     break;
@@ -202,8 +211,7 @@ namespace SpikeContainer.Spike_001
             if (this._mstringCurrentKeypadValue.Length > 0)
             {
                 this._mstringCurrentKeypadValue = this._mstringCurrentKeypadValue.Remove(this._mstringCurrentKeypadValue.Length - 1);
-                TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Clear , "");
-
+                TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Clear);
                 this.OnCustTenKeyEvent("{BACKSPACE}",args);
             }
         }
@@ -216,7 +224,7 @@ namespace SpikeContainer.Spike_001
         /// <param name="e"></param>
         private void KeyOK_Click(object sender, EventArgs e)
         {
-            TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Y , "YES");
+            TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Y);
             this.OnCustTenKeyEvent("{ENTER}",args);
         }
 
@@ -228,7 +236,7 @@ namespace SpikeContainer.Spike_001
         /// <param name="e"></param>
         private void KeyCancel_Click(object sender, EventArgs e)
         {
-            TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.N, "NO");
+            TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.N);
             this.OnCustTenKeyEvent("{ESC}",args);
         }
 
