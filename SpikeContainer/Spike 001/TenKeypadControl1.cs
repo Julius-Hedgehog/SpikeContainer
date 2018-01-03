@@ -212,7 +212,7 @@ namespace SpikeContainer.Spike_001
             {
                 this._mstringCurrentKeypadValue = this._mstringCurrentKeypadValue.Remove(this._mstringCurrentKeypadValue.Length - 1);
                 TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Clear);
-                this.OnCustTenKeyEvent("{BACKSPACE}",args);
+                this.OnCustTenKeyEvent("{BACKSPACE}", args);
             }
         }
 
@@ -225,7 +225,7 @@ namespace SpikeContainer.Spike_001
         private void KeyOK_Click(object sender, EventArgs e)
         {
             TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.Y);
-            this.OnCustTenKeyEvent("{ENTER}",args);
+            this.OnCustTenKeyEvent("{ENTER}", args);
         }
 
         /// <summary>
@@ -237,7 +237,7 @@ namespace SpikeContainer.Spike_001
         private void KeyCancel_Click(object sender, EventArgs e)
         {
             TenKeypadContol1EventArgs args = new TenKeypadContol1EventArgs(_mstringCurrentKeypadValue, Keys.N);
-            this.OnCustTenKeyEvent("{ESC}",args);
+            this.OnCustTenKeyEvent("{ESC}", args);
         }
 
         #endregion
@@ -251,6 +251,7 @@ namespace SpikeContainer.Spike_001
         /// this is declared protected here so it is private in the parent class
         /// 
         /// </summary>
+        /// <param name="key"></param>
         /// <param name="args"> <see cref="TenKeypadContol1EventArgs"/></param>
         protected void OnCustTenKeyEvent(string key, TenKeypadContol1EventArgs args)
         {
