@@ -30,6 +30,11 @@ namespace SpikeContainer.Spike_001
         {
             Trace.WriteLine(string.Format("gridView1_KeyUp {0}  {1} ", e.ToString(), e.ToString()));
 
+            KeyEventArgs keyEventArgs = new KeyEventArgs(KeyboardDevice,Key.NumPad6);
+            OnKeyDown(keyEventArgs);
+
+            //KeyDownEvent routedEvent = 
+            
         }
 
         protected override void OnMouseLeave(MouseEventArgs e)

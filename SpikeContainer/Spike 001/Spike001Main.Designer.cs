@@ -47,7 +47,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(231, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(298, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -76,43 +76,43 @@
             // 
             this.simpleButton1.Location = new System.Drawing.Point(13, 28);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(206, 23);
+            this.simpleButton1.Size = new System.Drawing.Size(273, 23);
             this.simpleButton1.TabIndex = 4;
-            this.simpleButton1.Text = "Spike One Test A";
+            this.simpleButton1.Text = "Spike One Test A - Proof of Concept";
             this.simpleButton1.Click += new System.EventHandler(this.testAToolStripMenuItem_Click);
             // 
             // simpleButton2
             // 
             this.simpleButton2.Location = new System.Drawing.Point(13, 58);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(206, 23);
+            this.simpleButton2.Size = new System.Drawing.Size(273, 23);
             this.simpleButton2.TabIndex = 5;
-            this.simpleButton2.Text = "Spike One Test B";
+            this.simpleButton2.Text = "Spike One Test B - Proof of Concept";
             this.simpleButton2.Click += new System.EventHandler(this.testBToolStripMenuItem_Click);
             // 
             // simpleButton3
             // 
             this.simpleButton3.Location = new System.Drawing.Point(12, 87);
             this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(206, 23);
+            this.simpleButton3.Size = new System.Drawing.Size(273, 23);
             this.simpleButton3.TabIndex = 6;
-            this.simpleButton3.Text = "Spike One Test C - Grid 1";
+            this.simpleButton3.Text = "Spike One Test C - Grid 1 - Dev Test Bed";
             this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // simpleButton4
             // 
             this.simpleButton4.Location = new System.Drawing.Point(13, 116);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(206, 23);
+            this.simpleButton4.Size = new System.Drawing.Size(273, 23);
             this.simpleButton4.TabIndex = 7;
-            this.simpleButton4.Text = "Spike One Test C - Grid 1";
+            this.simpleButton4.Text = "Spike One Test D - WPF Control - Proof of Concept";
             this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // Spike001Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(231, 145);
+            this.ClientSize = new System.Drawing.Size(298, 219);
             this.Controls.Add(this.simpleButton4);
             this.Controls.Add(this.simpleButton3);
             this.Controls.Add(this.simpleButton2);
