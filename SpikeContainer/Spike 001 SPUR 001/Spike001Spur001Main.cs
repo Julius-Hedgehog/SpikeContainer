@@ -22,5 +22,35 @@ namespace SpikeContainer.Spike_001_SPUR_001
             Spike001Spur001_Grid frm = new Spike001Spur001_Grid();
             frm.ShowDialog(this);
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            throw (new NotImplementedException());
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            throw (new NotImplementedException());
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            throw (new NotImplementedException());
+        }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+            throw (new NotImplementedException());
+        }
+
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+            throw (new NotImplementedException());
+        }
+
+        private void simpleButton7_Click(object sender, EventArgs e)
+        {
+            throw (new NotImplementedException());
+        }
     }
 }

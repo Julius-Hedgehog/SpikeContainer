@@ -43,7 +43,7 @@
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(565, 23);
             this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "simpleButton1";
+            this.simpleButton1.Text = "Dot Net User Controls with Grid and WindowsInput Utilization";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButton2
@@ -52,7 +52,8 @@
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(565, 23);
             this.simpleButton2.TabIndex = 1;
-            this.simpleButton2.Text = "simpleButton2";
+            this.simpleButton2.Text = "WPF User Controls with Grid and WindowsInput Utilization";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // simpleButton3
             // 
@@ -61,6 +62,7 @@
             this.simpleButton3.Size = new System.Drawing.Size(565, 23);
             this.simpleButton3.TabIndex = 2;
             this.simpleButton3.Text = "simpleButton3";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // simpleButton4
             // 
@@ -69,6 +71,7 @@
             this.simpleButton4.Size = new System.Drawing.Size(565, 23);
             this.simpleButton4.TabIndex = 3;
             this.simpleButton4.Text = "simpleButton4";
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // simpleButton5
             // 
@@ -77,6 +80,7 @@
             this.simpleButton5.Size = new System.Drawing.Size(565, 23);
             this.simpleButton5.TabIndex = 4;
             this.simpleButton5.Text = "simpleButton5";
+            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
             // 
             // simpleButton6
             // 
@@ -85,6 +89,7 @@
             this.simpleButton6.Size = new System.Drawing.Size(565, 23);
             this.simpleButton6.TabIndex = 5;
             this.simpleButton6.Text = "simpleButton6";
+            this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
             // 
             // simpleButton7
             // 
@@ -93,6 +98,7 @@
             this.simpleButton7.Size = new System.Drawing.Size(565, 23);
             this.simpleButton7.TabIndex = 6;
             this.simpleButton7.Text = "simpleButton7";
+            this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
             // 
             // Spike001Spur001Main
             // 
