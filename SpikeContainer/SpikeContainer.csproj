@@ -152,6 +152,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Spike 001 SPUR 001\Spike001Spur001Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 001 SPUR 001\Spike001Spur001Main.Designer.cs">
+      <DependentUpon>Spike001Spur001Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Spike 001 SPUR 001\Spike001Spur001_Grid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 001 SPUR 001\Spike001Spur001_Grid.Designer.cs">
+      <DependentUpon>Spike001Spur001_Grid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Spike 001 SPUR 001\Spike001Spur001_WPF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 001 SPUR 001\Spike001Spur001_WPF.Designer.cs">
+      <DependentUpon>Spike001Spur001_WPF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Spike 001\KeyPadGridContainer.cs" />
     <Compile Include="Spike 001\MyOnScreenKeypad.cs" />
     <Compile Include="Spike 001\ModifierKeyBase.cs" />
@@ -161,10 +179,10 @@
     <Compile Include="Spike 001\Spike001V3_SPUR001_GridInptSim.Designer.cs">
       <DependentUpon>Spike001V3_SPUR001_GridInptSim.cs</DependentUpon>
     </Compile>
-    <Compile Include="Spike 001\TenKeyPadControl1_1.cs">
+    <Compile Include="Spike 001 SPUR 001\TenKeyPadControl1_1.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Spike 001\TenKeyPadControl1_1.Designer.cs">
+    <Compile Include="Spike 001 SPUR 001\TenKeyPadControl1_1.Designer.cs">
       <DependentUpon>TenKeyPadControl1_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Spike 001\TogglingModifierKey.cs" />
@@ -259,6 +277,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Spike 001 SPUR 001\Spike001Spur001Main.resx">
+      <DependentUpon>Spike001Spur001Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike 001 SPUR 001\Spike001Spur001_Grid.resx">
+      <DependentUpon>Spike001Spur001_Grid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Spike 001\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -286,7 +310,7 @@
     <EmbeddedResource Include="Spike 001\TenKeypadControl1.resx">
       <DependentUpon>TenKeypadControl1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Spike 001\TenKeyPadControl1_1.resx">
+    <EmbeddedResource Include="Spike 001 SPUR 001\TenKeyPadControl1_1.resx">
       <DependentUpon>TenKeyPadControl1_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Spike Dev Express Grid\DEG Example 001.resx">
@@ -356,5 +380,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -38,5 +38,12 @@ namespace SpikeContainer
 
             frm.Show(this);
         }
+
+        private void dexbtnSpike1Spur1_Click(object sender, EventArgs e)
+        {
+            Spike_001_SPUR_001.Spike001Spur001Main frm = new Spike_001_SPUR_001.Spike001Spur001Main();
+
+            frm.Show(this);
+        }
     }
 }

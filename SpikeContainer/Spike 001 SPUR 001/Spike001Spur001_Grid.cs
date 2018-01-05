@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SpikeContainer.Spike_001
+namespace SpikeContainer.Spike_001_SPUR_001
 {
-    public partial class TenKeyPadControl1_1 : UserControl
+    public partial class Spike001Spur001_Grid : Form
     {
-        public TenKeyPadControl1_1()
+        public Spike001Spur001_Grid()
         {
             InitializeComponent();
         }
