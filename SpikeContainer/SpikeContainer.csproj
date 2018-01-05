@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>SpikeContainer</RootNamespace>
     <AssemblyName>SpikeContainer</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -154,6 +155,18 @@
     <Compile Include="Spike 001\KeyPadGridContainer.cs" />
     <Compile Include="Spike 001\MyOnScreenKeypad.cs" />
     <Compile Include="Spike 001\ModifierKeyBase.cs" />
+    <Compile Include="Spike 001\Spike001V3_SPUR001_GridInptSim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 001\Spike001V3_SPUR001_GridInptSim.Designer.cs">
+      <DependentUpon>Spike001V3_SPUR001_GridInptSim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Spike 001\TenKeyPadControl1_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Spike 001\TenKeyPadControl1_1.Designer.cs">
+      <DependentUpon>TenKeyPadControl1_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Spike 001\TogglingModifierKey.cs" />
     <Compile Include="Spike 001\InstantaneousModifierKey.cs" />
     <Compile Include="Spike 001\Form1.cs">
@@ -244,6 +257,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Spike 001\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -263,11 +277,17 @@
     <EmbeddedResource Include="Spike 001\Spike001V3_Grid0.resx">
       <DependentUpon>Spike001V3_Grid0.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Spike 001\Spike001V3_SPUR001_GridInptSim.resx">
+      <DependentUpon>Spike001V3_SPUR001_GridInptSim.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Spike 001\TenKeypadControl.resx">
       <DependentUpon>TenKeypadControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Spike 001\TenKeypadControl1.resx">
       <DependentUpon>TenKeypadControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike 001\TenKeyPadControl1_1.resx">
+      <DependentUpon>TenKeyPadControl1_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Spike Dev Express Grid\DEG Example 001.resx">
       <DependentUpon>DEG Example 001.cs</DependentUpon>

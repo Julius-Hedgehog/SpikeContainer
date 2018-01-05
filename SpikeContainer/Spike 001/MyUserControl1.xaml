@@ -6,8 +6,18 @@
              xmlns:local="clr-namespace:SpikeContainer.Spike_001"
              mc:Ignorable="d" 
              d:DesignHeight="347" d:DesignWidth="347">
-    <Grid>
-        <Button Content="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Height="70" Click="Button_Click" FontSize="48" Focusable="False" IsTabStop="False"/>
-
+    <Grid Background="#FFDED5D5">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="KeyOne" Content="   1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="87" Width="116" Foreground="#FF0F0F0F" FontSize="48" BorderBrush="#FF1B1515" MouseDown="KeyOne_MouseDown" Background="{x:Null}"/>
     </Grid>
 </UserControl>

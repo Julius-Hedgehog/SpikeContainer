@@ -55,5 +55,10 @@ namespace SpikeContainer.Spike_001
 
             frm.Show(this);
         }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
