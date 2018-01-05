@@ -30,12 +30,12 @@
         {
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.tenKeyPadControl1_11 = new SpikeContainer.Spike_001.TenKeyPadControl1_1();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.fullTenKeyDataEntryControl1 = new SpikeContainer.Spike_001_SPUR_001.FullTenKeyDataEntryControl();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
@@ -60,27 +60,18 @@
             this.gridColumn3});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
-            // 
-            // textEdit2
-            // 
-            this.textEdit2.Location = new System.Drawing.Point(12, 36);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(320, 20);
-            this.textEdit2.TabIndex = 4;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(12, 10);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(320, 20);
-            this.textEdit1.TabIndex = 3;
-            // 
-            // tenKeyPadControl1_11
-            // 
-            this.tenKeyPadControl1_11.Location = new System.Drawing.Point(419, 76);
-            this.tenKeyPadControl1_11.Name = "tenKeyPadControl1_11";
-            this.tenKeyPadControl1_11.Size = new System.Drawing.Size(254, 340);
-            this.tenKeyPadControl1_11.TabIndex = 6;
+            this.gridView1.OptionsCustomization.AllowColumnMoving = false;
+            this.gridView1.OptionsCustomization.AllowColumnResizing = false;
+            this.gridView1.OptionsCustomization.AllowGroup = false;
+            this.gridView1.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView1.OptionsMenu.ShowFooterItem = true;
+            this.gridView1.OptionsNavigation.AutoFocusNewRow = true;
+            this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gridView1.OptionsView.ShowFooter = true;
+            this.gridView1.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView1.OptionsView.ShowPreviewRowLines = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView1.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView1.OptionsView.ShowViewCaption = true;
             // 
             // gridColumn1
             // 
@@ -103,12 +94,35 @@
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             // 
+            // textEdit2
+            // 
+            this.textEdit2.EnterMoveNextControl = true;
+            this.textEdit2.Location = new System.Drawing.Point(12, 36);
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Size = new System.Drawing.Size(320, 20);
+            this.textEdit2.TabIndex = 4;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.EnterMoveNextControl = true;
+            this.textEdit1.Location = new System.Drawing.Point(12, 10);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(320, 20);
+            this.textEdit1.TabIndex = 3;
+            // 
+            // fullTenKeyDataEntryControl1
+            // 
+            this.fullTenKeyDataEntryControl1.Location = new System.Drawing.Point(418, 70);
+            this.fullTenKeyDataEntryControl1.Name = "fullTenKeyDataEntryControl1";
+            this.fullTenKeyDataEntryControl1.Size = new System.Drawing.Size(243, 487);
+            this.fullTenKeyDataEntryControl1.TabIndex = 6;
+            // 
             // Spike001Spur001_Grid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 797);
-            this.Controls.Add(this.tenKeyPadControl1_11);
+            this.Controls.Add(this.fullTenKeyDataEntryControl1);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.textEdit2);
             this.Controls.Add(this.textEdit1);
@@ -131,6 +145,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private Spike_001.TenKeyPadControl1_1 tenKeyPadControl1_11;
+        private FullTenKeyDataEntryControl fullTenKeyDataEntryControl1;
     }
 }

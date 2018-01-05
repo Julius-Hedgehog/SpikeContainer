@@ -152,6 +152,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Spike 001 SPUR 001\ClearClearEntryKeyPadControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Spike 001 SPUR 001\ClearClearEntryKeyPadControl.Designer.cs">
+      <DependentUpon>ClearClearEntryKeyPadControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Spike 001 SPUR 001\DialogResultsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Spike 001 SPUR 001\DialogResultsControl.Designer.cs">
+      <DependentUpon>DialogResultsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Spike 001 SPUR 001\FullTenKeyDataEntryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Spike 001 SPUR 001\FullTenKeyDataEntryControl.Designer.cs">
+      <DependentUpon>FullTenKeyDataEntryControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Spike 001 SPUR 001\Spike001Spur001Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +295,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Spike 001 SPUR 001\ClearClearEntryKeyPadControl.resx">
+      <DependentUpon>ClearClearEntryKeyPadControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike 001 SPUR 001\DialogResultsControl.resx">
+      <DependentUpon>DialogResultsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike 001 SPUR 001\FullTenKeyDataEntryControl.resx">
+      <DependentUpon>FullTenKeyDataEntryControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Spike 001 SPUR 001\Spike001Spur001Main.resx">
       <DependentUpon>Spike001Spur001Main.cs</DependentUpon>
     </EmbeddedResource>
