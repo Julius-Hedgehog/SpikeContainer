@@ -5,14 +5,14 @@ using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
-using SpikeContainer.DataEntitiy;
+
 
 
 namespace SpikeContainer.Spike_001
 {
     public partial class Spike001V3_Grid0 : Form
     {
-        private MesDbEntities _db;
+        private TestMesDbEntities _db;
         private DataTable dtTempTable;
 
         DevExpress.XtraEditors.BaseEdit deXEdit = null; // indicator IF and Active Editor is selected in the GridView
@@ -97,7 +97,7 @@ namespace SpikeContainer.Spike_001
         private void InitializeMesDbEntitiesObject()
         {   // if the database object PFCS.DataEntities.MesDbEntities is not previously disposed and null kill it
             DisposeMesDbEntitiesObject();
-            _db = new MesDbEntities();  // CLASS VAR is Initialized HERE
+            _db = new TestMesDbEntities();  // CLASS VAR is Initialized HERE
         }
 
         private void DisposeMesDbEntitiesObject()

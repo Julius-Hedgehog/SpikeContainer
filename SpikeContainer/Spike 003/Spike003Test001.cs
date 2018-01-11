@@ -15,7 +15,7 @@ namespace SpikeContainer.Spike_003
     public partial class Spike003Test001 : Form
     {
 
-        private SpikeContainer.DataEntitiy.MesDbEntities _db;
+        private SpikeContainer.DataEntitiy.TestMesDbEntities _db;
         private string _user;
 
         public Spike003Test001()
@@ -31,14 +31,16 @@ namespace SpikeContainer.Spike_003
         private void InitializeAllData()
         {
             _db?.Dispose();
-            _db = new DataEntitiy.MesDbEntities();
+            _db = new DataEntitiy.TestMesDbEntities();
             _db.Users.Load();
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            gridControl1.DataSource = _db;
-            gridControl1.DataSource = "Users";
+            gridControl1.DataSource = _db.Users.Local;
+            vGridControl1.DataSource = _db.Users.Local;
+            treeList1.DataSource = _db.Users.Local;
+           
         }
     }
 }

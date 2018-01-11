@@ -37,6 +37,9 @@ namespace SpikeContainer.DataEntitiy
         public bool WorkStation { get; set; }
         public System.DateTime ChangedDate { get; set; }
         public string ChangedBy { get; set; }
+        public Nullable<int> TtmAccess { get; set; }
+        public Nullable<int> SantexAccess { get; set; }
+        public Nullable<int> KenyonAccess { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Package> Packages { get; set; }
