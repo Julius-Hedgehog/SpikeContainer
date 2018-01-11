@@ -47,8 +47,13 @@
     <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Extended">
+      <HintPath>..\packages\EntityFramework.Extended.6.1.0.168\lib\net45\EntityFramework.Extended.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
@@ -264,6 +269,18 @@
       <DependentUpon>TenKeypadControl1.cs</DependentUpon>
     </Compile>
     <Compile Include="Spike 001\VirtualKey.cs" />
+    <Compile Include="Spike 003\Spike0003_MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 003\Spike0003_MainMenu.Designer.cs">
+      <DependentUpon>Spike0003_MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Spike 003\Spike003Test001.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 003\Spike003Test001.Designer.cs">
+      <DependentUpon>Spike003Test001.cs</DependentUpon>
+    </Compile>
     <Compile Include="Spike Dev Express Grid\DEG Example 001.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +356,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Spike 001 SPUR 001\TenKeyPadControl1_1.resx">
       <DependentUpon>TenKeyPadControl1_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike 003\Spike0003_MainMenu.resx">
+      <DependentUpon>Spike0003_MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike 003\Spike003Test001.resx">
+      <DependentUpon>Spike003Test001.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Spike Dev Express Grid\DEG Example 001.resx">
       <DependentUpon>DEG Example 001.cs</DependentUpon>

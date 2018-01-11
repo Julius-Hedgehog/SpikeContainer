@@ -45,5 +45,12 @@ namespace SpikeContainer
 
             frm.Show(this);
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        { // SPIKE 0003
+            Spike_003.Spike0003_MainMenu frm = new Spike_003.Spike0003_MainMenu();
+
+            frm.Show(this);
+        }
     }
 }

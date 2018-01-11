@@ -15,10 +15,10 @@ namespace SpikeContainer.DataEntitiy
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class MesDbEntities : DbContext
+    public partial class TestMesDbEntities : DbContext
     {
-        public MesDbEntities()
-            : base("name=MesDbEntities")
+        public TestMesDbEntities()
+            : base("name=TestMesDbEntities")
         {
         }
     
@@ -42,7 +42,7 @@ namespace SpikeContainer.DataEntitiy
         public virtual DbSet<tr_hist> tr_hist { get; set; }
         public virtual DbSet<User> Users { get; set; }
     
-        [DbFunction("MesDbEntities", "fn_GetDyeLotBatches")]
+        [DbFunction("TestMesDbEntities", "fn_GetDyeLotBatches")]
         public virtual IQueryable<fn_GetDyeLotBatches_Result> fn_GetDyeLotBatches(string dyeLot, Nullable<int> machineNo, Nullable<int> arelKey)
         {
             var dyeLotParameter = dyeLot != null ?
@@ -57,7 +57,7 @@ namespace SpikeContainer.DataEntitiy
                 new ObjectParameter("ArelKey", arelKey) :
                 new ObjectParameter("ArelKey", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_GetDyeLotBatches_Result>("[MesDbEntities].[fn_GetDyeLotBatches](@DyeLot, @MachineNo, @ArelKey)", dyeLotParameter, machineNoParameter, arelKeyParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_GetDyeLotBatches_Result>("[TestMesDbEntities].[fn_GetDyeLotBatches](@DyeLot, @MachineNo, @ArelKey)", dyeLotParameter, machineNoParameter, arelKeyParameter);
         }
     
         public virtual ObjectResult<Nullable<int>> sp_DyeLotStarted(string dyeLot, Nullable<int> machineNo)

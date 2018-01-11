@@ -34,10 +34,11 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.spikesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spikeOneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.spikeTwoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spikeOneSpurOneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.dexbtnSpike1Spur1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -46,7 +47,7 @@
             // 
             this.SpikeOne.Location = new System.Drawing.Point(12, 27);
             this.SpikeOne.Name = "SpikeOne";
-            this.SpikeOne.Size = new System.Drawing.Size(249, 23);
+            this.SpikeOne.Size = new System.Drawing.Size(286, 23);
             this.SpikeOne.TabIndex = 0;
             this.SpikeOne.Text = "Spike One - Key Pad Pre Testing";
             this.SpikeOne.Click += new System.EventHandler(this.SpikeOne_Click);
@@ -93,15 +94,6 @@
             this.spikeOneToolStripMenuItem.Text = "Spike One";
             this.spikeOneToolStripMenuItem.Click += new System.EventHandler(this.SpikeOne_Click);
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(12, 89);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(249, 23);
-            this.simpleButton1.TabIndex = 2;
-            this.simpleButton1.Text = "Spike Two - Dev Express Grid Learning";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
             // spikeTwoToolStripMenuItem
             // 
             this.spikeTwoToolStripMenuItem.Name = "spikeTwoToolStripMenuItem";
@@ -116,20 +108,39 @@
             this.spikeOneSpurOneToolStripMenuItem.Text = "Spike One Spur One";
             this.spikeOneSpurOneToolStripMenuItem.Click += new System.EventHandler(this.dexbtnSpike1Spur1_Click);
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(12, 89);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(286, 23);
+            this.simpleButton1.TabIndex = 2;
+            this.simpleButton1.Text = "Spike Two - Dev Express Grid Learning";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // dexbtnSpike1Spur1
             // 
             this.dexbtnSpike1Spur1.Location = new System.Drawing.Point(43, 56);
             this.dexbtnSpike1Spur1.Name = "dexbtnSpike1Spur1";
-            this.dexbtnSpike1Spur1.Size = new System.Drawing.Size(249, 23);
+            this.dexbtnSpike1Spur1.Size = new System.Drawing.Size(286, 23);
             this.dexbtnSpike1Spur1.TabIndex = 3;
             this.dexbtnSpike1Spur1.Text = "Spike One - Spur One";
             this.dexbtnSpike1Spur1.Click += new System.EventHandler(this.dexbtnSpike1Spur1_Click);
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(12, 118);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(286, 23);
+            this.simpleButton2.TabIndex = 4;
+            this.simpleButton2.Text = "Spike Three - Dev Express Combo/List Box Learning";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(765, 448);
+            this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.dexbtnSpike1Spur1);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.SpikeOne);
@@ -157,6 +168,7 @@
         private System.Windows.Forms.ToolStripMenuItem spikeTwoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem spikeOneSpurOneToolStripMenuItem;
         private DevExpress.XtraEditors.SimpleButton dexbtnSpike1Spur1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }
 
