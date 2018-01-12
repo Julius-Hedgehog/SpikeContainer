@@ -101,14 +101,38 @@ namespace SpikeContainer.Spike_003
             listBoxControl1.DisplayMember = "Name";
             listBoxControl1.DataSource = _dtTempValues;
 
-            
+            lookUpEdit1.Properties.DataSource = _dtTempValues;
+            lookUpEdit1.Properties.DisplayMember = "Name";
 
+            listBoxControl1.SelectedIndex = 0;
+            comboBoxEdit1.SelectedIndex = 0;
 
+            lookUpEdit1.EditValue = "None";
         }
 
         private void listBoxControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Trace.WriteLine("listBoxControl1_SelectedIndexChanged");
+        }
+
+        private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Trace.WriteLine("comboBoxEdit1_SelectedIndexChanged");
+        }
+
+        private void comboBoxEdit1_Properties_EditValueChanged(object sender, EventArgs e)
+        {
+            Trace.WriteLine("comboBoxEdit1_Properties_EditValueChanged");
+        }
+
+        private void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            Trace.WriteLine("lookUpEdit1_EditValueChanged");
+        }
+
+        private void lookUpEdit1_Properties_EditValueChanged(object sender, EventArgs e)
+        {
+            Trace.WriteLine("lookUpEdit1_Properties_EditValueChanged");
         }
     }
 }
