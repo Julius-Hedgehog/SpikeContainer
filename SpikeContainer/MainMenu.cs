@@ -52,5 +52,11 @@ namespace SpikeContainer
 
             frm.Show(this);
         }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            Spike_004.Form1 frm = new Spike_004.Form1();
+            frm.Show(this);
+        }
     }
 }

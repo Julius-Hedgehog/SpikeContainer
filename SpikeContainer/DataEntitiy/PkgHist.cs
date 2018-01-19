@@ -55,6 +55,7 @@ namespace SpikeContainer.DataEntitiy
         public int DelschedID { get; set; }
         public string ShadeGroup { get; set; }
         public Nullable<bool> MilLotRep { get; set; }
+        public string OverRide { get; set; }
     
         public virtual Package Package { get; set; }
     }

@@ -368,6 +368,7 @@
           <Property Name="DelschedID" Type="int" Nullable="false" />
           <Property Name="ShadeGroup" Type="varchar" MaxLength="10" />
           <Property Name="MilLotRep" Type="bit" />
+          <Property Name="OverRide" Type="varchar" MaxLength="8" />
         </EntityType>
         <EntityType Name="ShopOrders">
           <Key>
@@ -578,6 +579,7 @@
           <Property Name="TtmAccess" Type="int" />
           <Property Name="SantexAccess" Type="int" />
           <Property Name="KenyonAccess" Type="int" />
+          <Property Name="SupOverRide" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_ArelContainers_ArelLots">
           <End Role="ArelLots" Type="Self.ArelLots" Multiplicity="1" />
@@ -741,6 +743,7 @@
           <Parameter Name="Where" Type="varchar(max)" Mode="In" />
           <Parameter Name="TransDescr" Type="varchar" Mode="In" />
           <Parameter Name="TransDateTime" Type="datetime" Mode="In" />
+          <Parameter Name="OrverRideUser" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_IssueToShopOrderPkg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="SO" Type="int" Mode="In" />
@@ -1194,6 +1197,7 @@
           <Property Name="ShadeGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="MilLotRep" Type="Boolean" />
           <NavigationProperty Name="Package" Relationship="Self.FK_PkgHist_Rolls" FromRole="PkgHist" ToRole="Packages" />
+          <Property Name="OverRide" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ShopOrder">
           <Key>
@@ -1414,6 +1418,7 @@
           <Property Name="TtmAccess" Type="Int32" />
           <Property Name="SantexAccess" Type="Int32" />
           <Property Name="KenyonAccess" Type="Int32" />
+          <Property Name="SupOverRide" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_ArelContainers_ArelLots">
           <End Role="ArelLots" Type="Self.ArelLot" Multiplicity="1" />
@@ -1629,6 +1634,7 @@
             <Parameter Name="Where" Mode="In" Type="String" />
             <Parameter Name="TransDescr" Mode="In" Type="String" />
             <Parameter Name="TransDateTime" Mode="In" Type="DateTime" />
+            <Parameter Name="OrverRideUser" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_IssueToShopOrderPkg">
             <Parameter Name="SO" Mode="In" Type="Int32" />
@@ -1965,6 +1971,7 @@
           <EntitySetMapping Name="PkgHists">
             <EntityTypeMapping TypeName="MesDbModel.PkgHist">
               <MappingFragment StoreEntitySet="PkgHist">
+                <ScalarProperty Name="OverRide" ColumnName="OverRide" />
                 <ScalarProperty Name="HistID" ColumnName="HistID" />
                 <ScalarProperty Name="TransDateTime" ColumnName="TransDateTime" />
                 <ScalarProperty Name="TransDescr" ColumnName="TransDescr" />
@@ -2203,6 +2210,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="MesDbModel.User">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="SupOverRide" ColumnName="SupOverRide" />
                 <ScalarProperty Name="KenyonAccess" ColumnName="KenyonAccess" />
                 <ScalarProperty Name="SantexAccess" ColumnName="SantexAccess" />
                 <ScalarProperty Name="TtmAccess" ColumnName="TtmAccess" />

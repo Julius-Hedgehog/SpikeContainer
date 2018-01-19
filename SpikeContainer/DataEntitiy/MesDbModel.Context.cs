@@ -73,7 +73,7 @@ namespace SpikeContainer.DataEntitiy
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_DyeLotStarted", dyeLotParameter, machineNoParameter);
         }
     
-        public virtual int sp_InsertPkgHist(string where, string transDescr, Nullable<System.DateTime> transDateTime)
+        public virtual int sp_InsertPkgHist(string where, string transDescr, Nullable<System.DateTime> transDateTime, string orverRideUser)
         {
             var whereParameter = where != null ?
                 new ObjectParameter("Where", where) :
@@ -87,7 +87,11 @@ namespace SpikeContainer.DataEntitiy
                 new ObjectParameter("TransDateTime", transDateTime) :
                 new ObjectParameter("TransDateTime", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertPkgHist", whereParameter, transDescrParameter, transDateTimeParameter);
+            var orverRideUserParameter = orverRideUser != null ?
+                new ObjectParameter("OrverRideUser", orverRideUser) :
+                new ObjectParameter("OrverRideUser", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertPkgHist", whereParameter, transDescrParameter, transDateTimeParameter, orverRideUserParameter);
         }
     
         public virtual int sp_IssueToShopOrderPkg(Nullable<int> sO, Nullable<System.DateTime> dT, string userID)

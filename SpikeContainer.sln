@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpikeContainer", "SpikeContainer\SpikeContainer.csproj", "{09C901D7-5C25-4AA9-9DE7-770D8EE605FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpikeMainConsoleApp", "SpikeMainConsoleApp\SpikeMainConsoleApp.csproj", "{B7D5496D-7E9B-4D0D-90AD-31D4D465F0EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{09C901D7-5C25-4AA9-9DE7-770D8EE605FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09C901D7-5C25-4AA9-9DE7-770D8EE605FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09C901D7-5C25-4AA9-9DE7-770D8EE605FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7D5496D-7E9B-4D0D-90AD-31D4D465F0EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7D5496D-7E9B-4D0D-90AD-31D4D465F0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7D5496D-7E9B-4D0D-90AD-31D4D465F0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7D5496D-7E9B-4D0D-90AD-31D4D465F0EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
