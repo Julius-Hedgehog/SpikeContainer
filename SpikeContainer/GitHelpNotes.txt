@@ -1,0 +1,161 @@
+
+document created	- 10/19/2017
+by			- J P Hyder
+purpose			- Polartec Tennessee Manufacturing LLC. 
+			  non confidential internal use only
+			  for use in Software Development IT for
+			  Maufacturing/Industrial Engineering
+			  department applications development
+---------------------------------------------------------------
+
+update/change/review log:
+
+_______________________________________________________________
+
+
+10/19/2017 	- Created by J P Hyder
+
+
+===============================================================
+===============================================================
+
+How I got a MSVS Solution into Git with Local and Remote Repositories
+
+IMPORTANT NOTES:
+
+	- local repository (working) - should be a local machine location
+	- remote repository (archive) - can be a network or local location
+	- 'publish' links, copies, pushes code from the local repository
+	  to the remote repository
+	- commits push local changes to the remote but must be given a 
+	  descriptive comment 
+
+================================================================
+
+Procedure
+
+----------------------------------------------------------------
+
+#1) Designate 2 separate locations.
+
+	Designate/Create two (2) separate directory locations on your 
+	local machine for specific use as your working and archive 
+	directories. These directories should be empty. 
+	
+	{ i.e. C:\Git\MyRepository , C:\Git\Working }
+
+	You can use existing directories.
+
+#2) Go to the specific folder of MSVS project/solution 
+	
+	Go to the specific folder of project you wish to enter into 
+	Git source control. Remove any Git folders and files from 
+	the VS project/solution folder and subfolders.
+
+#3) Copy the Git cleansed project
+	
+	Now you will copy the project into the working direcotry only.
+
+#4) Open the Git Command Line.
+
+	Open the Git command line tool. Use { >cd path } to navigate
+	to the MSVS project/solution directory that is to be your 
+	archive. Now run the Git initialize bare command...
+	> git init --bare
+	This will set up the archive MSVS project/solution directory
+	with the initial folders to be recognized as the remote/archive
+	repository.
+
+#5) Open the working directory project/solution in MSVS
+
+	Open the working project, from the working directory.
+	do nothing else.
+
+#6) Add the working project to source control
+
+	Add the working project/solution to Git source control.
+	This option is activated from the button on the status bar
+	in the lower righthand corner of the MSVS window.
+	
+	if you have Windows Exploer open to that directory you will see
+	the Git directories are added into the working project folder.
+
+	do nothing else.
+
+#7) From the team explorer 'publish'
+
+	You will need to enter the path to the ARCHIVE REPOSITORY.
+	'publish'
+	Make sure that the fetch, and push path settings are pointed 
+	to the remote/archive directory
+
+----------------------------------------------------------------
+
+End Procedure
+
+
+You should now have successfully created your local repository, your 
+remote repository and have linked them. GIt starts from the perspective 
+that you are new and starting with your local (working) repository location.  
+Once you have that you can create the Git remote/archive repository.
+
+But, and this is a big 'BUT' You must use the GitCMD tool so the 
+remote/archive directory is pre-seeded with the remote folders and files.  
+The the Git command line tool does the magic of creating the remote repository 
+via the '>Git init --bare' command. 
+
+
+Be careful of the the initial directory location of Git tool in Team Explorer. 
+This path can be reset in the Team Explorer settings
+
+
+===============================================================
+===============================================================
+
+
+Moving and Connecting to Remote Repository	
+MOVING THE ARCHIVE AND CONNECTING TO IT
+=====================================================================
+Moving Global repository
+---------------------------------------------------------------------
+from::
+- = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = -
+C:\Git\MyRepository
+---------------------------------------------------------------------
+To::
+- = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = -
+J:\EngineeringPrograms\6_Code_Testing\JHyder\NetworkGitRepository\Git
+
+=====================================================================
+local
+Push Fetch
+---------------------------------------------------------------------
+Fetch from::
+- = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = -
+C:\Git\MyRepository\Try2\MatMngApp
+
+C:\Git\MyRepository\Solution1\MatMngApp
+---------------------------------------------------------------------
+Fetch to:
+- = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = - = -
+J:\EngineeringPrograms\6_Code_Testing\JHyder\NetworkGitRepository\Git\Try2\MatMngApp 
+
+J:\EngineeringPrograms\6_Code_Testing\JHyder\NetworkGitRepository\Git\Solution1
+
+
+PROCEDURE:
+
+I copied the local repository folders over to the network location.  
+
+I then opened MSVS.
+
+I then opened the project from my working location.
+
+I then went to the Team Manager and Git tools ‘setting’
+
+I set the ‘Global Repository’ location to the network location – that is under the ‘Global Settings’ option.
+
+I then set, from under the ‘Repository Settings’ option, by ‘Edit’ing the ‘Fetch – Push location.
+
+	
+	

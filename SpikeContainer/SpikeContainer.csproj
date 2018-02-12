@@ -431,6 +431,7 @@
       <DependentUpon>MesDbModel.edmx</DependentUpon>
       <LastGenOutput>MesDbModel.cs</LastGenOutput>
     </Content>
+    <Content Include="GitHelpNotes.txt" />
     <Content Include="Spike 001\InputSimulator\InputSimulator.dll" />
     <Content Include="Spike 001\InputSimulator\InputSimulator.pdb" />
     <Content Include="Spike 001\InputSimulator\InputSimulator.XML" />
