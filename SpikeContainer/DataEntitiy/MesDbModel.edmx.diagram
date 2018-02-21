@@ -8,10 +8,10 @@
         <EntityTypeShape EntityType="MesDbModel.ArelContainers" Width="1.5" PointX="11.625" PointY="11.5" />
         <EntityTypeShape EntityType="MesDbModel.ArelLots" Width="1.5" PointX="9.5" PointY="11.5" />
         <EntityTypeShape EntityType="MesDbModel.ArelLotsRecipe" Width="1.5" PointX="7" PointY="16.5" />
-        <EntityTypeShape EntityType="MesDbModel.AutomatedEmail" Width="1.5" PointX="11.75" PointY="6.625" />
+        <EntityTypeShape EntityType="MesDbModel.AutomatedEmail" Width="2" PointX="9.375" PointY="7.25" />
         <EntityTypeShape EntityType="MesDbModel.LocalVariables" Width="1.5" PointX="11.75" PointY="9.625" />
         <EntityTypeShape EntityType="MesDbModel.Locations" Width="1.5" PointX="3.125" PointY="4.5" />
-        <EntityTypeShape EntityType="MesDbModel.MenuItems" Width="1.5" PointX="9.75" PointY="8.5" />
+        <EntityTypeShape EntityType="MesDbModel.MenuItems" Width="1.5" PointX="12" PointY="6.25" />
         <EntityTypeShape EntityType="MesDbModel.Packages" Width="1.5" PointX="5.25" PointY="2.25" />
         <EntityTypeShape EntityType="MesDbModel.Permissions" Width="1.5" PointX="12" PointY="3.125" />
         <EntityTypeShape EntityType="MesDbModel.PkgHist" Width="1.5" PointX="7.5" PointY="2.25" />

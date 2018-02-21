@@ -48,14 +48,15 @@ namespace SpikeContainer.Spike_003
 #else
             // - - - - - - - - - - - - - - - - - - - - 
 
-            //_db.Users.Include("Packages").Include("ShopOrders").Include("Permissions").Load();
+            _db.Users.Load();
+            _db.WorkOrders.Include("Packages").Include("Status1").Load();
 
 #endif
 
             gridControl1.DataSource = _db.Users.Local;
             vGridControl1.DataSource = _db.WorkOrders.Local;
             treeList1.DataSource = _db.Packages.Local;
-            gridControl2.DataSource = _db.Permissions.Local;
+            gridControl2.DataSource = _db.Status.Local;
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)

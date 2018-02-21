@@ -52,6 +52,9 @@
             // 
             // gridControl1
             // 
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataMember = null;
             this.gridControl1.Location = new System.Drawing.Point(-1, 32);
             this.gridControl1.MainView = this.gridView1;
@@ -83,6 +86,8 @@
             // 
             // listBoxControl1
             // 
+            this.listBoxControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.listBoxControl1.Location = new System.Drawing.Point(1809, 139);
             this.listBoxControl1.Name = "listBoxControl1";
@@ -92,6 +97,8 @@
             // 
             // comboBoxEdit1
             // 
+            this.comboBoxEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxEdit1.EditValue = "None";
             this.comboBoxEdit1.EnterMoveNextControl = true;
             this.comboBoxEdit1.Location = new System.Drawing.Point(1699, 9);
@@ -116,6 +123,8 @@
             // 
             // vGridControl1
             // 
+            this.vGridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.vGridControl1.Location = new System.Drawing.Point(1476, 240);
             this.vGridControl1.Name = "vGridControl1";
             this.vGridControl1.OptionsMenu.EnableContextMenu = true;
@@ -135,6 +144,9 @@
             // 
             // treeList1
             // 
+            this.treeList1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.treeList1.HorzScrollVisibility = DevExpress.XtraTreeList.ScrollVisibility.Always;
             this.treeList1.Location = new System.Drawing.Point(-1, 298);
             this.treeList1.Name = "treeList1";
@@ -148,6 +160,9 @@
             // 
             // gridControl2
             // 
+            this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl2.Location = new System.Drawing.Point(-1, 523);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
@@ -165,6 +180,8 @@
             // 
             // lookUpEdit1
             // 
+            this.lookUpEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lookUpEdit1.EditValue = "None";
             this.lookUpEdit1.EnterMoveNextControl = true;
             this.lookUpEdit1.Location = new System.Drawing.Point(1471, 9);
