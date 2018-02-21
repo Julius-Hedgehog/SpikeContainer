@@ -12,31 +12,35 @@ namespace SpikeContainer.DataEntitiy
     using System;
     using System.Collections.Generic;
     
-    public partial class ShopOrder
+    public partial class WorkOrders
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ShopOrder()
+        public WorkOrders()
         {
-            this.Packages = new HashSet<Package>();
+            this.Packages = new HashSet<Packages>();
+            this.WoConsuptionSteps = new HashSet<WoConsuptionSteps>();
         }
     
-        public int ShopOrderNo { get; set; }
+        public int WorkOrder { get; set; }
         public string Item { get; set; }
         public string MasterItem { get; set; }
         public string Color { get; set; }
-        public int StdYds { get; set; }
-        public int StdLbs { get; set; }
-        public decimal ActStartLbs { get; set; }
-        public Nullable<float> ActCurrLbs { get; set; }
-        public Nullable<float> PkgCount { get; set; }
-        public string DyeLot { get; set; }
+        public float ActStartLbs { get; set; }
+        public float ActCheckLbs { get; set; }
         public string Status { get; set; }
-        public string ChangedBy { get; set; }
-        public System.DateTime ChangedDate { get; set; }
+        public string DyeLot { get; set; }
+        public Nullable<int> ParentWorkOrder { get; set; }
+        public Nullable<System.DateTime> QcCheckInDt { get; set; }
+        public string QcCheckInBy { get; set; }
+        public Nullable<System.DateTime> QcReleasedDt { get; set; }
+        public string QcReleasedBy { get; set; }
+        public string MilLot { get; set; }
+        public string ClosedBy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Package> Packages { get; set; }
+        public virtual ICollection<Packages> Packages { get; set; }
         public virtual Status Status1 { get; set; }
-        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WoConsuptionSteps> WoConsuptionSteps { get; set; }
     }
 }

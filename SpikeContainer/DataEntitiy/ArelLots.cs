@@ -12,13 +12,13 @@ namespace SpikeContainer.DataEntitiy
     using System;
     using System.Collections.Generic;
     
-    public partial class ArelLot
+    public partial class ArelLots
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ArelLot()
+        public ArelLots()
         {
-            this.ArelContainers = new HashSet<ArelContainer>();
-            this.ArelLotsRecipes = new HashSet<ArelLotsRecipe>();
+            this.ArelContainers = new HashSet<ArelContainers>();
+            this.ArelLotsRecipe = new HashSet<ArelLotsRecipe>();
         }
     
         public string Lot_Number { get; set; }
@@ -115,10 +115,11 @@ namespace SpikeContainer.DataEntitiy
         public Nullable<System.DateTime> StartDT { get; set; }
         public Nullable<System.DateTime> EndDT { get; set; }
         public Nullable<short> ActTime { get; set; }
+        public bool Posted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ArelContainer> ArelContainers { get; set; }
+        public virtual ICollection<ArelContainers> ArelContainers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ArelLotsRecipe> ArelLotsRecipes { get; set; }
+        public virtual ICollection<ArelLotsRecipe> ArelLotsRecipe { get; set; }
     }
 }

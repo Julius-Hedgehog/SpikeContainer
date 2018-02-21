@@ -12,26 +12,19 @@ namespace SpikeContainer.DataEntitiy
     using System;
     using System.Collections.Generic;
     
-    public partial class Status
+    public partial class MenuItems
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Status()
+        public MenuItems()
         {
-            this.Packages1 = new HashSet<Packages>();
-            this.WorkOrders1 = new HashSet<WorkOrders>();
+            this.Permissions = new HashSet<Permissions>();
         }
     
-        public string Status1 { get; set; }
-        public string Description { get; set; }
-        public bool Inv { get; set; }
-        public bool Scan { get; set; }
-        public bool Cyc { get; set; }
-        public bool Packages { get; set; }
-        public bool WorkOrders { get; set; }
+        public string MenuItem { get; set; }
+        public string ParentItem { get; set; }
+        public string Caption { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Packages> Packages1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WorkOrders> WorkOrders1 { get; set; }
+        public virtual ICollection<Permissions> Permissions { get; set; }
     }
 }

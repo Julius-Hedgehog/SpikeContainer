@@ -12,10 +12,11 @@ namespace SpikeContainer.DataEntitiy
     using System;
     using System.Collections.Generic;
     
-    public partial class SystemParam
+    public partial class SystemParams
     {
         public string Config { get; set; }
         public string Catalog { get; set; }
+        public string AisCatalog { get; set; }
         public string company { get; set; }
         public string address1 { get; set; }
         public string address2 { get; set; }

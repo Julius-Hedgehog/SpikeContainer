@@ -27,20 +27,22 @@ namespace SpikeContainer.DataEntitiy
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ArelContainer> ArelContainers { get; set; }
-        public virtual DbSet<ArelLot> ArelLots { get; set; }
-        public virtual DbSet<ArelLotsRecipe> ArelLotsRecipes { get; set; }
-        public virtual DbSet<AutomatedEmail> AutomatedEmails { get; set; }
-        public virtual DbSet<LocalVariable> LocalVariables { get; set; }
-        public virtual DbSet<MenuItem> MenuItems { get; set; }
-        public virtual DbSet<Package> Packages { get; set; }
-        public virtual DbSet<Permission> Permissions { get; set; }
-        public virtual DbSet<PkgHist> PkgHists { get; set; }
-        public virtual DbSet<ShopOrder> ShopOrders { get; set; }
+        public virtual DbSet<ArelContainers> ArelContainers { get; set; }
+        public virtual DbSet<ArelLots> ArelLots { get; set; }
+        public virtual DbSet<ArelLotsRecipe> ArelLotsRecipe { get; set; }
+        public virtual DbSet<AutomatedEmail> AutomatedEmail { get; set; }
+        public virtual DbSet<LocalVariables> LocalVariables { get; set; }
+        public virtual DbSet<Locations> Locations { get; set; }
+        public virtual DbSet<MenuItems> MenuItems { get; set; }
+        public virtual DbSet<Packages> Packages { get; set; }
+        public virtual DbSet<Permissions> Permissions { get; set; }
+        public virtual DbSet<PkgHist> PkgHist { get; set; }
         public virtual DbSet<Status> Status { get; set; }
-        public virtual DbSet<SystemParam> SystemParams { get; set; }
-        public virtual DbSet<tr_hist> tr_hist { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<SystemParams> SystemParams { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Warehouses> Warehouses { get; set; }
+        public virtual DbSet<WoConsuptionSteps> WoConsuptionSteps { get; set; }
+        public virtual DbSet<WorkOrders> WorkOrders { get; set; }
     
         [DbFunction("TestMesDbEntities", "fn_GetDyeLotBatches")]
         public virtual IQueryable<fn_GetDyeLotBatches_Result> fn_GetDyeLotBatches(string dyeLot, Nullable<int> machineNo, Nullable<int> arelKey)
@@ -73,7 +75,7 @@ namespace SpikeContainer.DataEntitiy
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_DyeLotStarted", dyeLotParameter, machineNoParameter);
         }
     
-        public virtual int sp_InsertPkgHist(string where, string transDescr, Nullable<System.DateTime> transDateTime, string orverRideUser)
+        public virtual int sp_InsertPkgHist(string where, string transDescr, Nullable<System.DateTime> transDateTime, string overRideUser)
         {
             var whereParameter = where != null ?
                 new ObjectParameter("Where", where) :
@@ -87,18 +89,18 @@ namespace SpikeContainer.DataEntitiy
                 new ObjectParameter("TransDateTime", transDateTime) :
                 new ObjectParameter("TransDateTime", typeof(System.DateTime));
     
-            var orverRideUserParameter = orverRideUser != null ?
-                new ObjectParameter("OrverRideUser", orverRideUser) :
-                new ObjectParameter("OrverRideUser", typeof(string));
+            var overRideUserParameter = overRideUser != null ?
+                new ObjectParameter("OverRideUser", overRideUser) :
+                new ObjectParameter("OverRideUser", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertPkgHist", whereParameter, transDescrParameter, transDateTimeParameter, orverRideUserParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertPkgHist", whereParameter, transDescrParameter, transDateTimeParameter, overRideUserParameter);
         }
     
-        public virtual int sp_IssueToShopOrderPkg(Nullable<int> sO, Nullable<System.DateTime> dT, string userID)
+        public virtual int sp_IssueToShopOrderPkg(Nullable<int> wO, Nullable<System.DateTime> dT, string userID)
         {
-            var sOParameter = sO.HasValue ?
-                new ObjectParameter("SO", sO) :
-                new ObjectParameter("SO", typeof(int));
+            var wOParameter = wO.HasValue ?
+                new ObjectParameter("WO", wO) :
+                new ObjectParameter("WO", typeof(int));
     
             var dTParameter = dT.HasValue ?
                 new ObjectParameter("DT", dT) :
@@ -108,7 +110,7 @@ namespace SpikeContainer.DataEntitiy
                 new ObjectParameter("UserID", userID) :
                 new ObjectParameter("UserID", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_IssueToShopOrderPkg", sOParameter, dTParameter, userIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_IssueToShopOrderPkg", wOParameter, dTParameter, userIDParameter);
         }
     
         public virtual int sp_QcRelease(Nullable<int> sO, string user, string status)

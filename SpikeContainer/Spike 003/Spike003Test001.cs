@@ -41,19 +41,19 @@ namespace SpikeContainer.Spike_003
 #if RUNNINGTHIS
 
             _db.Users.Load();
-            _db.ShopOrders.Load();
+            _db.WorkOrders.Load();
             _db.Permissions.Load();
             _db.Packages.Load();
 
 #else
             // - - - - - - - - - - - - - - - - - - - - 
 
-            _db.Users.Include("Packages").Include("ShopOrders").Include("Permissions").Load();
+            //_db.Users.Include("Packages").Include("ShopOrders").Include("Permissions").Load();
 
 #endif
 
             gridControl1.DataSource = _db.Users.Local;
-            vGridControl1.DataSource = _db.ShopOrders.Local;
+            vGridControl1.DataSource = _db.WorkOrders.Local;
             treeList1.DataSource = _db.Packages.Local;
             gridControl2.DataSource = _db.Permissions.Local;
         }

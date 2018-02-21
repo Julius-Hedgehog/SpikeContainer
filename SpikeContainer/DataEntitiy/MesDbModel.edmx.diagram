@@ -4,32 +4,35 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0001ed82b49041248116ab598449de37" Name="Diagram1">
-        <EntityTypeShape EntityType="MesDbModel.ArelContainer" Width="1.5" PointX="12.125" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MesDbModel.ArelLot" Width="1.5" PointX="10" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MesDbModel.ArelLotsRecipe" Width="1.5" PointX="12.125" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MesDbModel.AutomatedEmail" Width="1.5" PointX="13.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MesDbModel.LocalVariable" Width="1.5" PointX="9.125" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="MesDbModel.MenuItem" Width="1.5" PointX="11.25" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MesDbModel.Package" Width="1.5" PointX="3.375" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MesDbModel.Permission" Width="1.5" PointX="9" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MesDbModel.PkgHist" Width="1.5" PointX="1.25" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MesDbModel.ShopOrder" Width="1.5" PointX="8.125" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MesDbModel.Status" Width="1.5" PointX="5.625" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MesDbModel.SystemParam" Width="1.5" PointX="13.75" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MesDbModel.tr_hist" Width="1.5" PointX="13.75" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MesDbModel.User" Width="1.5" PointX="7" PointY="1.25" IsExpanded="true" />
-        <AssociationConnector Association="MesDbModel.FK_ArelContainers_ArelLots" ManuallyRouted="false" />
-        <AssociationConnector Association="MesDbModel.FK_ArelLotsRecipe_ArelLotsRecipe" ManuallyRouted="false" />
-        <AssociationConnector Association="MesDbModel.FK_Permissions_MenuItems" ManuallyRouted="false" />
-        <AssociationConnector Association="MesDbModel.FK_Packages_ShopOrders" ManuallyRouted="false" />
-        <AssociationConnector Association="MesDbModel.FK_Packages_Status" ManuallyRouted="false" />
-        <AssociationConnector Association="MesDbModel.FK_Packages_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="MesDbModel.FK_PkgHist_Rolls" ManuallyRouted="false" />
-        <AssociationConnector Association="MesDbModel.FK_Permissions_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="MesDbModel.FK_ShopOrders_Status" ManuallyRouted="false" />
-        <AssociationConnector Association="MesDbModel.FK_ShopOrders_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="MesDbModel.FK_Status_Status" ManuallyRouted="false" />
+      <Diagram DiagramId="0001ed82b49041248116ab598449de37" Name="Diagram1" ZoomLevel="100">
+        <EntityTypeShape EntityType="MesDbModel.ArelContainers" Width="1.5" PointX="11.625" PointY="11.5" />
+        <EntityTypeShape EntityType="MesDbModel.ArelLots" Width="1.5" PointX="9.5" PointY="11.5" />
+        <EntityTypeShape EntityType="MesDbModel.ArelLotsRecipe" Width="1.5" PointX="7" PointY="16.5" />
+        <EntityTypeShape EntityType="MesDbModel.AutomatedEmail" Width="1.5" PointX="11.75" PointY="6.625" />
+        <EntityTypeShape EntityType="MesDbModel.LocalVariables" Width="1.5" PointX="11.75" PointY="9.625" />
+        <EntityTypeShape EntityType="MesDbModel.Locations" Width="1.5" PointX="3.125" PointY="4.5" />
+        <EntityTypeShape EntityType="MesDbModel.MenuItems" Width="1.5" PointX="9.75" PointY="8.5" />
+        <EntityTypeShape EntityType="MesDbModel.Packages" Width="1.5" PointX="5.25" PointY="2.25" />
+        <EntityTypeShape EntityType="MesDbModel.Permissions" Width="1.5" PointX="12" PointY="3.125" />
+        <EntityTypeShape EntityType="MesDbModel.PkgHist" Width="1.5" PointX="7.5" PointY="2.25" />
+        <EntityTypeShape EntityType="MesDbModel.Status" Width="1.5" PointX="0.625" PointY="6.875" />
+        <EntityTypeShape EntityType="MesDbModel.SystemParams" Width="1.5" PointX="0.75" PointY="13.625" />
+        <EntityTypeShape EntityType="MesDbModel.Users" Width="1.5" PointX="9.75" PointY="1.875" />
+        <EntityTypeShape EntityType="MesDbModel.Warehouses" Width="1.5" PointX="0.75" PointY="2.125" />
+        <EntityTypeShape EntityType="MesDbModel.WoConsuptionSteps" Width="2.75" PointX="5" PointY="14.125" />
+        <EntityTypeShape EntityType="MesDbModel.WorkOrders" Width="1.5" PointX="2.875" PointY="9.25" />
+        <AssociationConnector Association="MesDbModel.FK_ArelContainers_ArelLots" />
+        <AssociationConnector Association="MesDbModel.FK_ArelLotsRecipe_ArelLotsRecipe" />
+        <AssociationConnector Association="MesDbModel.FK_Locations_Warehouses" />
+        <AssociationConnector Association="MesDbModel.FK_Packages_Locations" />
+        <AssociationConnector Association="MesDbModel.FK_Permissions_MenuItems" />
+        <AssociationConnector Association="MesDbModel.FK_Packages_Status" />
+        <AssociationConnector Association="MesDbModel.FK_Packages_WareHouses" />
+        <AssociationConnector Association="MesDbModel.FK_Packages_WorkOrders" />
+        <AssociationConnector Association="MesDbModel.FK_PkgHist_Rolls" />
+        <AssociationConnector Association="MesDbModel.FK_Permissions_Users" />
+        <AssociationConnector Association="MesDbModel.FK_ShopOrders_Status" />
+        <AssociationConnector Association="MesDbModel.FK_WoConsuptionSteps_WorkOrders" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

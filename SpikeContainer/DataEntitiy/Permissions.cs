@@ -12,10 +12,16 @@ namespace SpikeContainer.DataEntitiy
     using System;
     using System.Collections.Generic;
     
-    public partial class LocalVariable
+    public partial class Permissions
     {
-        public string Machine { get; set; }
-        public string DefaultLogin { get; set; }
-        public string LabelPrinter { get; set; }
+        public int ID { get; set; }
+        public string UserId { get; set; }
+        public string MenuItem { get; set; }
+        public bool ViewOnly { get; set; }
+        public System.DateTime ChangedDate { get; set; }
+        public string ChangedBy { get; set; }
+    
+        public virtual MenuItems MenuItems { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

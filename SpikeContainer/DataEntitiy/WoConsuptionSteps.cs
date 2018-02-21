@@ -12,16 +12,14 @@ namespace SpikeContainer.DataEntitiy
     using System;
     using System.Collections.Generic;
     
-    public partial class Permission
+    public partial class WoConsuptionSteps
     {
-        public int ID { get; set; }
-        public string UserId { get; set; }
-        public string MenuItem { get; set; }
-        public bool ViewOnly { get; set; }
-        public System.DateTime ChangedDate { get; set; }
-        public string ChangedBy { get; set; }
+        public int WorkOrder { get; set; }
+        public int OpStepNo { get; set; }
+        public string WorkCenter { get; set; }
+        public string OpStep { get; set; }
+        public bool Completed { get; set; }
     
-        public virtual MenuItem MenuItem1 { get; set; }
-        public virtual User User { get; set; }
+        public virtual WorkOrders WorkOrders { get; set; }
     }
 }

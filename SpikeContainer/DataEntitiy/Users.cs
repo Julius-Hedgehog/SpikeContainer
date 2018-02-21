@@ -12,14 +12,12 @@ namespace SpikeContainer.DataEntitiy
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Users
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Users()
         {
-            this.Packages = new HashSet<Package>();
-            this.Permissions = new HashSet<Permission>();
-            this.ShopOrders = new HashSet<ShopOrder>();
+            this.Permissions = new HashSet<Permissions>();
         }
     
         public System.Guid UserGuid { get; set; }
@@ -43,10 +41,6 @@ namespace SpikeContainer.DataEntitiy
         public bool SupOverRide { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Package> Packages { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Permission> Permissions { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ShopOrder> ShopOrders { get; set; }
+        public virtual ICollection<Permissions> Permissions { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace SpikeContainer.DataEntitiy
     using System;
     using System.Collections.Generic;
     
-    public partial class ArelContainer
+    public partial class ArelContainers
     {
         public int Arel_Key { get; set; }
         public short MachineNo { get; set; }
@@ -103,6 +103,6 @@ namespace SpikeContainer.DataEntitiy
         public string Save_sent_to_munk { get; set; }
         public string Filler { get; set; }
     
-        public virtual ArelLot ArelLot { get; set; }
+        public virtual ArelLots ArelLots { get; set; }
     }
 }

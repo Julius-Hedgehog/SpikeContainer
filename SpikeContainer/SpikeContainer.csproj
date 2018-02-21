@@ -89,10 +89,10 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataEntitiy\ArelContainer.cs">
+    <Compile Include="DataEntitiy\ArelContainers.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\ArelLot.cs">
+    <Compile Include="DataEntitiy\ArelLots.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataEntitiy\ArelLotsRecipe.cs">
@@ -104,10 +104,13 @@
     <Compile Include="DataEntitiy\fn_GetDyeLotBatches_Result.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\LocalVariable.cs">
+    <Compile Include="DataEntitiy\LocalVariables.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\MenuItem.cs">
+    <Compile Include="DataEntitiy\Locations.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\MenuItems.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataEntitiy\MesDbModel.Context.cs">
@@ -125,28 +128,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MesDbModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\Package.cs">
+    <Compile Include="DataEntitiy\Packages.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\Permission.cs">
+    <Compile Include="DataEntitiy\Permissions.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataEntitiy\PkgHist.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\ShopOrder.cs">
-      <DependentUpon>MesDbModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DataEntitiy\Status.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\SystemParam.cs">
+    <Compile Include="DataEntitiy\SystemParams.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\tr_hist.cs">
+    <Compile Include="DataEntitiy\Users.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\User.cs">
+    <Compile Include="DataEntitiy\Warehouses.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\WoConsuptionSteps.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\WorkOrders.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.cs">
@@ -304,6 +310,9 @@
     </Compile>
     <Compile Include="Spike Dev Express Grid\Spike DEG Form 001.Designer.cs">
       <DependentUpon>Spike DEG Form 001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestMesDbDataSet.cs">
+      <DependentUpon>TestMesDbDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="TestMesDbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>

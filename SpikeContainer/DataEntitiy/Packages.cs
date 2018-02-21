@@ -12,34 +12,40 @@ namespace SpikeContainer.DataEntitiy
     using System;
     using System.Collections.Generic;
     
-    public partial class Package
+    public partial class Packages
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Package()
+        public Packages()
         {
-            this.PkgHists = new HashSet<PkgHist>();
+            this.PkgHist = new HashSet<PkgHist>();
         }
     
         public string SerialNo { get; set; }
-        public int ShopOrderNo { get; set; }
+        public Nullable<int> WorkOrder { get; set; }
         public string Item { get; set; }
         public string MasterItem { get; set; }
         public string Color { get; set; }
-        public Nullable<int> LstOp { get; set; }
+        public Nullable<int> LstOpStep { get; set; }
+        public string LstOp { get; set; }
         public string LstMach { get; set; }
-        public decimal AllowYds { get; set; }
-        public decimal CutOffYds { get; set; }
-        public string CutOffDefectCode { get; set; }
-        public Nullable<float> FinWidth { get; set; }
+        public Nullable<decimal> AllowYds { get; set; }
+        public Nullable<decimal> CutOffYds { get; set; }
+        public Nullable<decimal> FinWidth { get; set; }
         public string Grade { get; set; }
         public string QualCode { get; set; }
         public Nullable<decimal> GrossYds { get; set; }
         public Nullable<decimal> NetYds { get; set; }
+        public Nullable<decimal> NetLbs { get; set; }
+        public Nullable<decimal> TareLbs { get; set; }
+        public string Defect1 { get; set; }
+        public string Defect2 { get; set; }
+        public string InspMachine { get; set; }
+        public string InspClockNo { get; set; }
         public Nullable<System.DateTime> InspBegTime { get; set; }
         public Nullable<System.DateTime> InspEndTime { get; set; }
-        public decimal NetLbs { get; set; }
-        public decimal TareLbs { get; set; }
         public string ReInspReqd { get; set; }
+        public string ReInspMachine { get; set; }
+        public string ReInspClockNo { get; set; }
         public Nullable<System.DateTime> ReInspBegTime { get; set; }
         public Nullable<System.DateTime> ReInspEndTime { get; set; }
         public string HoldPiece { get; set; }
@@ -49,20 +55,24 @@ namespace SpikeContainer.DataEntitiy
         public string Warehouse { get; set; }
         public string Location { get; set; }
         public string Status { get; set; }
+        public string KnitLot { get; set; }
+        public string DyeLot { get; set; }
         public System.DateTime ChangedDate { get; set; }
         public string ChangedBy { get; set; }
         public Nullable<int> BinNo { get; set; }
-        public bool PackFlag { get; set; }
         public Nullable<int> LstShopOrder { get; set; }
-        public bool FRFG { get; set; }
-        public int DelschedID { get; set; }
         public string ShadeGroup { get; set; }
         public Nullable<bool> MilLotRep { get; set; }
+        public string SalesOrder { get; set; }
+        public Nullable<int> SalesOrderLine { get; set; }
+        public Nullable<System.DateTime> PackDt { get; set; }
+        public Nullable<System.DateTime> FrfgDt { get; set; }
     
-        public virtual ShopOrder ShopOrder { get; set; }
+        public virtual Locations Locations { get; set; }
         public virtual Status Status1 { get; set; }
-        public virtual User User { get; set; }
+        public virtual Warehouses Warehouses { get; set; }
+        public virtual WorkOrders WorkOrders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PkgHist> PkgHists { get; set; }
+        public virtual ICollection<PkgHist> PkgHist { get; set; }
     }
 }

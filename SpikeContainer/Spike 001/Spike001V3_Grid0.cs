@@ -113,14 +113,14 @@ namespace SpikeContainer.Spike_001
 
         private bool GetDataUserData(Int32 shopOrder)
         {
-            _db.Packages.Where(r => r.ShopOrderNo == shopOrder && r.Status1.Inv).Include("ShopOrders").Load();
+            _db.Packages.Where(r => r.WorkOrder == shopOrder && r.Status1.Inv).Include("ShopOrders").Load();
             //_db.Packages.Where(r => r.ShopOrderNo == shopOrder && r.Status1.Inv).Load();
             //_db.Packages.Where(r => r.ShopOrderNo == shopOrder).Load();
 
             //intPackagesCount = _db.Packages.Local.Count();
 
             // I must have valid SHOP ORDER and AT LEAST ONE (to many [1 <= X <= Infinity]) VALID PACKAGES TABLE ROWS - (For the SHOP ORDER and Status.Inv == 1 [or true])
-            return ((_db.ShopOrders.Local.Count() == 1/* && intPackagesCount >= 1*/) ? true : false);
+            return ((_db.WorkOrders.Local.Count() == 1/* && intPackagesCount >= 1*/) ? true : false);
         }
 
         private void InitDtTempTable(bool bisToHaveInitRow = true)
