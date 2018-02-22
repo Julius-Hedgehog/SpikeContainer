@@ -27,5 +27,26 @@ namespace SpikeContainer.Spike_004
         {
             Trace.WriteLine(e.FullPath);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            fileSystemWatcher1.EnableRaisingEvents = true;
+            label3.Text = "Watching Selected Watching Path.";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.OK == folderBrowserDialog1.ShowDialog(this))
+            {
+                fileSystemWatcher1.Path = folderBrowserDialog1.SelectedPath;
+                label2.Text = folderBrowserDialog1.SelectedPath;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            fileSystemWatcher1.EnableRaisingEvents = false;
+            label3.Text = "";
+        }
     }
 }

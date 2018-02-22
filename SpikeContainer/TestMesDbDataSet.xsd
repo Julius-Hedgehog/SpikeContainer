@@ -159,7 +159,7 @@ SELECT SerialNo, Item, MasterItem, Color, LstOp, LstMach, AllowYds, CutOffYds, F
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT SerialNo, Item, MasterItem, Color, LstOp, LstMach, AllowYds, CutOffYds, FinWidth, Grade, QualCode, GrossYds, NetYds, InspBegTime, InspEndTime, NetLbs, TareLbs, ReInspReqd, ReInspBegTime, ReInspEndTime, HoldPiece, HoldFor, Reworked, Rejected, Warehouse, Location, Status, ChangedDate, ChangedBy, BinNo, LstShopOrder, ShadeGroup, MilLotRep, Defect1, Defect2, DyeLot, FrfgDt, InspClockNo, InspMachine, KnitLot, LstOpStep, PackDt, ReInspClockNo, ReInspMachine, SalesOrder, SalesOrderLine, WorkOrder FROM Packages</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -312,11 +312,9 @@ SELECT SerialNo, Item, MasterItem, Color, LstOp, LstMach, AllowYds, CutOffYds, F
               <Mapping SourceColumn="Item" DataSetColumn="Item" />
               <Mapping SourceColumn="MasterItem" DataSetColumn="MasterItem" />
               <Mapping SourceColumn="Color" DataSetColumn="Color" />
-              <Mapping SourceColumn="LstOp" DataSetColumn="LstOp" />
               <Mapping SourceColumn="LstMach" DataSetColumn="LstMach" />
               <Mapping SourceColumn="AllowYds" DataSetColumn="AllowYds" />
               <Mapping SourceColumn="CutOffYds" DataSetColumn="CutOffYds" />
-              <Mapping SourceColumn="FinWidth" DataSetColumn="FinWidth" />
               <Mapping SourceColumn="Grade" DataSetColumn="Grade" />
               <Mapping SourceColumn="QualCode" DataSetColumn="QualCode" />
               <Mapping SourceColumn="GrossYds" DataSetColumn="GrossYds" />
@@ -355,6 +353,8 @@ SELECT SerialNo, Item, MasterItem, Color, LstOp, LstMach, AllowYds, CutOffYds, F
               <Mapping SourceColumn="SalesOrderLine" DataSetColumn="SalesOrderLine" />
               <Mapping SourceColumn="PackDt" DataSetColumn="PackDt" />
               <Mapping SourceColumn="FrfgDt" DataSetColumn="FrfgDt" />
+              <Mapping SourceColumn="LstOp" DataSetColumn="LstOp1" />
+              <Mapping SourceColumn="FinWidth" DataSetColumn="FinWidth1" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -3412,7 +3412,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
   <xs:element name="TestMesDbDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="TestMesDbDataSet" msprop:Generator_UserDSName="TestMesDbDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Packages" msprop:Generator_TableClassName="PackagesDataTable" msprop:Generator_TableVarName="tablePackages" msprop:Generator_RowChangedName="PackagesRowChanged" msprop:Generator_TablePropName="Packages" msprop:Generator_RowDeletingName="PackagesRowDeleting" msprop:Generator_RowChangingName="PackagesRowChanging" msprop:Generator_RowEvHandlerName="PackagesRowChangeEventHandler" msprop:Generator_RowDeletedName="PackagesRowDeleted" msprop:Generator_RowClassName="PackagesRow" msprop:Generator_UserTableName="Packages" msprop:Generator_RowEvArgName="PackagesRowChangeEvent">
+        <xs:element name="Packages" msprop:Generator_TableClassName="PackagesDataTable" msprop:Generator_TableVarName="tablePackages" msprop:Generator_TablePropName="Packages" msprop:Generator_RowDeletingName="PackagesRowDeleting" msprop:Generator_RowChangingName="PackagesRowChanging" msprop:Generator_RowEvHandlerName="PackagesRowChangeEventHandler" msprop:Generator_RowDeletedName="PackagesRowDeleted" msprop:Generator_UserTableName="Packages" msprop:Generator_RowChangedName="PackagesRowChanged" msprop:Generator_RowEvArgName="PackagesRowChangeEvent" msprop:Generator_RowClassName="PackagesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SerialNo" msprop:Generator_ColumnVarNameInTable="columnSerialNo" msprop:Generator_ColumnPropNameInRow="SerialNo" msprop:Generator_ColumnPropNameInTable="SerialNoColumn" msprop:Generator_UserColumnName="SerialNo">
@@ -3436,7 +3436,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color">
+              <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
@@ -3451,8 +3451,8 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="AllowYds" msprop:Generator_ColumnVarNameInTable="columnAllowYds" msprop:Generator_ColumnPropNameInRow="AllowYds" msprop:Generator_ColumnPropNameInTable="AllowYdsColumn" msprop:Generator_UserColumnName="AllowYds" type="xs:decimal" />
-              <xs:element name="CutOffYds" msprop:Generator_ColumnVarNameInTable="columnCutOffYds" msprop:Generator_ColumnPropNameInRow="CutOffYds" msprop:Generator_ColumnPropNameInTable="CutOffYdsColumn" msprop:Generator_UserColumnName="CutOffYds" type="xs:decimal" />
+              <xs:element name="AllowYds" msprop:Generator_ColumnVarNameInTable="columnAllowYds" msprop:Generator_ColumnPropNameInRow="AllowYds" msprop:Generator_ColumnPropNameInTable="AllowYdsColumn" msprop:Generator_UserColumnName="AllowYds" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CutOffYds" msprop:Generator_ColumnVarNameInTable="columnCutOffYds" msprop:Generator_ColumnPropNameInRow="CutOffYds" msprop:Generator_ColumnPropNameInTable="CutOffYdsColumn" msprop:Generator_UserColumnName="CutOffYds" type="xs:decimal" minOccurs="0" />
               <xs:element name="FinWidth" msprop:Generator_ColumnVarNameInTable="columnFinWidth" msprop:Generator_ColumnPropNameInRow="FinWidth" msprop:Generator_ColumnPropNameInTable="FinWidthColumn" msprop:Generator_UserColumnName="FinWidth" type="xs:float" minOccurs="0" />
               <xs:element name="Grade" msprop:Generator_ColumnVarNameInTable="columnGrade" msprop:Generator_ColumnPropNameInRow="Grade" msprop:Generator_ColumnPropNameInTable="GradeColumn" msprop:Generator_UserColumnName="Grade" minOccurs="0">
                 <xs:simpleType>
@@ -3472,8 +3472,8 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
               <xs:element name="NetYds" msprop:Generator_ColumnVarNameInTable="columnNetYds" msprop:Generator_ColumnPropNameInRow="NetYds" msprop:Generator_ColumnPropNameInTable="NetYdsColumn" msprop:Generator_UserColumnName="NetYds" type="xs:decimal" minOccurs="0" />
               <xs:element name="InspBegTime" msprop:Generator_ColumnVarNameInTable="columnInspBegTime" msprop:Generator_ColumnPropNameInRow="InspBegTime" msprop:Generator_ColumnPropNameInTable="InspBegTimeColumn" msprop:Generator_UserColumnName="InspBegTime" type="xs:dateTime" minOccurs="0" />
               <xs:element name="InspEndTime" msprop:Generator_ColumnVarNameInTable="columnInspEndTime" msprop:Generator_ColumnPropNameInRow="InspEndTime" msprop:Generator_ColumnPropNameInTable="InspEndTimeColumn" msprop:Generator_UserColumnName="InspEndTime" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="NetLbs" msprop:Generator_ColumnVarNameInTable="columnNetLbs" msprop:Generator_ColumnPropNameInRow="NetLbs" msprop:Generator_ColumnPropNameInTable="NetLbsColumn" msprop:Generator_UserColumnName="NetLbs" type="xs:decimal" />
-              <xs:element name="TareLbs" msprop:Generator_ColumnVarNameInTable="columnTareLbs" msprop:Generator_ColumnPropNameInRow="TareLbs" msprop:Generator_ColumnPropNameInTable="TareLbsColumn" msprop:Generator_UserColumnName="TareLbs" type="xs:decimal" />
+              <xs:element name="NetLbs" msprop:Generator_ColumnVarNameInTable="columnNetLbs" msprop:Generator_ColumnPropNameInRow="NetLbs" msprop:Generator_ColumnPropNameInTable="NetLbsColumn" msprop:Generator_UserColumnName="NetLbs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TareLbs" msprop:Generator_ColumnVarNameInTable="columnTareLbs" msprop:Generator_ColumnPropNameInRow="TareLbs" msprop:Generator_ColumnPropNameInTable="TareLbsColumn" msprop:Generator_UserColumnName="TareLbs" type="xs:decimal" minOccurs="0" />
               <xs:element name="ReInspReqd" msprop:Generator_ColumnVarNameInTable="columnReInspReqd" msprop:Generator_ColumnPropNameInRow="ReInspReqd" msprop:Generator_ColumnPropNameInTable="ReInspReqdColumn" msprop:Generator_UserColumnName="ReInspReqd" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -3618,10 +3618,18 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
               <xs:element name="SalesOrderLine" msprop:Generator_ColumnVarNameInTable="columnSalesOrderLine" msprop:Generator_ColumnPropNameInRow="SalesOrderLine" msprop:Generator_ColumnPropNameInTable="SalesOrderLineColumn" msprop:Generator_UserColumnName="SalesOrderLine" type="xs:int" minOccurs="0" />
               <xs:element name="PackDt" msprop:Generator_ColumnVarNameInTable="columnPackDt" msprop:Generator_ColumnPropNameInRow="PackDt" msprop:Generator_ColumnPropNameInTable="PackDtColumn" msprop:Generator_UserColumnName="PackDt" type="xs:dateTime" minOccurs="0" />
               <xs:element name="FrfgDt" msprop:Generator_ColumnVarNameInTable="columnFrfgDt" msprop:Generator_ColumnPropNameInRow="FrfgDt" msprop:Generator_ColumnPropNameInTable="FrfgDtColumn" msprop:Generator_UserColumnName="FrfgDt" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LstOp1" msdata:Caption="LstOp" msprop:Generator_ColumnVarNameInTable="columnLstOp1" msprop:Generator_ColumnPropNameInRow="LstOp1" msprop:Generator_ColumnPropNameInTable="LstOp1Column" msprop:Generator_UserColumnName="LstOp1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FinWidth1" msdata:Caption="FinWidth" msprop:Generator_ColumnVarNameInTable="columnFinWidth1" msprop:Generator_ColumnPropNameInRow="FinWidth1" msprop:Generator_ColumnPropNameInTable="FinWidth1Column" msprop:Generator_UserColumnName="FinWidth1" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ArelContainers" msprop:Generator_TableClassName="ArelContainersDataTable" msprop:Generator_TableVarName="tableArelContainers" msprop:Generator_TablePropName="ArelContainers" msprop:Generator_RowDeletingName="ArelContainersRowDeleting" msprop:Generator_RowChangingName="ArelContainersRowChanging" msprop:Generator_RowEvHandlerName="ArelContainersRowChangeEventHandler" msprop:Generator_RowDeletedName="ArelContainersRowDeleted" msprop:Generator_UserTableName="ArelContainers" msprop:Generator_RowChangedName="ArelContainersRowChanged" msprop:Generator_RowEvArgName="ArelContainersRowChangeEvent" msprop:Generator_RowClassName="ArelContainersRow">
+        <xs:element name="ArelContainers" msprop:Generator_TableClassName="ArelContainersDataTable" msprop:Generator_TableVarName="tableArelContainers" msprop:Generator_RowChangedName="ArelContainersRowChanged" msprop:Generator_TablePropName="ArelContainers" msprop:Generator_RowDeletingName="ArelContainersRowDeleting" msprop:Generator_RowChangingName="ArelContainersRowChanging" msprop:Generator_RowEvHandlerName="ArelContainersRowChangeEventHandler" msprop:Generator_RowDeletedName="ArelContainersRowDeleted" msprop:Generator_RowClassName="ArelContainersRow" msprop:Generator_UserTableName="ArelContainers" msprop:Generator_RowEvArgName="ArelContainersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Arel_Key" msprop:Generator_ColumnVarNameInTable="columnArel_Key" msprop:Generator_ColumnPropNameInRow="Arel_Key" msprop:Generator_ColumnPropNameInTable="Arel_KeyColumn" msprop:Generator_UserColumnName="Arel_Key" type="xs:int" />
@@ -4099,7 +4107,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ArelLots" msprop:Generator_TableClassName="ArelLotsDataTable" msprop:Generator_TableVarName="tableArelLots" msprop:Generator_TablePropName="ArelLots" msprop:Generator_RowDeletingName="ArelLotsRowDeleting" msprop:Generator_RowChangingName="ArelLotsRowChanging" msprop:Generator_RowEvHandlerName="ArelLotsRowChangeEventHandler" msprop:Generator_RowDeletedName="ArelLotsRowDeleted" msprop:Generator_UserTableName="ArelLots" msprop:Generator_RowChangedName="ArelLotsRowChanged" msprop:Generator_RowEvArgName="ArelLotsRowChangeEvent" msprop:Generator_RowClassName="ArelLotsRow">
+        <xs:element name="ArelLots" msprop:Generator_TableClassName="ArelLotsDataTable" msprop:Generator_TableVarName="tableArelLots" msprop:Generator_RowChangedName="ArelLotsRowChanged" msprop:Generator_TablePropName="ArelLots" msprop:Generator_RowDeletingName="ArelLotsRowDeleting" msprop:Generator_RowChangingName="ArelLotsRowChanging" msprop:Generator_RowEvHandlerName="ArelLotsRowChangeEventHandler" msprop:Generator_RowDeletedName="ArelLotsRowDeleted" msprop:Generator_RowClassName="ArelLotsRow" msprop:Generator_UserTableName="ArelLots" msprop:Generator_RowEvArgName="ArelLotsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Lot_Number" msprop:Generator_ColumnVarNameInTable="columnLot_Number" msprop:Generator_ColumnPropNameInRow="Lot_Number" msprop:Generator_ColumnPropNameInTable="Lot_NumberColumn" msprop:Generator_UserColumnName="Lot_Number">
@@ -4428,7 +4436,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ArelLotsRecipe" msprop:Generator_TableClassName="ArelLotsRecipeDataTable" msprop:Generator_TableVarName="tableArelLotsRecipe" msprop:Generator_TablePropName="ArelLotsRecipe" msprop:Generator_RowDeletingName="ArelLotsRecipeRowDeleting" msprop:Generator_RowChangingName="ArelLotsRecipeRowChanging" msprop:Generator_RowEvHandlerName="ArelLotsRecipeRowChangeEventHandler" msprop:Generator_RowDeletedName="ArelLotsRecipeRowDeleted" msprop:Generator_UserTableName="ArelLotsRecipe" msprop:Generator_RowChangedName="ArelLotsRecipeRowChanged" msprop:Generator_RowEvArgName="ArelLotsRecipeRowChangeEvent" msprop:Generator_RowClassName="ArelLotsRecipeRow">
+        <xs:element name="ArelLotsRecipe" msprop:Generator_TableClassName="ArelLotsRecipeDataTable" msprop:Generator_TableVarName="tableArelLotsRecipe" msprop:Generator_RowChangedName="ArelLotsRecipeRowChanged" msprop:Generator_TablePropName="ArelLotsRecipe" msprop:Generator_RowDeletingName="ArelLotsRecipeRowDeleting" msprop:Generator_RowChangingName="ArelLotsRecipeRowChanging" msprop:Generator_RowEvHandlerName="ArelLotsRecipeRowChangeEventHandler" msprop:Generator_RowDeletedName="ArelLotsRecipeRowDeleted" msprop:Generator_RowClassName="ArelLotsRecipeRow" msprop:Generator_UserTableName="ArelLotsRecipe" msprop:Generator_RowEvArgName="ArelLotsRecipeRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Lot_Number" msprop:Generator_ColumnVarNameInTable="columnLot_Number" msprop:Generator_ColumnPropNameInRow="Lot_Number" msprop:Generator_ColumnPropNameInTable="Lot_NumberColumn" msprop:Generator_UserColumnName="Lot_Number">
@@ -4532,7 +4540,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AutomatedEmail" msprop:Generator_TableClassName="AutomatedEmailDataTable" msprop:Generator_TableVarName="tableAutomatedEmail" msprop:Generator_TablePropName="AutomatedEmail" msprop:Generator_RowDeletingName="AutomatedEmailRowDeleting" msprop:Generator_RowChangingName="AutomatedEmailRowChanging" msprop:Generator_RowEvHandlerName="AutomatedEmailRowChangeEventHandler" msprop:Generator_RowDeletedName="AutomatedEmailRowDeleted" msprop:Generator_UserTableName="AutomatedEmail" msprop:Generator_RowChangedName="AutomatedEmailRowChanged" msprop:Generator_RowEvArgName="AutomatedEmailRowChangeEvent" msprop:Generator_RowClassName="AutomatedEmailRow">
+        <xs:element name="AutomatedEmail" msprop:Generator_TableClassName="AutomatedEmailDataTable" msprop:Generator_TableVarName="tableAutomatedEmail" msprop:Generator_RowChangedName="AutomatedEmailRowChanged" msprop:Generator_TablePropName="AutomatedEmail" msprop:Generator_RowDeletingName="AutomatedEmailRowDeleting" msprop:Generator_RowChangingName="AutomatedEmailRowChanging" msprop:Generator_RowEvHandlerName="AutomatedEmailRowChangeEventHandler" msprop:Generator_RowDeletedName="AutomatedEmailRowDeleted" msprop:Generator_RowClassName="AutomatedEmailRow" msprop:Generator_UserTableName="AutomatedEmail" msprop:Generator_RowEvArgName="AutomatedEmailRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Call" msprop:Generator_ColumnVarNameInTable="columnCall" msprop:Generator_ColumnPropNameInRow="Call" msprop:Generator_ColumnPropNameInTable="CallColumn" msprop:Generator_UserColumnName="Call">
@@ -4566,7 +4574,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Bins" msprop:Generator_TableClassName="BinsDataTable" msprop:Generator_TableVarName="tableBins" msprop:Generator_TablePropName="Bins" msprop:Generator_RowDeletingName="BinsRowDeleting" msprop:Generator_RowChangingName="BinsRowChanging" msprop:Generator_RowEvHandlerName="BinsRowChangeEventHandler" msprop:Generator_RowDeletedName="BinsRowDeleted" msprop:Generator_UserTableName="Bins" msprop:Generator_RowChangedName="BinsRowChanged" msprop:Generator_RowEvArgName="BinsRowChangeEvent" msprop:Generator_RowClassName="BinsRow">
+        <xs:element name="Bins" msprop:Generator_TableClassName="BinsDataTable" msprop:Generator_TableVarName="tableBins" msprop:Generator_RowChangedName="BinsRowChanged" msprop:Generator_TablePropName="Bins" msprop:Generator_RowDeletingName="BinsRowDeleting" msprop:Generator_RowChangingName="BinsRowChanging" msprop:Generator_RowEvHandlerName="BinsRowChangeEventHandler" msprop:Generator_RowDeletedName="BinsRowDeleted" msprop:Generator_RowClassName="BinsRow" msprop:Generator_UserTableName="Bins" msprop:Generator_RowEvArgName="BinsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="BinNo" msprop:Generator_ColumnVarNameInTable="columnBinNo" msprop:Generator_ColumnPropNameInRow="BinNo" msprop:Generator_ColumnPropNameInTable="BinNoColumn" msprop:Generator_UserColumnName="BinNo" type="xs:int" />
@@ -4580,7 +4588,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DhPlan" msprop:Generator_TableClassName="DhPlanDataTable" msprop:Generator_TableVarName="tableDhPlan" msprop:Generator_TablePropName="DhPlan" msprop:Generator_RowDeletingName="DhPlanRowDeleting" msprop:Generator_RowChangingName="DhPlanRowChanging" msprop:Generator_RowEvHandlerName="DhPlanRowChangeEventHandler" msprop:Generator_RowDeletedName="DhPlanRowDeleted" msprop:Generator_UserTableName="DhPlan" msprop:Generator_RowChangedName="DhPlanRowChanged" msprop:Generator_RowEvArgName="DhPlanRowChangeEvent" msprop:Generator_RowClassName="DhPlanRow">
+        <xs:element name="DhPlan" msprop:Generator_TableClassName="DhPlanDataTable" msprop:Generator_TableVarName="tableDhPlan" msprop:Generator_RowChangedName="DhPlanRowChanged" msprop:Generator_TablePropName="DhPlan" msprop:Generator_RowDeletingName="DhPlanRowDeleting" msprop:Generator_RowChangingName="DhPlanRowChanging" msprop:Generator_RowEvHandlerName="DhPlanRowChangeEventHandler" msprop:Generator_RowDeletedName="DhPlanRowDeleted" msprop:Generator_RowClassName="DhPlanRow" msprop:Generator_UserTableName="DhPlan" msprop:Generator_RowEvArgName="DhPlanRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DyeLot" msprop:Generator_ColumnVarNameInTable="columnDyeLot" msprop:Generator_ColumnPropNameInRow="DyeLot" msprop:Generator_ColumnPropNameInTable="DyeLotColumn" msprop:Generator_UserColumnName="DyeLot">
@@ -4609,7 +4617,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="LocalVariables" msprop:Generator_TableClassName="LocalVariablesDataTable" msprop:Generator_TableVarName="tableLocalVariables" msprop:Generator_TablePropName="LocalVariables" msprop:Generator_RowDeletingName="LocalVariablesRowDeleting" msprop:Generator_RowChangingName="LocalVariablesRowChanging" msprop:Generator_RowEvHandlerName="LocalVariablesRowChangeEventHandler" msprop:Generator_RowDeletedName="LocalVariablesRowDeleted" msprop:Generator_UserTableName="LocalVariables" msprop:Generator_RowChangedName="LocalVariablesRowChanged" msprop:Generator_RowEvArgName="LocalVariablesRowChangeEvent" msprop:Generator_RowClassName="LocalVariablesRow">
+        <xs:element name="LocalVariables" msprop:Generator_TableClassName="LocalVariablesDataTable" msprop:Generator_TableVarName="tableLocalVariables" msprop:Generator_RowChangedName="LocalVariablesRowChanged" msprop:Generator_TablePropName="LocalVariables" msprop:Generator_RowDeletingName="LocalVariablesRowDeleting" msprop:Generator_RowChangingName="LocalVariablesRowChanging" msprop:Generator_RowEvHandlerName="LocalVariablesRowChangeEventHandler" msprop:Generator_RowDeletedName="LocalVariablesRowDeleted" msprop:Generator_RowClassName="LocalVariablesRow" msprop:Generator_UserTableName="LocalVariables" msprop:Generator_RowEvArgName="LocalVariablesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Machine" msprop:Generator_ColumnVarNameInTable="columnMachine" msprop:Generator_ColumnPropNameInRow="Machine" msprop:Generator_ColumnPropNameInTable="MachineColumn" msprop:Generator_UserColumnName="Machine">
@@ -4636,7 +4644,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Locations" msprop:Generator_TableClassName="LocationsDataTable" msprop:Generator_TableVarName="tableLocations" msprop:Generator_TablePropName="Locations" msprop:Generator_RowDeletingName="LocationsRowDeleting" msprop:Generator_RowChangingName="LocationsRowChanging" msprop:Generator_RowEvHandlerName="LocationsRowChangeEventHandler" msprop:Generator_RowDeletedName="LocationsRowDeleted" msprop:Generator_UserTableName="Locations" msprop:Generator_RowChangedName="LocationsRowChanged" msprop:Generator_RowEvArgName="LocationsRowChangeEvent" msprop:Generator_RowClassName="LocationsRow">
+        <xs:element name="Locations" msprop:Generator_TableClassName="LocationsDataTable" msprop:Generator_TableVarName="tableLocations" msprop:Generator_RowChangedName="LocationsRowChanged" msprop:Generator_TablePropName="Locations" msprop:Generator_RowDeletingName="LocationsRowDeleting" msprop:Generator_RowChangingName="LocationsRowChanging" msprop:Generator_RowEvHandlerName="LocationsRowChangeEventHandler" msprop:Generator_RowDeletedName="LocationsRowDeleted" msprop:Generator_RowClassName="LocationsRow" msprop:Generator_UserTableName="Locations" msprop:Generator_RowEvArgName="LocationsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location">
@@ -4665,7 +4673,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MenuItems" msprop:Generator_TableClassName="MenuItemsDataTable" msprop:Generator_TableVarName="tableMenuItems" msprop:Generator_TablePropName="MenuItems" msprop:Generator_RowDeletingName="MenuItemsRowDeleting" msprop:Generator_RowChangingName="MenuItemsRowChanging" msprop:Generator_RowEvHandlerName="MenuItemsRowChangeEventHandler" msprop:Generator_RowDeletedName="MenuItemsRowDeleted" msprop:Generator_UserTableName="MenuItems" msprop:Generator_RowChangedName="MenuItemsRowChanged" msprop:Generator_RowEvArgName="MenuItemsRowChangeEvent" msprop:Generator_RowClassName="MenuItemsRow">
+        <xs:element name="MenuItems" msprop:Generator_TableClassName="MenuItemsDataTable" msprop:Generator_TableVarName="tableMenuItems" msprop:Generator_RowChangedName="MenuItemsRowChanged" msprop:Generator_TablePropName="MenuItems" msprop:Generator_RowDeletingName="MenuItemsRowDeleting" msprop:Generator_RowChangingName="MenuItemsRowChanging" msprop:Generator_RowEvHandlerName="MenuItemsRowChangeEventHandler" msprop:Generator_RowDeletedName="MenuItemsRowDeleted" msprop:Generator_RowClassName="MenuItemsRow" msprop:Generator_UserTableName="MenuItems" msprop:Generator_RowEvArgName="MenuItemsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MenuItem" msprop:Generator_ColumnVarNameInTable="columnMenuItem" msprop:Generator_ColumnPropNameInRow="MenuItem" msprop:Generator_ColumnPropNameInTable="MenuItemColumn" msprop:Generator_UserColumnName="MenuItem">
@@ -4692,7 +4700,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Permissions" msprop:Generator_TableClassName="PermissionsDataTable" msprop:Generator_TableVarName="tablePermissions" msprop:Generator_TablePropName="Permissions" msprop:Generator_RowDeletingName="PermissionsRowDeleting" msprop:Generator_RowChangingName="PermissionsRowChanging" msprop:Generator_RowEvHandlerName="PermissionsRowChangeEventHandler" msprop:Generator_RowDeletedName="PermissionsRowDeleted" msprop:Generator_UserTableName="Permissions" msprop:Generator_RowChangedName="PermissionsRowChanged" msprop:Generator_RowEvArgName="PermissionsRowChangeEvent" msprop:Generator_RowClassName="PermissionsRow">
+        <xs:element name="Permissions" msprop:Generator_TableClassName="PermissionsDataTable" msprop:Generator_TableVarName="tablePermissions" msprop:Generator_RowChangedName="PermissionsRowChanged" msprop:Generator_TablePropName="Permissions" msprop:Generator_RowDeletingName="PermissionsRowDeleting" msprop:Generator_RowChangingName="PermissionsRowChanging" msprop:Generator_RowEvHandlerName="PermissionsRowChangeEventHandler" msprop:Generator_RowDeletedName="PermissionsRowDeleted" msprop:Generator_RowClassName="PermissionsRow" msprop:Generator_UserTableName="Permissions" msprop:Generator_RowEvArgName="PermissionsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -4722,7 +4730,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="PkgHist" msprop:Generator_TableClassName="PkgHistDataTable" msprop:Generator_TableVarName="tablePkgHist" msprop:Generator_TablePropName="PkgHist" msprop:Generator_RowDeletingName="PkgHistRowDeleting" msprop:Generator_RowChangingName="PkgHistRowChanging" msprop:Generator_RowEvHandlerName="PkgHistRowChangeEventHandler" msprop:Generator_RowDeletedName="PkgHistRowDeleted" msprop:Generator_UserTableName="PkgHist" msprop:Generator_RowChangedName="PkgHistRowChanged" msprop:Generator_RowEvArgName="PkgHistRowChangeEvent" msprop:Generator_RowClassName="PkgHistRow">
+        <xs:element name="PkgHist" msprop:Generator_TableClassName="PkgHistDataTable" msprop:Generator_TableVarName="tablePkgHist" msprop:Generator_RowChangedName="PkgHistRowChanged" msprop:Generator_TablePropName="PkgHist" msprop:Generator_RowDeletingName="PkgHistRowDeleting" msprop:Generator_RowChangingName="PkgHistRowChanging" msprop:Generator_RowEvHandlerName="PkgHistRowChangeEventHandler" msprop:Generator_RowDeletedName="PkgHistRowDeleted" msprop:Generator_RowClassName="PkgHistRow" msprop:Generator_UserTableName="PkgHist" msprop:Generator_RowEvArgName="PkgHistRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="HistID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnHistID" msprop:Generator_ColumnPropNameInRow="HistID" msprop:Generator_ColumnPropNameInTable="HistIDColumn" msprop:Generator_UserColumnName="HistID" type="xs:int" />
@@ -4953,7 +4961,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Pro2SQL" msprop:Generator_TableClassName="Pro2SQLDataTable" msprop:Generator_TableVarName="tablePro2SQL" msprop:Generator_TablePropName="Pro2SQL" msprop:Generator_RowDeletingName="Pro2SQLRowDeleting" msprop:Generator_RowChangingName="Pro2SQLRowChanging" msprop:Generator_RowEvHandlerName="Pro2SQLRowChangeEventHandler" msprop:Generator_RowDeletedName="Pro2SQLRowDeleted" msprop:Generator_UserTableName="Pro2SQL" msprop:Generator_RowChangedName="Pro2SQLRowChanged" msprop:Generator_RowEvArgName="Pro2SQLRowChangeEvent" msprop:Generator_RowClassName="Pro2SQLRow">
+        <xs:element name="Pro2SQL" msprop:Generator_TableClassName="Pro2SQLDataTable" msprop:Generator_TableVarName="tablePro2SQL" msprop:Generator_RowChangedName="Pro2SQLRowChanged" msprop:Generator_TablePropName="Pro2SQL" msprop:Generator_RowDeletingName="Pro2SQLRowDeleting" msprop:Generator_RowChangingName="Pro2SQLRowChanging" msprop:Generator_RowEvHandlerName="Pro2SQLRowChangeEventHandler" msprop:Generator_RowDeletedName="Pro2SQLRowDeleted" msprop:Generator_RowClassName="Pro2SQLRow" msprop:Generator_UserTableName="Pro2SQL" msprop:Generator_RowEvArgName="Pro2SQLRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="pname" msprop:Generator_ColumnVarNameInTable="columnpname" msprop:Generator_ColumnPropNameInRow="pname" msprop:Generator_ColumnPropNameInTable="pnameColumn" msprop:Generator_UserColumnName="pname">
@@ -4973,7 +4981,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Status" msprop:Generator_TableClassName="StatusDataTable" msprop:Generator_TableVarName="tableStatus" msprop:Generator_TablePropName="Status" msprop:Generator_RowDeletingName="StatusRowDeleting" msprop:Generator_RowChangingName="StatusRowChanging" msprop:Generator_RowEvHandlerName="StatusRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusRowDeleted" msprop:Generator_UserTableName="Status" msprop:Generator_RowChangedName="StatusRowChanged" msprop:Generator_RowEvArgName="StatusRowChangeEvent" msprop:Generator_RowClassName="StatusRow">
+        <xs:element name="Status" msprop:Generator_TableClassName="StatusDataTable" msprop:Generator_TableVarName="tableStatus" msprop:Generator_RowChangedName="StatusRowChanged" msprop:Generator_TablePropName="Status" msprop:Generator_RowDeletingName="StatusRowDeleting" msprop:Generator_RowChangingName="StatusRowChanging" msprop:Generator_RowEvHandlerName="StatusRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusRowDeleted" msprop:Generator_RowClassName="StatusRow" msprop:Generator_UserTableName="Status" msprop:Generator_RowEvArgName="StatusRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status">
@@ -4998,7 +5006,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SystemParams" msprop:Generator_TableClassName="SystemParamsDataTable" msprop:Generator_TableVarName="tableSystemParams" msprop:Generator_TablePropName="SystemParams" msprop:Generator_RowDeletingName="SystemParamsRowDeleting" msprop:Generator_RowChangingName="SystemParamsRowChanging" msprop:Generator_RowEvHandlerName="SystemParamsRowChangeEventHandler" msprop:Generator_RowDeletedName="SystemParamsRowDeleted" msprop:Generator_UserTableName="SystemParams" msprop:Generator_RowChangedName="SystemParamsRowChanged" msprop:Generator_RowEvArgName="SystemParamsRowChangeEvent" msprop:Generator_RowClassName="SystemParamsRow">
+        <xs:element name="SystemParams" msprop:Generator_TableClassName="SystemParamsDataTable" msprop:Generator_TableVarName="tableSystemParams" msprop:Generator_RowChangedName="SystemParamsRowChanged" msprop:Generator_TablePropName="SystemParams" msprop:Generator_RowDeletingName="SystemParamsRowDeleting" msprop:Generator_RowChangingName="SystemParamsRowChanging" msprop:Generator_RowEvHandlerName="SystemParamsRowChangeEventHandler" msprop:Generator_RowDeletedName="SystemParamsRowDeleted" msprop:Generator_RowClassName="SystemParamsRow" msprop:Generator_UserTableName="SystemParams" msprop:Generator_RowEvArgName="SystemParamsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Config" msprop:Generator_ColumnVarNameInTable="columnConfig" msprop:Generator_ColumnPropNameInRow="Config" msprop:Generator_ColumnPropNameInTable="ConfigColumn" msprop:Generator_UserColumnName="Config">
@@ -5172,7 +5180,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_UserTableName="Users" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_RowEvArgName="UsersRowChangeEvent" msprop:Generator_RowClassName="UsersRow">
+        <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_RowClassName="UsersRow" msprop:Generator_UserTableName="Users" msprop:Generator_RowEvArgName="UsersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="UserGuid" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnUserGuid" msprop:Generator_ColumnPropNameInRow="UserGuid" msprop:Generator_ColumnPropNameInTable="UserGuidColumn" msprop:Generator_UserColumnName="UserGuid" type="xs:string" />
@@ -5245,7 +5253,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Warehouses" msprop:Generator_TableClassName="WarehousesDataTable" msprop:Generator_TableVarName="tableWarehouses" msprop:Generator_TablePropName="Warehouses" msprop:Generator_RowDeletingName="WarehousesRowDeleting" msprop:Generator_RowChangingName="WarehousesRowChanging" msprop:Generator_RowEvHandlerName="WarehousesRowChangeEventHandler" msprop:Generator_RowDeletedName="WarehousesRowDeleted" msprop:Generator_UserTableName="Warehouses" msprop:Generator_RowChangedName="WarehousesRowChanged" msprop:Generator_RowEvArgName="WarehousesRowChangeEvent" msprop:Generator_RowClassName="WarehousesRow">
+        <xs:element name="Warehouses" msprop:Generator_TableClassName="WarehousesDataTable" msprop:Generator_TableVarName="tableWarehouses" msprop:Generator_RowChangedName="WarehousesRowChanged" msprop:Generator_TablePropName="Warehouses" msprop:Generator_RowDeletingName="WarehousesRowDeleting" msprop:Generator_RowChangingName="WarehousesRowChanging" msprop:Generator_RowEvHandlerName="WarehousesRowChangeEventHandler" msprop:Generator_RowDeletedName="WarehousesRowDeleted" msprop:Generator_RowClassName="WarehousesRow" msprop:Generator_UserTableName="Warehouses" msprop:Generator_RowEvArgName="WarehousesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Warehouse" msprop:Generator_ColumnVarNameInTable="columnWarehouse" msprop:Generator_ColumnPropNameInRow="Warehouse" msprop:Generator_ColumnPropNameInTable="WarehouseColumn" msprop:Generator_UserColumnName="Warehouse">
@@ -5276,7 +5284,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="WoConsuptionSteps" msprop:Generator_TableClassName="WoConsuptionStepsDataTable" msprop:Generator_TableVarName="tableWoConsuptionSteps" msprop:Generator_TablePropName="WoConsuptionSteps" msprop:Generator_RowDeletingName="WoConsuptionStepsRowDeleting" msprop:Generator_RowChangingName="WoConsuptionStepsRowChanging" msprop:Generator_RowEvHandlerName="WoConsuptionStepsRowChangeEventHandler" msprop:Generator_RowDeletedName="WoConsuptionStepsRowDeleted" msprop:Generator_UserTableName="WoConsuptionSteps" msprop:Generator_RowChangedName="WoConsuptionStepsRowChanged" msprop:Generator_RowEvArgName="WoConsuptionStepsRowChangeEvent" msprop:Generator_RowClassName="WoConsuptionStepsRow">
+        <xs:element name="WoConsuptionSteps" msprop:Generator_TableClassName="WoConsuptionStepsDataTable" msprop:Generator_TableVarName="tableWoConsuptionSteps" msprop:Generator_RowChangedName="WoConsuptionStepsRowChanged" msprop:Generator_TablePropName="WoConsuptionSteps" msprop:Generator_RowDeletingName="WoConsuptionStepsRowDeleting" msprop:Generator_RowChangingName="WoConsuptionStepsRowChanging" msprop:Generator_RowEvHandlerName="WoConsuptionStepsRowChangeEventHandler" msprop:Generator_RowDeletedName="WoConsuptionStepsRowDeleted" msprop:Generator_RowClassName="WoConsuptionStepsRow" msprop:Generator_UserTableName="WoConsuptionSteps" msprop:Generator_RowEvArgName="WoConsuptionStepsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="WorkOrder" msprop:Generator_ColumnVarNameInTable="columnWorkOrder" msprop:Generator_ColumnPropNameInRow="WorkOrder" msprop:Generator_ColumnPropNameInTable="WorkOrderColumn" msprop:Generator_UserColumnName="WorkOrder" type="xs:int" />
@@ -5299,7 +5307,7 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="WorkOrders" msprop:Generator_TableClassName="WorkOrdersDataTable" msprop:Generator_TableVarName="tableWorkOrders" msprop:Generator_TablePropName="WorkOrders" msprop:Generator_RowDeletingName="WorkOrdersRowDeleting" msprop:Generator_RowChangingName="WorkOrdersRowChanging" msprop:Generator_RowEvHandlerName="WorkOrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkOrdersRowDeleted" msprop:Generator_UserTableName="WorkOrders" msprop:Generator_RowChangedName="WorkOrdersRowChanged" msprop:Generator_RowEvArgName="WorkOrdersRowChangeEvent" msprop:Generator_RowClassName="WorkOrdersRow">
+        <xs:element name="WorkOrders" msprop:Generator_TableClassName="WorkOrdersDataTable" msprop:Generator_TableVarName="tableWorkOrders" msprop:Generator_RowChangedName="WorkOrdersRowChanged" msprop:Generator_TablePropName="WorkOrders" msprop:Generator_RowDeletingName="WorkOrdersRowDeleting" msprop:Generator_RowChangingName="WorkOrdersRowChanging" msprop:Generator_RowEvHandlerName="WorkOrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkOrdersRowDeleted" msprop:Generator_RowClassName="WorkOrdersRow" msprop:Generator_UserTableName="WorkOrders" msprop:Generator_RowEvArgName="WorkOrdersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="WorkOrder" msprop:Generator_ColumnVarNameInTable="columnWorkOrder" msprop:Generator_ColumnPropNameInRow="WorkOrder" msprop:Generator_ColumnPropNameInTable="WorkOrderColumn" msprop:Generator_UserColumnName="WorkOrder" type="xs:int" />
@@ -5460,18 +5468,18 @@ SELECT WorkOrder, Item, MasterItem, Color, ActStartLbs, ActCheckLbs, Status, Dye
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Packages_Locations" msdata:parent="Locations" msdata:child="Packages" msdata:parentkey="Location Warehouse" msdata:childkey="Location Warehouse" msprop:Generator_UserChildTable="Packages" msprop:Generator_ChildPropName="GetPackagesRows" msprop:Generator_UserRelationName="FK_Packages_Locations" msprop:Generator_RelationVarName="relationFK_Packages_Locations" msprop:Generator_UserParentTable="Locations" msprop:Generator_ParentPropName="LocationsRowParent" />
-      <msdata:Relationship name="FK_Packages_Status" msdata:parent="Status" msdata:child="Packages" msdata:parentkey="Status" msdata:childkey="Status" msprop:Generator_UserChildTable="Packages" msprop:Generator_ChildPropName="GetPackagesRows" msprop:Generator_UserRelationName="FK_Packages_Status" msprop:Generator_RelationVarName="relationFK_Packages_Status" msprop:Generator_UserParentTable="Status" msprop:Generator_ParentPropName="StatusRow" />
-      <msdata:Relationship name="FK_Packages_WareHouses" msdata:parent="Warehouses" msdata:child="Packages" msdata:parentkey="Warehouse" msdata:childkey="Warehouse" msprop:Generator_UserChildTable="Packages" msprop:Generator_ChildPropName="GetPackagesRows" msprop:Generator_UserRelationName="FK_Packages_WareHouses" msprop:Generator_RelationVarName="relationFK_Packages_WareHouses" msprop:Generator_UserParentTable="Warehouses" msprop:Generator_ParentPropName="WarehousesRow" />
-      <msdata:Relationship name="FK_Packages_WorkOrders" msdata:parent="WorkOrders" msdata:child="Packages" msdata:parentkey="WorkOrder" msdata:childkey="WorkOrder" msprop:Generator_UserChildTable="Packages" msprop:Generator_ChildPropName="GetPackagesRows" msprop:Generator_UserRelationName="FK_Packages_WorkOrders" msprop:Generator_RelationVarName="relationFK_Packages_WorkOrders" msprop:Generator_UserParentTable="WorkOrders" msprop:Generator_ParentPropName="WorkOrdersRow" />
-      <msdata:Relationship name="FK_ArelContainers_ArelLots" msdata:parent="ArelLots" msdata:child="ArelContainers" msdata:parentkey="Arel_Date Machine_nr Lot_Number" msdata:childkey="Arel_Key MachineNo LotNo" msprop:Generator_UserChildTable="ArelContainers" msprop:Generator_ChildPropName="GetArelContainersRows" msprop:Generator_UserRelationName="FK_ArelContainers_ArelLots" msprop:Generator_RelationVarName="relationFK_ArelContainers_ArelLots" msprop:Generator_UserParentTable="ArelLots" msprop:Generator_ParentPropName="ArelLotsRowParent" />
-      <msdata:Relationship name="FK_ArelLotsRecipe_ArelLotsRecipe" msdata:parent="ArelLots" msdata:child="ArelLotsRecipe" msdata:parentkey="Lot_Number Machine_nr Arel_Date" msdata:childkey="Lot_Number Machine ArelKey" msprop:Generator_UserChildTable="ArelLotsRecipe" msprop:Generator_ChildPropName="GetArelLotsRecipeRows" msprop:Generator_UserRelationName="FK_ArelLotsRecipe_ArelLotsRecipe" msprop:Generator_ParentPropName="ArelLotsRowParent" msprop:Generator_RelationVarName="relationFK_ArelLotsRecipe_ArelLotsRecipe" msprop:Generator_UserParentTable="ArelLots" />
-      <msdata:Relationship name="FK_Locations_Warehouses" msdata:parent="Warehouses" msdata:child="Locations" msdata:parentkey="Warehouse" msdata:childkey="Warehouse" msprop:Generator_UserChildTable="Locations" msprop:Generator_ChildPropName="GetLocationsRows" msprop:Generator_UserRelationName="FK_Locations_Warehouses" msprop:Generator_RelationVarName="relationFK_Locations_Warehouses" msprop:Generator_UserParentTable="Warehouses" msprop:Generator_ParentPropName="WarehousesRow" />
-      <msdata:Relationship name="FK_Permissions_MenuItems" msdata:parent="MenuItems" msdata:child="Permissions" msdata:parentkey="MenuItem" msdata:childkey="MenuItem" msprop:Generator_UserChildTable="Permissions" msprop:Generator_ChildPropName="GetPermissionsRows" msprop:Generator_UserRelationName="FK_Permissions_MenuItems" msprop:Generator_ParentPropName="MenuItemsRow" msprop:Generator_RelationVarName="relationFK_Permissions_MenuItems" msprop:Generator_UserParentTable="MenuItems" />
-      <msdata:Relationship name="FK_Permissions_Users" msdata:parent="Users" msdata:child="Permissions" msdata:parentkey="UserId" msdata:childkey="UserId" msprop:Generator_UserChildTable="Permissions" msprop:Generator_ChildPropName="GetPermissionsRows" msprop:Generator_UserRelationName="FK_Permissions_Users" msprop:Generator_RelationVarName="relationFK_Permissions_Users" msprop:Generator_UserParentTable="Users" msprop:Generator_ParentPropName="UsersRow" />
-      <msdata:Relationship name="FK_PkgHist_Rolls" msdata:parent="Packages" msdata:child="PkgHist" msdata:parentkey="SerialNo" msdata:childkey="SerialNo" msprop:Generator_UserChildTable="PkgHist" msprop:Generator_ChildPropName="GetPkgHistRows" msprop:Generator_UserRelationName="FK_PkgHist_Rolls" msprop:Generator_ParentPropName="PackagesRow" msprop:Generator_RelationVarName="relationFK_PkgHist_Rolls" msprop:Generator_UserParentTable="Packages" />
-      <msdata:Relationship name="FK_WoConsuptionSteps_WorkOrders" msdata:parent="WorkOrders" msdata:child="WoConsuptionSteps" msdata:parentkey="WorkOrder" msdata:childkey="WorkOrder" msprop:Generator_UserChildTable="WoConsuptionSteps" msprop:Generator_ChildPropName="GetWoConsuptionStepsRows" msprop:Generator_UserRelationName="FK_WoConsuptionSteps_WorkOrders" msprop:Generator_RelationVarName="relationFK_WoConsuptionSteps_WorkOrders" msprop:Generator_UserParentTable="WorkOrders" msprop:Generator_ParentPropName="WorkOrdersRow" />
-      <msdata:Relationship name="FK_ShopOrders_Status" msdata:parent="Status" msdata:child="WorkOrders" msdata:parentkey="Status" msdata:childkey="Status" msprop:Generator_UserChildTable="WorkOrders" msprop:Generator_ChildPropName="GetWorkOrdersRows" msprop:Generator_UserRelationName="FK_ShopOrders_Status" msprop:Generator_ParentPropName="StatusRow" msprop:Generator_RelationVarName="relationFK_ShopOrders_Status" msprop:Generator_UserParentTable="Status" />
+      <msdata:Relationship name="FK_Packages_Locations" msdata:parent="Locations" msdata:child="Packages" msdata:parentkey="Location Warehouse" msdata:childkey="Location Warehouse" msprop:Generator_UserChildTable="Packages" msprop:Generator_ChildPropName="GetPackagesRows" msprop:Generator_UserRelationName="FK_Packages_Locations" msprop:Generator_ParentPropName="LocationsRowParent" msprop:Generator_RelationVarName="relationFK_Packages_Locations" msprop:Generator_UserParentTable="Locations" />
+      <msdata:Relationship name="FK_Packages_Status" msdata:parent="Status" msdata:child="Packages" msdata:parentkey="Status" msdata:childkey="Status" msprop:Generator_UserChildTable="Packages" msprop:Generator_ChildPropName="GetPackagesRows" msprop:Generator_UserRelationName="FK_Packages_Status" msprop:Generator_ParentPropName="StatusRow" msprop:Generator_RelationVarName="relationFK_Packages_Status" msprop:Generator_UserParentTable="Status" />
+      <msdata:Relationship name="FK_Packages_WareHouses" msdata:parent="Warehouses" msdata:child="Packages" msdata:parentkey="Warehouse" msdata:childkey="Warehouse" msprop:Generator_UserChildTable="Packages" msprop:Generator_ChildPropName="GetPackagesRows" msprop:Generator_UserRelationName="FK_Packages_WareHouses" msprop:Generator_ParentPropName="WarehousesRow" msprop:Generator_RelationVarName="relationFK_Packages_WareHouses" msprop:Generator_UserParentTable="Warehouses" />
+      <msdata:Relationship name="FK_Packages_WorkOrders" msdata:parent="WorkOrders" msdata:child="Packages" msdata:parentkey="WorkOrder" msdata:childkey="WorkOrder" msprop:Generator_UserChildTable="Packages" msprop:Generator_ChildPropName="GetPackagesRows" msprop:Generator_UserRelationName="FK_Packages_WorkOrders" msprop:Generator_ParentPropName="WorkOrdersRow" msprop:Generator_RelationVarName="relationFK_Packages_WorkOrders" msprop:Generator_UserParentTable="WorkOrders" />
+      <msdata:Relationship name="FK_ArelContainers_ArelLots" msdata:parent="ArelLots" msdata:child="ArelContainers" msdata:parentkey="Arel_Date Machine_nr Lot_Number" msdata:childkey="Arel_Key MachineNo LotNo" msprop:Generator_UserChildTable="ArelContainers" msprop:Generator_ChildPropName="GetArelContainersRows" msprop:Generator_UserRelationName="FK_ArelContainers_ArelLots" msprop:Generator_ParentPropName="ArelLotsRowParent" msprop:Generator_RelationVarName="relationFK_ArelContainers_ArelLots" msprop:Generator_UserParentTable="ArelLots" />
+      <msdata:Relationship name="FK_ArelLotsRecipe_ArelLotsRecipe" msdata:parent="ArelLots" msdata:child="ArelLotsRecipe" msdata:parentkey="Lot_Number Machine_nr Arel_Date" msdata:childkey="Lot_Number Machine ArelKey" msprop:Generator_UserChildTable="ArelLotsRecipe" msprop:Generator_ChildPropName="GetArelLotsRecipeRows" msprop:Generator_UserRelationName="FK_ArelLotsRecipe_ArelLotsRecipe" msprop:Generator_RelationVarName="relationFK_ArelLotsRecipe_ArelLotsRecipe" msprop:Generator_UserParentTable="ArelLots" msprop:Generator_ParentPropName="ArelLotsRowParent" />
+      <msdata:Relationship name="FK_Locations_Warehouses" msdata:parent="Warehouses" msdata:child="Locations" msdata:parentkey="Warehouse" msdata:childkey="Warehouse" msprop:Generator_UserChildTable="Locations" msprop:Generator_ChildPropName="GetLocationsRows" msprop:Generator_UserRelationName="FK_Locations_Warehouses" msprop:Generator_ParentPropName="WarehousesRow" msprop:Generator_RelationVarName="relationFK_Locations_Warehouses" msprop:Generator_UserParentTable="Warehouses" />
+      <msdata:Relationship name="FK_Permissions_MenuItems" msdata:parent="MenuItems" msdata:child="Permissions" msdata:parentkey="MenuItem" msdata:childkey="MenuItem" msprop:Generator_UserChildTable="Permissions" msprop:Generator_ChildPropName="GetPermissionsRows" msprop:Generator_UserRelationName="FK_Permissions_MenuItems" msprop:Generator_RelationVarName="relationFK_Permissions_MenuItems" msprop:Generator_UserParentTable="MenuItems" msprop:Generator_ParentPropName="MenuItemsRow" />
+      <msdata:Relationship name="FK_Permissions_Users" msdata:parent="Users" msdata:child="Permissions" msdata:parentkey="UserId" msdata:childkey="UserId" msprop:Generator_UserChildTable="Permissions" msprop:Generator_ChildPropName="GetPermissionsRows" msprop:Generator_UserRelationName="FK_Permissions_Users" msprop:Generator_ParentPropName="UsersRow" msprop:Generator_RelationVarName="relationFK_Permissions_Users" msprop:Generator_UserParentTable="Users" />
+      <msdata:Relationship name="FK_PkgHist_Rolls" msdata:parent="Packages" msdata:child="PkgHist" msdata:parentkey="SerialNo" msdata:childkey="SerialNo" msprop:Generator_UserChildTable="PkgHist" msprop:Generator_ChildPropName="GetPkgHistRows" msprop:Generator_UserRelationName="FK_PkgHist_Rolls" msprop:Generator_RelationVarName="relationFK_PkgHist_Rolls" msprop:Generator_UserParentTable="Packages" msprop:Generator_ParentPropName="PackagesRow" />
+      <msdata:Relationship name="FK_WoConsuptionSteps_WorkOrders" msdata:parent="WorkOrders" msdata:child="WoConsuptionSteps" msdata:parentkey="WorkOrder" msdata:childkey="WorkOrder" msprop:Generator_UserChildTable="WoConsuptionSteps" msprop:Generator_ChildPropName="GetWoConsuptionStepsRows" msprop:Generator_UserRelationName="FK_WoConsuptionSteps_WorkOrders" msprop:Generator_ParentPropName="WorkOrdersRow" msprop:Generator_RelationVarName="relationFK_WoConsuptionSteps_WorkOrders" msprop:Generator_UserParentTable="WorkOrders" />
+      <msdata:Relationship name="FK_ShopOrders_Status" msdata:parent="Status" msdata:child="WorkOrders" msdata:parentkey="Status" msdata:childkey="Status" msprop:Generator_UserChildTable="WorkOrders" msprop:Generator_ChildPropName="GetWorkOrdersRows" msprop:Generator_UserRelationName="FK_ShopOrders_Status" msprop:Generator_RelationVarName="relationFK_ShopOrders_Status" msprop:Generator_UserParentTable="Status" msprop:Generator_ParentPropName="StatusRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

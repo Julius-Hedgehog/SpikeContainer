@@ -1097,6 +1097,10 @@ namespace SpikeContainer {
             
             private global::System.Data.DataColumn columnFrfgDt;
             
+            private global::System.Data.DataColumn columnLstOp1;
+            
+            private global::System.Data.DataColumn columnFinWidth1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public PackagesDataTable() {
@@ -1508,6 +1512,22 @@ namespace SpikeContainer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn LstOp1Column {
+                get {
+                    return this.columnLstOp1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FinWidth1Column {
+                get {
+                    return this.columnFinWidth1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1590,7 +1610,9 @@ namespace SpikeContainer {
                         string SalesOrder, 
                         int SalesOrderLine, 
                         System.DateTime PackDt, 
-                        System.DateTime FrfgDt) {
+                        System.DateTime FrfgDt, 
+                        string LstOp1, 
+                        decimal FinWidth1) {
                 PackagesRow rowPackagesRow = ((PackagesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         SerialNo,
@@ -1639,7 +1661,9 @@ namespace SpikeContainer {
                         SalesOrder,
                         SalesOrderLine,
                         PackDt,
-                        FrfgDt};
+                        FrfgDt,
+                        LstOp1,
+                        FinWidth1};
                 if ((parentWarehousesRowByFK_Packages_WareHouses != null)) {
                     columnValuesArray[24] = parentWarehousesRowByFK_Packages_WareHouses[0];
                 }
@@ -1725,6 +1749,8 @@ namespace SpikeContainer {
                 this.columnSalesOrderLine = base.Columns["SalesOrderLine"];
                 this.columnPackDt = base.Columns["PackDt"];
                 this.columnFrfgDt = base.Columns["FrfgDt"];
+                this.columnLstOp1 = base.Columns["LstOp1"];
+                this.columnFinWidth1 = base.Columns["FinWidth1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1828,6 +1854,10 @@ namespace SpikeContainer {
                 base.Columns.Add(this.columnPackDt);
                 this.columnFrfgDt = new global::System.Data.DataColumn("FrfgDt", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFrfgDt);
+                this.columnLstOp1 = new global::System.Data.DataColumn("LstOp1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLstOp1);
+                this.columnFinWidth1 = new global::System.Data.DataColumn("FinWidth1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFinWidth1);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnSerialNo}, true));
                 this.columnSerialNo.AllowDBNull = false;
@@ -1837,15 +1867,10 @@ namespace SpikeContainer {
                 this.columnItem.MaxLength = 30;
                 this.columnMasterItem.AllowDBNull = false;
                 this.columnMasterItem.MaxLength = 15;
-                this.columnColor.AllowDBNull = false;
                 this.columnColor.MaxLength = 15;
                 this.columnLstMach.MaxLength = 80;
-                this.columnAllowYds.AllowDBNull = false;
-                this.columnCutOffYds.AllowDBNull = false;
                 this.columnGrade.MaxLength = 2;
                 this.columnQualCode.MaxLength = 1;
-                this.columnNetLbs.AllowDBNull = false;
-                this.columnTareLbs.AllowDBNull = false;
                 this.columnReInspReqd.MaxLength = 1;
                 this.columnHoldPiece.MaxLength = 1;
                 this.columnHoldFor.MaxLength = 30;
@@ -1870,6 +1895,9 @@ namespace SpikeContainer {
                 this.columnKnitLot.MaxLength = 80;
                 this.columnDyeLot.MaxLength = 10;
                 this.columnSalesOrder.MaxLength = 8;
+                this.columnLstOp1.Caption = "LstOp";
+                this.columnLstOp1.MaxLength = 8;
+                this.columnFinWidth1.Caption = "FinWidth";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12466,7 +12494,12 @@ namespace SpikeContainer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Color {
                 get {
-                    return ((string)(this[this.tablePackages.ColorColumn]));
+                    try {
+                        return ((string)(this[this.tablePackages.ColorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Color\' in table \'Packages\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablePackages.ColorColumn] = value;
@@ -12509,7 +12542,12 @@ namespace SpikeContainer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public decimal AllowYds {
                 get {
-                    return ((decimal)(this[this.tablePackages.AllowYdsColumn]));
+                    try {
+                        return ((decimal)(this[this.tablePackages.AllowYdsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AllowYds\' in table \'Packages\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablePackages.AllowYdsColumn] = value;
@@ -12520,7 +12558,12 @@ namespace SpikeContainer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public decimal CutOffYds {
                 get {
-                    return ((decimal)(this[this.tablePackages.CutOffYdsColumn]));
+                    try {
+                        return ((decimal)(this[this.tablePackages.CutOffYdsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CutOffYds\' in table \'Packages\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablePackages.CutOffYdsColumn] = value;
@@ -12643,7 +12686,12 @@ namespace SpikeContainer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public decimal NetLbs {
                 get {
-                    return ((decimal)(this[this.tablePackages.NetLbsColumn]));
+                    try {
+                        return ((decimal)(this[this.tablePackages.NetLbsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NetLbs\' in table \'Packages\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablePackages.NetLbsColumn] = value;
@@ -12654,7 +12702,12 @@ namespace SpikeContainer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public decimal TareLbs {
                 get {
-                    return ((decimal)(this[this.tablePackages.TareLbsColumn]));
+                    try {
+                        return ((decimal)(this[this.tablePackages.TareLbsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TareLbs\' in table \'Packages\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablePackages.TareLbsColumn] = value;
@@ -13118,6 +13171,38 @@ namespace SpikeContainer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string LstOp1 {
+                get {
+                    try {
+                        return ((string)(this[this.tablePackages.LstOp1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LstOp1\' in table \'Packages\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePackages.LstOp1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal FinWidth1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablePackages.FinWidth1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FinWidth1\' in table \'Packages\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePackages.FinWidth1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public LocationsRow LocationsRowParent {
                 get {
                     return ((LocationsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Packages_Locations"])));
@@ -13162,6 +13247,18 @@ namespace SpikeContainer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsColorNull() {
+                return this.IsNull(this.tablePackages.ColorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetColorNull() {
+                this[this.tablePackages.ColorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsLstOpNull() {
                 return this.IsNull(this.tablePackages.LstOpColumn);
             }
@@ -13182,6 +13279,30 @@ namespace SpikeContainer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetLstMachNull() {
                 this[this.tablePackages.LstMachColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsAllowYdsNull() {
+                return this.IsNull(this.tablePackages.AllowYdsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetAllowYdsNull() {
+                this[this.tablePackages.AllowYdsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCutOffYdsNull() {
+                return this.IsNull(this.tablePackages.CutOffYdsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCutOffYdsNull() {
+                this[this.tablePackages.CutOffYdsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13266,6 +13387,30 @@ namespace SpikeContainer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetInspEndTimeNull() {
                 this[this.tablePackages.InspEndTimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsNetLbsNull() {
+                return this.IsNull(this.tablePackages.NetLbsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetNetLbsNull() {
+                this[this.tablePackages.NetLbsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsTareLbsNull() {
+                return this.IsNull(this.tablePackages.TareLbsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetTareLbsNull() {
+                this[this.tablePackages.TareLbsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13566,6 +13711,30 @@ namespace SpikeContainer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetFrfgDtNull() {
                 this[this.tablePackages.FrfgDtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsLstOp1Null() {
+                return this.IsNull(this.tablePackages.LstOp1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetLstOp1Null() {
+                this[this.tablePackages.LstOp1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsFinWidth1Null() {
+                return this.IsNull(this.tablePackages.FinWidth1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFinWidth1Null() {
+                this[this.tablePackages.FinWidth1Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23680,11 +23849,9 @@ namespace SpikeContainer.TestMesDbDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Item", "Item");
             tableMapping.ColumnMappings.Add("MasterItem", "MasterItem");
             tableMapping.ColumnMappings.Add("Color", "Color");
-            tableMapping.ColumnMappings.Add("LstOp", "LstOp");
             tableMapping.ColumnMappings.Add("LstMach", "LstMach");
             tableMapping.ColumnMappings.Add("AllowYds", "AllowYds");
             tableMapping.ColumnMappings.Add("CutOffYds", "CutOffYds");
-            tableMapping.ColumnMappings.Add("FinWidth", "FinWidth");
             tableMapping.ColumnMappings.Add("Grade", "Grade");
             tableMapping.ColumnMappings.Add("QualCode", "QualCode");
             tableMapping.ColumnMappings.Add("GrossYds", "GrossYds");
@@ -23723,6 +23890,8 @@ namespace SpikeContainer.TestMesDbDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("SalesOrderLine", "SalesOrderLine");
             tableMapping.ColumnMappings.Add("PackDt", "PackDt");
             tableMapping.ColumnMappings.Add("FrfgDt", "FrfgDt");
+            tableMapping.ColumnMappings.Add("LstOp", "LstOp1");
+            tableMapping.ColumnMappings.Add("FinWidth", "FinWidth1");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
