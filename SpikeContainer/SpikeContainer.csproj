@@ -299,6 +299,12 @@
     <Compile Include="Spike 005\Spike005Main.Designer.cs">
       <DependentUpon>Spike005Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Spike 006\Spike 006 Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 006\Spike 006 Main.Designer.cs">
+      <DependentUpon>Spike 006 Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="Spike Dev Express Grid\DEG Example 001.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -389,6 +395,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Spike 005\Spike005Main.resx">
       <DependentUpon>Spike005Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike 006\Spike 006 Main.resx">
+      <DependentUpon>Spike 006 Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Spike Dev Express Grid\DEG Example 001.resx">
       <DependentUpon>DEG Example 001.cs</DependentUpon>

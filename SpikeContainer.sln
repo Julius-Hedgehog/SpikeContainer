@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2008
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpikeContainer", "SpikeContainer\SpikeContainer.csproj", "{09C901D7-5C25-4AA9-9DE7-770D8EE605FB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpikeMainConsoleApp", "SpikeMainConsoleApp\SpikeMainConsoleApp.csproj", "{B7D5496D-7E9B-4D0D-90AD-31D4D465F0EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{24E44B8E-9E08-451E-B4C4-36FFFB2D3AD1}"
+	ProjectSection(SolutionItems) = preProject
+		Spike Project Documentation.xlsx = Spike Project Documentation.xlsx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
