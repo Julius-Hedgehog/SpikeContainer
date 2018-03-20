@@ -17,5 +17,10 @@ namespace SpikeContainer.Spike_007_QAD_Implment_Utilities
         {
             InitializeComponent();
         }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }

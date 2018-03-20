@@ -353,6 +353,12 @@
     <Compile Include="Spike 007 QAD Implment Utilities\Spike007MainXtraForm.Designer.cs">
       <DependentUpon>Spike007MainXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Spike 007 QAD Implment Utilities\Spike007_Utitlity_001_XtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 007 QAD Implment Utilities\Spike007_Utitlity_001_XtraForm.Designer.cs">
+      <DependentUpon>Spike007_Utitlity_001_XtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Spike Dev Express Grid\DEG Example 001.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -446,6 +452,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Spike 006\Spike 006 Main.resx">
       <DependentUpon>Spike 006 Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike 007 QAD Implment Utilities\Spike007MainXtraForm.resx">
+      <DependentUpon>Spike007MainXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike 007 QAD Implment Utilities\Spike007_Utitlity_001_XtraForm.resx">
+      <DependentUpon>Spike007_Utitlity_001_XtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Spike Dev Express Grid\DEG Example 001.resx">
       <DependentUpon>DEG Example 001.cs</DependentUpon>
