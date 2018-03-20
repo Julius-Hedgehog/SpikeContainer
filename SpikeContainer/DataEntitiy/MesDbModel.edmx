@@ -246,14 +246,38 @@
           <Property Name="Filler" Type="varchar" MaxLength="94" />
           <Property Name="Posted" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="AutomatedEmail">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TestMesDb.dbo.Bins' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Bins">
           <Key>
-            <PropertyRef Name="Call" />
+            <PropertyRef Name="BinNo" />
+            <PropertyRef Name="BinType" />
           </Key>
-          <Property Name="Call" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="FromAddress" Type="varchar(max)" Nullable="false" />
-          <Property Name="ToAddress" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Reply" Type="varchar(max)" />
+          <Property Name="BinNo" Type="int" Nullable="false" />
+          <Property Name="BinType" Type="varchar" MaxLength="8" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DhPlanDet">
+          <Key>
+            <PropertyRef Name="DyeLot" />
+            <PropertyRef Name="WorkOrder" />
+            <PropertyRef Name="OpStep" />
+          </Key>
+          <Property Name="DyeLot" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="WorkOrder" Type="int" Nullable="false" />
+          <Property Name="OpStep" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DhPlanMstr">
+          <Key>
+            <PropertyRef Name="DyeLot" />
+          </Key>
+          <Property Name="DyeLot" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Machine" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Seq" Type="int" Nullable="false" />
+          <Property Name="Scheduled" Type="bit" Nullable="false" />
+          <Property Name="Pool" Type="varchar" MaxLength="1" />
+          <Property Name="Rework" Type="varchar" MaxLength="1" />
+          <Property Name="ChangedBy" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="ChangedDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="LocalVariables">
           <Key>
@@ -261,6 +285,7 @@
           </Key>
           <Property Name="Machine" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DefaultLogin" Type="varchar" MaxLength="6" />
+          <Property Name="HostID" Type="varchar" MaxLength="10" />
           <Property Name="LabelPrinter" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Locations">
@@ -273,6 +298,20 @@
           <Property Name="LstInvDt" Type="datetime" />
           <Property Name="LstInvUser" Type="varchar" MaxLength="8" />
           <Property Name="BinPrinted" Type="bit" />
+        </EntityType>
+        <EntityType Name="Machines">
+          <Key>
+            <PropertyRef Name="MachId" />
+            <PropertyRef Name="WorkCenter" />
+            <PropertyRef Name="QadMach" />
+          </Key>
+          <Property Name="MachId" Type="int" Nullable="false" />
+          <Property Name="ShortName" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MachType" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="WorkCenter" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Dept" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="QadMach" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="MenuItems">
           <Key>
@@ -326,7 +365,7 @@
           <Property Name="ChangedDate" Type="datetime" Nullable="false" />
           <Property Name="ChangedBy" Type="varchar" MaxLength="8" Nullable="false" />
           <Property Name="BinNo" Type="int" />
-          <Property Name="LstShopOrder" Type="int" />
+          <Property Name="LstWorkOrder" Type="int" />
           <Property Name="ShadeGroup" Type="varchar" MaxLength="10" />
           <Property Name="MilLotRep" Type="bit" />
           <Property Name="SalesOrder" Type="varchar" MaxLength="8" />
@@ -393,13 +432,20 @@
           <Property Name="ChangedDate" Type="datetime" />
           <Property Name="ChangedBy" Type="varchar" MaxLength="8" />
           <Property Name="BinNo" Type="int" />
-          <Property Name="LstShopOrder" Type="int" />
+          <Property Name="LstWorkOrder" Type="int" />
           <Property Name="ShadeGroup" Type="varchar" MaxLength="10" />
           <Property Name="MilLotRep" Type="bit" />
           <Property Name="SalesOrder" Type="varchar" MaxLength="8" />
           <Property Name="SalesOrderLine" Type="int" />
           <Property Name="PackDt" Type="datetime" />
           <Property Name="FRFG" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Pro2SQL">
+          <Key>
+            <PropertyRef Name="pname" />
+          </Key>
+          <Property Name="pname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="pversion" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -412,6 +458,15 @@
           <Property Name="Cyc" Type="bit" Nullable="false" />
           <Property Name="Packages" Type="bit" Nullable="false" />
           <Property Name="WorkOrders" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SysSequences">
+          <Key>
+            <PropertyRef Name="Prefix" />
+          </Key>
+          <Property Name="SeqType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prefix" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Length" Type="int" Nullable="false" />
+          <Property Name="Seq" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="SystemParams">
           <Key>
@@ -509,6 +564,164 @@
           <Property Name="MilLot" Type="varchar" MaxLength="15" />
           <Property Name="ClosedBy" Type="varchar" MaxLength="8" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TestMesDb.dbo.AvailableGreige' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AvailableGreige">
+          <Key>
+            <PropertyRef Name="SerialNo" />
+            <PropertyRef Name="Item" />
+            <PropertyRef Name="Location" />
+            <PropertyRef Name="PartialRoll" />
+            <PropertyRef Name="PartialTub" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="SerialNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="BinNo" Type="int" />
+          <Property Name="BinType" Type="varchar" MaxLength="8" />
+          <Property Name="Item" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="KnitLot" Type="varchar" MaxLength="80" />
+          <Property Name="NetLbs" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="Location" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="PartialRoll" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="PartialTub" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="RecDt" Type="datetime" />
+          <Property Name="StdMinRollWt" Type="varchar" MaxLength="80" />
+          <Property Name="StdRollsPerTub" Type="varchar" MaxLength="80" />
+          <Property Name="Status" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="WorkOrder" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TestMesDb.dbo.AvailableToPick' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AvailableToPick">
+          <Key>
+            <PropertyRef Name="SerialNo" />
+            <PropertyRef Name="Item" />
+            <PropertyRef Name="Location" />
+            <PropertyRef Name="PartialRoll" />
+            <PropertyRef Name="PartialTub" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="SerialNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="BinNo" Type="int" />
+          <Property Name="BinType" Type="varchar" MaxLength="8" />
+          <Property Name="Item" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="KnitLot" Type="varchar" MaxLength="80" />
+          <Property Name="NetLbs" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="NetYds" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="Location" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="PartialRoll" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="PartialTub" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="RecDt" Type="datetime" />
+          <Property Name="StdMinRollWt" Type="varchar" MaxLength="80" />
+          <Property Name="StdRollsPerTub" Type="varchar" MaxLength="80" />
+          <Property Name="Status" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="WorkOrder" Type="int" />
+          <Property Name="LstWorkOrder" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TestMesDb.dbo.PickedGreige' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PickedGreige">
+          <Key>
+            <PropertyRef Name="SerialNo" />
+            <PropertyRef Name="Item" />
+            <PropertyRef Name="Location" />
+            <PropertyRef Name="PartialRoll" />
+            <PropertyRef Name="PartialTub" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="SerialNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="BinNo" Type="int" />
+          <Property Name="BinType" Type="varchar" MaxLength="8" />
+          <Property Name="Item" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="KnitLot" Type="varchar" MaxLength="80" />
+          <Property Name="NetLbs" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="Location" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="PartialRoll" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="PartialTub" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="RecDt" Type="datetime" />
+          <Property Name="StdMinRollWt" Type="varchar" MaxLength="80" />
+          <Property Name="StdRollsPerTub" Type="varchar" MaxLength="80" />
+          <Property Name="Status" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="WorkOrder" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TestMesDb.dbo.WorkOrderToRelease' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="WorkOrderToRelease">
+          <Key>
+            <PropertyRef Name="WorkOrder" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="WorkOrder" Type="int" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Item" Type="varchar" MaxLength="30" />
+          <Property Name="ComponentItem" Type="varchar" MaxLength="55" />
+          <Property Name="ReqYds" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="ReqGrLbs" Type="decimal" Precision="38" Scale="10" />
+          <Property Name="Due" Type="datetime" />
+          <Property Name="Customer" Type="varchar" MaxLength="146" />
+          <Property Name="PickedLbs" Type="numeric" Precision="38" Scale="2" />
+          <Property Name="PickedYds" Type="numeric" Precision="38" Scale="2" />
+          <Property Name="DyeJet" Type="varchar" MaxLength="4" />
+          <Property Name="DyeSeq" Type="varchar" MaxLength="4" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TestMesDb.dbo.WorkOrderTotals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="WorkOrderTotals">
+          <Key>
+            <PropertyRef Name="WorkOrder" />
+            <PropertyRef Name="MasterItem" />
+            <PropertyRef Name="Color" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="ActStartLbs" />
+            <PropertyRef Name="ActCheckLbs" />
+          </Key>
+          <Property Name="WorkOrder" Type="int" Nullable="false" />
+          <Property Name="Item" Type="varchar" MaxLength="30" />
+          <Property Name="MasterItem" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Color" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ComponentItem" Type="varchar" MaxLength="55" />
+          <Property Name="ItemDescr" Type="varchar" MaxLength="88" />
+          <Property Name="ColorDescr" Type="varchar" MaxLength="88" />
+          <Property Name="FormStyle" Type="varchar" MaxLength="55" />
+          <Property Name="WipPkgs" Type="int" />
+          <Property Name="LstOpStep" Type="int" />
+          <Property Name="LstOp" Type="varchar" MaxLength="8" />
+          <Property Name="LstMach" Type="varchar" MaxLength="80" />
+          <Property Name="NextOpStep" Type="varchar" MaxLength="4" />
+          <Property Name="Status" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="ReqYds" Type="decimal" Precision="28" Scale="10" />
+          <Property Name="ReqGrLbs" Type="decimal" Precision="38" Scale="10" />
+          <Property Name="ActStartLbs" Type="real" Nullable="false" />
+          <Property Name="ActCheckLbs" Type="real" Nullable="false" />
+          <Property Name="ProcYds" Type="real" />
+          <Property Name="OpenYds" Type="numeric" Precision="38" Scale="2" />
+          <Property Name="F_Rolls" Type="int" />
+          <Property Name="S_Rolls" Type="int" />
+          <Property Name="TotPackRolls" Type="int" />
+          <Property Name="F_Lbs" Type="numeric" Precision="38" Scale="2" />
+          <Property Name="S_Lbs" Type="numeric" Precision="38" Scale="2" />
+          <Property Name="TotPackLbs" Type="numeric" Precision="38" Scale="2" />
+          <Property Name="F_Yds" Type="numeric" Precision="38" Scale="2" />
+          <Property Name="S_Yds" Type="numeric" Precision="38" Scale="2" />
+          <Property Name="TotPackYds" Type="numeric" Precision="38" Scale="2" />
+          <Property Name="AllowYds" Type="numeric" Precision="38" Scale="2" />
+          <Property Name="CutOffYds" Type="numeric" Precision="38" Scale="2" />
+          <Property Name="DyeLot" Type="varchar" MaxLength="10" />
+          <Property Name="ParentWorkOrder" Type="int" />
+          <Property Name="QcCheckInDt" Type="datetime" />
+          <Property Name="QcCheckInBy" Type="varchar" MaxLength="8" />
+          <Property Name="QcReleasedDt" Type="datetime" />
+          <Property Name="QcReleasedBy" Type="varchar" MaxLength="8" />
+          <Property Name="ClosedBy" Type="varchar" MaxLength="8" />
+          <Property Name="MilLot" Type="varchar" MaxLength="15" />
+          <Property Name="RelDate" Type="datetime" />
+          <Property Name="Due" Type="datetime" />
+          <Property Name="SalesOrder" Type="varchar" MaxLength="80" />
+          <Property Name="SalesOrderLine" Type="varchar" MaxLength="80" />
+          <Property Name="OrdCust" Type="varchar" MaxLength="146" />
+          <Property Name="ArCust" Type="varchar" MaxLength="146" />
+          <Property Name="Brand" Type="varchar" MaxLength="146" />
+        </EntityType>
         <Association Name="FK_ArelContainers_ArelLots">
           <End Role="ArelLots" Type="Self.ArelLots" Multiplicity="1" />
           <End Role="ArelContainers" Type="Self.ArelContainers" Multiplicity="*" />
@@ -538,6 +751,20 @@
               <PropertyRef Name="Lot_Number" />
               <PropertyRef Name="Machine" />
               <PropertyRef Name="ArelKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DhPlanDet_DhPlanMstr">
+          <End Role="DhPlanMstr" Type="Self.DhPlanMstr" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DhPlanDet" Type="Self.DhPlanDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DhPlanMstr">
+              <PropertyRef Name="DyeLot" />
+            </Principal>
+            <Dependent Role="DhPlanDet">
+              <PropertyRef Name="DyeLot" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -641,18 +868,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ShopOrders_Status">
-          <End Role="Status" Type="Self.Status" Multiplicity="1" />
-          <End Role="WorkOrders" Type="Self.WorkOrders" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="Status" />
-            </Principal>
-            <Dependent Role="WorkOrders">
-              <PropertyRef Name="Status" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_WoConsuptionSteps_WorkOrders">
           <End Role="WorkOrders" Type="Self.WorkOrders" Multiplicity="1" />
           <End Role="WoConsuptionSteps" Type="Self.WoConsuptionSteps" Multiplicity="*" />
@@ -665,6 +880,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_WorkOrders_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="WorkOrders" Type="Self.WorkOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Status" />
+            </Principal>
+            <Dependent Role="WorkOrders">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_GetBinCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="wo" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="WorkOrder" Type="varchar" MaxLength="30" />
+                <Property Name="OpStepNo" Type="int" />
+                <Property Name="Bins" Type="float" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
         <Function Name="fn_GetDyeLotBatches" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DyeLot" Type="varchar" Mode="In" />
           <Parameter Name="MachineNo" Type="int" Mode="In" />
@@ -673,6 +912,60 @@
             <CollectionType>
               <RowType>
                 <Property Name="batch" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="fn_GetRouter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="WorkOrder" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="OpStepNo" Type="int" />
+                <Property Name="Descr" Type="varchar" MaxLength="80" />
+                <Property Name="Bins" Type="float" />
+                <Property Name="Mach" Type="varchar" MaxLength="80" />
+                <Property Name="Op" Type="varchar" MaxLength="80" />
+                <Property Name="WorkCenter" Type="varchar" MaxLength="80" />
+                <Property Name="Notes" Type="varchar" MaxLength="82" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="fn_IsGreige" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+          <Parameter Name="Item" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="fn_IsGreige_1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+          <Parameter Name="Item" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="fn_IsGreige_2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Item" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="pt_part" Type="varchar" MaxLength="55" />
+                <Property Name="pt_desc1" Type="varchar" MaxLength="88" />
+                <Property Name="pt_um" Type="varchar" MaxLength="30" />
+                <Property Name="pt_part_type" Type="varchar" MaxLength="80" />
+                <Property Name="pt_loc" Type="varchar" MaxLength="80" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="fn_OpInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="WorkOrder" Type="int" Mode="In" />
+          <Parameter Name="OpStepNo" Type="int" Mode="In" />
+          <Parameter Name="OpDescr" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="OpStepNo" Type="int" />
+                <Property Name="Op" Type="varchar" MaxLength="80" />
+                <Property Name="Descr" Type="varchar" MaxLength="80" />
+                <Property Name="Mach" Type="varchar" MaxLength="80" />
+                <Property Name="StdRunTime" Type="decimal" Precision="28" Scale="10" />
+                <Property Name="WorkCenter" Type="varchar" MaxLength="80" />
+                <Property Name="Notes" Type="varchar" MaxLength="82" />
               </RowType>
             </CollectionType>
           </ReturnType>
@@ -692,23 +985,166 @@
           <Parameter Name="DT" Type="datetime" Mode="In" />
           <Parameter Name="UserID" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="sp_NextSeqNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Prefix" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_PostMesOp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="WorkOrder" Type="int" Mode="In" />
+          <Parameter Name="OpStepNo" Type="int" Mode="In" />
+          <Parameter Name="Mach" Type="varchar" Mode="In" />
+          <Parameter Name="User" Type="varchar" Mode="In" />
+          <Parameter Name="Super" Type="varchar" Mode="In" />
+          <Parameter Name="Dt" Type="datetime" Mode="In" />
+        </Function>
         <EntityContainer Name="MesDbModelStoreContainer">
           <EntitySet Name="ArelContainers" EntityType="Self.ArelContainers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ArelLots" EntityType="Self.ArelLots" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ArelLotsRecipe" EntityType="Self.ArelLotsRecipe" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AutomatedEmail" EntityType="Self.AutomatedEmail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DhPlanDet" EntityType="Self.DhPlanDet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DhPlanMstr" EntityType="Self.DhPlanMstr" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LocalVariables" EntityType="Self.LocalVariables" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Machines" EntityType="Self.Machines" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MenuItems" EntityType="Self.MenuItems" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Packages" EntityType="Self.Packages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Permissions" EntityType="Self.Permissions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PkgHist" EntityType="Self.PkgHist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pro2SQL" EntityType="Self.Pro2SQL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SysSequences" EntityType="Self.SysSequences" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SystemParams" EntityType="Self.SystemParams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Warehouses" EntityType="Self.Warehouses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WoConsuptionSteps" EntityType="Self.WoConsuptionSteps" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkOrders" EntityType="Self.WorkOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bins" EntityType="Self.Bins" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Bins].[BinNo] AS [BinNo], 
+    [Bins].[BinType] AS [BinType]
+    FROM [dbo].[Bins] AS [Bins]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AvailableGreige" EntityType="Self.AvailableGreige" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AvailableGreige].[SerialNo] AS [SerialNo], 
+    [AvailableGreige].[BinNo] AS [BinNo], 
+    [AvailableGreige].[BinType] AS [BinType], 
+    [AvailableGreige].[Item] AS [Item], 
+    [AvailableGreige].[KnitLot] AS [KnitLot], 
+    [AvailableGreige].[NetLbs] AS [NetLbs], 
+    [AvailableGreige].[Location] AS [Location], 
+    [AvailableGreige].[PartialRoll] AS [PartialRoll], 
+    [AvailableGreige].[PartialTub] AS [PartialTub], 
+    [AvailableGreige].[RecDt] AS [RecDt], 
+    [AvailableGreige].[StdMinRollWt] AS [StdMinRollWt], 
+    [AvailableGreige].[StdRollsPerTub] AS [StdRollsPerTub], 
+    [AvailableGreige].[Status] AS [Status], 
+    [AvailableGreige].[WorkOrder] AS [WorkOrder]
+    FROM [dbo].[AvailableGreige] AS [AvailableGreige]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AvailableToPick" EntityType="Self.AvailableToPick" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AvailableToPick].[SerialNo] AS [SerialNo], 
+    [AvailableToPick].[BinNo] AS [BinNo], 
+    [AvailableToPick].[BinType] AS [BinType], 
+    [AvailableToPick].[Item] AS [Item], 
+    [AvailableToPick].[KnitLot] AS [KnitLot], 
+    [AvailableToPick].[NetLbs] AS [NetLbs], 
+    [AvailableToPick].[NetYds] AS [NetYds], 
+    [AvailableToPick].[Location] AS [Location], 
+    [AvailableToPick].[PartialRoll] AS [PartialRoll], 
+    [AvailableToPick].[PartialTub] AS [PartialTub], 
+    [AvailableToPick].[RecDt] AS [RecDt], 
+    [AvailableToPick].[StdMinRollWt] AS [StdMinRollWt], 
+    [AvailableToPick].[StdRollsPerTub] AS [StdRollsPerTub], 
+    [AvailableToPick].[Status] AS [Status], 
+    [AvailableToPick].[WorkOrder] AS [WorkOrder], 
+    [AvailableToPick].[LstWorkOrder] AS [LstWorkOrder]
+    FROM [dbo].[AvailableToPick] AS [AvailableToPick]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PickedGreige" EntityType="Self.PickedGreige" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PickedGreige].[SerialNo] AS [SerialNo], 
+    [PickedGreige].[BinNo] AS [BinNo], 
+    [PickedGreige].[BinType] AS [BinType], 
+    [PickedGreige].[Item] AS [Item], 
+    [PickedGreige].[KnitLot] AS [KnitLot], 
+    [PickedGreige].[NetLbs] AS [NetLbs], 
+    [PickedGreige].[Location] AS [Location], 
+    [PickedGreige].[PartialRoll] AS [PartialRoll], 
+    [PickedGreige].[PartialTub] AS [PartialTub], 
+    [PickedGreige].[RecDt] AS [RecDt], 
+    [PickedGreige].[StdMinRollWt] AS [StdMinRollWt], 
+    [PickedGreige].[StdRollsPerTub] AS [StdRollsPerTub], 
+    [PickedGreige].[Status] AS [Status], 
+    [PickedGreige].[WorkOrder] AS [WorkOrder]
+    FROM [dbo].[PickedGreige] AS [PickedGreige]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="WorkOrderToRelease" EntityType="Self.WorkOrderToRelease" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [WorkOrderToRelease].[WorkOrder] AS [WorkOrder], 
+    [WorkOrderToRelease].[Status] AS [Status], 
+    [WorkOrderToRelease].[Item] AS [Item], 
+    [WorkOrderToRelease].[ComponentItem] AS [ComponentItem], 
+    [WorkOrderToRelease].[ReqYds] AS [ReqYds], 
+    [WorkOrderToRelease].[ReqGrLbs] AS [ReqGrLbs], 
+    [WorkOrderToRelease].[Due] AS [Due], 
+    [WorkOrderToRelease].[Customer] AS [Customer], 
+    [WorkOrderToRelease].[PickedLbs] AS [PickedLbs], 
+    [WorkOrderToRelease].[PickedYds] AS [PickedYds], 
+    [WorkOrderToRelease].[DyeJet] AS [DyeJet], 
+    [WorkOrderToRelease].[DyeSeq] AS [DyeSeq]
+    FROM [dbo].[WorkOrderToRelease] AS [WorkOrderToRelease]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="WorkOrderTotals" EntityType="Self.WorkOrderTotals" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [WorkOrderTotals].[WorkOrder] AS [WorkOrder], 
+    [WorkOrderTotals].[Item] AS [Item], 
+    [WorkOrderTotals].[MasterItem] AS [MasterItem], 
+    [WorkOrderTotals].[Color] AS [Color], 
+    [WorkOrderTotals].[ComponentItem] AS [ComponentItem], 
+    [WorkOrderTotals].[ItemDescr] AS [ItemDescr], 
+    [WorkOrderTotals].[ColorDescr] AS [ColorDescr], 
+    [WorkOrderTotals].[FormStyle] AS [FormStyle], 
+    [WorkOrderTotals].[WipPkgs] AS [WipPkgs], 
+    [WorkOrderTotals].[LstOpStep] AS [LstOpStep], 
+    [WorkOrderTotals].[LstOp] AS [LstOp], 
+    [WorkOrderTotals].[LstMach] AS [LstMach], 
+    [WorkOrderTotals].[NextOpStep] AS [NextOpStep], 
+    [WorkOrderTotals].[Status] AS [Status], 
+    [WorkOrderTotals].[ReqYds] AS [ReqYds], 
+    [WorkOrderTotals].[ReqGrLbs] AS [ReqGrLbs], 
+    [WorkOrderTotals].[ActStartLbs] AS [ActStartLbs], 
+    [WorkOrderTotals].[ActCheckLbs] AS [ActCheckLbs], 
+    [WorkOrderTotals].[ProcYds] AS [ProcYds], 
+    [WorkOrderTotals].[OpenYds] AS [OpenYds], 
+    [WorkOrderTotals].[F_Rolls] AS [F_Rolls], 
+    [WorkOrderTotals].[S_Rolls] AS [S_Rolls], 
+    [WorkOrderTotals].[TotPackRolls] AS [TotPackRolls], 
+    [WorkOrderTotals].[F_Lbs] AS [F_Lbs], 
+    [WorkOrderTotals].[S_Lbs] AS [S_Lbs], 
+    [WorkOrderTotals].[TotPackLbs] AS [TotPackLbs], 
+    [WorkOrderTotals].[F_Yds] AS [F_Yds], 
+    [WorkOrderTotals].[S_Yds] AS [S_Yds], 
+    [WorkOrderTotals].[TotPackYds] AS [TotPackYds], 
+    [WorkOrderTotals].[AllowYds] AS [AllowYds], 
+    [WorkOrderTotals].[CutOffYds] AS [CutOffYds], 
+    [WorkOrderTotals].[DyeLot] AS [DyeLot], 
+    [WorkOrderTotals].[ParentWorkOrder] AS [ParentWorkOrder], 
+    [WorkOrderTotals].[QcCheckInDt] AS [QcCheckInDt], 
+    [WorkOrderTotals].[QcCheckInBy] AS [QcCheckInBy], 
+    [WorkOrderTotals].[QcReleasedDt] AS [QcReleasedDt], 
+    [WorkOrderTotals].[QcReleasedBy] AS [QcReleasedBy], 
+    [WorkOrderTotals].[ClosedBy] AS [ClosedBy], 
+    [WorkOrderTotals].[MilLot] AS [MilLot], 
+    [WorkOrderTotals].[RelDate] AS [RelDate], 
+    [WorkOrderTotals].[Due] AS [Due], 
+    [WorkOrderTotals].[SalesOrder] AS [SalesOrder], 
+    [WorkOrderTotals].[SalesOrderLine] AS [SalesOrderLine], 
+    [WorkOrderTotals].[OrdCust] AS [OrdCust], 
+    [WorkOrderTotals].[ArCust] AS [ArCust], 
+    [WorkOrderTotals].[Brand] AS [Brand]
+    FROM [dbo].[WorkOrderTotals] AS [WorkOrderTotals]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_ArelContainers_ArelLots" Association="Self.FK_ArelContainers_ArelLots">
             <End Role="ArelLots" EntitySet="ArelLots" />
             <End Role="ArelContainers" EntitySet="ArelContainers" />
@@ -716,6 +1152,10 @@
           <AssociationSet Name="FK_ArelLotsRecipe_ArelLotsRecipe" Association="Self.FK_ArelLotsRecipe_ArelLotsRecipe">
             <End Role="ArelLots" EntitySet="ArelLots" />
             <End Role="ArelLotsRecipe" EntitySet="ArelLotsRecipe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DhPlanDet_DhPlanMstr" Association="Self.FK_DhPlanDet_DhPlanMstr">
+            <End Role="DhPlanMstr" EntitySet="DhPlanMstr" />
+            <End Role="DhPlanDet" EntitySet="DhPlanDet" />
           </AssociationSet>
           <AssociationSet Name="FK_Locations_Warehouses" Association="Self.FK_Locations_Warehouses">
             <End Role="Warehouses" EntitySet="Warehouses" />
@@ -749,13 +1189,13 @@
             <End Role="Packages" EntitySet="Packages" />
             <End Role="PkgHist" EntitySet="PkgHist" />
           </AssociationSet>
-          <AssociationSet Name="FK_ShopOrders_Status" Association="Self.FK_ShopOrders_Status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="WorkOrders" EntitySet="WorkOrders" />
-          </AssociationSet>
           <AssociationSet Name="FK_WoConsuptionSteps_WorkOrders" Association="Self.FK_WoConsuptionSteps_WorkOrders">
             <End Role="WorkOrders" EntitySet="WorkOrders" />
             <End Role="WoConsuptionSteps" EntitySet="WoConsuptionSteps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrders_Status" Association="Self.FK_WorkOrders_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="WorkOrders" EntitySet="WorkOrders" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -794,19 +1234,29 @@
           <EntitySet Name="ArelContainers" EntityType="MesDbModel.ArelContainers" />
           <EntitySet Name="ArelLots" EntityType="MesDbModel.ArelLots" />
           <EntitySet Name="ArelLotsRecipe" EntityType="MesDbModel.ArelLotsRecipe" />
-          <EntitySet Name="AutomatedEmail" EntityType="MesDbModel.AutomatedEmail" />
+          <EntitySet Name="DhPlanDet" EntityType="MesDbModel.DhPlanDet" />
+          <EntitySet Name="DhPlanMstr" EntityType="MesDbModel.DhPlanMstr" />
           <EntitySet Name="LocalVariables" EntityType="MesDbModel.LocalVariables" />
           <EntitySet Name="Locations" EntityType="MesDbModel.Locations" />
+          <EntitySet Name="Machines" EntityType="MesDbModel.Machines" />
           <EntitySet Name="MenuItems" EntityType="MesDbModel.MenuItems" />
           <EntitySet Name="Packages" EntityType="MesDbModel.Packages" />
           <EntitySet Name="Permissions" EntityType="MesDbModel.Permissions" />
           <EntitySet Name="PkgHist" EntityType="MesDbModel.PkgHist" />
+          <EntitySet Name="Pro2SQL" EntityType="MesDbModel.Pro2SQL" />
           <EntitySet Name="Status" EntityType="MesDbModel.Status" />
+          <EntitySet Name="SysSequences" EntityType="MesDbModel.SysSequences" />
           <EntitySet Name="SystemParams" EntityType="MesDbModel.SystemParams" />
           <EntitySet Name="Users" EntityType="MesDbModel.Users" />
           <EntitySet Name="Warehouses" EntityType="MesDbModel.Warehouses" />
           <EntitySet Name="WoConsuptionSteps" EntityType="MesDbModel.WoConsuptionSteps" />
           <EntitySet Name="WorkOrders" EntityType="MesDbModel.WorkOrders" />
+          <EntitySet Name="Bins" EntityType="MesDbModel.Bins" />
+          <EntitySet Name="AvailableGreige" EntityType="MesDbModel.AvailableGreige" />
+          <EntitySet Name="AvailableToPick" EntityType="MesDbModel.AvailableToPick" />
+          <EntitySet Name="PickedGreige" EntityType="MesDbModel.PickedGreige" />
+          <EntitySet Name="WorkOrderToRelease" EntityType="MesDbModel.WorkOrderToRelease" />
+          <EntitySet Name="WorkOrderTotals" EntityType="MesDbModel.WorkOrderTotals" />
           <AssociationSet Name="FK_ArelContainers_ArelLots" Association="MesDbModel.FK_ArelContainers_ArelLots">
             <End Role="ArelLots" EntitySet="ArelLots" />
             <End Role="ArelContainers" EntitySet="ArelContainers" />
@@ -814,6 +1264,10 @@
           <AssociationSet Name="FK_ArelLotsRecipe_ArelLotsRecipe" Association="MesDbModel.FK_ArelLotsRecipe_ArelLotsRecipe">
             <End Role="ArelLots" EntitySet="ArelLots" />
             <End Role="ArelLotsRecipe" EntitySet="ArelLotsRecipe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DhPlanDet_DhPlanMstr" Association="MesDbModel.FK_DhPlanDet_DhPlanMstr">
+            <End Role="DhPlanMstr" EntitySet="DhPlanMstr" />
+            <End Role="DhPlanDet" EntitySet="DhPlanDet" />
           </AssociationSet>
           <AssociationSet Name="FK_Locations_Warehouses" Association="MesDbModel.FK_Locations_Warehouses">
             <End Role="Warehouses" EntitySet="Warehouses" />
@@ -847,7 +1301,7 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Permissions" EntitySet="Permissions" />
           </AssociationSet>
-          <AssociationSet Name="FK_ShopOrders_Status" Association="MesDbModel.FK_ShopOrders_Status">
+          <AssociationSet Name="FK_WorkOrders_Status" Association="MesDbModel.FK_WorkOrders_Status">
             <End Role="Status" EntitySet="Status" />
             <End Role="WorkOrders" EntitySet="WorkOrders" />
           </AssociationSet>
@@ -855,6 +1309,31 @@
             <End Role="WorkOrders" EntitySet="WorkOrders" />
             <End Role="WoConsuptionSteps" EntitySet="WoConsuptionSteps" />
           </AssociationSet>
+          <FunctionImport Name="fn_GetBinCount" IsComposable="true" ReturnType="Collection(MesDbModel.fn_GetBinCount_Result)">
+            <Parameter Name="wo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="fn_GetRouter" IsComposable="true" ReturnType="Collection(MesDbModel.fn_GetRouter_Result)">
+            <Parameter Name="WorkOrder" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="fn_IsGreige_2" IsComposable="true" ReturnType="Collection(MesDbModel.fn_IsGreige_2_Result)">
+            <Parameter Name="Item" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="fn_OpInfo" IsComposable="true" ReturnType="Collection(MesDbModel.fn_OpInfo_Result)">
+            <Parameter Name="WorkOrder" Mode="In" Type="Int32" />
+            <Parameter Name="OpStepNo" Mode="In" Type="Int32" />
+            <Parameter Name="OpDescr" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_NextSeqNo" ReturnType="Collection(Int32)">
+            <Parameter Name="Prefix" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_PostMesOp">
+            <Parameter Name="WorkOrder" Mode="In" Type="Int32" />
+            <Parameter Name="OpStepNo" Mode="In" Type="Int32" />
+            <Parameter Name="Mach" Mode="In" Type="String" />
+            <Parameter Name="User" Mode="In" Type="String" />
+            <Parameter Name="Super" Mode="In" Type="String" />
+            <Parameter Name="Dt" Mode="In" Type="DateTime" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="ArelContainers">
           <Key>
@@ -1101,14 +1580,30 @@
           <Property Name="Posted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="ArelLots" Relationship="MesDbModel.FK_ArelLotsRecipe_ArelLotsRecipe" FromRole="ArelLotsRecipe" ToRole="ArelLots" />
         </EntityType>
-        <EntityType Name="AutomatedEmail">
+        <EntityType Name="DhPlanDet">
           <Key>
-            <PropertyRef Name="Call" />
+            <PropertyRef Name="DyeLot" />
+            <PropertyRef Name="WorkOrder" />
+            <PropertyRef Name="OpStep" />
           </Key>
-          <Property Name="Call" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FromAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="ToAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Reply" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DyeLot" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="WorkOrder" Type="Int32" Nullable="false" />
+          <Property Name="OpStep" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DhPlanMstr" Relationship="MesDbModel.FK_DhPlanDet_DhPlanMstr" FromRole="DhPlanDet" ToRole="DhPlanMstr" />
+        </EntityType>
+        <EntityType Name="DhPlanMstr">
+          <Key>
+            <PropertyRef Name="DyeLot" />
+          </Key>
+          <Property Name="DyeLot" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Machine" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Seq" Type="Int32" Nullable="false" />
+          <Property Name="Scheduled" Type="Boolean" Nullable="false" />
+          <Property Name="Pool" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Rework" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ChangedBy" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="ChangedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DhPlanDet" Relationship="MesDbModel.FK_DhPlanDet_DhPlanMstr" FromRole="DhPlanMstr" ToRole="DhPlanDet" />
         </EntityType>
         <EntityType Name="LocalVariables">
           <Key>
@@ -1116,6 +1611,7 @@
           </Key>
           <Property Name="Machine" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DefaultLogin" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="HostID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="LabelPrinter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Locations">
@@ -1130,6 +1626,20 @@
           <Property Name="BinPrinted" Type="Boolean" />
           <NavigationProperty Name="Warehouses" Relationship="MesDbModel.FK_Locations_Warehouses" FromRole="Locations" ToRole="Warehouses" />
           <NavigationProperty Name="Packages" Relationship="MesDbModel.FK_Packages_Locations" FromRole="Locations" ToRole="Packages" />
+        </EntityType>
+        <EntityType Name="Machines">
+          <Key>
+            <PropertyRef Name="MachId" />
+            <PropertyRef Name="WorkCenter" />
+            <PropertyRef Name="QadMach" />
+          </Key>
+          <Property Name="MachId" Type="Int32" Nullable="false" />
+          <Property Name="ShortName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MachType" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="WorkCenter" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Dept" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="QadMach" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="MenuItems">
           <Key>
@@ -1184,7 +1694,7 @@
           <Property Name="ChangedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ChangedBy" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
           <Property Name="BinNo" Type="Int32" />
-          <Property Name="LstShopOrder" Type="Int32" />
+          <Property Name="LstWorkOrder" Type="Int32" />
           <Property Name="ShadeGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="MilLotRep" Type="Boolean" />
           <Property Name="SalesOrder" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
@@ -1258,7 +1768,7 @@
           <Property Name="ChangedDate" Type="DateTime" Precision="3" />
           <Property Name="ChangedBy" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
           <Property Name="BinNo" Type="Int32" />
-          <Property Name="LstShopOrder" Type="Int32" />
+          <Property Name="LstWorkOrder" Type="Int32" />
           <Property Name="ShadeGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="MilLotRep" Type="Boolean" />
           <Property Name="SalesOrder" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
@@ -1266,6 +1776,13 @@
           <Property Name="PackDt" Type="DateTime" Precision="3" />
           <Property Name="FRFG" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Packages" Relationship="MesDbModel.FK_PkgHist_Rolls" FromRole="PkgHist" ToRole="Packages" />
+        </EntityType>
+        <EntityType Name="Pro2SQL">
+          <Key>
+            <PropertyRef Name="pname" />
+          </Key>
+          <Property Name="pname" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="pversion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -1279,7 +1796,16 @@
           <Property Name="Packages" Type="Boolean" Nullable="false" />
           <Property Name="WorkOrders" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Packages1" Relationship="MesDbModel.FK_Packages_Status" FromRole="Status" ToRole="Packages" />
-          <NavigationProperty Name="WorkOrders1" Relationship="MesDbModel.FK_ShopOrders_Status" FromRole="Status" ToRole="WorkOrders" />
+          <NavigationProperty Name="WorkOrders1" Relationship="MesDbModel.FK_WorkOrders_Status" FromRole="Status" ToRole="WorkOrders" />
+        </EntityType>
+        <EntityType Name="SysSequences">
+          <Key>
+            <PropertyRef Name="Prefix" />
+          </Key>
+          <Property Name="SeqType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Prefix" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Length" Type="Int32" Nullable="false" />
+          <Property Name="Seq" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="SystemParams">
           <Key>
@@ -1381,8 +1907,164 @@
           <Property Name="MilLot" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="ClosedBy" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Packages" Relationship="MesDbModel.FK_Packages_WorkOrders" FromRole="WorkOrders" ToRole="Packages" />
-          <NavigationProperty Name="Status1" Relationship="MesDbModel.FK_ShopOrders_Status" FromRole="WorkOrders" ToRole="Status" />
+          <NavigationProperty Name="Status1" Relationship="MesDbModel.FK_WorkOrders_Status" FromRole="WorkOrders" ToRole="Status" />
           <NavigationProperty Name="WoConsuptionSteps" Relationship="MesDbModel.FK_WoConsuptionSteps_WorkOrders" FromRole="WorkOrders" ToRole="WoConsuptionSteps" />
+        </EntityType>
+        <EntityType Name="Bins">
+          <Key>
+            <PropertyRef Name="BinNo" />
+            <PropertyRef Name="BinType" />
+          </Key>
+          <Property Name="BinNo" Type="Int32" Nullable="false" />
+          <Property Name="BinType" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AvailableGreige">
+          <Key>
+            <PropertyRef Name="SerialNo" />
+            <PropertyRef Name="Item" />
+            <PropertyRef Name="Location" />
+            <PropertyRef Name="PartialRoll" />
+            <PropertyRef Name="PartialTub" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="SerialNo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BinNo" Type="Int32" />
+          <Property Name="BinType" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Item" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="KnitLot" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="NetLbs" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="PartialRoll" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PartialTub" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="RecDt" Type="DateTime" Precision="3" />
+          <Property Name="StdMinRollWt" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="StdRollsPerTub" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="WorkOrder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AvailableToPick">
+          <Key>
+            <PropertyRef Name="SerialNo" />
+            <PropertyRef Name="Item" />
+            <PropertyRef Name="Location" />
+            <PropertyRef Name="PartialRoll" />
+            <PropertyRef Name="PartialTub" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="SerialNo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BinNo" Type="Int32" />
+          <Property Name="BinType" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Item" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="KnitLot" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="NetLbs" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="NetYds" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="PartialRoll" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PartialTub" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="RecDt" Type="DateTime" Precision="3" />
+          <Property Name="StdMinRollWt" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="StdRollsPerTub" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="WorkOrder" Type="Int32" />
+          <Property Name="LstWorkOrder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PickedGreige">
+          <Key>
+            <PropertyRef Name="SerialNo" />
+            <PropertyRef Name="Item" />
+            <PropertyRef Name="Location" />
+            <PropertyRef Name="PartialRoll" />
+            <PropertyRef Name="PartialTub" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="SerialNo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BinNo" Type="Int32" />
+          <Property Name="BinType" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Item" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="KnitLot" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="NetLbs" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="PartialRoll" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PartialTub" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="RecDt" Type="DateTime" Precision="3" />
+          <Property Name="StdMinRollWt" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="StdRollsPerTub" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="WorkOrder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="WorkOrderToRelease">
+          <Key>
+            <PropertyRef Name="WorkOrder" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="WorkOrder" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Item" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ComponentItem" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="ReqYds" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="ReqGrLbs" Type="Decimal" Precision="38" Scale="10" />
+          <Property Name="Due" Type="DateTime" Precision="3" />
+          <Property Name="Customer" Type="String" MaxLength="146" FixedLength="false" Unicode="false" />
+          <Property Name="PickedLbs" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="PickedYds" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="DyeJet" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="DyeSeq" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WorkOrderTotals">
+          <Key>
+            <PropertyRef Name="WorkOrder" />
+            <PropertyRef Name="MasterItem" />
+            <PropertyRef Name="Color" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="ActStartLbs" />
+            <PropertyRef Name="ActCheckLbs" />
+          </Key>
+          <Property Name="WorkOrder" Type="Int32" Nullable="false" />
+          <Property Name="Item" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MasterItem" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ComponentItem" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="ItemDescr" Type="String" MaxLength="88" FixedLength="false" Unicode="false" />
+          <Property Name="ColorDescr" Type="String" MaxLength="88" FixedLength="false" Unicode="false" />
+          <Property Name="FormStyle" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="WipPkgs" Type="Int32" />
+          <Property Name="LstOpStep" Type="Int32" />
+          <Property Name="LstOp" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="LstMach" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="NextOpStep" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ReqYds" Type="Decimal" Precision="28" Scale="10" />
+          <Property Name="ReqGrLbs" Type="Decimal" Precision="38" Scale="10" />
+          <Property Name="ActStartLbs" Type="Single" Nullable="false" />
+          <Property Name="ActCheckLbs" Type="Single" Nullable="false" />
+          <Property Name="ProcYds" Type="Single" />
+          <Property Name="OpenYds" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="F_Rolls" Type="Int32" />
+          <Property Name="S_Rolls" Type="Int32" />
+          <Property Name="TotPackRolls" Type="Int32" />
+          <Property Name="F_Lbs" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="S_Lbs" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="TotPackLbs" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="F_Yds" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="S_Yds" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="TotPackYds" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="AllowYds" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="CutOffYds" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="DyeLot" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ParentWorkOrder" Type="Int32" />
+          <Property Name="QcCheckInDt" Type="DateTime" Precision="3" />
+          <Property Name="QcCheckInBy" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="QcReleasedDt" Type="DateTime" Precision="3" />
+          <Property Name="QcReleasedBy" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="ClosedBy" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="MilLot" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="RelDate" Type="DateTime" Precision="3" />
+          <Property Name="Due" Type="DateTime" Precision="3" />
+          <Property Name="SalesOrder" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="SalesOrderLine" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="OrdCust" Type="String" MaxLength="146" FixedLength="false" Unicode="false" />
+          <Property Name="ArCust" Type="String" MaxLength="146" FixedLength="false" Unicode="false" />
+          <Property Name="Brand" Type="String" MaxLength="146" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_ArelContainers_ArelLots">
           <End Type="MesDbModel.ArelLots" Role="ArelLots" Multiplicity="1" />
@@ -1413,6 +2095,20 @@
               <PropertyRef Name="Lot_Number" />
               <PropertyRef Name="Machine" />
               <PropertyRef Name="ArelKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DhPlanDet_DhPlanMstr">
+          <End Type="MesDbModel.DhPlanMstr" Role="DhPlanMstr" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MesDbModel.DhPlanDet" Role="DhPlanDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DhPlanMstr">
+              <PropertyRef Name="DyeLot" />
+            </Principal>
+            <Dependent Role="DhPlanDet">
+              <PropertyRef Name="DyeLot" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1516,7 +2212,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ShopOrders_Status">
+        <Association Name="FK_WorkOrders_Status">
           <End Type="MesDbModel.Status" Role="Status" Multiplicity="1" />
           <End Type="MesDbModel.WorkOrders" Role="WorkOrders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1540,6 +2236,36 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="fn_GetBinCount_Result">
+          <Property Type="String" Name="WorkOrder" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="OpStepNo" Nullable="true" />
+          <Property Type="Double" Name="Bins" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="fn_GetRouter_Result">
+          <Property Type="Int32" Name="OpStepNo" Nullable="true" />
+          <Property Type="String" Name="Descr" Nullable="true" MaxLength="80" />
+          <Property Type="Double" Name="Bins" Nullable="true" />
+          <Property Type="String" Name="Mach" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Op" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="WorkCenter" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Notes" Nullable="true" MaxLength="82" />
+        </ComplexType>
+        <ComplexType Name="fn_IsGreige_2_Result">
+          <Property Type="String" Name="pt_part" Nullable="true" MaxLength="55" />
+          <Property Type="String" Name="pt_desc1" Nullable="true" MaxLength="88" />
+          <Property Type="String" Name="pt_um" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="pt_part_type" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="pt_loc" Nullable="true" MaxLength="80" />
+        </ComplexType>
+        <ComplexType Name="fn_OpInfo_Result">
+          <Property Type="Int32" Name="OpStepNo" Nullable="true" />
+          <Property Type="String" Name="Op" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Descr" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Mach" Nullable="true" MaxLength="80" />
+          <Property Type="Decimal" Name="StdRunTime" Nullable="true" Precision="28" Scale="10" />
+          <Property Type="String" Name="WorkCenter" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Notes" Nullable="true" MaxLength="82" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1789,13 +2515,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AutomatedEmail">
-            <EntityTypeMapping TypeName="MesDbModel.AutomatedEmail">
-              <MappingFragment StoreEntitySet="AutomatedEmail">
-                <ScalarProperty Name="Reply" ColumnName="Reply" />
-                <ScalarProperty Name="ToAddress" ColumnName="ToAddress" />
-                <ScalarProperty Name="FromAddress" ColumnName="FromAddress" />
-                <ScalarProperty Name="Call" ColumnName="Call" />
+          <EntitySetMapping Name="DhPlanDet">
+            <EntityTypeMapping TypeName="MesDbModel.DhPlanDet">
+              <MappingFragment StoreEntitySet="DhPlanDet">
+                <ScalarProperty Name="OpStep" ColumnName="OpStep" />
+                <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
+                <ScalarProperty Name="DyeLot" ColumnName="DyeLot" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DhPlanMstr">
+            <EntityTypeMapping TypeName="MesDbModel.DhPlanMstr">
+              <MappingFragment StoreEntitySet="DhPlanMstr">
+                <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="Rework" ColumnName="Rework" />
+                <ScalarProperty Name="Pool" ColumnName="Pool" />
+                <ScalarProperty Name="Scheduled" ColumnName="Scheduled" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+                <ScalarProperty Name="Machine" ColumnName="Machine" />
+                <ScalarProperty Name="DyeLot" ColumnName="DyeLot" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1803,6 +2542,7 @@
             <EntityTypeMapping TypeName="MesDbModel.LocalVariables">
               <MappingFragment StoreEntitySet="LocalVariables">
                 <ScalarProperty Name="LabelPrinter" ColumnName="LabelPrinter" />
+                <ScalarProperty Name="HostID" ColumnName="HostID" />
                 <ScalarProperty Name="DefaultLogin" ColumnName="DefaultLogin" />
                 <ScalarProperty Name="Machine" ColumnName="Machine" />
               </MappingFragment>
@@ -1816,6 +2556,19 @@
                 <ScalarProperty Name="LstInvDt" ColumnName="LstInvDt" />
                 <ScalarProperty Name="Warehouse" ColumnName="Warehouse" />
                 <ScalarProperty Name="Location" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Machines">
+            <EntityTypeMapping TypeName="MesDbModel.Machines">
+              <MappingFragment StoreEntitySet="Machines">
+                <ScalarProperty Name="QadMach" ColumnName="QadMach" />
+                <ScalarProperty Name="Dept" ColumnName="Dept" />
+                <ScalarProperty Name="WorkCenter" ColumnName="WorkCenter" />
+                <ScalarProperty Name="MachType" ColumnName="MachType" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="MachId" ColumnName="MachId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1837,7 +2590,7 @@
                 <ScalarProperty Name="SalesOrder" ColumnName="SalesOrder" />
                 <ScalarProperty Name="MilLotRep" ColumnName="MilLotRep" />
                 <ScalarProperty Name="ShadeGroup" ColumnName="ShadeGroup" />
-                <ScalarProperty Name="LstShopOrder" ColumnName="LstShopOrder" />
+                <ScalarProperty Name="LstWorkOrder" ColumnName="LstWorkOrder" />
                 <ScalarProperty Name="BinNo" ColumnName="BinNo" />
                 <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
                 <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
@@ -1902,7 +2655,7 @@
                 <ScalarProperty Name="SalesOrder" ColumnName="SalesOrder" />
                 <ScalarProperty Name="MilLotRep" ColumnName="MilLotRep" />
                 <ScalarProperty Name="ShadeGroup" ColumnName="ShadeGroup" />
-                <ScalarProperty Name="LstShopOrder" ColumnName="LstShopOrder" />
+                <ScalarProperty Name="LstWorkOrder" ColumnName="LstWorkOrder" />
                 <ScalarProperty Name="BinNo" ColumnName="BinNo" />
                 <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
                 <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
@@ -1950,6 +2703,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Pro2SQL">
+            <EntityTypeMapping TypeName="MesDbModel.Pro2SQL">
+              <MappingFragment StoreEntitySet="Pro2SQL">
+                <ScalarProperty Name="pversion" ColumnName="pversion" />
+                <ScalarProperty Name="pname" ColumnName="pname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Status">
             <EntityTypeMapping TypeName="MesDbModel.Status">
               <MappingFragment StoreEntitySet="Status">
@@ -1960,6 +2721,16 @@
                 <ScalarProperty Name="Inv" ColumnName="Inv" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Status1" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysSequences">
+            <EntityTypeMapping TypeName="MesDbModel.SysSequences">
+              <MappingFragment StoreEntitySet="SysSequences">
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+                <ScalarProperty Name="SeqType" ColumnName="SeqType" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2063,6 +2834,194 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Bins">
+            <EntityTypeMapping TypeName="MesDbModel.Bins">
+              <MappingFragment StoreEntitySet="Bins">
+                <ScalarProperty Name="BinType" ColumnName="BinType" />
+                <ScalarProperty Name="BinNo" ColumnName="BinNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AvailableGreige">
+            <EntityTypeMapping TypeName="MesDbModel.AvailableGreige">
+              <MappingFragment StoreEntitySet="AvailableGreige">
+                <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StdRollsPerTub" ColumnName="StdRollsPerTub" />
+                <ScalarProperty Name="StdMinRollWt" ColumnName="StdMinRollWt" />
+                <ScalarProperty Name="RecDt" ColumnName="RecDt" />
+                <ScalarProperty Name="PartialTub" ColumnName="PartialTub" />
+                <ScalarProperty Name="PartialRoll" ColumnName="PartialRoll" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="NetLbs" ColumnName="NetLbs" />
+                <ScalarProperty Name="KnitLot" ColumnName="KnitLot" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="BinType" ColumnName="BinType" />
+                <ScalarProperty Name="BinNo" ColumnName="BinNo" />
+                <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AvailableToPick">
+            <EntityTypeMapping TypeName="MesDbModel.AvailableToPick">
+              <MappingFragment StoreEntitySet="AvailableToPick">
+                <ScalarProperty Name="LstWorkOrder" ColumnName="LstWorkOrder" />
+                <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StdRollsPerTub" ColumnName="StdRollsPerTub" />
+                <ScalarProperty Name="StdMinRollWt" ColumnName="StdMinRollWt" />
+                <ScalarProperty Name="RecDt" ColumnName="RecDt" />
+                <ScalarProperty Name="PartialTub" ColumnName="PartialTub" />
+                <ScalarProperty Name="PartialRoll" ColumnName="PartialRoll" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="NetYds" ColumnName="NetYds" />
+                <ScalarProperty Name="NetLbs" ColumnName="NetLbs" />
+                <ScalarProperty Name="KnitLot" ColumnName="KnitLot" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="BinType" ColumnName="BinType" />
+                <ScalarProperty Name="BinNo" ColumnName="BinNo" />
+                <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PickedGreige">
+            <EntityTypeMapping TypeName="MesDbModel.PickedGreige">
+              <MappingFragment StoreEntitySet="PickedGreige">
+                <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StdRollsPerTub" ColumnName="StdRollsPerTub" />
+                <ScalarProperty Name="StdMinRollWt" ColumnName="StdMinRollWt" />
+                <ScalarProperty Name="RecDt" ColumnName="RecDt" />
+                <ScalarProperty Name="PartialTub" ColumnName="PartialTub" />
+                <ScalarProperty Name="PartialRoll" ColumnName="PartialRoll" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="NetLbs" ColumnName="NetLbs" />
+                <ScalarProperty Name="KnitLot" ColumnName="KnitLot" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="BinType" ColumnName="BinType" />
+                <ScalarProperty Name="BinNo" ColumnName="BinNo" />
+                <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkOrderToRelease">
+            <EntityTypeMapping TypeName="MesDbModel.WorkOrderToRelease">
+              <MappingFragment StoreEntitySet="WorkOrderToRelease">
+                <ScalarProperty Name="DyeSeq" ColumnName="DyeSeq" />
+                <ScalarProperty Name="DyeJet" ColumnName="DyeJet" />
+                <ScalarProperty Name="PickedYds" ColumnName="PickedYds" />
+                <ScalarProperty Name="PickedLbs" ColumnName="PickedLbs" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="Due" ColumnName="Due" />
+                <ScalarProperty Name="ReqGrLbs" ColumnName="ReqGrLbs" />
+                <ScalarProperty Name="ReqYds" ColumnName="ReqYds" />
+                <ScalarProperty Name="ComponentItem" ColumnName="ComponentItem" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkOrderTotals">
+            <EntityTypeMapping TypeName="MesDbModel.WorkOrderTotals">
+              <MappingFragment StoreEntitySet="WorkOrderTotals">
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="ArCust" ColumnName="ArCust" />
+                <ScalarProperty Name="OrdCust" ColumnName="OrdCust" />
+                <ScalarProperty Name="SalesOrderLine" ColumnName="SalesOrderLine" />
+                <ScalarProperty Name="SalesOrder" ColumnName="SalesOrder" />
+                <ScalarProperty Name="Due" ColumnName="Due" />
+                <ScalarProperty Name="RelDate" ColumnName="RelDate" />
+                <ScalarProperty Name="MilLot" ColumnName="MilLot" />
+                <ScalarProperty Name="ClosedBy" ColumnName="ClosedBy" />
+                <ScalarProperty Name="QcReleasedBy" ColumnName="QcReleasedBy" />
+                <ScalarProperty Name="QcReleasedDt" ColumnName="QcReleasedDt" />
+                <ScalarProperty Name="QcCheckInBy" ColumnName="QcCheckInBy" />
+                <ScalarProperty Name="QcCheckInDt" ColumnName="QcCheckInDt" />
+                <ScalarProperty Name="ParentWorkOrder" ColumnName="ParentWorkOrder" />
+                <ScalarProperty Name="DyeLot" ColumnName="DyeLot" />
+                <ScalarProperty Name="CutOffYds" ColumnName="CutOffYds" />
+                <ScalarProperty Name="AllowYds" ColumnName="AllowYds" />
+                <ScalarProperty Name="TotPackYds" ColumnName="TotPackYds" />
+                <ScalarProperty Name="S_Yds" ColumnName="S_Yds" />
+                <ScalarProperty Name="F_Yds" ColumnName="F_Yds" />
+                <ScalarProperty Name="TotPackLbs" ColumnName="TotPackLbs" />
+                <ScalarProperty Name="S_Lbs" ColumnName="S_Lbs" />
+                <ScalarProperty Name="F_Lbs" ColumnName="F_Lbs" />
+                <ScalarProperty Name="TotPackRolls" ColumnName="TotPackRolls" />
+                <ScalarProperty Name="S_Rolls" ColumnName="S_Rolls" />
+                <ScalarProperty Name="F_Rolls" ColumnName="F_Rolls" />
+                <ScalarProperty Name="OpenYds" ColumnName="OpenYds" />
+                <ScalarProperty Name="ProcYds" ColumnName="ProcYds" />
+                <ScalarProperty Name="ActCheckLbs" ColumnName="ActCheckLbs" />
+                <ScalarProperty Name="ActStartLbs" ColumnName="ActStartLbs" />
+                <ScalarProperty Name="ReqGrLbs" ColumnName="ReqGrLbs" />
+                <ScalarProperty Name="ReqYds" ColumnName="ReqYds" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="NextOpStep" ColumnName="NextOpStep" />
+                <ScalarProperty Name="LstMach" ColumnName="LstMach" />
+                <ScalarProperty Name="LstOp" ColumnName="LstOp" />
+                <ScalarProperty Name="LstOpStep" ColumnName="LstOpStep" />
+                <ScalarProperty Name="WipPkgs" ColumnName="WipPkgs" />
+                <ScalarProperty Name="FormStyle" ColumnName="FormStyle" />
+                <ScalarProperty Name="ColorDescr" ColumnName="ColorDescr" />
+                <ScalarProperty Name="ItemDescr" ColumnName="ItemDescr" />
+                <ScalarProperty Name="ComponentItem" ColumnName="ComponentItem" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="MasterItem" ColumnName="MasterItem" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="fn_GetBinCount" FunctionName="MesDbModel.Store.fn_GetBinCount">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MesDbModel.fn_GetBinCount_Result">
+                <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
+                <ScalarProperty Name="OpStepNo" ColumnName="OpStepNo" />
+                <ScalarProperty Name="Bins" ColumnName="Bins" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="fn_GetRouter" FunctionName="MesDbModel.Store.fn_GetRouter">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MesDbModel.fn_GetRouter_Result">
+                <ScalarProperty Name="OpStepNo" ColumnName="OpStepNo" />
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+                <ScalarProperty Name="Bins" ColumnName="Bins" />
+                <ScalarProperty Name="Mach" ColumnName="Mach" />
+                <ScalarProperty Name="Op" ColumnName="Op" />
+                <ScalarProperty Name="WorkCenter" ColumnName="WorkCenter" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="fn_IsGreige_2" FunctionName="MesDbModel.Store.fn_IsGreige_2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MesDbModel.fn_IsGreige_2_Result">
+                <ScalarProperty Name="pt_part" ColumnName="pt_part" />
+                <ScalarProperty Name="pt_desc1" ColumnName="pt_desc1" />
+                <ScalarProperty Name="pt_um" ColumnName="pt_um" />
+                <ScalarProperty Name="pt_part_type" ColumnName="pt_part_type" />
+                <ScalarProperty Name="pt_loc" ColumnName="pt_loc" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="fn_OpInfo" FunctionName="MesDbModel.Store.fn_OpInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MesDbModel.fn_OpInfo_Result">
+                <ScalarProperty Name="OpStepNo" ColumnName="OpStepNo" />
+                <ScalarProperty Name="Op" ColumnName="Op" />
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+                <ScalarProperty Name="Mach" ColumnName="Mach" />
+                <ScalarProperty Name="StdRunTime" ColumnName="StdRunTime" />
+                <ScalarProperty Name="WorkCenter" ColumnName="WorkCenter" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_NextSeqNo" FunctionName="MesDbModel.Store.sp_NextSeqNo" />
+          <FunctionImportMapping FunctionImportName="sp_PostMesOp" FunctionName="MesDbModel.Store.sp_PostMesOp" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

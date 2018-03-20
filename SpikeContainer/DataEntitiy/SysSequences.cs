@@ -12,11 +12,11 @@ namespace SpikeContainer.DataEntitiy
     using System;
     using System.Collections.Generic;
     
-    public partial class AutomatedEmail
+    public partial class SysSequences
     {
-        public string Call { get; set; }
-        public string FromAddress { get; set; }
-        public string ToAddress { get; set; }
-        public string Reply { get; set; }
+        public string SeqType { get; set; }
+        public string Prefix { get; set; }
+        public int Length { get; set; }
+        public int Seq { get; set; }
     }
 }

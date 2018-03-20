@@ -12,11 +12,14 @@ namespace SpikeContainer.DataEntitiy
     using System;
     using System.Collections.Generic;
     
-    public partial class LocalVariables
+    public partial class Machines
     {
-        public string Machine { get; set; }
-        public string DefaultLogin { get; set; }
-        public string HostID { get; set; }
-        public string LabelPrinter { get; set; }
+        public int MachId { get; set; }
+        public string ShortName { get; set; }
+        public string FullName { get; set; }
+        public string MachType { get; set; }
+        public string WorkCenter { get; set; }
+        public string Dept { get; set; }
+        public string QadMach { get; set; }
     }
 }

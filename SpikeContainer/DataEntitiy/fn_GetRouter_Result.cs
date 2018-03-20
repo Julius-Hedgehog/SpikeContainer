@@ -10,13 +10,15 @@
 namespace SpikeContainer.DataEntitiy
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class LocalVariables
+    public partial class fn_GetRouter_Result
     {
-        public string Machine { get; set; }
-        public string DefaultLogin { get; set; }
-        public string HostID { get; set; }
-        public string LabelPrinter { get; set; }
+        public Nullable<int> OpStepNo { get; set; }
+        public string Descr { get; set; }
+        public Nullable<double> Bins { get; set; }
+        public string Mach { get; set; }
+        public string Op { get; set; }
+        public string WorkCenter { get; set; }
+        public string Notes { get; set; }
     }
 }

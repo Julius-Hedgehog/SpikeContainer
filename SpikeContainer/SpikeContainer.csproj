@@ -98,16 +98,43 @@
     <Compile Include="DataEntitiy\ArelLotsRecipe.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataEntitiy\AutomatedEmail.cs">
+    <Compile Include="DataEntitiy\AvailableGreige.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\AvailableToPick.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\Bins.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\DhPlanDet.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\DhPlanMstr.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\fn_GetBinCount_Result.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataEntitiy\fn_GetDyeLotBatches_Result.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\fn_GetRouter_Result.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\fn_IsGreige_2_Result.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\fn_OpInfo_Result.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataEntitiy\LocalVariables.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataEntitiy\Locations.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\Machines.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataEntitiy\MenuItems.cs">
@@ -134,10 +161,19 @@
     <Compile Include="DataEntitiy\Permissions.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataEntitiy\PickedGreige.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataEntitiy\PkgHist.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataEntitiy\Pro2SQL.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataEntitiy\Status.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\SysSequences.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataEntitiy\SystemParams.cs">
@@ -153,6 +189,12 @@
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataEntitiy\WorkOrders.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\WorkOrderToRelease.cs">
+      <DependentUpon>MesDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntitiy\WorkOrderTotals.cs">
       <DependentUpon>MesDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.cs">
@@ -304,6 +346,12 @@
     </Compile>
     <Compile Include="Spike 006\Spike 006 Main.Designer.cs">
       <DependentUpon>Spike 006 Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Spike 007 QAD Implment Utilities\Spike007MainXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 007 QAD Implment Utilities\Spike007MainXtraForm.Designer.cs">
+      <DependentUpon>Spike007MainXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Spike Dev Express Grid\DEG Example 001.cs">
       <SubType>Form</SubType>

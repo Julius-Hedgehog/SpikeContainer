@@ -12,11 +12,9 @@ namespace SpikeContainer.DataEntitiy
     using System;
     using System.Collections.Generic;
     
-    public partial class LocalVariables
+    public partial class Pro2SQL
     {
-        public string Machine { get; set; }
-        public string DefaultLogin { get; set; }
-        public string HostID { get; set; }
-        public string LabelPrinter { get; set; }
+        public string pname { get; set; }
+        public string pversion { get; set; }
     }
 }

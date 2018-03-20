@@ -30,19 +30,29 @@ namespace SpikeContainer.DataEntitiy
         public virtual DbSet<ArelContainers> ArelContainers { get; set; }
         public virtual DbSet<ArelLots> ArelLots { get; set; }
         public virtual DbSet<ArelLotsRecipe> ArelLotsRecipe { get; set; }
-        public virtual DbSet<AutomatedEmail> AutomatedEmail { get; set; }
+        public virtual DbSet<DhPlanDet> DhPlanDet { get; set; }
+        public virtual DbSet<DhPlanMstr> DhPlanMstr { get; set; }
         public virtual DbSet<LocalVariables> LocalVariables { get; set; }
         public virtual DbSet<Locations> Locations { get; set; }
+        public virtual DbSet<Machines> Machines { get; set; }
         public virtual DbSet<MenuItems> MenuItems { get; set; }
         public virtual DbSet<Packages> Packages { get; set; }
         public virtual DbSet<Permissions> Permissions { get; set; }
         public virtual DbSet<PkgHist> PkgHist { get; set; }
+        public virtual DbSet<Pro2SQL> Pro2SQL { get; set; }
         public virtual DbSet<Status> Status { get; set; }
+        public virtual DbSet<SysSequences> SysSequences { get; set; }
         public virtual DbSet<SystemParams> SystemParams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Warehouses> Warehouses { get; set; }
         public virtual DbSet<WoConsuptionSteps> WoConsuptionSteps { get; set; }
         public virtual DbSet<WorkOrders> WorkOrders { get; set; }
+        public virtual DbSet<Bins> Bins { get; set; }
+        public virtual DbSet<AvailableGreige> AvailableGreige { get; set; }
+        public virtual DbSet<AvailableToPick> AvailableToPick { get; set; }
+        public virtual DbSet<PickedGreige> PickedGreige { get; set; }
+        public virtual DbSet<WorkOrderToRelease> WorkOrderToRelease { get; set; }
+        public virtual DbSet<WorkOrderTotals> WorkOrderTotals { get; set; }
     
         [DbFunction("TestMesDbEntities", "fn_GetDyeLotBatches")]
         public virtual IQueryable<fn_GetDyeLotBatches_Result> fn_GetDyeLotBatches(string dyeLot, Nullable<int> machineNo, Nullable<int> arelKey)
@@ -128,6 +138,92 @@ namespace SpikeContainer.DataEntitiy
                 new ObjectParameter("Status", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_QcRelease", sOParameter, userParameter, statusParameter);
+        }
+    
+        [DbFunction("TestMesDbEntities", "fn_GetBinCount")]
+        public virtual IQueryable<fn_GetBinCount_Result> fn_GetBinCount(Nullable<int> wo)
+        {
+            var woParameter = wo.HasValue ?
+                new ObjectParameter("wo", wo) :
+                new ObjectParameter("wo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_GetBinCount_Result>("[TestMesDbEntities].[fn_GetBinCount](@wo)", woParameter);
+        }
+    
+        [DbFunction("TestMesDbEntities", "fn_GetRouter")]
+        public virtual IQueryable<fn_GetRouter_Result> fn_GetRouter(Nullable<int> workOrder)
+        {
+            var workOrderParameter = workOrder.HasValue ?
+                new ObjectParameter("WorkOrder", workOrder) :
+                new ObjectParameter("WorkOrder", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_GetRouter_Result>("[TestMesDbEntities].[fn_GetRouter](@WorkOrder)", workOrderParameter);
+        }
+    
+        [DbFunction("TestMesDbEntities", "fn_IsGreige_2")]
+        public virtual IQueryable<fn_IsGreige_2_Result> fn_IsGreige_2(string item)
+        {
+            var itemParameter = item != null ?
+                new ObjectParameter("Item", item) :
+                new ObjectParameter("Item", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_IsGreige_2_Result>("[TestMesDbEntities].[fn_IsGreige_2](@Item)", itemParameter);
+        }
+    
+        [DbFunction("TestMesDbEntities", "fn_OpInfo")]
+        public virtual IQueryable<fn_OpInfo_Result> fn_OpInfo(Nullable<int> workOrder, Nullable<int> opStepNo, string opDescr)
+        {
+            var workOrderParameter = workOrder.HasValue ?
+                new ObjectParameter("WorkOrder", workOrder) :
+                new ObjectParameter("WorkOrder", typeof(int));
+    
+            var opStepNoParameter = opStepNo.HasValue ?
+                new ObjectParameter("OpStepNo", opStepNo) :
+                new ObjectParameter("OpStepNo", typeof(int));
+    
+            var opDescrParameter = opDescr != null ?
+                new ObjectParameter("OpDescr", opDescr) :
+                new ObjectParameter("OpDescr", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_OpInfo_Result>("[TestMesDbEntities].[fn_OpInfo](@WorkOrder, @OpStepNo, @OpDescr)", workOrderParameter, opStepNoParameter, opDescrParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_NextSeqNo(string prefix)
+        {
+            var prefixParameter = prefix != null ?
+                new ObjectParameter("Prefix", prefix) :
+                new ObjectParameter("Prefix", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_NextSeqNo", prefixParameter);
+        }
+    
+        public virtual int sp_PostMesOp(Nullable<int> workOrder, Nullable<int> opStepNo, string mach, string user, string super, Nullable<System.DateTime> dt)
+        {
+            var workOrderParameter = workOrder.HasValue ?
+                new ObjectParameter("WorkOrder", workOrder) :
+                new ObjectParameter("WorkOrder", typeof(int));
+    
+            var opStepNoParameter = opStepNo.HasValue ?
+                new ObjectParameter("OpStepNo", opStepNo) :
+                new ObjectParameter("OpStepNo", typeof(int));
+    
+            var machParameter = mach != null ?
+                new ObjectParameter("Mach", mach) :
+                new ObjectParameter("Mach", typeof(string));
+    
+            var userParameter = user != null ?
+                new ObjectParameter("User", user) :
+                new ObjectParameter("User", typeof(string));
+    
+            var superParameter = super != null ?
+                new ObjectParameter("Super", super) :
+                new ObjectParameter("Super", typeof(string));
+    
+            var dtParameter = dt.HasValue ?
+                new ObjectParameter("Dt", dt) :
+                new ObjectParameter("Dt", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_PostMesOp", workOrderParameter, opStepNoParameter, machParameter, userParameter, superParameter, dtParameter);
         }
     }
 }

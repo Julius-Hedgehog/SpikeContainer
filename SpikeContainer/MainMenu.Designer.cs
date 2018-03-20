@@ -183,7 +183,8 @@
             this.simpleButton6.Name = "simpleButton6";
             this.simpleButton6.Size = new System.Drawing.Size(286, 23);
             this.simpleButton6.TabIndex = 8;
-            this.simpleButton6.Text = "OPEN";
+            this.simpleButton6.Text = "Spike Seven - Utility Apps for QAD Implementation  ";
+            this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
             // 
             // simpleButton7
             // 

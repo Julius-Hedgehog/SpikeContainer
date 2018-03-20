@@ -10,13 +10,13 @@
 namespace SpikeContainer.DataEntitiy
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class LocalVariables
+    public partial class fn_IsGreige_2_Result
     {
-        public string Machine { get; set; }
-        public string DefaultLogin { get; set; }
-        public string HostID { get; set; }
-        public string LabelPrinter { get; set; }
+        public string pt_part { get; set; }
+        public string pt_desc1 { get; set; }
+        public string pt_um { get; set; }
+        public string pt_part_type { get; set; }
+        public string pt_loc { get; set; }
     }
 }

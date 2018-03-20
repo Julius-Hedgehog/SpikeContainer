@@ -60,7 +60,7 @@ namespace SpikeContainer.DataEntitiy
         public System.DateTime ChangedDate { get; set; }
         public string ChangedBy { get; set; }
         public Nullable<int> BinNo { get; set; }
-        public Nullable<int> LstShopOrder { get; set; }
+        public Nullable<int> LstWorkOrder { get; set; }
         public string ShadeGroup { get; set; }
         public Nullable<bool> MilLotRep { get; set; }
         public string SalesOrder { get; set; }

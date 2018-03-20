@@ -18,7 +18,6 @@ namespace SpikeContainer
         //private int intDevBreakPointCrapper = 0;
         
         /// <summary>
-        /// 
         /// </summary>
         public MainMenu()
         {
@@ -28,28 +27,24 @@ namespace SpikeContainer
         private void SpikeOne_Click(object sender, EventArgs e)
         {
             Spike_001.Spike001Main frm = new Spike_001.Spike001Main { };
-
             frm.Show(this);
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             Spike_Dev_Express_Grid.Spike_DEG_Form_001 frm = new Spike_Dev_Express_Grid.Spike_DEG_Form_001();
-
             frm.Show(this);
         }
 
         private void dexbtnSpike1Spur1_Click(object sender, EventArgs e)
         {
             Spike_001_SPUR_001.Spike001Spur001Main frm = new Spike_001_SPUR_001.Spike001Spur001Main();
-
             frm.Show(this);
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         { // SPIKE 0003
             Spike_003.Spike0003_MainMenu frm = new Spike_003.Spike0003_MainMenu();
-
             frm.Show(this);
         }
 
@@ -69,6 +64,12 @@ namespace SpikeContainer
         {
             // SPIKE SIX
             Spike_006.Spike_006_Main frm = new Spike_006.Spike_006_Main();
+            frm.Show(this);
+        }
+
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+            Spike_007_QAD_Implment_Utilities.Spike007MainXtraForm frm = new Spike_007_QAD_Implment_Utilities.Spike007MainXtraForm();
             frm.Show(this);
         }
     }
