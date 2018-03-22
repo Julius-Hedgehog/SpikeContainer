@@ -69,6 +69,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
@@ -359,6 +360,13 @@
     <Compile Include="Spike 007 QAD Implment Utilities\Spike007_Utitlity_001_XtraForm.Designer.cs">
       <DependentUpon>Spike007_Utitlity_001_XtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Spike 008 - ConfigTesting\ConfigSettings.cs" />
+    <Compile Include="Spike 008 - ConfigTesting\XtraForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 008 - ConfigTesting\XtraForm1.Designer.cs">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Spike Dev Express Grid\DEG Example 001.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -458,6 +466,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Spike 007 QAD Implment Utilities\Spike007_Utitlity_001_XtraForm.resx">
       <DependentUpon>Spike007_Utitlity_001_XtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike 008 - ConfigTesting\XtraForm1.resx">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Spike Dev Express Grid\DEG Example 001.resx">
       <DependentUpon>DEG Example 001.cs</DependentUpon>

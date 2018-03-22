@@ -192,7 +192,8 @@
             this.simpleButton7.Name = "simpleButton7";
             this.simpleButton7.Size = new System.Drawing.Size(286, 23);
             this.simpleButton7.TabIndex = 9;
-            this.simpleButton7.Text = "OPEN";
+            this.simpleButton7.Text = "Spike 8 - config file stuff";
+            this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
             // 
             // simpleButton8
             // 

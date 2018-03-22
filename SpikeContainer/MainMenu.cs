@@ -72,5 +72,11 @@ namespace SpikeContainer
             Spike_007_QAD_Implment_Utilities.Spike007MainXtraForm frm = new Spike_007_QAD_Implment_Utilities.Spike007MainXtraForm();
             frm.Show(this);
         }
+
+        private void simpleButton7_Click(object sender, EventArgs e)
+        {
+            SpikeContainer.Spike_008___ConfigTesting.XtraForm1 frm = new SpikeContainer.Spike_008___ConfigTesting.XtraForm1();
+            frm.Show(this);
+        }
     }
 }
