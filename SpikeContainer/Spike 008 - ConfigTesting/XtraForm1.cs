@@ -34,18 +34,26 @@ namespace SpikeContainer.Spike_008___ConfigTesting
         private void simpleButton3_Click(object sender, EventArgs e)
         {
             string v = ConfigSettings.ReturnCustomSectionConfigSettingsSettingKeyValue("specialAppSettings","Frankeinstein");
+            v = ConfigSettings.ReturnCustomSectionConfigSettingsSettingKeyValue("applicationSettings", "Company");
+            v = ConfigSettings.ReturnCustomSectionConfigSettingsSettingKeyValue("applicationSettings", "Product");
+            v = ConfigSettings.ReturnCustomSectionConfigSettingsSettingKeyValue("applicationSettings", "Who");
+            v = ConfigSettings.ReturnCustomSectionConfigSettingsSettingKeyValue("applicationSettings", "What");
             Trace.WriteLine(v);
         }
 
         private void simpleButton4_Click(object sender, EventArgs e)
         {
             bool b = ConfigSettings.AddConfigSettingsAppSetting("PetShopBoys", "WestEndGirls");
+            b = ConfigSettings.AddConfigSettingsAppSetting("TheGoGos", "Our Lips Are Sealed");
+            b = ConfigSettings.AddConfigSettingsAppSetting("Bangles", "Manic Monday");
             Trace.WriteLine($@"{b.ToString()}");
         }
 
         private void simpleButton5_Click(object sender, EventArgs e)
         {
             bool b = ConfigSettings.AddConfigSettingsCustomSectionSetting("ScaryMovies","LoveStory", "DeathBecomesHer");
+            b = ConfigSettings.AddConfigSettingsCustomSectionSetting("ScaryMovies", "Silent Scream", "She Slashes");
+            b = ConfigSettings.AddConfigSettingsCustomSectionSetting("ScaryMovies", "Young Frnakenstein", "No Not Really");
             Trace.WriteLine($@"{b.ToString()}");
         }
 
@@ -64,6 +72,14 @@ namespace SpikeContainer.Spike_008___ConfigTesting
         private void simpleButton8_Click(object sender, EventArgs e)
         {
             //bool b = ConfigSettings.
+            bool b = ConfigSettings.UpdateConfigCustomSectionAppSetting("specialAppSettings", "Frankeinstein", "Abby N. Ormal");
+            b = ConfigSettings.UpdateConfigCustomSectionAppSetting("applicationSettings", "Who", "Is on First Base");
+            Trace.WriteLine($@"{b.ToString()}");
+        }
+
+        private void simpleButton9_Click(object sender, EventArgs e)
+        {
+            ConfigSettings.OpenConfigIntoDataSet();
         }
     }
 }

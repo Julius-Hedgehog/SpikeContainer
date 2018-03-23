@@ -42,7 +42,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
+using System.Data;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -307,6 +309,25 @@ namespace SpikeContainer.Spike_008___ConfigTesting
                 Trace.WriteLine($@"{excpt.Message} {excpt.Source} {excpt.StackTrace}");
             }
             return bMethodReturnValue;
+        }
+
+        public static bool OpenConfigIntoDataSet()
+        {
+            bool bReturnValue = false;
+
+            try
+            {
+                Configuration conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                string strFilePath = conf.FilePath;
+                DataSet ds = new DataSet("MyTestConfig");
+                ds.ReadXml(strFilePath);
+            }
+            catch (Exception xcpt)
+            {
+                Trace.WriteLine($@"{xcpt.Message}");
+            }
+
+            return bReturnValue;
         }
 
         #endregion

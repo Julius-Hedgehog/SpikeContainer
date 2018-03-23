@@ -36,6 +36,7 @@
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
             this.SuspendLayout();
             // 
             // simpleButton1
@@ -110,11 +111,21 @@
             this.simpleButton8.Text = "simpleButton8";
             this.simpleButton8.Click += new System.EventHandler(this.simpleButton8_Click);
             // 
+            // simpleButton9
+            // 
+            this.simpleButton9.Location = new System.Drawing.Point(325, 23);
+            this.simpleButton9.Name = "simpleButton9";
+            this.simpleButton9.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton9.TabIndex = 8;
+            this.simpleButton9.Text = "simpleButton9";
+            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
+            // 
             // XtraForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 507);
+            this.Controls.Add(this.simpleButton9);
             this.Controls.Add(this.simpleButton8);
             this.Controls.Add(this.simpleButton7);
             this.Controls.Add(this.simpleButton6);
@@ -139,5 +150,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton6;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;
         private DevExpress.XtraEditors.SimpleButton simpleButton8;
+        private DevExpress.XtraEditors.SimpleButton simpleButton9;
     }
 }
