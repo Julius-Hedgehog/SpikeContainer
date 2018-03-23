@@ -23,20 +23,34 @@ namespace SpikeContainer.Spike_008___ConfigTesting
         {
             string v = ConfigSettings.ReturnConfigSettingsConnectionString("MesDbModel");
             Trace.WriteLine(v);
+            v = ConfigSettings.ReturnConfigSettingsConnectionString("SpikeContainer.Properties.Settings.TestMesDbConnectionString");
+            Trace.WriteLine(v);
+            v = ConfigSettings.ReturnConfigSettingsConnectionString("TestMesDbEntities");
+            Trace.WriteLine(v);
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             string v = ConfigSettings.ReturnConfigSettingsAppSettingKeyValue("Author");
             Trace.WriteLine(v);
+            v = ConfigSettings.ReturnConfigSettingsAppSettingKeyValue("Hodad");
+            Trace.WriteLine(v);
+            v = ConfigSettings.ReturnConfigSettingsUsersSettingKeyValue("SpecialUser");
+            Trace.WriteLine(v);
+            v = ConfigSettings.ReturnConfigSettingsUsersSettingKeyValue("SpecialDomain");
+            Trace.WriteLine(v);
         }
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
             string v = ConfigSettings.ReturnCustomSectionConfigSettingsSettingKeyValue("specialAppSettings","Frankeinstein");
+            Trace.WriteLine(v);
             v = ConfigSettings.ReturnCustomSectionConfigSettingsSettingKeyValue("applicationSettings", "Company");
+            Trace.WriteLine(v);
             v = ConfigSettings.ReturnCustomSectionConfigSettingsSettingKeyValue("applicationSettings", "Product");
+            Trace.WriteLine(v);
             v = ConfigSettings.ReturnCustomSectionConfigSettingsSettingKeyValue("applicationSettings", "Who");
+            Trace.WriteLine(v);
             v = ConfigSettings.ReturnCustomSectionConfigSettingsSettingKeyValue("applicationSettings", "What");
             Trace.WriteLine(v);
         }
@@ -44,7 +58,9 @@ namespace SpikeContainer.Spike_008___ConfigTesting
         private void simpleButton4_Click(object sender, EventArgs e)
         {
             bool b = ConfigSettings.AddConfigSettingsAppSetting("PetShopBoys", "WestEndGirls");
+            Trace.WriteLine($@"{b.ToString()}");
             b = ConfigSettings.AddConfigSettingsAppSetting("TheGoGos", "Our Lips Are Sealed");
+            Trace.WriteLine($@"{b.ToString()}");
             b = ConfigSettings.AddConfigSettingsAppSetting("Bangles", "Manic Monday");
             Trace.WriteLine($@"{b.ToString()}");
         }
@@ -53,7 +69,7 @@ namespace SpikeContainer.Spike_008___ConfigTesting
         {
             bool b = ConfigSettings.AddConfigSettingsCustomSectionSetting("ScaryMovies","LoveStory", "DeathBecomesHer");
             b = ConfigSettings.AddConfigSettingsCustomSectionSetting("ScaryMovies", "Silent Scream", "She Slashes");
-            b = ConfigSettings.AddConfigSettingsCustomSectionSetting("ScaryMovies", "Young Frnakenstein", "No Not Really");
+            b = ConfigSettings.AddConfigSettingsCustomSectionSetting("ScaryMovies", "Young Frankenstein", "No Not Really");
             Trace.WriteLine($@"{b.ToString()}");
         }
 

@@ -32,5 +32,77 @@ namespace SpikeContainer.Properties {
                 return ((string)(this["TestMesDbConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Ominvore")]
+        public string MainPassword {
+            get {
+                return ((string)(this["MainPassword"]));
+            }
+            set {
+                this["MainPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Marlin Perkins")]
+        public string SpecialUser {
+            get {
+                return ((string)(this["SpecialUser"]));
+            }
+            set {
+                this["SpecialUser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("WildKindom")]
+        public string SpecialDomain {
+            get {
+                return ((string)(this["SpecialDomain"]));
+            }
+            set {
+                this["SpecialDomain"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2017-09-24")]
+        public string LastPTMELogRunTime {
+            get {
+                return ((string)(this["LastPTMELogRunTime"]));
+            }
+            set {
+                this["LastPTMELogRunTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("A big boinking Monitor")]
+        public string ScreenSize {
+            get {
+                return ((string)(this["ScreenSize"]));
+            }
+            set {
+                this["ScreenSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Fine fine detail")]
+        public string ScreenResolution {
+            get {
+                return ((string)(this["ScreenResolution"]));
+            }
+            set {
+                this["ScreenResolution"] = value;
+            }
+        }
     }
 }

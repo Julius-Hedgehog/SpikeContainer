@@ -179,6 +179,29 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             return appSettingsString;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyName"></param>
+        /// <returns></returns>
+        public static string ReturnConfigSettingsUsersSettingKeyValue(string keyName)
+        {
+            string appSettingsString = "";
+            try
+            {
+                var appSettingsSection = (ClientSettingsSection)(ConfigurationManager.GetSection("userSettings"));
+                //var appSettingsSection = (ClientSettingsSection)(ConfigurationManager.GetSection("SpikeContainer.Properties.Settings"));
+                var appSettings = appSettingsSection.Settings;
+                var x = appSettings.Get(keyName).Value;
+                appSettingsString = Convert.ToString(x);
+            }
+            catch (Exception excpt)
+            {
+                Trace.WriteLine($@"{excpt.Message} {excpt.Source} {excpt.StackTrace}");
+            }
+            return appSettingsString;
+        }
+
         public static string ReturnCustomSectionConfigSettingsSettingKeyValue(string sectionName, string keyName)
         {
             string appSettingsString = "";
@@ -321,6 +344,9 @@ namespace SpikeContainer.Spike_008___ConfigTesting
                 string strFilePath = conf.FilePath;
                 DataSet ds = new DataSet("MyTestConfig");
                 ds.ReadXml(strFilePath);
+
+                ds.Clear();
+                ds.Dispose();
             }
             catch (Exception xcpt)
             {

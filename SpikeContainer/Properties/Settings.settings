@@ -10,5 +10,23 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=MANUFACTURING;Initial Catalog=TestMesDb;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="MainPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Ominvore</Value>
+    </Setting>
+    <Setting Name="SpecialUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Marlin Perkins</Value>
+    </Setting>
+    <Setting Name="SpecialDomain" Type="System.String" Scope="User">
+      <Value Profile="(Default)">WildKindom</Value>
+    </Setting>
+    <Setting Name="LastPTMELogRunTime" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2017-09-24</Value>
+    </Setting>
+    <Setting Name="ScreenSize" Type="System.String" Scope="User">
+      <Value Profile="(Default)">A big boinking Monitor</Value>
+    </Setting>
+    <Setting Name="ScreenResolution" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Fine fine detail</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
