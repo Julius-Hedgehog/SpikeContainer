@@ -39,6 +39,7 @@
  */
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
@@ -139,11 +140,6 @@ namespace SpikeContainer.Spike_008___ConfigTesting
         // Static Properties
         // Static Methods
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="settingName"></param>
-        /// <returns></returns>
         public static string ReturnConfigSettingsConnectionString(string settingName)
         {
             string configConnString = "";
@@ -159,11 +155,6 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             return configConnString;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="keyName"></param>
-        /// <returns></returns>
         public static string ReturnConfigSettingsAppSettingKeyValue(string keyName)
         {
             string appSettingsString = "";
@@ -179,21 +170,109 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             return appSettingsString;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="keyName"></param>
-        /// <returns></returns>
+        public static bool AddConfigSettingsAppSetting(string keyName, string value)
+        {
+            bool bMethodReturnValue = false;
+            try
+            {
+                Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                AppSettingsSection appSettings = configFile.AppSettings;
+                if (appSettings.Settings[keyName] == null) { appSettings.Settings.Add(keyName, value); }
+                configFile.Save(ConfigurationSaveMode.Modified, true);
+                ConfigurationManager.RefreshSection(appSettings.SectionInformation.Name);
+            }
+            catch (Exception excpt)
+            {
+                Trace.WriteLine($@"{excpt.Message} {excpt.Source} {excpt.StackTrace}");
+            }
+            return bMethodReturnValue;
+        }
+
+        public static bool UpdateConfigSettingsAppSetting(string keyName, string value)
+        {
+            bool bMethodReturnValue = false;
+            try
+            {
+                Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                AppSettingsSection appSettings = configFile.AppSettings;
+                if (appSettings.Settings[keyName] == null) { appSettings.Settings[keyName].Value = value; }
+                configFile.Save(ConfigurationSaveMode.Modified, true);
+                ConfigurationManager.RefreshSection(appSettings.SectionInformation.Name);
+            }
+            catch (Exception excpt)
+            {
+                Trace.WriteLine($@"{excpt.Message} {excpt.Source} {excpt.StackTrace}");
+            }
+            return bMethodReturnValue;
+        }
+
         public static string ReturnConfigSettingsUsersSettingKeyValue(string keyName)
         {
             string appSettingsString = "";
             try
             {
-                var appSettingsSection = (ClientSettingsSection)(ConfigurationManager.GetSection("userSettings"));
-                //var appSettingsSection = (ClientSettingsSection)(ConfigurationManager.GetSection("SpikeContainer.Properties.Settings"));
-                var appSettings = appSettingsSection.Settings;
-                var x = appSettings.Get(keyName).Value;
-                appSettingsString = Convert.ToString(x);
+                Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                ConfigurationSectionGroup csg = configFile.GetSectionGroup("userSettings");
+
+                var a = (ClientSettingsSection)(csg.Sections.Get("SpikeContainer.Properties.Settings"));
+                var r = (ClientSettingsSection)(csg.Sections[0]);
+
+                ClientSettingsSection mySection = new ClientSettingsSection();
+                foreach (ClientSettingsSection cs in csg.Sections)
+                {
+                    if (cs.SectionInformation.Name.Contains(".Properties.Settings"))
+                    {
+                        mySection = cs;
+                        break;
+                    }
+                }
+                //var y = (ConfigurationSection)(csg.Sections.GetEnumerator().Current);
+                //if (y.SectionInformation.Name == "SpikeContainer.Properties.Settings")
+                //{
+
+                //}
+                //csg.Sections.GetEnumerator().MoveNext();
+                 foreach (SettingElement se in mySection.Settings)
+                {
+                    if (se.Name.Contains(keyName))
+                    {
+                        var x = se.SerializeAs;
+                        SettingValueElement y = se.Value;
+                        var j = y.ValueXml.Value;
+                        var z = se.Value.ValueXml.InnerText;
+                    }
+                }
+
+
+
+                var m = r.Settings.Get(keyName).Value.ValueXml.InnerText;
+                appSettingsString = m;
+            }
+            catch (Exception excpt)
+            {
+                Trace.WriteLine($@"{excpt.Message} {excpt.Source} {excpt.StackTrace}");
+            }
+            return appSettingsString;
+        }
+
+        public static string AddConfigSettingsUsersSetting(string keyName, string value)
+        {
+            string appSettingsString = "";
+            try
+            {
+                Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                ConfigurationSectionGroup csg = configFile.GetSectionGroup("userSettings");
+                ClientSettingsSection confSect = (ClientSettingsSection)csg.Sections.Get("SpikeContainer.Properties.Settings");
+
+                SettingElement se = new SettingElement(keyName, SettingsSerializeAs.String);
+                SettingValueElement sve = new SettingValueElement
+                {
+                    ValueXml = new System.Xml.XmlDocument { InnerXml = $@"<value>{value}</value>" }
+                };
+                se.Value = sve;
+                confSect.Settings.Add(se);
+                configFile.Save(ConfigurationSaveMode.Modified, true);
+
             }
             catch (Exception excpt)
             {
@@ -222,37 +301,6 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             return appSettingsString;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="keyName"></param>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static bool AddConfigSettingsAppSetting(string keyName, string value)
-        {
-            bool bMethodReturnValue = false;
-            try
-            {
-                Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                AppSettingsSection appSettings = configFile.AppSettings;
-                if (appSettings.Settings[keyName] == null) { appSettings.Settings.Add(keyName, value); }
-                configFile.Save(ConfigurationSaveMode.Modified,true);
-                ConfigurationManager.RefreshSection(appSettings.SectionInformation.Name);
-            }
-            catch (Exception excpt)
-            {
-                Trace.WriteLine($@"{excpt.Message} {excpt.Source} {excpt.StackTrace}"); 
-            }
-            return bMethodReturnValue;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="section"></param>
-        /// <param name="keyName"></param>
-        /// <param name="value"></param>
-        /// <returns></returns>
         public static bool AddConfigSettingsCustomSectionSetting(string sectionName, string keyName, string value)
         {
             bool bMethodReturnValue = false;
@@ -292,30 +340,6 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             return bMethodReturnValue;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="keyName"></param>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static bool UpdateConfigSettingsAppSetting(string keyName, string value)
-        {
-            bool bMethodReturnValue = false;
-            try
-            {
-                Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                AppSettingsSection appSettings = configFile.AppSettings;
-                if (appSettings.Settings[keyName] == null) { appSettings.Settings[keyName].Value = value; }
-                configFile.Save(ConfigurationSaveMode.Modified, true);
-                ConfigurationManager.RefreshSection(appSettings.SectionInformation.Name);
-            }
-            catch (Exception excpt)
-            {
-                Trace.WriteLine($@"{excpt.Message} {excpt.Source} {excpt.StackTrace}");
-            }
-            return bMethodReturnValue;
-        }
-
         public static bool UpdateConfigCustomSectionAppSetting(string sectionName, string keyName, string value)
         {
             bool bMethodReturnValue = false;
@@ -333,6 +357,11 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             }
             return bMethodReturnValue;
         }
+
+
+
+
+
 
         public static bool OpenConfigIntoDataSet()
         {

@@ -39,6 +39,8 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             Trace.WriteLine(v);
             v = ConfigSettings.ReturnConfigSettingsUsersSettingKeyValue("SpecialDomain");
             Trace.WriteLine(v);
+
+            ConfigSettings.AddConfigSettingsUsersSetting("Larry","Moe");
         }
 
         private void simpleButton3_Click(object sender, EventArgs e)
