@@ -35,9 +35,9 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             Trace.WriteLine(v);
             v = ConfigSettings.ReturnConfigSettingsAppSettingKeyValue("Hodad");
             Trace.WriteLine(v);
-            v = ConfigSettings.ReturnConfigSettingsUsersSettingKeyValue("SpecialUser");
+            v = ConfigSettings.ReturnConfigSettingsUsersSettingKeyData("SpecialUser");
             Trace.WriteLine(v);
-            v = ConfigSettings.ReturnConfigSettingsUsersSettingKeyValue("SpecialDomain");
+            v = ConfigSettings.ReturnConfigSettingsUsersSettingKeyData("SpecialDomain");
             Trace.WriteLine(v);
 
             ConfigSettings.AddConfigSettingsUsersSetting("Larry","Moe");
@@ -97,7 +97,7 @@ namespace SpikeContainer.Spike_008___ConfigTesting
 
         private void simpleButton9_Click(object sender, EventArgs e)
         {
-            ConfigSettings.OpenConfigIntoDataSet();
+
         }
     }
 }

@@ -140,13 +140,29 @@ namespace SpikeContainer.Spike_008___ConfigTesting
         // Static Properties
         // Static Methods
 
+        #region [ CONNECTIONS STRING SECTION ]
+
         public static string ReturnConfigSettingsConnectionString(string settingName)
         {
             string configConnString = "";
             try
             {
+                // OPENS THE CONFIG TO CONNECTIONS STRINGS SECTION
+                //
+                //Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                //ConnectionStringsSection csc =  configFile.ConnectionStrings;
+                //ConnectionStringSettingsCollection cssc = csc.ConnectionStrings;
+                //foreach (ConnectionStringSettings css in cssc)
+                //    if (css.Name.Contains(settingName))
+                //    {
+                //        configConnString = css.ConnectionString;
+                //        //configConnString = css.ProviderName;
+                //    }
+                //
+
                 ConnectionStringSettingsCollection configMan = ConfigurationManager.ConnectionStrings;
                 configConnString = configMan[settingName].ConnectionString;
+                //configConnString = configMan[settingName].ProviderName;
             }
             catch (Exception excpt)
             {
@@ -155,13 +171,33 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             return configConnString;
         }
 
+        #endregion
+
+        #region [ APPLICATION SECTION ]
+
         public static string ReturnConfigSettingsAppSettingKeyValue(string keyName)
         {
             string appSettingsString = "";
+            string[] keyArray;
             try
             {
+                // OPENS THE CONFIG TO CONNECTIONS STRINGS SECTION
+                //
+                //Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                //AppSettingsSection a5s = configFile.AppSettings;
+                //KeyValueConfigurationCollection kvcc = a5s.Settings;
+                ////var y = kvcc[keyName].Value;
+                //foreach (string css in kvcc.AllKeys)
+                //    if (css.Contains(keyName))
+                //    {
+                //        appSettingsString = kvcc[keyName].Value;
+                //        break;
+                //    }
+
                 NameValueCollection appSettings = ConfigurationManager.AppSettings;
-                appSettingsString = appSettings[keyName];
+                keyArray = appSettings.GetValues(keyName);
+                foreach (string s in keyArray)
+                    appSettingsString += s;
             }
             catch (Exception excpt)
             {
@@ -175,6 +211,24 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             bool bMethodReturnValue = false;
             try
             {
+                // OPENS THE CONFIG TO CONNECTIONS STRINGS SECTION
+                //
+                //Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                //AppSettingsSection a5s = configFile.AppSettings;
+                //KeyValueConfigurationCollection kvcc = a5s.Settings;
+                //bool bHasKey = false;
+                //foreach (string css in kvcc.AllKeys)
+                //    if (css.Contains(keyName))
+                //    {
+                //        bHasKey = true;
+                //        break;
+                //    }
+                //if (!bHasKey)
+                //{
+                //    KeyValueConfigurationElement kvce = new KeyValueConfigurationElement(keyName, value);
+                //    kvcc.Add(kvce);
+                //}
+
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 AppSettingsSection appSettings = configFile.AppSettings;
                 if (appSettings.Settings[keyName] == null) { appSettings.Settings.Add(keyName, value); }
@@ -193,9 +247,26 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             bool bMethodReturnValue = false;
             try
             {
+                // OPENS THE CONFIG TO CONNECTIONS STRINGS SECTION
+                //
+                //Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                //AppSettingsSection a5s = configFile.AppSettings;
+                //KeyValueConfigurationCollection kvcc = a5s.Settings;
+                //bool bHasKey = false;
+                //foreach (string css in kvcc.AllKeys)
+                //    if (css.Contains(keyName))
+                //    {
+                //        bHasKey = true;
+                //        break;
+                //    }
+                //if (bHasKey)
+                //{
+                //    kvcc[keyName].Value = value;
+                //}
+
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 AppSettingsSection appSettings = configFile.AppSettings;
-                if (appSettings.Settings[keyName] == null) { appSettings.Settings[keyName].Value = value; }
+                if (appSettings.Settings[keyName] != null) { appSettings.Settings[keyName].Value = value; }
                 configFile.Save(ConfigurationSaveMode.Modified, true);
                 ConfigurationManager.RefreshSection(appSettings.SectionInformation.Name);
             }
@@ -206,7 +277,12 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             return bMethodReturnValue;
         }
 
-        public static string ReturnConfigSettingsUsersSettingKeyValue(string keyName)
+        #endregion
+
+
+        #region [ USER SETTINGS SECTION ]
+
+        public static string ReturnConfigSettingsUsersSettingKeyData(string keyName)
         {
             string appSettingsString = "";
             try
@@ -214,40 +290,32 @@ namespace SpikeContainer.Spike_008___ConfigTesting
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 ConfigurationSectionGroup csg = configFile.GetSectionGroup("userSettings");
 
-                var a = (ClientSettingsSection)(csg.Sections.Get("SpikeContainer.Properties.Settings"));
-                var r = (ClientSettingsSection)(csg.Sections[0]);
+                // - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+                //var a = (ClientSettingsSection)(csg.Sections.Get("SpikeContainer.Properties.Settings"));
+                //var r = (ClientSettingsSection)(csg.Sections[0]);
+                //var m = r.Settings.Get(keyName).Value.ValueXml.InnerText;
+                //appSettingsString = m;
+                // - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
                 ClientSettingsSection mySection = new ClientSettingsSection();
                 foreach (ClientSettingsSection cs in csg.Sections)
-                {
                     if (cs.SectionInformation.Name.Contains(".Properties.Settings"))
                     {
                         mySection = cs;
                         break;
                     }
-                }
-                //var y = (ConfigurationSection)(csg.Sections.GetEnumerator().Current);
-                //if (y.SectionInformation.Name == "SpikeContainer.Properties.Settings")
-                //{
-
-                //}
-                //csg.Sections.GetEnumerator().MoveNext();
+ 
+                
                  foreach (SettingElement se in mySection.Settings)
-                {
                     if (se.Name.Contains(keyName))
                     {
                         var x = se.SerializeAs;
                         SettingValueElement y = se.Value;
                         var j = y.ValueXml.Value;
-                        var z = se.Value.ValueXml.InnerText;
+                        appSettingsString = se.Value.ValueXml.InnerText;
+                        break;
                     }
-                }
-
-
-
-                var m = r.Settings.Get(keyName).Value.ValueXml.InnerText;
-                appSettingsString = m;
-            }
+             }
             catch (Exception excpt)
             {
                 Trace.WriteLine($@"{excpt.Message} {excpt.Source} {excpt.StackTrace}");
@@ -264,14 +332,26 @@ namespace SpikeContainer.Spike_008___ConfigTesting
                 ConfigurationSectionGroup csg = configFile.GetSectionGroup("userSettings");
                 ClientSettingsSection confSect = (ClientSettingsSection)csg.Sections.Get("SpikeContainer.Properties.Settings");
 
-                SettingElement se = new SettingElement(keyName, SettingsSerializeAs.String);
-                SettingValueElement sve = new SettingValueElement
+                bool bHasKey = false;
+                foreach (SettingElement sea in confSect.Settings)
                 {
-                    ValueXml = new System.Xml.XmlDocument { InnerXml = $@"<value>{value}</value>" }
-                };
-                se.Value = sve;
-                confSect.Settings.Add(se);
-                configFile.Save(ConfigurationSaveMode.Modified, true);
+                    if (sea.Name.Contains(keyName))
+                    {
+                        bHasKey = true;
+                    }
+                }
+
+                if (!bHasKey)
+                {
+                    SettingElement se = new SettingElement(keyName, SettingsSerializeAs.String);
+                    SettingValueElement sve = new SettingValueElement
+                    {
+                        ValueXml = new System.Xml.XmlDocument { InnerXml = $@"<value>{value}</value>" }
+                    };
+                    se.Value = sve;
+                    confSect.Settings.Add(se);
+                    configFile.Save(ConfigurationSaveMode.Modified, true);
+                }
 
             }
             catch (Exception excpt)
@@ -280,6 +360,47 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             }
             return appSettingsString;
         }
+
+        public static string UpdateConfigSettingsUsersSetting(string keyName, string value)
+        {
+            string appSettingsString = "";
+            try
+            {
+                Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                ConfigurationSectionGroup csg = configFile.GetSectionGroup("userSettings");
+                ClientSettingsSection confSect = (ClientSettingsSection)csg.Sections.Get("SpikeContainer.Properties.Settings");
+
+                bool bHasKey = false;
+                foreach (SettingElement sea in confSect.Settings)
+                    if (sea.Name.Contains(keyName))
+                    {
+                        bHasKey = true;
+                        break;
+                    }
+
+                if (bHasKey)
+                {
+                    SettingElement se = new SettingElement(keyName, SettingsSerializeAs.String);
+                    SettingValueElement sve = new SettingValueElement
+                    {
+                        ValueXml = new System.Xml.XmlDocument { InnerXml = $@"<value>{value}</value>" }
+                    };
+                    se.Value = sve;
+                    confSect.Settings.Add(se);
+                    configFile.Save(ConfigurationSaveMode.Modified, true);
+                }
+
+            }
+            catch (Exception excpt)
+            {
+                Trace.WriteLine($@"{excpt.Message} {excpt.Source} {excpt.StackTrace}");
+            }
+            return appSettingsString;
+        }
+
+        #endregion
+
+        #region [ CUSTOM SECTION ]
 
         public static string ReturnCustomSectionConfigSettingsSettingKeyValue(string sectionName, string keyName)
         {
@@ -347,7 +468,7 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             {
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 AppSettingsSection confSect = (AppSettingsSection)configFile.GetSection(sectionName);
-                if (confSect.Settings[keyName] == null) { confSect.Settings[keyName].Value = value; }
+                if (confSect.Settings[keyName] != null) { confSect.Settings[keyName].Value = value; }
                 configFile.Save(ConfigurationSaveMode.Modified, true);
                 ConfigurationManager.RefreshSection(confSect.SectionInformation.Name);
             }
@@ -358,12 +479,10 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             return bMethodReturnValue;
         }
 
+        #endregion
 
 
-
-
-
-        public static bool OpenConfigIntoDataSet()
+        private static bool OpenConfigIntoDataSet()
         {
             bool bReturnValue = false;
 
