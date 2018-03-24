@@ -171,6 +171,44 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             return configConnString;
         }
 
+        public static bool AddConfigSettingsConnectionString(string settingName, string connection, string provider)
+        {
+            bool bMethodReturnValue = false;
+            try
+            {
+                //Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                //ConnectionStringsSection csc = configFile.ConnectionStrings;
+                //ConnectionStringSettingsCollection cssc = csc.ConnectionStrings;
+                //bool bHasSetting = false;
+                //foreach (ConnectionStringSettings css in cssc)
+                //    if (css.Name.Contains(settingName))
+                //    {
+                //        bHasSetting = true;
+                //        break;
+                //    }
+
+                //if (!bHasSetting)
+                //{
+                //    ConnectionStringSettings css = new ConnectionStringSettings(settingName, connection, provider);
+                //    cssc.Add(css);
+                //    bMethodReturnValue = true;
+                //    configFile.Save(ConfigurationSaveMode.Modified, true);
+                //    bMethodReturnValue = true;
+                //    ConfigurationManager.RefreshSection(csc.SectionInformation.Name);
+                //}
+                ConnectionStringSettingsCollection configMan = ConfigurationManager.ConnectionStrings;
+                ConnectionStringSettings css = new ConnectionStringSettings(settingName, connection, provider);
+                configMan.Add(css);
+                bMethodReturnValue = true;
+            }
+            catch (Exception excpt)
+            {
+                Trace.WriteLine($@"{excpt.Message} {excpt.Source} {excpt.StackTrace}");
+            }
+
+            return bMethodReturnValue;
+        }
+
         #endregion
 
         #region [ APPLICATION SECTION ]
@@ -231,7 +269,11 @@ namespace SpikeContainer.Spike_008___ConfigTesting
 
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 AppSettingsSection appSettings = configFile.AppSettings;
-                if (appSettings.Settings[keyName] == null) { appSettings.Settings.Add(keyName, value); }
+                if (appSettings.Settings[keyName] == null)
+                {
+                    appSettings.Settings.Add(keyName, value);
+                    bMethodReturnValue = true;
+                }
                 configFile.Save(ConfigurationSaveMode.Modified, true);
                 ConfigurationManager.RefreshSection(appSettings.SectionInformation.Name);
             }
@@ -266,7 +308,11 @@ namespace SpikeContainer.Spike_008___ConfigTesting
 
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 AppSettingsSection appSettings = configFile.AppSettings;
-                if (appSettings.Settings[keyName] != null) { appSettings.Settings[keyName].Value = value; }
+                if (appSettings.Settings[keyName] != null)
+                {
+                    appSettings.Settings[keyName].Value = value;
+                    bMethodReturnValue = true;
+                }
                 configFile.Save(ConfigurationSaveMode.Modified, true);
                 ConfigurationManager.RefreshSection(appSettings.SectionInformation.Name);
             }
@@ -323,9 +369,9 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             return appSettingsString;
         }
 
-        public static string AddConfigSettingsUsersSetting(string keyName, string value)
+        public static bool AddConfigSettingsUsersSetting(string keyName, string value)
         {
-            string appSettingsString = "";
+            bool bMethodReturnValue = false;
             try
             {
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -351,6 +397,7 @@ namespace SpikeContainer.Spike_008___ConfigTesting
                     se.Value = sve;
                     confSect.Settings.Add(se);
                     configFile.Save(ConfigurationSaveMode.Modified, true);
+                    bMethodReturnValue = true;
                 }
 
             }
@@ -358,12 +405,12 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             {
                 Trace.WriteLine($@"{excpt.Message} {excpt.Source} {excpt.StackTrace}");
             }
-            return appSettingsString;
+            return bMethodReturnValue;
         }
 
-        public static string UpdateConfigSettingsUsersSetting(string keyName, string value)
+        public static bool UpdateConfigSettingsUsersSetting(string keyName, string value)
         {
-            string appSettingsString = "";
+            bool bMethodReturnValue = false;
             try
             {
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -388,6 +435,7 @@ namespace SpikeContainer.Spike_008___ConfigTesting
                     se.Value = sve;
                     confSect.Settings.Add(se);
                     configFile.Save(ConfigurationSaveMode.Modified, true);
+                    bMethodReturnValue = true;
                 }
 
             }
@@ -395,7 +443,7 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             {
                 Trace.WriteLine($@"{excpt.Message} {excpt.Source} {excpt.StackTrace}");
             }
-            return appSettingsString;
+            return bMethodReturnValue;
         }
 
         #endregion
@@ -450,6 +498,7 @@ namespace SpikeContainer.Spike_008___ConfigTesting
                     };
                     se.Value = sve;
                     appSettings.Add(se);
+                    bMethodReturnValue = true;
                 }
                 configFile.Save(ConfigurationSaveMode.Modified, true);
                 ConfigurationManager.RefreshSection(confSect.SectionInformation.Name);
@@ -468,7 +517,11 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             {
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 AppSettingsSection confSect = (AppSettingsSection)configFile.GetSection(sectionName);
-                if (confSect.Settings[keyName] != null) { confSect.Settings[keyName].Value = value; }
+                if (confSect.Settings[keyName] != null)
+                {
+                    confSect.Settings[keyName].Value = value;
+                    bMethodReturnValue = true;
+                }
                 configFile.Save(ConfigurationSaveMode.Modified, true);
                 ConfigurationManager.RefreshSection(confSect.SectionInformation.Name);
             }
