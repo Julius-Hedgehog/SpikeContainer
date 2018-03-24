@@ -140,6 +140,44 @@ namespace SpikeContainer.Spike_008___ConfigTesting
         // Static Properties
         // Static Methods
 
+        /*
+        <?xml version="1.0" encoding="utf-8"?>
+        <configuration>
+            <configSections>
+                <section name="{name of section}" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+                <sectionGroup name="{name of group}" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+                  <section name="{name of section in group}" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+                </sectionGroup>
+            </configSections>
+            <startup>
+                <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+            </startup>
+            <userSettings{name of group}>
+                <{{name of group}.Properties.Settings}>
+                    <setting name="{name of section in group}" serializeAs="String">
+                            <value>{settingValue}</value>
+                    </setting>
+                </{{name of group}.Properties.Settings}>
+            </userSettings{name of group}>
+            <connectionStrings> 
+                <add name="{Connection string name}" connectionString="{connection string}" providerName="System.Data.SqlClient" />
+            </connectionStrings>
+            <appSettings>
+                <add key="keyname" value="keyValue" />
+            </appSettings>
+            <applicationSettings>
+                <setting name="settingName" serializeAs="String">
+                    <value>settingValue</value>
+                </setting>
+            </applicationSettings>
+            <{name of section}>
+                <setting name="Frankeinstein" serializeAs="String">
+                    <value>The Monster is ALIVE!</value>
+                </setting>
+            </specialAppSettings>
+        </configuration>
+        */
+
         #region [ CONNECTIONS STRING SECTION ]
 
         public static string ReturnConfigSettingsConnectionString(string settingName, string provider = null)
