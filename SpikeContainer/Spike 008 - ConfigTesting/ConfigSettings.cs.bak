@@ -140,43 +140,42 @@ namespace SpikeContainer.Spike_008___ConfigTesting
         // Static Properties
         // Static Methods
 
-
         /*
-         <?xml version="1.0" encoding="utf-8"?>
-            <configuration>
-                <configSections>
-                    <section name="{name of section}" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
-                    <sectionGroup name="{name of group}" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-                      <section name="{name of section in group}" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
-                    </sectionGroup>
-                </configSections>
-                <startup>
-                    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
-                </startup>
-                <userSettings{name of group}>
-                    <{{name of group}.Properties.Settings}>
-                        <setting name="{name of section in group}" serializeAs="String">
-                                <value>{settingValue}</value>
-                        </setting>
-                    </{{name of group}.Properties.Settings}>
-                </userSettings{name of group}>
-                <connectionStrings> 
-                    <add name="{Connection string name}" connectionString="{connection string}" providerName="System.Data.SqlClient" />
-                </connectionStrings>
-                <appSettings>
-                    <add key="keyname" value="keyValue" />
-                </appSettings>
-                <applicationSettings>
-                    <setting name="settingName" serializeAs="String">
-                        <value>settingValue</value>
+        <?xml version="1.0" encoding="utf-8"?>
+        <configuration>
+            <configSections>
+                <section name="{name of section}" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+                <sectionGroup name="{name of group}" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+                  <section name="{name of section in group}" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+                </sectionGroup>
+            </configSections>
+            <startup>
+                <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+            </startup>
+            <userSettings{name of group}>
+                <{{name of group}.Properties.Settings}>
+                    <setting name="{name of section in group}" serializeAs="String">
+                            <value>{settingValue}</value>
                     </setting>
-                </applicationSettings>
-                <{name of section}>
-                    <setting name="Frankeinstein" serializeAs="String">
-                        <value>The Monster is ALIVE!</value>
-                    </setting>
-                </specialAppSettings>
-            </configuration>
+                </{{name of group}.Properties.Settings}>
+            </userSettings{name of group}>
+            <connectionStrings> 
+                <add name="{Connection string name}" connectionString="{connection string}" providerName="System.Data.SqlClient" />
+            </connectionStrings>
+            <appSettings>
+                <add key="keyname" value="keyValue" />
+            </appSettings>
+            <applicationSettings>
+                <setting name="settingName" serializeAs="String">
+                    <value>settingValue</value>
+                </setting>
+            </applicationSettings>
+            <{name of section}>
+                <setting name="Frankeinstein" serializeAs="String">
+                    <value>The Monster is ALIVE!</value>
+                </setting>
+            </specialAppSettings>
+        </configuration>
         */
 
         #region [ CONNECTIONS STRING SECTION ]
@@ -193,7 +192,6 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             string configConnString = "";
             try
             {
-                ConfigurationManager.RefreshSection("connectionStrings");
                 // OPENS THE CONFIG TO CONNECTIONS STRINGS SECTION
                 //
                 //Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -244,12 +242,10 @@ namespace SpikeContainer.Spike_008___ConfigTesting
                 //    bMethodReturnValue = true;
                 //    ConfigurationManager.RefreshSection(csc.SectionInformation.Name);
                 //}
-                ConfigurationManager.RefreshSection("connectionStrings");
                 ConnectionStringSettingsCollection configMan = ConfigurationManager.ConnectionStrings;
                 ConnectionStringSettings css = new ConnectionStringSettings(settingName, connection, provider);
                 configMan.Add(css);
                 bMethodReturnValue = true;
-                ConfigurationManager.RefreshSection("connectionStrings");
             }
             catch (Exception excpt)
             {
@@ -276,7 +272,6 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             string[] keyArray;
             try
             {
-                ConfigurationManager.RefreshSection("appSettings");
                 // OPENS THE CONFIG TO CONNECTIONS STRINGS SECTION
                 //
                 //Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -324,7 +319,7 @@ namespace SpikeContainer.Spike_008___ConfigTesting
                 //    KeyValueConfigurationElement kvce = new KeyValueConfigurationElement(keyName, value);
                 //    kvcc.Add(kvce);
                 //}
-                ConfigurationManager.RefreshSection("appSettings");
+
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 AppSettingsSection appSettings = configFile.AppSettings;
                 if (appSettings.Settings[keyName] == null)
@@ -363,7 +358,7 @@ namespace SpikeContainer.Spike_008___ConfigTesting
                 //{
                 //    kvcc[keyName].Value = value;
                 //}
-                ConfigurationManager.RefreshSection("appSettings");
+
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 AppSettingsSection appSettings = configFile.AppSettings;
                 if (appSettings.Settings[keyName] != null)
@@ -404,13 +399,12 @@ namespace SpikeContainer.Spike_008___ConfigTesting
                 </{{name of group}.Properties.Settings}>
             </userSettings{name of group}>
         */
-
+        
         public static string ReturnConfigSettingsUsersSettingKeyData(string keyName)
         {
             string appSettingsString = "";
             try
             {
-                ConfigurationManager.RefreshSection("userSettings");
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 ConfigurationSectionGroup csg = configFile.GetSectionGroup("userSettings");
 
@@ -428,8 +422,8 @@ namespace SpikeContainer.Spike_008___ConfigTesting
                         mySection = cs;
                         break;
                     }
-
-
+ 
+                
                  foreach (SettingElement se in mySection.Settings)
                     if (se.Name.Contains(keyName))
                     {
@@ -452,7 +446,6 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             bool bMethodReturnValue = false;
             try
             {
-                ConfigurationManager.RefreshSection("userSettings");
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 ConfigurationSectionGroup csg = configFile.GetSectionGroup("userSettings");
                 ClientSettingsSection confSect = (ClientSettingsSection)csg.Sections.Get("SpikeContainer.Properties.Settings");
@@ -477,7 +470,6 @@ namespace SpikeContainer.Spike_008___ConfigTesting
                     confSect.Settings.Add(se);
                     configFile.Save(ConfigurationSaveMode.Modified, true);
                     bMethodReturnValue = true;
-                    ConfigurationManager.RefreshSection(confSect.SectionInformation.Name);
                 }
 
             }
@@ -493,7 +485,6 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             bool bMethodReturnValue = false;
             try
             {
-                ConfigurationManager.RefreshSection("userSettings");
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 ConfigurationSectionGroup csg = configFile.GetSectionGroup("userSettings");
                 ClientSettingsSection confSect = (ClientSettingsSection)csg.Sections.Get("SpikeContainer.Properties.Settings");
@@ -517,7 +508,6 @@ namespace SpikeContainer.Spike_008___ConfigTesting
                     confSect.Settings.Add(se);
                     configFile.Save(ConfigurationSaveMode.Modified, true);
                     bMethodReturnValue = true;
-                    ConfigurationManager.RefreshSection(confSect.SectionInformation.Name);
                 }
 
             }
@@ -556,7 +546,6 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             string appSettingsString = "";
             try
             {
-                ConfigurationManager.RefreshSection(sectionName);
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 ClientSettingsSection confSect = (ClientSettingsSection)configFile.GetSection(sectionName);
                 SettingElementCollection appSettings = confSect.Settings;
@@ -577,7 +566,6 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             bool bMethodReturnValue = false;
             try
             {
-                ConfigurationManager.RefreshSection(sectionName);
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 ClientSettingsSection confSect = (ClientSettingsSection)configFile.GetSection(sectionName);
                 if (confSect == null)
@@ -589,7 +577,7 @@ namespace SpikeContainer.Spike_008___ConfigTesting
 
                     confSect = (ClientSettingsSection)configFile.GetSection(sectionName);
                 }
-
+                
                 SettingElementCollection appSettings = confSect.Settings;
                 if (appSettings.Get(keyName) == null)
                 {
@@ -618,7 +606,6 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             bool bMethodReturnValue = false;
             try
             {
-                ConfigurationManager.RefreshSection(sectionName);
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 AppSettingsSection confSect = (AppSettingsSection)configFile.GetSection(sectionName);
                 if (confSect.Settings[keyName] != null)
