@@ -142,7 +142,7 @@ namespace SpikeContainer.Spike_008___ConfigTesting
 
         #region [ CONNECTIONS STRING SECTION ]
 
-        public static string ReturnConfigSettingsConnectionString(string settingName)
+        public static string ReturnConfigSettingsConnectionString(string settingName, string provider = null)
         {
             string configConnString = "";
             try
@@ -162,7 +162,8 @@ namespace SpikeContainer.Spike_008___ConfigTesting
 
                 ConnectionStringSettingsCollection configMan = ConfigurationManager.ConnectionStrings;
                 configConnString = configMan[settingName].ConnectionString;
-                //configConnString = configMan[settingName].ProviderName;
+                if (!string.IsNullOrEmpty(provider))
+                    configConnString = configMan[settingName].ProviderName;
             }
             catch (Exception excpt)
             {
