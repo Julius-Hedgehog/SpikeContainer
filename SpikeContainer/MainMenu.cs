@@ -78,5 +78,10 @@ namespace SpikeContainer
             SpikeContainer.Spike_008___ConfigTesting.XtraForm1 frm = new SpikeContainer.Spike_008___ConfigTesting.XtraForm1();
             frm.Show(this);
         }
+
+        private void simpleButton8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

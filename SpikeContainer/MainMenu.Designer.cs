@@ -201,7 +201,8 @@
             this.simpleButton8.Name = "simpleButton8";
             this.simpleButton8.Size = new System.Drawing.Size(286, 23);
             this.simpleButton8.TabIndex = 10;
-            this.simpleButton8.Text = "OPEN";
+            this.simpleButton8.Text = "Spike Nine - File Watcher Spy";
+            this.simpleButton8.Click += new System.EventHandler(this.simpleButton8_Click);
             // 
             // simpleButton9
             // 
