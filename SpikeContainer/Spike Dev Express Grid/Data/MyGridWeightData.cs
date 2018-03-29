@@ -10,19 +10,19 @@ namespace SpikeContainer.Spike_Dev_Express_Grid.Data
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
 
-    public partial class MyGridWeightDataEntity : DbContext
+    public class MyGridWeightDataEntity : DbContext
     {
         public MyGridWeightDataEntity()
             : base("name=MyGridWeightDataEntity")
         {
         }
 
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    throw new UnintentionalCodeFirstException();
-        //}
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
 
-        
+        public virtual DbSet<GridWeightData> GridWeightData { get; set; }
     }
 
 

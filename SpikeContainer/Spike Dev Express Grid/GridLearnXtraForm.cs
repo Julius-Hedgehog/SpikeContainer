@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using SpikeContainer.Spike_Dev_Express_Grid;
 
 namespace SpikeContainer.Spike_Dev_Express_Grid
 {
@@ -20,7 +21,7 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
 
         private void GridLearnXtraForm_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

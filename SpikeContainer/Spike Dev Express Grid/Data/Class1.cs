@@ -10,16 +10,16 @@ using System.Data.Entity.Core.EntityClient;
 
 namespace SpikeContainer.Spike_Dev_Express_Grid.Data
 {
-    public partial class GridWeightData
+    public class GridWeightData
     {
         public GridWeightData()
         {  }
-        //public GridWeightData(decimal dcmlgRossLbs, decimal dcmltAreLbs, decimal dcmlnEtResultLbs)
-        //{
-        //    GrossLbs = dcmlgRossLbs;
-        //    TareLbs = dcmltAreLbs;
-        //    NetResultLbs = dcmlnEtResultLbs;
-        //}
+        public GridWeightData(decimal dcmlgRossLbs, decimal dcmltAreLbs, decimal dcmlnEtResultLbs)
+        {
+            GrossLbs = dcmlgRossLbs;
+            TareLbs = dcmltAreLbs;
+            NetResultLbs = dcmlnEtResultLbs;
+        }
 
         public decimal GrossLbs { get; set; }
         public decimal TareLbs { get; set; }

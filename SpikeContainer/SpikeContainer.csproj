@@ -376,6 +376,7 @@
     <Compile Include="Spike 009 - SPY\SpyXtraForm.Designer.cs">
       <DependentUpon>SpyXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Spike Dev Express Grid\CodedEntity\WeightEntity.cs" />
     <Compile Include="Spike Dev Express Grid\Data\Class1.cs" />
     <Compile Include="Spike Dev Express Grid\Data\MyGridWeightData.cs" />
     <Compile Include="Spike Dev Express Grid\DEG Example 001.cs">
