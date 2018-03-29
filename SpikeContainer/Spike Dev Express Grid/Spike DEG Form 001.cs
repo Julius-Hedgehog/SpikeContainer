@@ -28,5 +28,11 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
             Spike_Dev_Express_Grid.DEG_Example_001 frm = new DEG_Example_001 { };
             frm.Show(this);
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            Spike_Dev_Express_Grid.GridLearnXtraForm frm = new GridLearnXtraForm { };
+            frm.Show(this);
+        }
     }
 }
