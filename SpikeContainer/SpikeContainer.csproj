@@ -91,6 +91,9 @@
     <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Winforms.Components">
+      <HintPath>..\packages\WinForms\Winforms.Components.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataEntitiy\ArelContainers.cs">
@@ -376,6 +379,12 @@
     <Compile Include="Spike 009 - SPY\SpyXtraForm.Designer.cs">
       <DependentUpon>SpyXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Spike 010 - Multiple On Idle Handlers\Spike_010_XtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 010 - Multiple On Idle Handlers\Spike_010_XtraForm.Designer.cs">
+      <DependentUpon>Spike_010_XtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Spike Dev Express Grid\CodedEntity\WeightEntity.cs" />
     <Compile Include="Spike Dev Express Grid\Data\Class1.cs" />
     <Compile Include="Spike Dev Express Grid\Data\MyGridWeightData.cs" />
@@ -509,6 +518,9 @@
     <EmbeddedResource Include="Spike 009 - SPY\SpyXtraForm.resx">
       <DependentUpon>SpyXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Spike 010 - Multiple On Idle Handlers\Spike_010_XtraForm.resx">
+      <DependentUpon>Spike_010_XtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Spike Dev Express Grid\DEG Example 001.resx">
       <DependentUpon>DEG Example 001.cs</DependentUpon>
     </EmbeddedResource>
@@ -555,7 +567,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="CommonThingsForJPH1.txt" />

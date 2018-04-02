@@ -81,7 +81,15 @@ namespace SpikeContainer
 
         private void simpleButton8_Click(object sender, EventArgs e)
         {
+            // SPY STUFF
+        }
 
+        private void simpleButton9_Click(object sender, EventArgs e)
+        {
+            // ON IDLE
+
+            SpikeContainer.Spike_010___Multiple_On_Idle_Handlers.Spike_010_XtraForm frm = new Spike_010___Multiple_On_Idle_Handlers.Spike_010_XtraForm();
+            frm.Show(this);
         }
     }
 }

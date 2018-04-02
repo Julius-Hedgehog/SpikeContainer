@@ -210,7 +210,8 @@
             this.simpleButton9.Name = "simpleButton9";
             this.simpleButton9.Size = new System.Drawing.Size(286, 23);
             this.simpleButton9.TabIndex = 11;
-            this.simpleButton9.Text = "OPEN";
+            this.simpleButton9.Text = "Spike Ten - Multiple On Idle";
+            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
             // 
             // simpleButton10
             // 
