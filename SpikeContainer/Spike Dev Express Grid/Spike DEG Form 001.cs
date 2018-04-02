@@ -31,6 +31,7 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+            // correct issues with WeighInV2 implementation
             Spike_Dev_Express_Grid.GridLearnXtraForm frm = new GridLearnXtraForm { };
             frm.Show(this);
         }

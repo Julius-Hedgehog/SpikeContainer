@@ -385,10 +385,23 @@
     <Compile Include="Spike Dev Express Grid\DEG Example 001.Designer.cs">
       <DependentUpon>DEG Example 001.cs</DependentUpon>
     </Compile>
+    <Compile Include="Spike Dev Express Grid\EntityData\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Spike Dev Express Grid\EntityData\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Spike Dev Express Grid\EntityData\MyWeightModelEntity.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MyWeightModelEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Spike Dev Express Grid\EntityData\Weights.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Spike Dev Express Grid\GridLearnXtraForm.cs">
       <SubType>Form</SubType>
@@ -560,6 +573,16 @@
     <Content Include="Spike 001\InputSimulator\InputSimulator.dll" />
     <Content Include="Spike 001\InputSimulator\InputSimulator.pdb" />
     <Content Include="Spike 001\InputSimulator\InputSimulator.XML" />
+    <Content Include="Spike Dev Express Grid\EntityData\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>MyWeightModelEntity.edmx</DependentUpon>
+    </Content>
+    <Content Include="Spike Dev Express Grid\EntityData\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>MyWeightModelEntity.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

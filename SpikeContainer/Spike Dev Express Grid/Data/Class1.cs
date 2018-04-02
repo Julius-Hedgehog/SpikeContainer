@@ -10,6 +10,15 @@ using System.Data.Entity.Core.EntityClient;
 
 namespace SpikeContainer.Spike_Dev_Express_Grid.Data
 {
+    //public class GridWeightDataEntity : DbContext
+    //{
+    //    public GridWeightDataEntity()
+    //        :base("name=GridWeightDataEntity")
+    //    {        }
+
+    //    public virtual DbSet<GridWeightData> GridWeightEntity { get; set; }
+    //}
+
     public class GridWeightData
     {
         public GridWeightData()

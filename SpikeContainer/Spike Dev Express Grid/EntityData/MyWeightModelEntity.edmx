@@ -16,9 +16,13 @@
           <EntitySet Name="Weights" EntityType="MyWeightModelEntity.Weights" />
         </EntityContainer>
         <EntityType Name="Weights">
-          <Property Name="GrossWeight" Type="String" Nullable="false" />
-          <Property Name="TareWeight" Type="String" Nullable="false" />
-          <Property Name="NetResultWeight" Type="String" Nullable="false" />
+          <Key>
+            <PropertyRef Name="Index" />
+          </Key>
+          <Property Name="GrossWeight" Type="Decimal" Nullable="false" />
+          <Property Name="TareWeight" Type="Decimal" Nullable="false" />
+          <Property Name="NetResultWeight" Type="Decimal" Nullable="false" />
+          <Property Name="Index" Type="Int64" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
