@@ -26,6 +26,9 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
         List<WeightInGrid> _wIg = new List<WeightInGrid>();
         List<GridWeightData> _gWd = new List<GridWeightData>();
 
+        private BaseEdit _deXEdit;//----------------    -   -   -  -The Indicator IF and Active Editor is selected in the DevExpress GridView
+
+
         #region [ FORM EVENT HANDLERS ]
 
         private void GridLearnXtraForm_Load(object sender, EventArgs e)
