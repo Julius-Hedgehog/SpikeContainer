@@ -75,6 +75,7 @@
             // 
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
+            this.gridView2.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gridView2_ValidatingEditor);
             // 
             // gridControl3
             // 
@@ -95,6 +96,12 @@
             this.NetResultLbs});
             this.gridView3.GridControl = this.gridControl3;
             this.gridView3.Name = "gridView3";
+            this.gridView3.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView3_CustomDrawRowIndicator);
+            this.gridView3.ShownEditor += new System.EventHandler(this.gridView3_ShownEditor);
+            this.gridView3.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView3_ValidateRow);
+            this.gridView3.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView3_RowUpdated);
+            this.gridView3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView3_KeyDown);
+            this.gridView3.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gridView3_ValidatingEditor);
             // 
             // Index
             // 
@@ -142,6 +149,7 @@
             this.Controls.Add(this.gridControl1);
             this.Name = "GridLearnXtraForm";
             this.Text = "GridLearnXtraForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GridLearnXtraForm_FormClosing);
             this.Load += new System.EventHandler(this.GridLearnXtraForm_Load);
             this.Shown += new System.EventHandler(this.GridLearnXtraForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();

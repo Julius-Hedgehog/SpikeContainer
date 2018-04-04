@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Diagnostics;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,21 +22,21 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
             InitializeComponent();
         }
 
-        //MyGridWeightDataEntity _mgwdeDB = new MyGridWeightDataEntity();
-        //GridWeightDataEntity _gwdeDB = new GridWeightDataEntity();
-        //WeightEntity _weDb = new WeightEntity();
-
         List<Weights> _wEights = new List<Weights>();
         List<WeightInGrid> _wIg = new List<WeightInGrid>();
         List<GridWeightData> _gWd = new List<GridWeightData>();
 
+        #region [ FORM EVENT HANDLERS ]
+
         private void GridLearnXtraForm_Load(object sender, EventArgs e)
         {
-            
+            Trace.WriteLine($@"private void GridLearnXtraForm_Load(object sender, EventArgs e)");
         }
 
         private void GridLearnXtraForm_Shown(object sender, EventArgs e)
         {
+            Trace.WriteLine($@"private void GridLearnXtraForm_Shown(object sender, EventArgs e)");
+
             InitializeData();
 
             gridControl3.DataSource = _wEights;
@@ -48,16 +49,79 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
             //gridControl1.DataMember = "WeightInGrid";
         }
 
+
+        private void GridLearnXtraForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Trace.WriteLine($@"private void GridLearnXtraForm_FormClosing(object sender, FormClosingEventArgs e)");
+
+            int nJeffe = 0;
+            nJeffe++;
+        }
+
+        #endregion
+
+        #region [ GRID THREE (3) ]
+
+        private void gridView3_KeyDown(object sender, KeyEventArgs e)
+        {
+            Trace.WriteLine($@"private void gridView3_KeyDown(object sender, KeyEventArgs e)");
+        }
+
+        private void gridView3_ShownEditor(object sender, EventArgs e)
+        {
+            Trace.WriteLine($@"private void gridView3_ShownEditor(object sender, EventArgs e)");
+        }
+
+        private void gridView3_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        {
+            Trace.WriteLine($@"private void gridView3_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)");
+        }
+
+        private void gridView3_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            Trace.WriteLine($@"private void gridView3_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)");
+        }
+
+        private void gridView3_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
+        {
+            Trace.WriteLine($@"private void gridView3_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)");
+        }
+
+        private void gridView3_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            Trace.WriteLine($@"private void gridView3_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)");
+        }
+
+        #endregion
+
+
+
+
+        private void gridView2_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        {
+            Trace.WriteLine($@"private void gridView2_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         private void InitializeData()
         {
-            //Weights wts = new Weights(0,0,0);
-            //_mgwdeDB.Weights.Add(wts);
-
-            //GridWeightData gwd = new GridWeightData(0, 0, 0);
-            //_gwdeDB.GridWeightEntity.Add(gwd);
-
-            //WeightInGrid wig = new WeightInGrid(0, 0, 0);
-            //_weDb.WeightInGrid.Add(wig);
+            Trace.WriteLine($@"");
 
             _wEights.Add(new Weights(0, 0, 0));
 
@@ -65,5 +129,7 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
 
             _gWd.Add(new GridWeightData(0, 0, 0));
         }
+
+
     }
 }
