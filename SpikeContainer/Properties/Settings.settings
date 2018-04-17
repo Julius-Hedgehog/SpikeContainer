@@ -28,5 +28,17 @@
     <Setting Name="ScreenResolution" Type="System.String" Scope="User">
       <Value Profile="(Default)">Fine fine detail</Value>
     </Setting>
+    <Setting Name="ExcludedDirectories" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;\\laqad.Malden.com\SigConnects\Arch_Old&lt;/string&gt;
+  &lt;string&gt;\\laqad.Malden.com\SigConnects\Arch_Old1&lt;/string&gt;
+  &lt;string&gt;\\laqad.Malden.com\SigConnects\Arch_Old2&lt;/string&gt;
+  &lt;string&gt;Arch_Old&lt;/string&gt;
+  &lt;string&gt;SigConnects\Arch_Old&lt;/string&gt;
+  &lt;string&gt;\Arch_Old&lt;/string&gt;
+  &lt;string&gt;\SigConnects\Arch_Old&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

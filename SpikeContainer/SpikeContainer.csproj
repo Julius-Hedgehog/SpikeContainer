@@ -385,6 +385,33 @@
     <Compile Include="Spike 010 - Multiple On Idle Handlers\Spike_010_XtraForm.Designer.cs">
       <DependentUpon>Spike_010_XtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Spike 011 - Current Version\MyVersionEntity.cs" />
+    <Compile Include="Spike 011 - Current Version\XtraForm Spike 011 Report Current Version.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 011 - Current Version\XtraForm Spike 011 Report Current Version.Designer.cs">
+      <DependentUpon>XtraForm Spike 011 Report Current Version.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Spike 011 - Current Version\XtraFormSpike011_CurrentVerrsion Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 011 - Current Version\XtraFormSpike011_CurrentVerrsion Main.Designer.cs">
+      <DependentUpon>XtraFormSpike011_CurrentVerrsion Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Spike 012 - XML Data\FileMoverServiceDB.cs">
+      <DependentUpon>FileMoverServiceDB.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Spike 012 - XML Data\FileMoverServiceDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileMoverServiceDB.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Spike 012 - XML Data\XtraFormXML Data Creation Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 012 - XML Data\XtraFormXML Data Creation Main.Designer.cs">
+      <DependentUpon>XtraFormXML Data Creation Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="Spike Dev Express Grid\CodedEntity\WeightEntity.cs" />
     <Compile Include="Spike Dev Express Grid\Data\Class1.cs" />
     <Compile Include="Spike Dev Express Grid\Data\MyGridWeightData.cs" />
@@ -521,6 +548,15 @@
     <EmbeddedResource Include="Spike 010 - Multiple On Idle Handlers\Spike_010_XtraForm.resx">
       <DependentUpon>Spike_010_XtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Spike 011 - Current Version\XtraForm Spike 011 Report Current Version.resx">
+      <DependentUpon>XtraForm Spike 011 Report Current Version.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike 011 - Current Version\XtraFormSpike011_CurrentVerrsion Main.resx">
+      <DependentUpon>XtraFormSpike011_CurrentVerrsion Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike 012 - XML Data\XtraFormXML Data Creation Main.resx">
+      <DependentUpon>XtraFormXML Data Creation Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Spike Dev Express Grid\DEG Example 001.resx">
       <DependentUpon>DEG Example 001.cs</DependentUpon>
     </EmbeddedResource>
@@ -551,6 +587,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MyWeightModelEntity.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Spike 012 - XML Data\FileMoverServiceDB.xsc">
+      <DependentUpon>FileMoverServiceDB.xsd</DependentUpon>
+    </None>
+    <None Include="Spike 012 - XML Data\FileMoverServiceDB.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FileMoverServiceDB.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Spike 012 - XML Data\FileMoverServiceDB.xss">
+      <DependentUpon>FileMoverServiceDB.xsd</DependentUpon>
+    </None>
     <None Include="Spike Dev Express Grid\EntityData\MyWeightModelEntity.edmx.diagram">
       <DependentUpon>MyWeightModelEntity.edmx</DependentUpon>
     </None>
@@ -587,6 +634,7 @@
     <Content Include="Spike 001\InputSimulator\InputSimulator.dll" />
     <Content Include="Spike 001\InputSimulator\InputSimulator.pdb" />
     <Content Include="Spike 001\InputSimulator\InputSimulator.XML" />
+    <Content Include="Spike 008 - ConfigTesting\XMLFile1.xml" />
     <Content Include="Spike Dev Express Grid\EntityData\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

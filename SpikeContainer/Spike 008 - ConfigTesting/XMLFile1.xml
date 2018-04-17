@@ -2,6 +2,7 @@
 <configuration>
   <configSections>
     <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+    <section name="ScaryMovies" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
     <section name="applicationSettings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
     <section name="specialAppSettings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
@@ -9,6 +10,36 @@
       <section name="SpikeContainer.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
     </sectionGroup>
   </configSections>
+  <ScaryMovies>
+    <setting name="LoveStory" serializeAs="String">
+      <value>DeathBecomesHer</value>
+    </setting>
+    <setting name="Silent Scream" serializeAs="String">
+      <value>She Slashes</value>
+    </setting>
+    <setting name="Young Frankenstein" serializeAs="String">
+      <value>No Not Really</value>
+    </setting>
+    <setting name="ExcDirs" serializeAs="Xml">
+      <value>
+        <ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <string>\\laqad.Malden.com\SigConnects\Arch_Old</string>
+          <string>\\laqad.Malden.com\SigConnects\Arch_Old1</string>
+          <string>\\laqad.Malden.com\SigConnects\Arch_Old2</string>
+          <string>Arch_Old</string>
+          <string>SigConnects\Arch_Old</string>
+          <string>\Arch_Old</string>
+          <string>\SigConnects\Arch_Old</string>
+        </ArrayOfString>
+      </value>
+    </setting>
+  </ScaryMovies>
+  <configProtectedData />
+  <system.diagnostics />
+  <system.windows.forms />
+  <System.Windows.Forms.ApplicationConfigurationSection />
+  <uri />
   <startup>
     <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
   </startup>
@@ -18,7 +49,7 @@
         <value>Ominvore</value>
       </setting>
       <setting name="SpecialUser" serializeAs="String">
-        <value>Marlin Perkins</value>
+        <value>Jim Fowler</value>
       </setting>
       <setting name="SpecialDomain" serializeAs="String">
         <value>WildKindom</value>
@@ -44,6 +75,13 @@
             <string>\Arch_Old</string>
             <string>\SigConnects\Arch_Old</string>
           </ArrayOfString>
+        </value>
+      </setting>
+      <setting name="Larry" serializeAs="String">
+        <value>Moe</value>
+      </setting>
+      <setting name="" serializeAs="String">
+        <value>
         </value>
       </setting>
     </SpikeContainer.Properties.Settings>
@@ -72,6 +110,9 @@
     <add key="Author" value="Jeffrey Hyder" />
     <add key="Hodad" value="Crazy" />
     <add key="ClientSettingsProvider.ServiceUri" value="" />
+    <add key="PetShopBoys" value="Shopping or Crying Game with Boy George" />
+    <add key="TheGoGos" value="Our Lips Are Sealed" />
+    <add key="Bangles" value="Manic Monday" />
   </appSettings>
   <applicationSettings>
     <setting name="Company" serializeAs="String">
@@ -107,15 +148,116 @@
     </setting>
   </specialAppSettings>
   <system.web>
+    <anonymousIdentification />
+    <authentication />
+    <authorization />
+    <clientTarget />
+    <compilation />
+    <customErrors />
+    <deployment />
+    <deviceFilters />
+    <fullTrustAssemblies />
+    <globalization />
+    <healthMonitoring />
+    <hostingEnvironment />
+    <httpCookies />
+    <httpHandlers />
+    <httpModules />
+    <httpRuntime />
+    <identity />
+    <machineKey />
+    <mobileControls />
+    <pages />
+    <partialTrustVisibleAssemblies />
+    <processModel />
+    <profile />
+    <protocols />
+    <securityPolicy />
+    <sessionPageState />
+    <sessionState />
+    <siteMap />
+    <trace />
+    <trust level="Full" />
+    <urlMappings />
+    <webControls clientScriptsLocation="/aspnet_client/{0}/{1}/" />
+    <webParts />
+    <webServices />
+    <xhtmlConformance />
     <membership defaultProvider="ClientAuthenticationMembershipProvider">
       <providers>
-        <add name="ClientAuthenticationMembershipProvider" type="System.Web.ClientServices.Providers.ClientFormsAuthenticationMembershipProvider, System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" serviceUri="" />
+        <add serviceUri="" name="ClientAuthenticationMembershipProvider"
+          type="System.Web.ClientServices.Providers.ClientFormsAuthenticationMembershipProvider, System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
       </providers>
     </membership>
-    <roleManager defaultProvider="ClientRoleProvider" enabled="true">
+    <roleManager enabled="true" defaultProvider="ClientRoleProvider">
       <providers>
-        <add name="ClientRoleProvider" type="System.Web.ClientServices.Providers.ClientRoleProvider, System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" serviceUri="" cacheTimeout="86400" />
+        <add serviceUri="" cacheTimeout="86400" name="ClientRoleProvider"
+          type="System.Web.ClientServices.Providers.ClientRoleProvider, System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
       </providers>
     </roleManager>
+    <caching>
+      <cache />
+      <outputCache />
+      <outputCacheSettings />
+      <sqlCacheDependency />
+    </caching>
   </system.web>
+  <system.net>
+    <authenticationModules />
+    <connectionManagement />
+    <defaultProxy />
+    <requestCaching />
+    <settings />
+    <webRequestModules />
+    <mailSettings>
+      <smtp />
+    </mailSettings>
+  </system.net>
+  <system.runtime.caching>
+    <memoryCache />
+  </system.runtime.caching>
+  <system.runtime.serialization>
+    <dataContractSerializer />
+  </system.runtime.serialization>
+  <system.serviceModel>
+    <behaviors />
+    <bindings />
+    <client />
+    <comContracts />
+    <diagnostics />
+    <extensions />
+    <protocolMapping />
+    <routing />
+    <serviceHostingEnvironment />
+    <services />
+    <standardEndpoints />
+    <tracking />
+  </system.serviceModel>
+  <system.serviceModel.activation>
+    <diagnostics />
+    <net.pipe />
+    <net.tcp />
+  </system.serviceModel.activation>
+  <system.transactions>
+    <defaultSettings />
+  </system.transactions>
+  <system.web.extensions>
+    <scripting>
+      <scriptResourceHandler />
+      <webServices>
+        <authenticationService />
+        <jsonSerialization />
+        <profileService />
+        <roleService />
+      </webServices>
+    </scripting>
+  </system.web.extensions>
+  <system.xaml.hosting>
+    <httpHandlers />
+  </system.xaml.hosting>
+  <system.xml.serialization>
+    <dateTimeSerialization />
+    <schemaImporterExtensions />
+    <xmlSerializer />
+  </system.xml.serialization>
 </configuration>

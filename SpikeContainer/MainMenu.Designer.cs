@@ -54,6 +54,15 @@
             this.simpleButton15 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton16 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton17 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton20 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton21 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton22 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton23 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton24 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton25 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton26 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -125,7 +134,7 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(12, 89);
+            this.simpleButton1.Location = new System.Drawing.Point(12, 85);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(286, 23);
             this.simpleButton1.TabIndex = 2;
@@ -143,7 +152,7 @@
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(12, 118);
+            this.simpleButton2.Location = new System.Drawing.Point(12, 114);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(286, 23);
             this.simpleButton2.TabIndex = 4;
@@ -152,7 +161,7 @@
             // 
             // simpleButton3
             // 
-            this.simpleButton3.Location = new System.Drawing.Point(12, 147);
+            this.simpleButton3.Location = new System.Drawing.Point(12, 143);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(286, 23);
             this.simpleButton3.TabIndex = 5;
@@ -161,7 +170,7 @@
             // 
             // simpleButton4
             // 
-            this.simpleButton4.Location = new System.Drawing.Point(12, 176);
+            this.simpleButton4.Location = new System.Drawing.Point(12, 172);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(286, 23);
             this.simpleButton4.TabIndex = 6;
@@ -170,7 +179,7 @@
             // 
             // simpleButton5
             // 
-            this.simpleButton5.Location = new System.Drawing.Point(12, 217);
+            this.simpleButton5.Location = new System.Drawing.Point(12, 201);
             this.simpleButton5.Name = "simpleButton5";
             this.simpleButton5.Size = new System.Drawing.Size(286, 23);
             this.simpleButton5.TabIndex = 7;
@@ -179,7 +188,7 @@
             // 
             // simpleButton6
             // 
-            this.simpleButton6.Location = new System.Drawing.Point(12, 246);
+            this.simpleButton6.Location = new System.Drawing.Point(12, 230);
             this.simpleButton6.Name = "simpleButton6";
             this.simpleButton6.Size = new System.Drawing.Size(286, 23);
             this.simpleButton6.TabIndex = 8;
@@ -188,7 +197,7 @@
             // 
             // simpleButton7
             // 
-            this.simpleButton7.Location = new System.Drawing.Point(12, 275);
+            this.simpleButton7.Location = new System.Drawing.Point(12, 259);
             this.simpleButton7.Name = "simpleButton7";
             this.simpleButton7.Size = new System.Drawing.Size(286, 23);
             this.simpleButton7.TabIndex = 9;
@@ -197,7 +206,7 @@
             // 
             // simpleButton8
             // 
-            this.simpleButton8.Location = new System.Drawing.Point(12, 304);
+            this.simpleButton8.Location = new System.Drawing.Point(12, 288);
             this.simpleButton8.Name = "simpleButton8";
             this.simpleButton8.Size = new System.Drawing.Size(286, 23);
             this.simpleButton8.TabIndex = 10;
@@ -206,7 +215,7 @@
             // 
             // simpleButton9
             // 
-            this.simpleButton9.Location = new System.Drawing.Point(12, 333);
+            this.simpleButton9.Location = new System.Drawing.Point(12, 317);
             this.simpleButton9.Name = "simpleButton9";
             this.simpleButton9.Size = new System.Drawing.Size(286, 23);
             this.simpleButton9.TabIndex = 11;
@@ -219,69 +228,152 @@
             this.simpleButton10.Name = "simpleButton10";
             this.simpleButton10.Size = new System.Drawing.Size(286, 23);
             this.simpleButton10.TabIndex = 12;
-            this.simpleButton10.Text = "Opeen";
+            this.simpleButton10.Text = "Open";
             // 
             // simpleButton11
             // 
-            this.simpleButton11.Location = new System.Drawing.Point(406, 89);
+            this.simpleButton11.Location = new System.Drawing.Point(406, 56);
             this.simpleButton11.Name = "simpleButton11";
             this.simpleButton11.Size = new System.Drawing.Size(286, 23);
             this.simpleButton11.TabIndex = 13;
-            this.simpleButton11.Text = "Opeen";
+            this.simpleButton11.Text = "Open";
             // 
             // simpleButton12
             // 
-            this.simpleButton12.Location = new System.Drawing.Point(406, 147);
+            this.simpleButton12.Location = new System.Drawing.Point(406, 85);
             this.simpleButton12.Name = "simpleButton12";
             this.simpleButton12.Size = new System.Drawing.Size(286, 23);
             this.simpleButton12.TabIndex = 14;
-            this.simpleButton12.Text = "Opeen";
+            this.simpleButton12.Text = "Open";
             // 
             // simpleButton13
             // 
-            this.simpleButton13.Location = new System.Drawing.Point(406, 217);
+            this.simpleButton13.Location = new System.Drawing.Point(406, 114);
             this.simpleButton13.Name = "simpleButton13";
             this.simpleButton13.Size = new System.Drawing.Size(286, 23);
             this.simpleButton13.TabIndex = 15;
-            this.simpleButton13.Text = "Opeen";
+            this.simpleButton13.Text = "Open";
             // 
             // simpleButton14
             // 
-            this.simpleButton14.Location = new System.Drawing.Point(406, 275);
+            this.simpleButton14.Location = new System.Drawing.Point(406, 143);
             this.simpleButton14.Name = "simpleButton14";
             this.simpleButton14.Size = new System.Drawing.Size(286, 23);
             this.simpleButton14.TabIndex = 16;
-            this.simpleButton14.Text = "Opeen";
+            this.simpleButton14.Text = "Open";
             // 
             // simpleButton15
             // 
-            this.simpleButton15.Location = new System.Drawing.Point(406, 333);
+            this.simpleButton15.Location = new System.Drawing.Point(406, 172);
             this.simpleButton15.Name = "simpleButton15";
             this.simpleButton15.Size = new System.Drawing.Size(286, 23);
             this.simpleButton15.TabIndex = 17;
-            this.simpleButton15.Text = "Opeen";
+            this.simpleButton15.Text = "Open";
             // 
             // simpleButton16
             // 
-            this.simpleButton16.Location = new System.Drawing.Point(12, 388);
+            this.simpleButton16.Location = new System.Drawing.Point(12, 346);
             this.simpleButton16.Name = "simpleButton16";
             this.simpleButton16.Size = new System.Drawing.Size(286, 23);
             this.simpleButton16.TabIndex = 18;
-            this.simpleButton16.Text = "OPEN";
+            this.simpleButton16.Text = "Spike Eleven - Current Version Reporter";
+            this.simpleButton16.Click += new System.EventHandler(this.simpleButton16_Click);
             // 
             // simpleButton17
             // 
-            this.simpleButton17.Location = new System.Drawing.Point(406, 388);
+            this.simpleButton17.Location = new System.Drawing.Point(406, 201);
             this.simpleButton17.Name = "simpleButton17";
             this.simpleButton17.Size = new System.Drawing.Size(286, 23);
             this.simpleButton17.TabIndex = 19;
             this.simpleButton17.Text = "OPEN";
+            // 
+            // simpleButton18
+            // 
+            this.simpleButton18.Location = new System.Drawing.Point(406, 404);
+            this.simpleButton18.Name = "simpleButton18";
+            this.simpleButton18.Size = new System.Drawing.Size(286, 23);
+            this.simpleButton18.TabIndex = 26;
+            this.simpleButton18.Text = "OPEN";
+            // 
+            // simpleButton19
+            // 
+            this.simpleButton19.Location = new System.Drawing.Point(406, 375);
+            this.simpleButton19.Name = "simpleButton19";
+            this.simpleButton19.Size = new System.Drawing.Size(286, 23);
+            this.simpleButton19.TabIndex = 25;
+            this.simpleButton19.Text = "Open";
+            // 
+            // simpleButton20
+            // 
+            this.simpleButton20.Location = new System.Drawing.Point(406, 346);
+            this.simpleButton20.Name = "simpleButton20";
+            this.simpleButton20.Size = new System.Drawing.Size(286, 23);
+            this.simpleButton20.TabIndex = 24;
+            this.simpleButton20.Text = "Open";
+            // 
+            // simpleButton21
+            // 
+            this.simpleButton21.Location = new System.Drawing.Point(406, 317);
+            this.simpleButton21.Name = "simpleButton21";
+            this.simpleButton21.Size = new System.Drawing.Size(286, 23);
+            this.simpleButton21.TabIndex = 23;
+            this.simpleButton21.Text = "Open";
+            // 
+            // simpleButton22
+            // 
+            this.simpleButton22.Location = new System.Drawing.Point(406, 288);
+            this.simpleButton22.Name = "simpleButton22";
+            this.simpleButton22.Size = new System.Drawing.Size(286, 23);
+            this.simpleButton22.TabIndex = 22;
+            this.simpleButton22.Text = "Open";
+            // 
+            // simpleButton23
+            // 
+            this.simpleButton23.Location = new System.Drawing.Point(406, 259);
+            this.simpleButton23.Name = "simpleButton23";
+            this.simpleButton23.Size = new System.Drawing.Size(286, 23);
+            this.simpleButton23.TabIndex = 21;
+            this.simpleButton23.Text = "Open";
+            // 
+            // simpleButton24
+            // 
+            this.simpleButton24.Location = new System.Drawing.Point(406, 230);
+            this.simpleButton24.Name = "simpleButton24";
+            this.simpleButton24.Size = new System.Drawing.Size(286, 23);
+            this.simpleButton24.TabIndex = 20;
+            this.simpleButton24.Text = "Open";
+            // 
+            // simpleButton25
+            // 
+            this.simpleButton25.Location = new System.Drawing.Point(12, 413);
+            this.simpleButton25.Name = "simpleButton25";
+            this.simpleButton25.Size = new System.Drawing.Size(286, 23);
+            this.simpleButton25.TabIndex = 28;
+            this.simpleButton25.Text = "Open";
+            // 
+            // simpleButton26
+            // 
+            this.simpleButton26.Location = new System.Drawing.Point(12, 384);
+            this.simpleButton26.Name = "simpleButton26";
+            this.simpleButton26.Size = new System.Drawing.Size(286, 23);
+            this.simpleButton26.TabIndex = 27;
+            this.simpleButton26.Text = "Spike Twelve - Create XML File Based Db, DS, Tables";
+            this.simpleButton26.Click += new System.EventHandler(this.simpleButton26_Click);
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(765, 448);
+            this.Controls.Add(this.simpleButton25);
+            this.Controls.Add(this.simpleButton26);
+            this.Controls.Add(this.simpleButton18);
+            this.Controls.Add(this.simpleButton19);
+            this.Controls.Add(this.simpleButton20);
+            this.Controls.Add(this.simpleButton21);
+            this.Controls.Add(this.simpleButton22);
+            this.Controls.Add(this.simpleButton23);
+            this.Controls.Add(this.simpleButton24);
             this.Controls.Add(this.simpleButton17);
             this.Controls.Add(this.simpleButton16);
             this.Controls.Add(this.simpleButton15);
@@ -341,6 +433,15 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton15;
         private DevExpress.XtraEditors.SimpleButton simpleButton16;
         private DevExpress.XtraEditors.SimpleButton simpleButton17;
+        private DevExpress.XtraEditors.SimpleButton simpleButton18;
+        private DevExpress.XtraEditors.SimpleButton simpleButton19;
+        private DevExpress.XtraEditors.SimpleButton simpleButton20;
+        private DevExpress.XtraEditors.SimpleButton simpleButton21;
+        private DevExpress.XtraEditors.SimpleButton simpleButton22;
+        private DevExpress.XtraEditors.SimpleButton simpleButton23;
+        private DevExpress.XtraEditors.SimpleButton simpleButton24;
+        private DevExpress.XtraEditors.SimpleButton simpleButton25;
+        private DevExpress.XtraEditors.SimpleButton simpleButton26;
     }
 }
 

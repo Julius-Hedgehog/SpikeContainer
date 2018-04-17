@@ -104,5 +104,26 @@ namespace SpikeContainer.Properties {
                 this["ScreenResolution"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>\\laqad.Malden.com\SigConnects\Arch_Old</string>
+  <string>\\laqad.Malden.com\SigConnects\Arch_Old1</string>
+  <string>\\laqad.Malden.com\SigConnects\Arch_Old2</string>
+  <string>Arch_Old</string>
+  <string>SigConnects\Arch_Old</string>
+  <string>\Arch_Old</string>
+  <string>\SigConnects\Arch_Old</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection ExcludedDirectories {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["ExcludedDirectories"]));
+            }
+            set {
+                this["ExcludedDirectories"] = value;
+            }
+        }
     }
 }

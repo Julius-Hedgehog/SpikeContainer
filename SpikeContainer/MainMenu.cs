@@ -91,5 +91,17 @@ namespace SpikeContainer
             SpikeContainer.Spike_010___Multiple_On_Idle_Handlers.Spike_010_XtraForm frm = new Spike_010___Multiple_On_Idle_Handlers.Spike_010_XtraForm();
             frm.Show(this);
         }
+
+        private void simpleButton16_Click(object sender, EventArgs e)
+        {
+            SpikeContainer.Spike_011___Current_Version.XtraFormSpike011_CurrentVerrsion_Main frm = new Spike_011___Current_Version.XtraFormSpike011_CurrentVerrsion_Main();
+            frm.Show(this);
+        }
+
+        private void simpleButton26_Click(object sender, EventArgs e)
+        {
+            SpikeContainer.Spike_012___XML_Data.XtraFormXML_Data_Creation_Main frm = new Spike_012___XML_Data.XtraFormXML_Data_Creation_Main();
+            frm.Show(this);
+        }
     }
 }
