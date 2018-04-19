@@ -38,7 +38,7 @@ namespace SpikeContainer.Spike_012___XML_Data
 
             db.WriteXml($@"DBSource", XmlWriteMode.WriteSchema);
 
-            db.Movers.AddMoversRow(1, $@"\\MANUFACTURING\d$\SigConnect\Archive", $@"\\MANUFACTURING\d$\SigConnect_Archives", $@"*.sig*", 86400000);
+            db.Movers.AddMoversRow(1, $@"\\MANUFACTURING\d$\SigConnect\Archive", $@"\\MANUFACTURING\d$\SigConnect_Archives", $@"*.sig*", 86400000, 86400000);
             db.Run.AddRunRow(1,db.Movers.OrderBy(o=>o.m_Index).FirstOrDefault(),DateTime.Now,200);
             db.WriteXml($@"DataAndScheme", XmlWriteMode.WriteSchema);
         }

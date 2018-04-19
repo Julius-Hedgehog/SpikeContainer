@@ -12,18 +12,19 @@
   <xs:element name="FileMoverServiceDB" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FileMoverServiceDB" msprop:Generator_UserDSName="FileMoverServiceDB">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Movers" msprop:Generator_TableClassName="MoversDataTable" msprop:Generator_TableVarName="tableMovers" msprop:Generator_TablePropName="Movers" msprop:Generator_RowDeletingName="MoversRowDeleting" msprop:Generator_RowChangingName="MoversRowChanging" msprop:Generator_RowEvHandlerName="MoversRowChangeEventHandler" msprop:Generator_RowDeletedName="MoversRowDeleted" msprop:Generator_UserTableName="Movers" msprop:Generator_RowChangedName="MoversRowChanged" msprop:Generator_RowEvArgName="MoversRowChangeEvent" msprop:Generator_RowClassName="MoversRow">
+        <xs:element name="Movers" msprop:Generator_TableClassName="MoversDataTable" msprop:Generator_TableVarName="tableMovers" msprop:Generator_RowChangedName="MoversRowChanged" msprop:Generator_TablePropName="Movers" msprop:Generator_RowDeletingName="MoversRowDeleting" msprop:Generator_RowChangingName="MoversRowChanging" msprop:Generator_RowEvHandlerName="MoversRowChangeEventHandler" msprop:Generator_RowDeletedName="MoversRowDeleted" msprop:Generator_RowClassName="MoversRow" msprop:Generator_UserTableName="Movers" msprop:Generator_RowEvArgName="MoversRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="m_Index" msdata:Caption="Index" msprop:Generator_ColumnVarNameInTable="columnm_Index" msprop:Generator_ColumnPropNameInRow="m_Index" msprop:Generator_ColumnPropNameInTable="m_IndexColumn" msprop:Generator_UserColumnName="m_Index" type="xs:long" minOccurs="0" />
               <xs:element name="From" msprop:Generator_ColumnVarNameInTable="columnFrom" msprop:Generator_ColumnPropNameInRow="From" msprop:Generator_ColumnPropNameInTable="FromColumn" msprop:Generator_UserColumnName="From" type="xs:string" />
               <xs:element name="Archive" msprop:Generator_ColumnVarNameInTable="columnArchive" msprop:Generator_ColumnPropNameInRow="Archive" msprop:Generator_ColumnPropNameInTable="ArchiveColumn" msprop:Generator_UserColumnName="Archive" type="xs:string" />
               <xs:element name="FileFilter" msprop:Generator_ColumnVarNameInTable="columnFileFilter" msprop:Generator_ColumnPropNameInRow="FileFilter" msprop:Generator_ColumnPropNameInTable="FileFilterColumn" msprop:Generator_UserColumnName="FileFilter" type="xs:string" minOccurs="0" />
-              <xs:element name="CheckPeriod" msprop:Generator_ColumnVarNameInTable="columnCheckPeriod" msprop:Generator_ColumnPropNameInRow="CheckPeriod" msprop:Generator_ColumnPropNameInTable="CheckPeriodColumn" msprop:Generator_UserColumnName="CheckPeriod" type="xs:long" />
+              <xs:element name="CheckPeriod" msprop:Generator_ColumnVarNameInTable="columnCheckPeriod" msprop:Generator_ColumnPropNameInRow="CheckPeriod" msprop:Generator_ColumnPropNameInTable="CheckPeriodColumn" msprop:Generator_UserColumnName="CheckPeriod" type="xs:double" />
+              <xs:element name="ArchivePeriod" msprop:Generator_ColumnVarNameInTable="columnArchivePeriod" msprop:Generator_ColumnPropNameInRow="ArchivePeriod" msprop:Generator_ColumnPropNameInTable="ArchivePeriodColumn" msprop:Generator_UserColumnName="ArchivePeriod" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Run" msprop:Generator_TableClassName="RunDataTable" msprop:Generator_TableVarName="tableRun" msprop:Generator_TablePropName="Run" msprop:Generator_RowDeletingName="RunRowDeleting" msprop:Generator_RowChangingName="RunRowChanging" msprop:Generator_RowEvHandlerName="RunRowChangeEventHandler" msprop:Generator_RowDeletedName="RunRowDeleted" msprop:Generator_UserTableName="Run" msprop:Generator_RowChangedName="RunRowChanged" msprop:Generator_RowEvArgName="RunRowChangeEvent" msprop:Generator_RowClassName="RunRow">
+        <xs:element name="Run" msprop:Generator_TableClassName="RunDataTable" msprop:Generator_TableVarName="tableRun" msprop:Generator_RowChangedName="RunRowChanged" msprop:Generator_TablePropName="Run" msprop:Generator_RowDeletingName="RunRowDeleting" msprop:Generator_RowChangingName="RunRowChanging" msprop:Generator_RowEvHandlerName="RunRowChangeEventHandler" msprop:Generator_RowDeletedName="RunRowDeleted" msprop:Generator_RowClassName="RunRow" msprop:Generator_UserTableName="Run" msprop:Generator_RowEvArgName="RunRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="r_Index" msprop:Generator_ColumnVarNameInTable="columnr_Index" msprop:Generator_ColumnPropNameInRow="r_Index" msprop:Generator_ColumnPropNameInTable="r_IndexColumn" msprop:Generator_UserColumnName="r_Index" type="xs:long" />
@@ -46,7 +47,7 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Movers_Run" msdata:parent="Movers" msdata:child="Run" msdata:parentkey="m_Index" msdata:childkey="m_Index" msprop:Generator_UserChildTable="Run" msprop:Generator_ChildPropName="GetRunRows" msprop:Generator_UserRelationName="Movers_Run" msprop:Generator_ParentPropName="MoversRow" msprop:Generator_RelationVarName="relationMovers_Run" msprop:Generator_UserParentTable="Movers" />
+      <msdata:Relationship name="Movers_Run" msdata:parent="Movers" msdata:child="Run" msdata:parentkey="m_Index" msdata:childkey="m_Index" msprop:Generator_UserChildTable="Run" msprop:Generator_ChildPropName="GetRunRows" msprop:Generator_UserRelationName="Movers_Run" msprop:Generator_RelationVarName="relationMovers_Run" msprop:Generator_UserParentTable="Movers" msprop:Generator_ParentPropName="MoversRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

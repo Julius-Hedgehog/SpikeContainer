@@ -331,6 +331,8 @@ namespace SpikeContainer.Spike_012___XML_Data {
             
             private global::System.Data.DataColumn columnCheckPeriod;
             
+            private global::System.Data.DataColumn columnArchivePeriod;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public MoversDataTable() {
@@ -406,6 +408,14 @@ namespace SpikeContainer.Spike_012___XML_Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ArchivePeriodColumn {
+                get {
+                    return this.columnArchivePeriod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -441,14 +451,15 @@ namespace SpikeContainer.Spike_012___XML_Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MoversRow AddMoversRow(long m_Index, string From, string Archive, string FileFilter, long CheckPeriod) {
+            public MoversRow AddMoversRow(long m_Index, string From, string Archive, string FileFilter, double CheckPeriod, double ArchivePeriod) {
                 MoversRow rowMoversRow = ((MoversRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         m_Index,
                         From,
                         Archive,
                         FileFilter,
-                        CheckPeriod};
+                        CheckPeriod,
+                        ArchivePeriod};
                 rowMoversRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMoversRow);
                 return rowMoversRow;
@@ -476,6 +487,7 @@ namespace SpikeContainer.Spike_012___XML_Data {
                 this.columnArchive = base.Columns["Archive"];
                 this.columnFileFilter = base.Columns["FileFilter"];
                 this.columnCheckPeriod = base.Columns["CheckPeriod"];
+                this.columnArchivePeriod = base.Columns["ArchivePeriod"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -489,8 +501,10 @@ namespace SpikeContainer.Spike_012___XML_Data {
                 base.Columns.Add(this.columnArchive);
                 this.columnFileFilter = new global::System.Data.DataColumn("FileFilter", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFileFilter);
-                this.columnCheckPeriod = new global::System.Data.DataColumn("CheckPeriod", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnCheckPeriod = new global::System.Data.DataColumn("CheckPeriod", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCheckPeriod);
+                this.columnArchivePeriod = new global::System.Data.DataColumn("ArchivePeriod", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnArchivePeriod);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("MoversKey11", new global::System.Data.DataColumn[] {
                                 this.columnm_Index}, false));
                 this.columnm_Index.Unique = true;
@@ -997,12 +1011,28 @@ namespace SpikeContainer.Spike_012___XML_Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long CheckPeriod {
+            public double CheckPeriod {
                 get {
-                    return ((long)(this[this.tableMovers.CheckPeriodColumn]));
+                    return ((double)(this[this.tableMovers.CheckPeriodColumn]));
                 }
                 set {
                     this[this.tableMovers.CheckPeriodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public double ArchivePeriod {
+                get {
+                    try {
+                        return ((double)(this[this.tableMovers.ArchivePeriodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ArchivePeriod\' in table \'Movers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMovers.ArchivePeriodColumn] = value;
                 }
             }
             
@@ -1028,6 +1058,18 @@ namespace SpikeContainer.Spike_012___XML_Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetFileFilterNull() {
                 this[this.tableMovers.FileFilterColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsArchivePeriodNull() {
+                return this.IsNull(this.tableMovers.ArchivePeriodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetArchivePeriodNull() {
+                this[this.tableMovers.ArchivePeriodColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
