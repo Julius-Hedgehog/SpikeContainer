@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.DirectoryServices.AccountManagement;
 using System.IO;
+using System.Threading;
 using PFCS.General;
 using ObjectQuery = System.Management.ObjectQuery;
 
@@ -187,6 +188,36 @@ namespace PFCS.Classes
                          select mo["Name"] as string).FirstOrDefault();
                 }
             }
+
+            internal static void SavePfcsVersion()
+            {
+                try
+                {
+                    using (var db = new MesDbEntities(true))
+                    {
+                        db.LocalVariables.Where(r => r.Machine == Global.MachineName).Load();
+
+                        if (db.LocalVariables.Local.All(r => r.Machine == Global.MachineName))
+                        {
+                            var app = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+                            var appPath = AppDomain.CurrentDomain.BaseDirectory;
+                            var currentVersionInfo =
+                                FileVersionInfo.GetVersionInfo($@"{appPath}\{app}.exe");
+                            var version = new Version(currentVersionInfo.ProductVersion);
+
+                            var t = db.LocalVariables.Local.FirstOrDefault();
+                            // TODO : UNDO Comments when PfcsVersion Field/Column added to TestMesDb/MesDb Entity 
+                            //t.PfcsVersion = version.ToString();
+                            //db.SaveChanges();
+                        }
+                    }
+                }
+                catch
+                    (Exception ex)
+                {
+                    Msg.ProgError(ex.Message, ex.InnerException);
+                }
+            }
         }
 
         internal class General
@@ -316,11 +347,68 @@ namespace PFCS.Classes
                 }
             }
 
-            internal static bool PostLabor(int wo, int op, string mach)
+            //db.sp_PostMesOp(WorkOrderValue, OpStepNo,(Mach!=null && Mach!=string.Empty ? Mach : null), user,(isOverRide ? overRideUser : null /* ?? OR "" ??*/), dtChangedDate);
+            internal static bool PostMesOp(int wo, int opNmbr, string user, bool isOverRide = false, string overRideUser = "")
+            {
+                bool bReturnvalue = true;
+
+                if (isOverRide && string.IsNullOrEmpty(overRideUser)) return false; // REJECT IF NO overRideUser if isOverRide
+
+                using (var db = new MesDbEntities(true)) // You got to be connected
+                {
+                    try
+                    {
+                        var dtChangeDate = DateTime.Now;
+
+                        db.Packages.Where(p => p.Status == "WIP" && p.WorkOrder == wo).Load();
+                        var listSerialNos1 = db.Packages.Local.Where(p => p.Status == "WIP" && p.WorkOrder == wo).Select(s => s.SerialNo).ToList();
+                        var dbPkgs = db.Packages.Local.Where(p => p.Status == "WIP" && p.WorkOrder == wo).ToList();
+                        Thread.Sleep(1500);
+                        var rOuteStep = db.fn_GetRouter(wo).FirstOrDefault(s => s.OpStepNo == opNmbr);
+
+                        var strWhereClause = $@"SerialNo IN ({ListString(listSerialNos1)})";
+
+                        foreach (var p in dbPkgs)
+                        {
+                            p.LstOpStep = opNmbr;
+                            p.LstOp = rOuteStep?.Op;
+                            p.LstMach = rOuteStep?.Mach;
+                            p.Location = "";
+                            p.ChangedBy = user;
+                            p.ChangedDate = dtChangeDate;
+                            p.HoldPiece = null;
+                            p.HoldFor = null;
+                        }
+                        db.SaveChanges();
+                        Thread.Sleep(1500);
+                        db.sp_InsertPkgHist(strWhereClause, rOuteStep?.Descr, dtChangeDate, (isOverRide ? overRideUser : null));
+                    }
+                    catch (Exception xcpt)
+                    {
+                        Email.SendOperationStatusEmail($@"PostMesOp failure for {wo}, ({opNmbr})",
+                            $@"internal static bool PostMesOp(int wo = {wo}, int opNumr = {opNmbr}, string user = {user}, bool isOverRide = {isOverRide}, string overRideUser = {overRideUser})" +
+                            $@"Exception in PostMesOp 'Save'... PostMesOp failure for {wo}, ({opNmbr}). - Message = {xcpt.Message} {Environment.NewLine}" +
+                            $@"Source = {xcpt.Source} {Environment.NewLine} Stack Trace = {xcpt.StackTrace} {Environment.NewLine} Data = {xcpt.Data}" +
+                            $@" {(xcpt.InnerException != null ? xcpt.InnerException.Message : "")} {Environment.NewLine} " +
+                            $@"Source = {(xcpt.InnerException != null ? xcpt.InnerException.Source : "")} {Environment.NewLine} " +
+                            $@"Stack Trace = {(xcpt.InnerException != null ? xcpt.InnerException.StackTrace : "")}");
+
+                        Msg.ProgError($@"Exception in PostMesOp ... Message = {xcpt.Message} {Environment.NewLine}" +
+                            $@"Source = {xcpt.Source} {Environment.NewLine} Stack Trace = {xcpt.StackTrace} {Environment.NewLine} Data = {xcpt.Data}",
+                            xcpt.InnerException);
+
+                        bReturnvalue = false;
+                    }
+                }
+                return bReturnvalue;
+            }
+
+        internal static bool PostLabor(int wo, int op, string mach)
             {
                 try
                 {
                     var path = $@"{Global.BasePath}\Temp\";
+                    path = path.Replace($@"\\", $@"\");
                     if (!Directory.Exists(path))
                     {
                         Directory.CreateDirectory(path);
@@ -341,14 +429,10 @@ namespace PFCS.Classes
                             using (var swFile = new StreamWriter(swfile))
                             {
                                 swFile.WriteLine($"{wo},{op},{mach},{yds},{dt},{runtime},");
+                                Trace.WriteLine($"{wo},{op},{mach},{yds},{dt},{runtime},");
                             }
                         }
-#if GOTEST //TODO: UNCOMMENT FOR ACTUAL OPERATION DEBUG OR RELEASE - jpHyder
-                        Trace.WriteLine($@"PostLabor({wo},{op},{mach})r -- MoveSigConnectFile(filePath-{filePath}, filename-{filename}); //TODO: UNCOMMENT FOR ACTUAL OPERATION DEBUG OR RELEASE - jpHyder");
-                        return true;
-#else
                         return MoveSigConnectFile(filePath, filename);
-#endif
                     }
                 }
                 catch (Exception e)
@@ -376,7 +460,7 @@ namespace PFCS.Classes
                     {
                         using (var swFile = new StreamWriter(swfile))
                         {
-                            swFile.WriteLine($"{wo},{op},{dt},{item},{op},{qty},");
+                            swFile.WriteLine($"{wo},,{op},{dt},,{item},{op},{qty},");
                         }
                     }
 #if GOTEST //TODO: UNCOMMENT FOR ACTUAL OPERATION DEBUG OR RELEASE - jpHyder
@@ -393,6 +477,63 @@ namespace PFCS.Classes
                 }
             }
 
+            internal static bool PostUnPlanIssRoll(string item, string serialno, string wo, string qty, DateTime dt, string rmks = "")
+            {
+                try
+                {
+                    var path = $@"{Global.BasePath}\Temp\";
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    var filename = $@"ui{DateTime.Now.ToFileTime()}.sig";
+                    var filePath = path + filename;
+                    var date = dt.ToString("MM/dd/yy");
+                    using (var swfile = new FileStream(filePath, FileMode.OpenOrCreate))
+                    {
+                        using (var swFile = new StreamWriter(swfile))
+                        {
+                            swFile.WriteLine(
+                                $@"{item},{qty},{DefaultLocation(item)},{serialno},{wo},{rmks},{date}");
+                        }
+                    }
+                    return MoveSigConnectFile(filePath, filename);
+                }
+                catch (Exception e)
+                {
+                    Msg.ProgError(e.Message, e.InnerException);
+                    return false;
+                }
+            }
+
+            internal static bool PostUnPlanRcptRoll(string item, string serialno, string wo, string qty, DateTime dt)
+            {
+                try
+                {
+                    var path = $@"{Global.BasePath}\Temp\";
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    var filename = $@"ur{DateTime.Now.ToFileTime()}.sig";
+                    var filePath = path + filename;
+                    var date = dt.ToString("MM/dd/yy");
+                    using (var swfile = new FileStream(filePath, FileMode.OpenOrCreate))
+                    {
+                        using (var swFile = new StreamWriter(swfile))
+                        {
+                            swFile.WriteLine(
+                                $@"{item},{qty},{DefaultLocation(item)},{serialno},{wo},{date}");
+                        }
+                    }
+                    return MoveSigConnectFile(filePath, filename);
+                }
+                catch (Exception e)
+                {
+                    Msg.ProgError(e.Message, e.InnerException);
+                    return false;
+                }
+            }
 
             internal static bool MoveSigConnectFile(string filepath, string filename)
             {
@@ -419,6 +560,45 @@ namespace PFCS.Classes
 
                     File.Move(filepath, targetFile);
                     return true;
+                }
+                catch (Exception e)
+                {
+                    Msg.ProgError(e.Message, e.InnerException);
+                    return false;
+                }
+            }
+
+            internal static string DefaultLocation(string item)
+            {
+                using (var db = new MesDbEntities(true))
+                {
+                    return db.Database.SqlQuery<string>($"SELECT dbo.fn_DefaultLocation('{item}')").Single();
+                }
+            }
+
+            internal static bool ReleaseWorkOrder(IEnumerable<int> woList)
+            {
+                try
+                {
+                    var path = $@"{Global.BasePath}\Temp\";
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    var filename = $@"wr{DateTime.Now.ToFileTime()}.sig";
+                    var filePath = path + filename;
+
+                    using (var swfile = new FileStream(filePath, FileMode.OpenOrCreate))
+                    {
+                        using (var swFile = new StreamWriter(swfile))
+                        {
+                            foreach (var wo in woList)
+                            {
+                                swFile.WriteLine($"{wo},");
+                            }
+                        }
+                    }
+                    return MoveSigConnectFile(filePath, filename);
                 }
                 catch (Exception e)
                 {
@@ -505,7 +685,16 @@ namespace PFCS.Classes
                             r.WorkOrders.WorkOrder == workOrder && r.QualCode == "F" && r.Status == "QCH").ToList();
                         foreach (var p in pkgs)
                         {
-                            p.Status = "FRG";
+                            if (p.MasterItem.StartsWith("B") || p.MasterItem.StartsWith("RB"))
+                            {
+                                p.Status = "AVL";
+                                p.LstWorkOrder = p.WorkOrder;
+                                p.WorkOrder = null;
+                            }
+                            else
+                            {
+                                p.Status = "FRG";
+                            }
                             p.ChangedBy = user;
                             p.ChangedDate = dt;
                         }

@@ -140,59 +140,65 @@ namespace SpikeContainer.Spike_008___ConfigTesting
         // Static Properties
         // Static Methods
 
-
         /*
          <?xml version="1.0" encoding="utf-8"?>
             <configuration>
                 <configSections>
+
+                    <!-- ** SEE CREF =  -->
                     <section name="{name of section}" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+
+                    <!-- ** SEE CREF = region [ CUSTOM CONFIGURATION GROUP with SECTION  ] ** -->
                     <sectionGroup name="{name of group}" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
                       <section name="{name of section in group}" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
                     </sectionGroup>
+
+                    <!-- ** SEE CREF = region [ USER SETTINGS SECTION ] ** -->
+                    <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+                      <section name="{{project Namespace Name}.Properties.Settings}" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+                    </sectionGroup>
+
                 </configSections>
+
                 <startup>
                     <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
                 </startup>
-                <userSettings{name of group}>
-                    <{{name of group}.Properties.Settings}>
+
+                <userSettings>
+                <!-- ** SEE CREF = region [ USER SETTINGS SECTION ] ** -->
+                    <{{project Namespace Name}.Properties.Settings}>
                         <setting name="{name of section in group}" serializeAs="String">
                                 <value>{settingValue}</value>
                         </setting>
-                    </{{name of group}.Properties.Settings}>
-                </userSettings{name of group}>
+                    </{{project Namespace Name}.Properties.Settings}>
+                </userSettings>
+
                 <connectionStrings> 
+                    <!-- ** SEE CREF = region [ CONNECTIONS STRING SECTION ] ** -->
                     <add name="{Connection string name}" connectionString="{connection string}" providerName="System.Data.SqlClient" />
                 </connectionStrings>
+
                 <appSettings>
+                    <!-- ** SEE CREF = region [ APPLICATION SECTION ] ** -->
                     <add key="keyname" value="keyValue" />
                 </appSettings>
-                <applicationSettings>
-                    <setting name="settingName" serializeAs="String">
-                        <value>settingValue</value>
-                    </setting>
-                </applicationSettings>
+
+                <{name of group}>
+                <!-- ** SEE CREF = region [ CUSTOM CONFIGURATION GROUP with SECTION  ] ** -->
                 <{name of section}>
-                    <setting name="Frankeinstein" serializeAs="String">
-                        <value>The Monster is ALIVE!</value>
+                    <setting name="{settingName}" serializeAs="String">
+                        <value>{settingValue}</value>
                     </setting>
-                </{{name of group}.Properties.Settings}>
-            </userSettings{name of group}>
-            <connectionStrings> 
-                <add name="{Connection string name}" connectionString="{connection string}" providerName="System.Data.SqlClient" />
-            </connectionStrings>
-            <appSettings>
-                <add key="keyname" value="keyValue" />
-            </appSettings>
-            <applicationSettings>
-                <setting name="settingName" serializeAs="String">
-                    <value>settingValue</value>
-                </setting>
-            </applicationSettings>
-            <{name of section}>
-                <setting name="Frankeinstein" serializeAs="String">
-                    <value>The Monster is ALIVE!</value>
-                </setting>
-            </specialAppSettings>
+                </{name of section}>
+                </{name of group}>
+
+                <{name of section}>
+                <!-- ** SEE CREF = region [ CUSTOM CONFIG SECTION (no group) ] ** -->
+                    <setting name="{settingName}" serializeAs="String">
+                        <value>{settingValue}</value>
+                    </setting>
+                </{name of section}>
+
         </configuration>
         */
 
@@ -200,15 +206,28 @@ namespace SpikeContainer.Spike_008___ConfigTesting
 
         // SEE ABOVE REFERENCE **
         /*
-        <connectionStrings> 
-            <add name="{Connection string name}" connectionString="{connection string}" providerName="System.Data.SqlClient" />
-        </connectionStrings>
+         <?xml version="1.0" encoding="utf-8"?>
+            <configuration>
+                <configSections>
+                ...
+                </configSections>
+            
+            ...
+
+                <connectionStrings> 
+                    <add name="{Connection string name}" connectionString="{connection string}" providerName="System.Data.SqlClient" />
+                </connectionStrings>
+
+            ...
+
+         </configuration>
          */
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="settingName"></param>
+        /// <param name="provider"></param>
         /// <returns></returns>
         public static string ReturnConfigSettingsConnectionString(string settingName, string provider = null)
         {
@@ -241,6 +260,13 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             return configConnString;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="settingName"></param>
+        /// <param name="connection"></param>
+        /// <param name="provider"></param>
+        /// <returns></returns>
         public static bool AddConfigSettingsConnectionString(string settingName, string connection, string provider)
         {
             bool bMethodReturnValue = false;
@@ -287,10 +313,23 @@ namespace SpikeContainer.Spike_008___ConfigTesting
 
         // SEE ABOVE REFERENCE **
         /*
+         <?xml version="1.0" encoding="utf-8"?>
+            <configuration>
+                <configSections>
+                ...
+                </configSections>
+            
+            ...
+
             <appSettings>
-                <add key = "keyname" value="keyValue" />
+                <add key = "{keyname}" value="{keyValue}" />
             </appSettings>
-        */
+
+            ...
+
+         </configuration>
+         */
+
 
         /// <summary>
         /// 
@@ -422,28 +461,48 @@ namespace SpikeContainer.Spike_008___ConfigTesting
 
         #endregion
 
-
         #region [ USER SETTINGS SECTION ]
 
         // SEE ABOVE REFERENCE **
-        /* 
-            <configSections>
+        /*
+          <?XML version ="1.0' encoding="utf-8">
+          <configuration>
+          <configSections>
                 ...
+                <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+                    <section name="{project Namespace name}.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+                </sectionGroup>
+
                 <sectionGroup name="{name of group}" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
                     <section name="{name of section in group}" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
                 </sectionGroup>
                 ...
             </configSections>
-
-            <userSettings{name of group}>
-                <{{name of group}.Properties.Settings}>
-                    <setting name="{name of section in group}" serializeAs="String">
+              ...
+          <userSettings>
+                <{project Namespace name}.Properties.Settings>
+                    <setting name="{settingName}" serializeAs="String">
                             <value>{settingValue}</value>
                     </setting>
-                </{{name of group}.Properties.Settings}>
-            </userSettings{name of group}>
+                </{project Namespace name}.Properties.Settings>
+            </userSettings>
+            ...
+          <{name of group}>
+                <{name of section in group}>
+                    <setting name="{settingName}" serializeAs="String">
+                            <value>{settingValue}</value>
+                    </setting>
+                </{name of section in group}>
+            </{name of group}>
+            ...
+            </configuration>
         */
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyName"></param>
+        /// <returns></returns>
         public static string ReturnConfigSettingsUsersSettingKeyData(string keyName)
         {
             string appSettingsString = "";
@@ -485,6 +544,128 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             }
             return appSettingsString;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyName"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool AddConfigSettingsUsersSetting(string keyName, string value)
+        {
+            bool bMethodReturnValue = false;
+            try
+            {
+                ConfigurationManager.RefreshSection("userSettings");
+                Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                ConfigurationSectionGroup csg = configFile.GetSectionGroup("userSettings");
+                ClientSettingsSection confSect = (ClientSettingsSection)csg.Sections.Get("SpikeContainer.Properties.Settings");
+
+                bool bHasKey = false;
+                foreach (SettingElement sea in confSect.Settings)
+                {
+                    if (sea.Name.Contains(keyName))
+                    {
+                        bHasKey = true;
+                    }
+                }
+
+                if (!bHasKey)
+                {
+                    SettingElement se = new SettingElement(keyName, SettingsSerializeAs.String);
+                    SettingValueElement sve = new SettingValueElement
+                    {
+                        ValueXml = new System.Xml.XmlDocument { InnerXml = $@"<value>{value}</value>" }
+                    };
+                    se.Value = sve;
+                    confSect.Settings.Add(se);
+                    configFile.Save(ConfigurationSaveMode.Modified, true);
+                    bMethodReturnValue = true;
+                    ConfigurationManager.RefreshSection(confSect.SectionInformation.Name);
+                }
+
+            }
+            catch (Exception excpt)
+            {
+                Trace.WriteLine($@"{excpt.Message} {excpt.Source} {excpt.StackTrace}");
+            }
+            return bMethodReturnValue;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyName"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool UpdateConfigSettingsUsersSetting(string keyName, string value)
+        {
+            bool bMethodReturnValue = false;
+            try
+            {
+                ConfigurationManager.RefreshSection("userSettings");
+                Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                ConfigurationSectionGroup csg = configFile.GetSectionGroup("userSettings");
+                ClientSettingsSection confSect = (ClientSettingsSection)csg.Sections.Get("SpikeContainer.Properties.Settings");
+
+                bool bHasKey = false;
+                foreach (SettingElement sea in confSect.Settings)
+                    if (sea.Name.Contains(keyName))
+                    {
+                        bHasKey = true;
+                        break;
+                    }
+
+                if (bHasKey)
+                {
+                    SettingElement se = new SettingElement(keyName, SettingsSerializeAs.String);
+                    SettingValueElement sve = new SettingValueElement
+                    {
+                        ValueXml = new System.Xml.XmlDocument { InnerXml = $@"<value>{value}</value>" }
+                    };
+                    se.Value = sve;
+                    confSect.Settings.Add(se);
+                    configFile.Save(ConfigurationSaveMode.Modified, true);
+                    bMethodReturnValue = true;
+                    ConfigurationManager.RefreshSection(confSect.SectionInformation.Name);
+                }
+
+            }
+            catch (Exception excpt)
+            {
+                Trace.WriteLine($@"{excpt.Message} {excpt.Source} {excpt.StackTrace}");
+            }
+            return bMethodReturnValue;
+        }
+
+        
+
+        #endregion
+
+        #region [ CUSTOM CONFIGURATION GROUP with SECTION  ]
+
+        // SEE ABOVE REFERENCE **
+        /*
+          <?XML version ="1.0' encoding="utf-8">
+          <configuration>
+          <configSections>
+                ...
+                <sectionGroup name="{name of group}" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+                    <section name="{name of section in group}" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+                </sectionGroup>
+                ...
+            </configSections>
+            ...
+          <{name of group}>
+                <{name of section in group}>
+                    <setting name="{settingName}" serializeAs="String">
+                            <value>{settingValue}</value>
+                    </setting>
+                </{name of section in group}>
+            </{name of group}>
+            ...
+            </configuration>
+        */
 
         /// <summary>
         /// 
@@ -535,48 +716,14 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             return appSettingsString;
         }
 
-        public static bool AddConfigSettingsUsersSetting(string keyName, string value)
-        {
-            bool bMethodReturnValue = false;
-            try
-            {
-                ConfigurationManager.RefreshSection("userSettings");
-                Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                ConfigurationSectionGroup csg = configFile.GetSectionGroup("userSettings");
-                ClientSettingsSection confSect = (ClientSettingsSection)csg.Sections.Get("SpikeContainer.Properties.Settings");
-
-                bool bHasKey = false;
-                foreach (SettingElement sea in confSect.Settings)
-                {
-                    if (sea.Name.Contains(keyName))
-                    {
-                        bHasKey = true;
-                    }
-                }
-
-                if (!bHasKey)
-                {
-                    SettingElement se = new SettingElement(keyName, SettingsSerializeAs.String);
-                    SettingValueElement sve = new SettingValueElement
-                    {
-                        ValueXml = new System.Xml.XmlDocument { InnerXml = $@"<value>{value}</value>" }
-                    };
-                    se.Value = sve;
-                    confSect.Settings.Add(se);
-                    configFile.Save(ConfigurationSaveMode.Modified, true);
-                    bMethodReturnValue = true;
-                    ConfigurationManager.RefreshSection(confSect.SectionInformation.Name);
-                }
-
-            }
-            catch (Exception excpt)
-            {
-                Trace.WriteLine($@"{excpt.Message} {excpt.Source} {excpt.StackTrace}");
-            }
-            return bMethodReturnValue;
-        }
-
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="configGroupName"></param>
+        /// <param name="sectionName"></param>
+        /// <param name="keyName"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool AddConfigGroupSectionKeyValue(string configGroupName, string sectionName, string keyName, string value)
         {
             bool bMethodReturnValue = false;
@@ -618,46 +765,14 @@ namespace SpikeContainer.Spike_008___ConfigTesting
             return bMethodReturnValue;
         }
 
-        public static bool UpdateConfigSettingsUsersSetting(string keyName, string value)
-        {
-            bool bMethodReturnValue = false;
-            try
-            {
-                ConfigurationManager.RefreshSection("userSettings");
-                Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                ConfigurationSectionGroup csg = configFile.GetSectionGroup("userSettings");
-                ClientSettingsSection confSect = (ClientSettingsSection)csg.Sections.Get("SpikeContainer.Properties.Settings");
-
-                bool bHasKey = false;
-                foreach (SettingElement sea in confSect.Settings)
-                    if (sea.Name.Contains(keyName))
-                    {
-                        bHasKey = true;
-                        break;
-                    }
-
-                if (bHasKey)
-                {
-                    SettingElement se = new SettingElement(keyName, SettingsSerializeAs.String);
-                    SettingValueElement sve = new SettingValueElement
-                    {
-                        ValueXml = new System.Xml.XmlDocument { InnerXml = $@"<value>{value}</value>" }
-                    };
-                    se.Value = sve;
-                    confSect.Settings.Add(se);
-                    configFile.Save(ConfigurationSaveMode.Modified, true);
-                    bMethodReturnValue = true;
-                    ConfigurationManager.RefreshSection(confSect.SectionInformation.Name);
-                }
-
-            }
-            catch (Exception excpt)
-            {
-                Trace.WriteLine($@"{excpt.Message} {excpt.Source} {excpt.StackTrace}");
-            }
-            return bMethodReturnValue;
-        }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="configGroupName"></param>
+        /// <param name="sectionName"></param>
+        /// <param name="keyName"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool UpdateConfigGroupSectionKeyValue(string configGroupName, string sectionName, string keyName, string value)
         {
             bool bMethodReturnValue = false;
@@ -700,10 +815,12 @@ namespace SpikeContainer.Spike_008___ConfigTesting
 
         #endregion
 
-        #region [ CUSTOM SECTION ]
+        #region [ CUSTOM CONFIG SECTION (no group) ]
 
         // SEE ABOVE REFERENCE **
         /*
+          <?XML version ="1.0' encoding="utf-8">
+          <configuration>
           <configSections>
             ...
             <section name="{name of section}" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
@@ -712,13 +829,17 @@ namespace SpikeContainer.Spike_008___ConfigTesting
           <applicationSettings>
             <setting name="settingName" serializeAs="String">
                 <value>settingValue</value>
-            </setting>
-          </applicationSettings>
-          <{name of section}>
             <setting name="Frankeinstein" serializeAs="String">
                 <value>The Monster is ALIVE!</value>
             </setting>
-          </specialAppSettings>
+            </setting>
+          </applicationSettings>
+          <{name of section}>
+            <setting name="{setting name}" serializeAs="String">
+                <value>{setting value}</value>
+            </setting>
+            </{name of section}>
+          </{name of section}>
         */
 
         public static string ReturnCustomSectionConfigSettingsSettingKeyValue(string sectionName, string keyName)
