@@ -180,8 +180,25 @@ namespace PFCS.Classes
                     <setting name="Frankeinstein" serializeAs="String">
                         <value>The Monster is ALIVE!</value>
                     </setting>
-                </specialAppSettings>
-            </configuration>
+                </{{name of group}.Properties.Settings}>
+            </userSettings{name of group}>
+            <connectionStrings> 
+                <add name="{Connection string name}" connectionString="{connection string}" providerName="System.Data.SqlClient" />
+            </connectionStrings>
+            <appSettings>
+                <add key="keyname" value="keyValue" />
+            </appSettings>
+            <applicationSettings>
+                <setting name="settingName" serializeAs="String">
+                    <value>settingValue</value>
+                </setting>
+            </applicationSettings>
+            <{name of section}>
+                <setting name="Frankeinstein" serializeAs="String">
+                    <value>The Monster is ALIVE!</value>
+                </setting>
+            </specialAppSettings>
+        </configuration>
         */
 
         #region [ CONNECTIONS STRING SECTION ]
@@ -193,6 +210,11 @@ namespace PFCS.Classes
         </connectionStrings>
          */
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="settingName"></param>
+        /// <returns></returns>
         public static string ReturnConfigSettingsConnectionString(string settingName, string provider = null)
         {
             string configConnString = "";
@@ -276,6 +298,11 @@ namespace PFCS.Classes
             </appSettings>
         */
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyName"></param>
+        /// <returns></returns>
         public static string ReturnConfigSettingsAppSettingKeyValue(string keyName)
         {
             string appSettingsString = "";
@@ -309,6 +336,12 @@ namespace PFCS.Classes
             return appSettingsString;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyName"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool AddConfigSettingsAppSetting(string keyName, string value)
         {
             bool bMethodReturnValue = false;
@@ -349,6 +382,12 @@ namespace PFCS.Classes
             return bMethodReturnValue;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyName"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool UpdateConfigSettingsAppSetting(string keyName, string value)
         {
             bool bMethodReturnValue = false;
@@ -702,7 +741,7 @@ namespace PFCS.Classes
 
                 var v = appSettings.Get(keyName);
 
-                appSettingsString =Convert.ToString(v.Value.ValueXml.InnerText);
+                appSettingsString = Convert.ToString(v.Value.ValueXml.InnerText);
             }
             catch (Exception excpt)
             {
