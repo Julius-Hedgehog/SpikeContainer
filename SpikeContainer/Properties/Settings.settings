@@ -40,5 +40,8 @@
   &lt;string&gt;\SigConnects\Arch_Old&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="LastServiceRunTime" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2018-04-09</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -103,5 +103,11 @@ namespace SpikeContainer
             SpikeContainer.Spike_012___XML_Data.XtraFormXML_Data_Creation_Main frm = new Spike_012___XML_Data.XtraFormXML_Data_Creation_Main();
             frm.Show(this);
         }
+
+        private void simpleButton25_Click(object sender, EventArgs e)
+        {
+            SpikeContainer.Spike_013___PTM_Error_Log___Further_Dev.Spike013XtraForm frm = new Spike_013___PTM_Error_Log___Further_Dev.Spike013XtraForm();
+            frm.Show(this);
+        }
     }
 }

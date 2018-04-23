@@ -125,5 +125,17 @@ namespace SpikeContainer.Properties {
                 this["ExcludedDirectories"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2018-04-09")]
+        public global::System.DateTime LastServiceRunTime {
+            get {
+                return ((global::System.DateTime)(this["LastServiceRunTime"]));
+            }
+            set {
+                this["LastServiceRunTime"] = value;
+            }
+        }
     }
 }

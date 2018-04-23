@@ -350,6 +350,7 @@
             this.simpleButton25.Size = new System.Drawing.Size(286, 23);
             this.simpleButton25.TabIndex = 28;
             this.simpleButton25.Text = "Open";
+            this.simpleButton25.Click += new System.EventHandler(this.simpleButton25_Click);
             // 
             // simpleButton26
             // 

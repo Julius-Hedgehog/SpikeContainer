@@ -412,6 +412,19 @@
     <Compile Include="Spike 012 - XML Data\XtraFormXML Data Creation Main.Designer.cs">
       <DependentUpon>XtraFormXML Data Creation Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Spike 013 - PTM Error Log - Further Dev\PorlartecErrorLog.cs" />
+    <Compile Include="Spike 013 - PTM Error Log - Further Dev\Spike013XtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 013 - PTM Error Log - Further Dev\Spike013XtraForm.Designer.cs">
+      <DependentUpon>Spike013XtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Spike 013 - PTM Error Log - Further Dev\Spike013_MainForm_XtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 013 - PTM Error Log - Further Dev\Spike013_MainForm_XtraForm.Designer.cs">
+      <DependentUpon>Spike013_MainForm_XtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Spike Dev Express Grid\CodedEntity\WeightEntity.cs" />
     <Compile Include="Spike Dev Express Grid\Data\Class1.cs" />
     <Compile Include="Spike Dev Express Grid\Data\MyGridWeightData.cs" />
@@ -556,6 +569,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Spike 012 - XML Data\XtraFormXML Data Creation Main.resx">
       <DependentUpon>XtraFormXML Data Creation Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike 013 - PTM Error Log - Further Dev\Spike013XtraForm.resx">
+      <DependentUpon>Spike013XtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike 013 - PTM Error Log - Further Dev\Spike013_MainForm_XtraForm.resx">
+      <DependentUpon>Spike013_MainForm_XtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Spike Dev Express Grid\DEG Example 001.resx">
       <DependentUpon>DEG Example 001.cs</DependentUpon>
