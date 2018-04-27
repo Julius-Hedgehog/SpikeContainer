@@ -144,6 +144,7 @@ namespace SpikeContainer.Spike_013___PTM_Error_Log___Further_Dev
                 }
 
                 Trace.Listeners.Clear();
+                Trace.Listeners.Add(new DefaultTraceListener());
                 Trace.Listeners.Add(new TextWriterTraceListener(stringFullNamePathLogFile));// create a trace listener as a run log
 
                 if (dtLastRun == null)
@@ -202,6 +203,7 @@ namespace SpikeContainer.Spike_013___PTM_Error_Log___Further_Dev
                 }
 
                 Trace.Listeners.Clear();
+                Trace.Listeners.Add(new DefaultTraceListener());
                 Trace.Listeners.Add(new TextWriterTraceListener(stringFullNamePathLogFile));// create a trace listener as a run log
 
                 if (dtLastRun == null)

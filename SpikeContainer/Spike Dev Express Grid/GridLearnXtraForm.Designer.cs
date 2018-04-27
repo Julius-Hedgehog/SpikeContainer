@@ -127,9 +127,9 @@
         #endregion
 
         private DevExpress.XtraGrid.GridControl gridControl2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Columns.GridColumn Gross;
-        private DevExpress.XtraGrid.Columns.GridColumn Tare;
-        private DevExpress.XtraGrid.Columns.GridColumn Net;
+        public DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        public DevExpress.XtraGrid.Columns.GridColumn Gross;
+        public DevExpress.XtraGrid.Columns.GridColumn Tare;
+        public DevExpress.XtraGrid.Columns.GridColumn Net;
     }
 }
