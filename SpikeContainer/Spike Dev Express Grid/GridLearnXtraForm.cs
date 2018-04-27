@@ -62,7 +62,7 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
 
             gridView2.IndicatorWidth = 30;
             _clms = gridView2.Columns.ToList();
-            var col = _clms.Where(c => c.Name.Contains("NetResultLbs")).FirstOrDefault();
+            var col = _clms.Where(c => c.Name.Contains("Net")).FirstOrDefault();
             col.OptionsColumn.AllowEdit = false;
             col.OptionsColumn.AllowFocus = false;
         }

@@ -30,6 +30,9 @@
         {
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.Gross = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Tare = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Net = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
@@ -53,9 +56,12 @@
             // 
             // gridView2
             // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.Gross,
+            this.Tare,
+            this.Net});
             this.gridView2.GridControl = this.gridControl2;
-            this.gridView2.Name 
-                = "gridView2";
+            this.gridView2.Name = "gridView2";
             this.gridView2.OptionsView.ShowFooter = true;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView2_CustomDrawRowIndicator);
@@ -67,6 +73,39 @@
             this.gridView2.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView2_RowUpdated);
             this.gridView2.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gridView2_ValidatingEditor);
             this.gridView2.RowCountChanged += new System.EventHandler(this.gridView2_RowCountChanged);
+            // 
+            // Gross
+            // 
+            this.Gross.Caption = "Gross Weight (lbs)";
+            this.Gross.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.Gross.FieldName = "GrossLbs";
+            this.Gross.Name = "Gross";
+            this.Gross.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            this.Gross.Visible = true;
+            this.Gross.VisibleIndex = 0;
+            // 
+            // Tare
+            // 
+            this.Tare.Caption = "Tare Weight (lbs)";
+            this.Tare.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.Tare.FieldName = "TareLbs";
+            this.Tare.Name = "Tare";
+            this.Tare.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            this.Tare.Visible = true;
+            this.Tare.VisibleIndex = 1;
+            // 
+            // Net
+            // 
+            this.Net.Caption = "Net Weight (lbs)";
+            this.Net.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.Net.FieldName = "NetResultLbs";
+            this.Net.Name = "Net";
+            this.Net.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "NetResultLbs", "{0:0.##}")});
+            this.Net.UnboundExpression = "[GrossLbs] - [TareLbs]";
+            this.Net.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            this.Net.Visible = true;
+            this.Net.VisibleIndex = 2;
             // 
             // GridLearnXtraForm
             // 
@@ -89,5 +128,8 @@
 
         private DevExpress.XtraGrid.GridControl gridControl2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn Gross;
+        private DevExpress.XtraGrid.Columns.GridColumn Tare;
+        private DevExpress.XtraGrid.Columns.GridColumn Net;
     }
 }
