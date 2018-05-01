@@ -42,9 +42,8 @@
             this.gridControl2.Location = new System.Drawing.Point(12, 35);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1120, 799);
+            this.gridControl2.Size = new System.Drawing.Size(670, 430);
             this.gridControl2.TabIndex = 0;
-            this.gridControl2.UseEmbeddedNavigator = true;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             this.gridControl2.FocusedViewChanged += new DevExpress.XtraGrid.ViewFocusEventHandler(this.gridControl2_FocusedViewChanged);
@@ -62,6 +61,9 @@
             this.Net});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsNavigation.AutoFocusNewRow = true;
+            this.gridView2.OptionsNavigation.EnterMoveNextColumn = true;
+            this.gridView2.OptionsNavigation.UseOfficePageNavigation = false;
             this.gridView2.OptionsView.ShowFooter = true;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView2_CustomDrawRowIndicator);
@@ -80,7 +82,7 @@
             this.Gross.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.Gross.FieldName = "GrossLbs";
             this.Gross.Name = "Gross";
-            this.Gross.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            this.Gross.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.Gross.Visible = true;
             this.Gross.VisibleIndex = 0;
             // 
@@ -90,7 +92,7 @@
             this.Tare.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.Tare.FieldName = "TareLbs";
             this.Tare.Name = "Tare";
-            this.Tare.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            this.Tare.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.Tare.Visible = true;
             this.Tare.VisibleIndex = 1;
             // 
@@ -100,10 +102,12 @@
             this.Net.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.Net.FieldName = "NetResultLbs";
             this.Net.Name = "Net";
+            this.Net.OptionsColumn.AllowEdit = false;
+            this.Net.OptionsColumn.AllowFocus = false;
             this.Net.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "NetResultLbs", "{0:0.##}")});
             this.Net.UnboundExpression = "[GrossLbs] - [TareLbs]";
-            this.Net.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            this.Net.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.Net.Visible = true;
             this.Net.VisibleIndex = 2;
             // 
@@ -111,7 +115,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1144, 846);
+            this.ClientSize = new System.Drawing.Size(689, 474);
             this.Controls.Add(this.gridControl2);
             this.Name = "GridLearnXtraForm";
             this.Text = "GridLearnXtraForm";

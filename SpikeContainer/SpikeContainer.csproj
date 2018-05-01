@@ -464,6 +464,12 @@
     <Compile Include="Spike Dev Express Grid\Spike DEG Form 001.Designer.cs">
       <DependentUpon>Spike DEG Form 001.cs</DependentUpon>
     </Compile>
+    <Compile Include="Spike Dev Express Grid\XtraFormGridLearnThree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike Dev Express Grid\XtraFormGridLearnThree.Designer.cs">
+      <DependentUpon>XtraFormGridLearnThree.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestMesDbDataSet.cs">
       <DependentUpon>TestMesDbDataSet.xsd</DependentUpon>
     </Compile>
@@ -584,6 +590,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Spike Dev Express Grid\Spike DEG Form 001.resx">
       <DependentUpon>Spike DEG Form 001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike Dev Express Grid\XtraFormGridLearnThree.resx">
+      <DependentUpon>XtraFormGridLearnThree.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="DataEntitiy\MesDbModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

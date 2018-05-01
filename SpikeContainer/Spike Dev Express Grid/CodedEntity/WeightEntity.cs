@@ -34,7 +34,7 @@ namespace SpikeContainer.Spike_Dev_Express_Grid.CodedEntity
     {
         public WeightInGrid()
         { }
-        public WeightInGrid(decimal dcmlgRossLbs, decimal dcmltAreLbs, decimal dcmlnEtResultLbs)
+        public WeightInGrid(decimal dcmlgRossLbs=0, decimal dcmltAreLbs=0, decimal dcmlnEtResultLbs=0)
         {
             GrossLbs = dcmlgRossLbs;
             TareLbs = dcmltAreLbs;

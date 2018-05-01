@@ -35,5 +35,11 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
             Spike_Dev_Express_Grid.GridLearnXtraForm frm = new GridLearnXtraForm { };
             frm.Show(this);
         }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            XtraFormGridLearnThree frm = new XtraFormGridLearnThree();
+            frm.Show(this);
+        }
     }
 }
