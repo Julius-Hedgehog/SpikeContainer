@@ -27,14 +27,14 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
             InitializeComponent();
         }
 
+
+
         //List<WeightInGrid> _gWd = new List<WeightInGrid>();
-        //List<GridWeightData> _gWd = new List<GridWeightData>();
         BindingList<WeightInGrid> _gWd = new BindingList<WeightInGrid>();
-
         //private BaseEdit _deXEdit;//----------------    -   -   -  -The Indicator IF and Active Editor is selected in the DevExpress GridView
-
-
         List<DevExpress.XtraGrid.Columns.GridColumn> _clms;
+
+
 
         #region [ FORM EVENT HANDLERS ]
 
@@ -48,8 +48,6 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
             InitializeData();
             gridControl2.DataSource = _gWd;
             
-            //gridControl2.RefreshDataSource();
-            //gridView2.RefreshData();
         }
 
         private void GridLearnXtraForm_Shown(object sender, EventArgs e)
@@ -74,16 +72,27 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
             int nJeffe = 0;
             nJeffe++;
             Trace.WriteLine($@" GridLearnXtraForm_FormClosing(object sender, FormClosingEventArgs e) - CLOSING");
+            Trace.WriteLine($@"{e.CloseReason}  ---- ---- {e.Cancel}");
+            Trace.WriteLine($@"{gridView2.FocusedColumn}");
+            Trace.WriteLine($@"{gridView2.FocusedRowHandle}");
+            Trace.WriteLine($@"{gridView2.FocusedValue}");
+            Trace.WriteLine($@"{_gWd[gridView2.FocusedRowHandle].GrossLbs}");
+            Trace.WriteLine($@"{_gWd[gridView2.FocusedRowHandle].TareLbs}");
+            Trace.WriteLine($@"{_gWd[gridView2.FocusedRowHandle].NetResultLbs}");
+            var sl = _gWd.Select(s => s).ToList();
+            int i = 0;
+            foreach (var l in sl)
+            {
+                Trace.WriteLine($@"Row [{i}] [ Gross = {l.GrossLbs}, Tare = [{l.TareLbs}] , Net = [{l.NetResultLbs}]");
+                i++;
+            }
+
         }
 
         #endregion
 
 
-
-
-
         #region [ GRID VIEW ]
-
 
 
         private void gridView2_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
@@ -101,12 +110,18 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
             Trace.WriteLine($@"{_gWd[gridView2.FocusedRowHandle].NetResultLbs}");
 
 
-            if (gridView2.FocusedColumn.Name.Contains("TareLbs"))
+            if (gridView2.FocusedColumn.Name.Contains("Tare"))
             {
+
                 Trace.WriteLine($@"");
                 nJeffe = 0;
                 nJeffe++;
+
                 Trace.WriteLine($@"private void gridView2_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)");
+
+                //InitializeData();
+                gridView2.RefreshData();
+                gridControl2.RefreshDataSource();
             }
         }
 
@@ -219,14 +234,6 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
             Trace.WriteLine($@"{_gWd[gridView2.FocusedRowHandle].NetResultLbs}");
         }
 
-        private void gridView2_KeyDown(object sender, KeyEventArgs e)
-        {
-            Trace.WriteLine($@"");
-            int nJeffe = 0;
-            nJeffe++;
-            Trace.WriteLine($@"gridView2_KeyDown");
-        }
-
 
         private void gridView2_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
@@ -244,38 +251,8 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
 
 
 
-
-
-
-
-
         #region [ GRID CONTROL ]
 
-
-        private void gridControl2_EditorKeyDown(object sender, KeyEventArgs e)
-        {
-            Trace.WriteLine($@"");
-            int nJeffe = 0;
-            nJeffe++;
-            Trace.WriteLine($@"gridControl2_EditorKeyDown");
-        }
-
-        private void gridControl2_Click(object sender, EventArgs e)
-        {
-            Trace.WriteLine($@"");
-            int nJeffe = 0;
-            nJeffe++;
-            Trace.WriteLine($@"gridControl2_Click(object sender, EventArgs e)");
-        }
-
-
-        private void gridControl2_Validating(object sender, CancelEventArgs e)
-        {
-            Trace.WriteLine($@"");
-            int nJeffe = 0;
-            nJeffe++;
-            Trace.WriteLine($@"gridControl2_Validating");
-        }
 
         private void gridControl2_Validated(object sender, EventArgs e)
         {
@@ -285,83 +262,8 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
             Trace.WriteLine($@"gridControl2_Validated");
         }
 
-        private void gridControl2_Leave(object sender, EventArgs e)
-        {
-            Trace.WriteLine($@"");
-            int nJeffe = 0;
-            nJeffe++;
-            Trace.WriteLine($@"gridControl2_Leave");
-        }
-
-        private void gridControl2_Enter(object sender, EventArgs e)
-        {
-            Trace.WriteLine($@"");
-            int nJeffe = 0;
-            nJeffe++;
-            Trace.WriteLine($@"gridControl2_Enter");
-        }
-
-        private void gridControl2_FocusedViewChanged(object sender, DevExpress.XtraGrid.ViewFocusEventArgs e)
-        {
-            Trace.WriteLine($@"");
-            int nJeffe = 0;
-            nJeffe++;
-            Trace.WriteLine($@"gridControl2_FocusedViewChanged");
-        }
-
-        private void gridControl2_EditorKeyPress(object sender, KeyPressEventArgs e)
-        {
-            Trace.WriteLine($@"");
-            int nJeffe = 0;
-            nJeffe++;
-            Trace.WriteLine($@"gridControl2_EditorKeyPress");
-            Trace.WriteLine($@"KeyPressEventArgs {e.KeyChar}");
-
-            Trace.WriteLine($@"{gridView2.FocusedColumn}");
-            Trace.WriteLine($@"{gridView2.FocusedRowHandle}");
-            Trace.WriteLine($@"{gridView2.FocusedValue}");
-            Trace.WriteLine($@"{_gWd[gridView2.FocusedRowHandle].GrossLbs}");
-            Trace.WriteLine($@"{_gWd[gridView2.FocusedRowHandle].TareLbs}");
-            Trace.WriteLine($@"{_gWd[gridView2.FocusedRowHandle].NetResultLbs}");
-
-        }
-
-        private void gridControl2_EditorKeyUp(object sender, KeyEventArgs e)
-        {
-            Trace.WriteLine($@"");
-            int nJeffe = 0;
-            nJeffe++;
-            Trace.WriteLine($@"gridControl2_EditorKeyUp");
-        }
-
-        private void gridControl2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Trace.WriteLine($@"");
-            int nJeffe = 0;
-            nJeffe++;
-            Trace.WriteLine($@"gridControl2_KeyPress");
-            Trace.WriteLine($@"KeyPressEventArgs {e.KeyChar}");
-
-            Trace.WriteLine($@"{gridView2.FocusedColumn}");
-            Trace.WriteLine($@"{gridView2.FocusedRowHandle}");
-            Trace.WriteLine($@"{gridView2.FocusedValue}");
-            Trace.WriteLine($@"{_gWd[gridView2.FocusedRowHandle].GrossLbs}");
-            Trace.WriteLine($@"{_gWd[gridView2.FocusedRowHandle].TareLbs}");
-            Trace.WriteLine($@"{_gWd[gridView2.FocusedRowHandle].NetResultLbs}");
-        }
-
-
 
         #endregion
-
-
-
-
-
-
-
-
-
 
 
         private void InitializeData()

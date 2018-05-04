@@ -25,30 +25,15 @@ namespace SpikeContainer.Spike_Dev_Express_Grid
             _deWeightInGrid = new List<CodedEntity.WeightInGrid>();
             gridControl1.DataSource = _deWeightInGrid;
             _deWeightInGrid.Add(new CodedEntity.WeightInGrid(0,0,0));
-
-            //gridView1.AddNewRow();
-
-            //gridView1.AddNewRow();
-
-            //gridView1.AddNewRow();
-
-            //gridView1.AddNewRow();
-
-            //gridView1.AddNewRow();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            //gridView1.AddNewRow();
-
-            //gridView1.AddNewRow();
-
-            //gridView1.AddNewRow();
-
-            //gridView1.AddNewRow();
-
-            //gridView1.AddNewRow();
             _deWeightInGrid.Add(new CodedEntity.WeightInGrid(0, 0, 0));
         }
+
+
+
+
     }
 }

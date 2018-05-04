@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.LookAndFeel;
+using DevExpress.Skins;
+using DevExpress.UserSkins;
 
 namespace SpikeContainer
 {
@@ -24,6 +27,11 @@ namespace SpikeContainer
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            SkinManager.EnableFormSkins();
+            BonusSkins.Register();
+            UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
+
             Application.Run(new MainMenu());
 
             Properties.Settings.Default.LastServiceRunTime = ptmErrorLog.CurrentDateTime;
