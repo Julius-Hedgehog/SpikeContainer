@@ -386,6 +386,12 @@
     <Compile Include="Spike 010 - Multiple On Idle Handlers\Spike_010_XtraForm.Designer.cs">
       <DependentUpon>Spike_010_XtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Spike 011 - Current Version\DevExpressXtraForm011Part2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spike 011 - Current Version\DevExpressXtraForm011Part2.Designer.cs">
+      <DependentUpon>DevExpressXtraForm011Part2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Spike 011 - Current Version\MyVersionEntity.cs" />
     <Compile Include="Spike 011 - Current Version\XtraForm Spike 011 Report Current Version.cs">
       <SubType>Form</SubType>
@@ -567,6 +573,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Spike 010 - Multiple On Idle Handlers\Spike_010_XtraForm.resx">
       <DependentUpon>Spike_010_XtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spike 011 - Current Version\DevExpressXtraForm011Part2.resx">
+      <DependentUpon>DevExpressXtraForm011Part2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Spike 011 - Current Version\XtraForm Spike 011 Report Current Version.resx">
       <DependentUpon>XtraForm Spike 011 Report Current Version.cs</DependentUpon>

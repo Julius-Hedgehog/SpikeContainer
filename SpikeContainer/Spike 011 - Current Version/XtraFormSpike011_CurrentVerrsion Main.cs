@@ -23,5 +23,12 @@ namespace SpikeContainer.Spike_011___Current_Version
             SpikeContainer.Spike_011___Current_Version.XtraForm_Spike_011_Report_Current_Version frm = new XtraForm_Spike_011_Report_Current_Version();
             frm.Show(this);
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            SpikeContainer.Spike_011___Current_Version.DevExpressXtraForm011Part2 frm = new DevExpressXtraForm011Part2();
+            frm.Show(this);
+
+        }
     }
 }
