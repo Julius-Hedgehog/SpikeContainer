@@ -89,8 +89,17 @@ namespace SpikeContainer.Spike_011___Current_Version
             List<VersionedItems> vIList = new List<VersionedItems>();
             string strPath = "";
 
+            progressBarControl1.Properties.Step = 1;
+            progressBarControl1.Properties.PercentView = true;
+            progressBarControl1.Properties.Maximum = machineNames.Length;
+            progressBarControl1.Properties.Minimum = 0;
+
             foreach (string system in machineNames)
             {
+
+                progressBarControl1.PerformStep();
+                progressBarControl1.Update();
+
                 try
                 {
                     strPath = $@"\\{system}\C$\PFCS\";
