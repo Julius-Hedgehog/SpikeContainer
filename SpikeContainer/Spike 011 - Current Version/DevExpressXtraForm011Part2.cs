@@ -1,21 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Text;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+using System.Threading;
 
 namespace SpikeContainer.Spike_011___Current_Version
 {
     public partial class DevExpressXtraForm011Part2 : DevExpress.XtraEditors.XtraForm
     {
-        string[] machineNames =
+        private string[] machineNames =
             {
             "BAREFIELD-PC",
             "BATCHER2-PC",
@@ -29,7 +23,7 @@ namespace SpikeContainer.Spike_011___Current_Version
             "DHSPECTRO-PC",
             "DHSUPERVISOR-PC",
             "DLSPECTRO-PC",
-            "DOFFER1-PC",
+            "PRINTER-PC",
             "DOFFER2-PC",
             "DOFFER3-PC",
             "DOFFER4-PC",
@@ -82,68 +76,77 @@ namespace SpikeContainer.Spike_011___Current_Version
             InitializeComponent();
         }
 
+        string _sourceOriginalArchive = $@"\\Manufacturing\Impact\PFCS\ProgramFiles\";
+        string _installedPFCSPath = $@"\\{{0}}\C$\PFCS\";
+        string _FileFilter = $@"*PFCS.exe";
+
+        #region [ TAB CONTROL - TAB PAGE ONE ]
+
         private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            Thread myNewThread = new Thread(CodeForThread);
+            myNewThread.Start();
+        }
+
+        private void CodeForThread()
         {
             List<string> strListMissed = new List<string>();
 
             List<VersionedItems> vIList = new List<VersionedItems>();
-            string strPath = "";
+            string strPath = string.Empty;
 
-            progressBarControl1.Properties.Step = 1;
-            progressBarControl1.Properties.PercentView = true;
-            progressBarControl1.Properties.Maximum = machineNames.Length;
-            progressBarControl1.Properties.Minimum = 0;
+            SetProgress();
 
             foreach (string system in machineNames)
             {
 
-                progressBarControl1.PerformStep();
-                progressBarControl1.Update();
+                StepProgress();
 
                 try
                 {
-                    strPath = $@"\\{system}\C$\PFCS\";
-                    string strFileFilter =  $@"*PFCS.exe" ;
+                    //strPath = $@"\\{system}\C$\PFCS\";
+                    strPath = string.Format(_installedPFCSPath, system);
+                    string strFileFilter = _FileFilter;
                     DirectoryInfo di = new DirectoryInfo(strPath);
                     FileVersionInfo fvinfo;
                     IEnumerable<FileInfo> iefiDirContents = di.GetFiles(strFileFilter);
                     foreach (FileInfo fi in iefiDirContents)
                     {
                         fvinfo = FileVersionInfo.GetVersionInfo(fi.FullName);
-                    
-                            VersionedItems vi = new VersionedItems()
-                            {
-                                Name = fi.Name,
-                                /*version = new Version(fvinfo.ProductVersion),*/
-                                IsExtensionable = !string.IsNullOrEmpty(fi.Extension),
-                                Extension = (!string.IsNullOrEmpty(fi.Extension)? fi.Extension:null),
-                                FullPathandName = fi.FullName,
-                                version = new Version(fvinfo.FileVersion),
-                                Info = fi
-                            };
-                            vIList.Add(vi);
+
+                        VersionedItems vi = new VersionedItems()
+                        {
+                            Name = fi.Name,
+                            /*version = new Version(fvinfo.ProductVersion),*/
+                            IsExtensionable = !string.IsNullOrEmpty(fi.Extension),
+                            Extension = (!string.IsNullOrEmpty(fi.Extension) ? fi.Extension : null),
+                            FullPathandName = fi.FullName,
+                            version = new Version(fvinfo.FileVersion),
+                            Info = fi
+                        };
+                        vIList.Add(vi);
                     }
 
-                    gridControl1.DataSource = null;
-                    gridControl1.Refresh();
-                    gridControl1.DataSource = vIList;
+                    SetDataGrid1(vIList);
                 }
                 catch (Exception xcptn)
                 {
-                    Trace.WriteLine($@"");
-                    Trace.WriteLine($@"Begin of Exception Error Output");
-                    Trace.WriteLine($@"");
+                    InvokeTrace(string.Empty);
+                    InvokeTrace($@"Begin of Exception Error Output");
+                    //Trace.WriteLine(string.Empty);
+                    //Trace.WriteLine($@"Begin of Exception Error Output");
+                    Trace.WriteLine(string.Empty);
                     Trace.WriteLine($@"{xcptn}");
-                    Trace.WriteLine($@"");
+                    Trace.WriteLine(string.Empty);
                     Trace.WriteLine($@"{xcptn.InnerException}");
-                    Trace.WriteLine($@"");
+                    Trace.WriteLine(string.Empty);
                     Trace.WriteLine($@"{strPath}");
                     //Trace.WriteLine($@"");
                     //Trace.WriteLine($@"{fvinfo.ToString()}");
-                    Trace.WriteLine($@"");
+                    Trace.WriteLine(string.Empty);
                     Trace.WriteLine($@"End of Exception Error Output");
-                    Trace.WriteLine($@"");
-                    Trace.WriteLine($@"");
+                    Trace.WriteLine(string.Empty);
+                    Trace.WriteLine(string.Empty);
 
                     strListMissed.Add(strPath);
                 }
@@ -153,11 +156,68 @@ namespace SpikeContainer.Spike_011___Current_Version
                 }
             }
 
-            gridControl2.DataSource = null;
-            gridControl2.Refresh();
-            gridControl2.DataSource = strListMissed;
-
+            SetDataGrid2(strListMissed);
         }
+
+        private void InvokeTrace(string str)
+        {
+            Action actionT = () =>
+            {
+                Trace.WriteLine(str);
+            };
+            this.Invoke(actionT);
+        }
+
+        private void SetProgress()
+        {
+            Action action = () =>
+            {
+                progressBarControl1.Position = 0;
+                progressBarControl1.Properties.Step = 1;
+                progressBarControl1.Properties.PercentView = true;
+                progressBarControl1.Properties.Maximum = machineNames.Length;
+                progressBarControl1.Properties.Minimum = 0;
+            };
+            this.Invoke(action);
+        }
+
+        private void StepProgress()
+        {
+            Action action1 = () =>
+            {
+                progressBarControl1.PerformStep();
+                progressBarControl1.Update();
+            };
+            this.Invoke(action1);
+        }
+
+        private void SetDataGrid1(List<VersionedItems> vIList)
+        {
+            Action action2 = () =>
+            {
+                gridControl1.DataSource = null;
+                gridControl1.Refresh();
+                gridControl1.DataSource = vIList;
+            };
+            this.Invoke(action2);
+        }
+
+        private void SetDataGrid2(List<string> strListMissed)
+        {
+            Action action3 = () =>
+            {
+                gridControl2.DataSource = null;
+                gridControl2.Refresh();
+                gridControl2.DataSource = strListMissed;
+            };
+            this.Invoke(action3);
+        }
+
+        #endregion
+
+        #region [ TAB CONTROL - TAB PAGE TWO ]
+
+        #endregion
     }
 }
 
@@ -176,7 +236,7 @@ string [] machineNames =
 "DHSPECTRO-PC",
 "DHSUPERVISOR-PC",
 "DLSPECTRO-PC",
-"DOFFER1-PC",
+"PRINTER-PC",
 "DOFFER2-PC",
 "DOFFER3-PC",
 "DOFFER4-PC",
