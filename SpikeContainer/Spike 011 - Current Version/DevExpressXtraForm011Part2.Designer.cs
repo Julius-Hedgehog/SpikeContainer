@@ -42,6 +42,7 @@
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.progressPanel1 = new DevExpress.XtraWaitForm.ProgressPanel();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
@@ -82,6 +83,7 @@
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.OptionsView.ShowViewCaption = true;
             this.gridView1.ViewCaption = "PTM Systems and the PFCS Version";
+            this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             // 
             // gridControl2
             // 
@@ -100,17 +102,18 @@
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.OptionsView.ShowViewCaption = true;
             this.gridView2.ViewCaption = "Systems failing to report";
+            this.gridView2.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView2_CustomDrawRowIndicator);
             // 
             // separatorControl1
             // 
-            this.separatorControl1.Location = new System.Drawing.Point(-2, 44);
+            this.separatorControl1.Location = new System.Drawing.Point(-2, 39);
             this.separatorControl1.Name = "separatorControl1";
-            this.separatorControl1.Size = new System.Drawing.Size(489, 23);
+            this.separatorControl1.Size = new System.Drawing.Size(502, 18);
             this.separatorControl1.TabIndex = 3;
             // 
             // progressBarControl1
             // 
-            this.progressBarControl1.Location = new System.Drawing.Point(9, 83);
+            this.progressBarControl1.Location = new System.Drawing.Point(8, 59);
             this.progressBarControl1.Name = "progressBarControl1";
             this.progressBarControl1.Properties.DisplayFormat.FormatString = "{00,##%}";
             this.progressBarControl1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -139,6 +142,7 @@
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.progressPanel1);
             this.xtraTabPage1.Controls.Add(this.gridControl1);
             this.xtraTabPage1.Controls.Add(this.progressBarControl1);
             this.xtraTabPage1.Controls.Add(this.gridControl2);
@@ -182,6 +186,20 @@
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "PFCS Version Information and Distribution Manager";
             // 
+            // progressPanel1
+            // 
+            this.progressPanel1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.progressPanel1.Appearance.Options.UseBackColor = true;
+            this.progressPanel1.AppearanceDescription.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progressPanel1.AppearanceDescription.Options.UseFont = true;
+            this.progressPanel1.BarAnimationElementThickness = 3;
+            this.progressPanel1.Location = new System.Drawing.Point(9, 79);
+            this.progressPanel1.Name = "progressPanel1";
+            this.progressPanel1.Size = new System.Drawing.Size(489, 59);
+            this.progressPanel1.TabIndex = 5;
+            this.progressPanel1.Text = "progressPanel1";
+            this.progressPanel1.WaitAnimationType = DevExpress.Utils.Animation.WaitingAnimatorType.Bar;
+            // 
             // DevExpressXtraForm011Part2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,6 +209,8 @@
             this.Controls.Add(this.xtraTabControl1);
             this.Name = "DevExpressXtraForm011Part2";
             this.Text = "DevExpressXtraForm011Part2";
+            this.Load += new System.EventHandler(this.DevExpressXtraForm011Part2_Load);
+            this.Shown += new System.EventHandler(this.DevExpressXtraForm011Part2_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
@@ -221,5 +241,6 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraWaitForm.ProgressPanel progressPanel1;
     }
 }

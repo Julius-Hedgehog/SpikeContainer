@@ -80,7 +80,35 @@ namespace SpikeContainer.Spike_011___Current_Version
         string _installedPFCSPath = $@"\\{{0}}\C$\PFCS\";
         string _FileFilter = $@"*PFCS.exe";
 
+        string _loadingString = $@"Searching ... {{0}} of {{1}} ... Searching {{2}}";
+
+        private void DevExpressXtraForm011Part2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DevExpressXtraForm011Part2_Shown(object sender, EventArgs e)
+        {
+            gridView1.IndicatorWidth = 40;
+            gridView2.IndicatorWidth = 40;
+        }
+
         #region [ TAB CONTROL - TAB PAGE ONE ]
+
+
+        private void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+        }
+
+        private void gridView2_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+        }
+
+
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
@@ -95,17 +123,26 @@ namespace SpikeContainer.Spike_011___Current_Version
             List<VersionedItems> vIList = new List<VersionedItems>();
             string strPath = string.Empty;
 
-            SetProgress();
+            int cap = machineNames.Length;
+            int iter = 1;
+            string progress = $@"";
+
+            SetProgressBar();
+            ShowProgressPanel();
 
             foreach (string system in machineNames)
             {
 
-                StepProgress();
+                StepProgressBar();
 
                 try
                 {
                     //strPath = $@"\\{system}\C$\PFCS\";
                     strPath = string.Format(_installedPFCSPath, system);
+
+                    UpdateProgressPanel(string.Format(_loadingString,iter,cap,strPath));
+                    iter++;
+
                     string strFileFilter = _FileFilter;
                     DirectoryInfo di = new DirectoryInfo(strPath);
                     FileVersionInfo fvinfo;
@@ -157,6 +194,7 @@ namespace SpikeContainer.Spike_011___Current_Version
             }
 
             SetDataGrid2(strListMissed);
+            HideProgressPanel();
         }
 
         private void InvokeTrace(string str)
@@ -168,7 +206,7 @@ namespace SpikeContainer.Spike_011___Current_Version
             this.Invoke(actionT);
         }
 
-        private void SetProgress()
+        private void SetProgressBar()
         {
             Action action = () =>
             {
@@ -181,7 +219,7 @@ namespace SpikeContainer.Spike_011___Current_Version
             this.Invoke(action);
         }
 
-        private void StepProgress()
+        private void StepProgressBar()
         {
             Action action1 = () =>
             {
@@ -211,6 +249,34 @@ namespace SpikeContainer.Spike_011___Current_Version
                 gridControl2.DataSource = strListMissed;
             };
             this.Invoke(action3);
+        }
+
+        private void ShowProgressPanel()
+        {
+            Action actionZ = () =>
+            {
+                progressPanel1.Description = $@"Searching ...";
+                progressPanel1.Visible = true;
+            };
+            this.Invoke(actionZ);
+        }
+        private void UpdateProgressPanel(string msg)
+        {
+            Action actionZ = () =>
+            {
+                progressPanel1.Description = msg;
+            };
+            this.Invoke(actionZ);
+        }
+
+        private void HideProgressPanel()
+        {
+            Action actionZ = () =>
+            {
+                progressPanel1.Description = $@"Searching ...";
+                progressPanel1.Visible = false;
+            };
+            this.Invoke(actionZ);
         }
 
         #endregion
