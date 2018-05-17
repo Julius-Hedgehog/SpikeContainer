@@ -37,12 +37,13 @@
             this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.progressPanel1 = new DevExpress.XtraWaitForm.ProgressPanel();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.progressPanel1 = new DevExpress.XtraWaitForm.ProgressPanel();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
@@ -52,6 +53,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
+            this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // simpleButton1
@@ -128,9 +131,12 @@
             this.xtraTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.xtraTabControl1.HeaderOrientation = DevExpress.XtraTab.TabOrientation.Horizontal;
             this.xtraTabControl1.Location = new System.Drawing.Point(2, 33);
+            this.xtraTabControl1.MultiLine = DevExpress.Utils.DefaultBoolean.False;
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.ShowTabHeader = DevExpress.Utils.DefaultBoolean.True;
             this.xtraTabControl1.Size = new System.Drawing.Size(1249, 732);
             this.xtraTabControl1.TabIndex = 5;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
@@ -139,6 +145,7 @@
             this.xtraTabPage3,
             this.xtraTabPage4,
             this.xtraTabPage5});
+            this.xtraTabControl1.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtraTabControl1_SelectedPageChanged);
             // 
             // xtraTabPage1
             // 
@@ -152,11 +159,37 @@
             this.xtraTabPage1.Size = new System.Drawing.Size(1243, 704);
             this.xtraTabPage1.Text = "PFCS Gather Version Info";
             // 
+            // progressPanel1
+            // 
+            this.progressPanel1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.progressPanel1.Appearance.Options.UseBackColor = true;
+            this.progressPanel1.AppearanceDescription.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progressPanel1.AppearanceDescription.Options.UseFont = true;
+            this.progressPanel1.BarAnimationElementThickness = 3;
+            this.progressPanel1.Location = new System.Drawing.Point(9, 79);
+            this.progressPanel1.Name = "progressPanel1";
+            this.progressPanel1.Size = new System.Drawing.Size(489, 59);
+            this.progressPanel1.TabIndex = 5;
+            this.progressPanel1.Text = "progressPanel1";
+            this.progressPanel1.WaitAnimationType = DevExpress.Utils.Animation.WaitingAnimatorType.Bar;
+            // 
             // xtraTabPage2
             // 
+            this.xtraTabPage2.Controls.Add(this.lookUpEdit1);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(1243, 704);
             this.xtraTabPage2.Text = "PFCS System Specific Version Info";
+            // 
+            // lookUpEdit1
+            // 
+            this.lookUpEdit1.EditValue = "";
+            this.lookUpEdit1.Location = new System.Drawing.Point(49, 40);
+            this.lookUpEdit1.Name = "lookUpEdit1";
+            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Properties.NullText = "";
+            this.lookUpEdit1.Size = new System.Drawing.Size(185, 20);
+            this.lookUpEdit1.TabIndex = 0;
             // 
             // xtraTabPage3
             // 
@@ -186,20 +219,6 @@
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "PFCS Version Information and Distribution Manager";
             // 
-            // progressPanel1
-            // 
-            this.progressPanel1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.progressPanel1.Appearance.Options.UseBackColor = true;
-            this.progressPanel1.AppearanceDescription.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.progressPanel1.AppearanceDescription.Options.UseFont = true;
-            this.progressPanel1.BarAnimationElementThickness = 3;
-            this.progressPanel1.Location = new System.Drawing.Point(9, 79);
-            this.progressPanel1.Name = "progressPanel1";
-            this.progressPanel1.Size = new System.Drawing.Size(489, 59);
-            this.progressPanel1.TabIndex = 5;
-            this.progressPanel1.Text = "progressPanel1";
-            this.progressPanel1.WaitAnimationType = DevExpress.Utils.Animation.WaitingAnimatorType.Bar;
-            // 
             // DevExpressXtraForm011Part2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,6 +239,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,5 +263,6 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraWaitForm.ProgressPanel progressPanel1;
+        public DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
     }
 }

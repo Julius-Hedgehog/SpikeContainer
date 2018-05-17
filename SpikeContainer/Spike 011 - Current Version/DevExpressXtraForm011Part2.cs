@@ -93,6 +93,12 @@ namespace SpikeContainer.Spike_011___Current_Version
             gridView2.IndicatorWidth = 40;
         }
 
+        private void xtraTabControl1_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
+        {
+            lookUpEdit1.Properties.DataSource = machineNames;
+            lookUpEdit1.ItemIndex = 0;
+        }
+
         #region [ TAB CONTROL - TAB PAGE ONE ]
 
 
@@ -283,7 +289,11 @@ namespace SpikeContainer.Spike_011___Current_Version
 
         #region [ TAB CONTROL - TAB PAGE TWO ]
 
+        
+
         #endregion
+
+
     }
 }
 
