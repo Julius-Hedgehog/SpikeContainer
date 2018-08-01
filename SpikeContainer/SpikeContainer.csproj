@@ -432,6 +432,18 @@
     <Compile Include="Spike 013 - PTM Error Log - Further Dev\Spike013_MainForm_XtraForm.Designer.cs">
       <DependentUpon>Spike013_MainForm_XtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SPIKE 014 - Testing WorkOrders\XtraFormFindTestWorkOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPIKE 014 - Testing WorkOrders\XtraFormFindTestWorkOrders.Designer.cs">
+      <DependentUpon>XtraFormFindTestWorkOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SPIKE 014 - Testing WorkOrders\XtraFormSearchFindOpenWorkOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPIKE 014 - Testing WorkOrders\XtraFormSearchFindOpenWorkOrders.Designer.cs">
+      <DependentUpon>XtraFormSearchFindOpenWorkOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Spike Dev Express Grid\CodedEntity\WeightEntity.cs" />
     <Compile Include="Spike Dev Express Grid\Data\Class1.cs" />
     <Compile Include="Spike Dev Express Grid\Data\MyGridWeightData.cs" />
@@ -591,6 +603,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Spike 013 - PTM Error Log - Further Dev\Spike013_MainForm_XtraForm.resx">
       <DependentUpon>Spike013_MainForm_XtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPIKE 014 - Testing WorkOrders\XtraFormFindTestWorkOrders.resx">
+      <DependentUpon>XtraFormFindTestWorkOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPIKE 014 - Testing WorkOrders\XtraFormSearchFindOpenWorkOrders.resx">
+      <DependentUpon>XtraFormSearchFindOpenWorkOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Spike Dev Express Grid\DEG Example 001.resx">
       <DependentUpon>DEG Example 001.cs</DependentUpon>

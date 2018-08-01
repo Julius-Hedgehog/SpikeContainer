@@ -109,5 +109,11 @@ namespace SpikeContainer
             SpikeContainer.Spike_013___PTM_Error_Log___Further_Dev.Spike013XtraForm frm = new Spike_013___PTM_Error_Log___Further_Dev.Spike013XtraForm();
             frm.Show(this);
         }
+        // SPIKE 14 Find Test Work Orders
+        private void simpleButton10_Click(object sender, EventArgs e)
+        {
+            SpikeContainer.SPIKE_014___Testing_WorkOrders.XtraFormFindTestWorkOrders frm = new SPIKE_014___Testing_WorkOrders.XtraFormFindTestWorkOrders();
+            frm.Show(this);
+        }
     }
 }

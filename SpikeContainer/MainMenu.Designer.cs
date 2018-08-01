@@ -228,7 +228,8 @@
             this.simpleButton10.Name = "simpleButton10";
             this.simpleButton10.Size = new System.Drawing.Size(286, 23);
             this.simpleButton10.TabIndex = 12;
-            this.simpleButton10.Text = "Open";
+            this.simpleButton10.Text = "Spike 014 - Search for Open Test Work Order";
+            this.simpleButton10.Click += new System.EventHandler(this.simpleButton10_Click);
             // 
             // simpleButton11
             // 
