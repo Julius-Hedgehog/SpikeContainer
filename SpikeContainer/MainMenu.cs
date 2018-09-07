@@ -115,5 +115,12 @@ namespace SpikeContainer
             SpikeContainer.SPIKE_014___Testing_WorkOrders.XtraFormFindTestWorkOrders frm = new SPIKE_014___Testing_WorkOrders.XtraFormFindTestWorkOrders();
             frm.Show(this);
         }
+
+        // SPIKE 015
+        private void simpleButton11_Click(object sender, EventArgs e)
+        {
+            SpikeContainer.SPIKE_015.XtraForm2 frm = new SpikeContainer.SPIKE_015.XtraForm2();
+            frm.Show(this);
+        }
     }
 }

@@ -9,8 +9,8 @@ namespace SpikeContainer.Spike_011___Current_Version
 {
     public partial class DevExpressXtraForm011Part2 : DevExpress.XtraEditors.XtraForm
     {
-        private string[] machineNames =
-            {
+        private List<string> allComputerNames =
+            new List<string>(){
             "BAREFIELD-PC",
             "BATCHER2-PC",
             "BATCHER-PC",
@@ -26,7 +26,7 @@ namespace SpikeContainer.Spike_011___Current_Version
             "DHSUPERVISOR-PC",
             "DLSPECTRO-PC",
             "PRINTER-PC",
-            "DOFFER1-PC",
+            /*"DOFFER1-PC",*/
             "DOFFER2-PC",
             "DOFFER3-PC",
             "DOFFER4-PC",
@@ -93,10 +93,47 @@ namespace SpikeContainer.Spike_011___Current_Version
             "SINGLEACT14-PC",
             "SUEDER-PC",
             "TURBANG-PC",
+            "WTSCALE-PC",
             "WETFINCLERK-PC",
             "WETFINSUPV-PC",
             "ZONCO-PC",
             "ZWICK-PC"
+            };
+
+        private List<string> scanPointWorkStationComputerNames =
+            new List<string>(){
+            "BATCHER2-PC",
+            "BATCHER-PC",
+            "CORINO-PC",
+            "PRINTER-PC",
+            /*"DOFFER1-PC",*/
+            "DOFFER2-PC",
+            "DOFFER3-PC",
+            "DOFFER4-PC",
+            "DOFFER5-PC",
+            "FLATFOLDER-PC",
+            "NAPPER1-PC",
+            "NAPPER2-PC",
+            "NAPPER3-PC",
+            "NAPPER4-PC",
+            "NAPPER5-PC",
+            "RECEIVING-PC",
+            "SANDER-PC",
+            "SHEAR20-PC",
+            "SHEAR21-PC",
+            "SHEAR22-PC",
+            "SHEAR23-PC",
+            "SHEAR24-PC",
+            "SHEAR25-PC",
+            "SHEAR26-PC",
+            "SINGLEACT11-PC",
+            "SINGLEACT12-PC",
+            "SINGLEACT13-PC",
+            "SINGLEACT14-PC",
+            "SUEDER-PC",
+            "TURBANG-PC",
+            "WTSCALE-PC",
+            "ZONCO-PC",
             };
 
         public DevExpressXtraForm011Part2()
@@ -110,9 +147,24 @@ namespace SpikeContainer.Spike_011___Current_Version
 
         string _loadingString = $@"Searching ... {{0}} of {{1}} ... Searching {{2}}";
 
+        List<string> _listComputerNames;
+
         private void DevExpressXtraForm011Part2_Load(object sender, EventArgs e)
         {
+            if (checkButton1.Checked == true)
+            {
+                labelControl2.Text = $@" Scanning PTM Production Scan-Point // Work-Stations ONLY ";
+                checkButton1.Text = $@" Click for only  All PTM Computers";
 
+                _listComputerNames = scanPointWorkStationComputerNames;
+            }
+            else
+            {
+                labelControl2.Text = $@" Scanning PTM All PTM Computers ";
+                checkButton1.Text = $@" Click for only  Scan-Point // Work-Stations";
+
+                _listComputerNames = allComputerNames;
+            }
         }
 
         private void DevExpressXtraForm011Part2_Shown(object sender, EventArgs e)
@@ -123,7 +175,7 @@ namespace SpikeContainer.Spike_011___Current_Version
 
         private void xtraTabControl1_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
         {
-            lookUpEdit1.Properties.DataSource = machineNames;
+            lookUpEdit1.Properties.DataSource = _listComputerNames;
             lookUpEdit1.ItemIndex = 0;
         }
 
@@ -150,6 +202,26 @@ namespace SpikeContainer.Spike_011___Current_Version
             myNewThread.Start();
         }
 
+        private void checkButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkButton1.Checked == true)
+            {
+                labelControl2.Text = $@" Scanning PTM Production Scan-Point // Work-Stations ONLY ";
+                checkButton1.Text = $@" Click for only  All PTM Computers";
+
+                _listComputerNames.Clear();
+                _listComputerNames = scanPointWorkStationComputerNames;
+            }
+            else
+            {
+                labelControl2.Text = $@" Scanning PTM All PTM Computers ";
+                checkButton1.Text = $@" Click for only  Scan-Point // Work-Stations";
+
+                _listComputerNames.Clear();
+                _listComputerNames = allComputerNames;
+            }
+        }
+
         private void CodeForThread()
         {
             List<string> strListMissed = new List<string>();
@@ -157,14 +229,14 @@ namespace SpikeContainer.Spike_011___Current_Version
             List<VersionedItems> vIList = new List<VersionedItems>();
             string strPath = string.Empty;
 
-            int cap = machineNames.Length;
+            int cap = _listComputerNames.Count;
             int iter = 1;
             string progress = $@"";
 
             SetProgressBar();
             ShowProgressPanel();
 
-            foreach (string system in machineNames)
+            foreach (string system in _listComputerNames)
             {
 
                 StepProgressBar();
@@ -247,7 +319,7 @@ namespace SpikeContainer.Spike_011___Current_Version
                 progressBarControl1.Position = 0;
                 progressBarControl1.Properties.Step = 1;
                 progressBarControl1.Properties.PercentView = true;
-                progressBarControl1.Properties.Maximum = machineNames.Length;
+                progressBarControl1.Properties.Maximum = _listComputerNames.Count;
                 progressBarControl1.Properties.Minimum = 0;
             };
             this.Invoke(action);
@@ -313,11 +385,12 @@ namespace SpikeContainer.Spike_011___Current_Version
             this.Invoke(actionZ);
         }
 
+
         #endregion
 
         #region [ TAB CONTROL - TAB PAGE TWO ]
 
-        
+
 
         #endregion
 
@@ -326,7 +399,7 @@ namespace SpikeContainer.Spike_011___Current_Version
 }
 
 /*
-string [] machineNames = 
+string [] allComputerNames = 
 {
 "BAREFIELD-PC",
 "BATCHER2-PC",

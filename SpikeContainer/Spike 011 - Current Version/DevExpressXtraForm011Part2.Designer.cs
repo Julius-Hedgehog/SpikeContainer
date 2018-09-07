@@ -37,6 +37,8 @@
             this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.checkButton1 = new DevExpress.XtraEditors.CheckButton();
             this.progressPanel1 = new DevExpress.XtraWaitForm.ProgressPanel();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
@@ -59,9 +61,9 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(9, 14);
+            this.simpleButton1.Location = new System.Drawing.Point(176, 6);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(478, 23);
+            this.simpleButton1.Size = new System.Drawing.Size(256, 23);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "Network Wide Test";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
@@ -71,10 +73,10 @@
             this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.Location = new System.Drawing.Point(3, 140);
+            this.gridControl1.Location = new System.Drawing.Point(3, 166);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1237, 561);
+            this.gridControl1.Size = new System.Drawing.Size(1345, 595);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -90,10 +92,10 @@
             // 
             // gridControl2
             // 
-            this.gridControl2.Location = new System.Drawing.Point(504, 14);
+            this.gridControl2.Location = new System.Drawing.Point(616, 14);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(729, 120);
+            this.gridControl2.Size = new System.Drawing.Size(729, 146);
             this.gridControl2.TabIndex = 2;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -109,21 +111,21 @@
             // 
             // separatorControl1
             // 
-            this.separatorControl1.Location = new System.Drawing.Point(-2, 39);
+            this.separatorControl1.Location = new System.Drawing.Point(-2, 32);
             this.separatorControl1.Name = "separatorControl1";
-            this.separatorControl1.Size = new System.Drawing.Size(502, 18);
+            this.separatorControl1.Size = new System.Drawing.Size(609, 18);
             this.separatorControl1.TabIndex = 3;
             // 
             // progressBarControl1
             // 
-            this.progressBarControl1.Location = new System.Drawing.Point(8, 59);
+            this.progressBarControl1.Location = new System.Drawing.Point(8, 91);
             this.progressBarControl1.Name = "progressBarControl1";
             this.progressBarControl1.Properties.DisplayFormat.FormatString = "{00,##%}";
             this.progressBarControl1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.progressBarControl1.Properties.ShowTitle = true;
             this.progressBarControl1.Properties.TextOrientation = DevExpress.Utils.Drawing.TextOrientation.Horizontal;
             this.progressBarControl1.ShowProgressInTaskBar = true;
-            this.progressBarControl1.Size = new System.Drawing.Size(478, 18);
+            this.progressBarControl1.Size = new System.Drawing.Size(599, 18);
             this.progressBarControl1.TabIndex = 4;
             // 
             // xtraTabControl1
@@ -137,7 +139,7 @@
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
             this.xtraTabControl1.ShowTabHeader = DevExpress.Utils.DefaultBoolean.True;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1249, 732);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1357, 792);
             this.xtraTabControl1.TabIndex = 5;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -149,6 +151,8 @@
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.labelControl2);
+            this.xtraTabPage1.Controls.Add(this.checkButton1);
             this.xtraTabPage1.Controls.Add(this.progressPanel1);
             this.xtraTabPage1.Controls.Add(this.gridControl1);
             this.xtraTabPage1.Controls.Add(this.progressBarControl1);
@@ -156,8 +160,24 @@
             this.xtraTabPage1.Controls.Add(this.separatorControl1);
             this.xtraTabPage1.Controls.Add(this.simpleButton1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1243, 704);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1351, 764);
             this.xtraTabPage1.Text = "PFCS Gather Version Info";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(305, 63);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(0, 13);
+            this.labelControl2.TabIndex = 7;
+            // 
+            // checkButton1
+            // 
+            this.checkButton1.Location = new System.Drawing.Point(9, 56);
+            this.checkButton1.Name = "checkButton1";
+            this.checkButton1.Size = new System.Drawing.Size(290, 23);
+            this.checkButton1.TabIndex = 6;
+            this.checkButton1.Text = "Click for only  Scan-Point // Work-Stations";
+            this.checkButton1.CheckedChanged += new System.EventHandler(this.checkButton1_CheckedChanged);
             // 
             // progressPanel1
             // 
@@ -166,9 +186,9 @@
             this.progressPanel1.AppearanceDescription.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.progressPanel1.AppearanceDescription.Options.UseFont = true;
             this.progressPanel1.BarAnimationElementThickness = 3;
-            this.progressPanel1.Location = new System.Drawing.Point(9, 79);
+            this.progressPanel1.Location = new System.Drawing.Point(9, 112);
             this.progressPanel1.Name = "progressPanel1";
-            this.progressPanel1.Size = new System.Drawing.Size(489, 59);
+            this.progressPanel1.Size = new System.Drawing.Size(598, 47);
             this.progressPanel1.TabIndex = 5;
             this.progressPanel1.Text = "progressPanel1";
             this.progressPanel1.WaitAnimationType = DevExpress.Utils.Animation.WaitingAnimatorType.Bar;
@@ -177,7 +197,7 @@
             // 
             this.xtraTabPage2.Controls.Add(this.lookUpEdit1);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1243, 704);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1351, 764);
             this.xtraTabPage2.Text = "PFCS System Specific Version Info";
             // 
             // lookUpEdit1
@@ -194,26 +214,26 @@
             // xtraTabPage3
             // 
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(1243, 704);
+            this.xtraTabPage3.Size = new System.Drawing.Size(1351, 764);
             this.xtraTabPage3.Text = "PFCS System Version Update";
             // 
             // xtraTabPage4
             // 
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(1243, 704);
+            this.xtraTabPage4.Size = new System.Drawing.Size(1351, 764);
             this.xtraTabPage4.Text = "xtraTabPage4";
             // 
             // xtraTabPage5
             // 
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(1243, 704);
+            this.xtraTabPage5.Size = new System.Drawing.Size(1351, 764);
             this.xtraTabPage5.Text = "xtraTabPage5";
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(12, 11);
+            this.labelControl1.Location = new System.Drawing.Point(12, 8);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(331, 16);
             this.labelControl1.TabIndex = 6;
@@ -223,7 +243,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 788);
+            this.ClientSize = new System.Drawing.Size(1356, 829);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.xtraTabControl1);
             this.Name = "DevExpressXtraForm011Part2";
@@ -239,6 +259,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage1.PerformLayout();
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -264,5 +285,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraWaitForm.ProgressPanel progressPanel1;
         public DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.CheckButton checkButton1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
     }
 }
